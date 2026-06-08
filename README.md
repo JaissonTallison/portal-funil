@@ -83,16 +83,16 @@ PortalFunil/
 * [x] Autenticação JWT
 * [x] Prisma Schema
 * [x] CRUD de artigos
-* [ ] Integração completa com frontend
-* [ ] Módulo de eventos
-* [ ] Módulo de categorias
+* [x] Integração completa com frontend
+* [x] Módulo de eventos
+* [x] Módulo de categorias
 
 ### Infraestrutura
 
 * [x] Docker Compose
 * [x] PostgreSQL
 * [x] Redis
-* [ ] Deploy automatizado
+* [x] Deploy automatizado
 
 ---
 
