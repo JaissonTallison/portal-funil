@@ -6,6 +6,8 @@ import { formatViews } from "@/lib/utils";
 export async function MostRead() {
   const articles = await getMostRead(6);
 
+  if (articles.length === 0) return null;
+
   return (
     <section className="relative px-6 pb-14">
       <div className="mx-auto max-w-7xl">
