@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PortalFunil
 
-## Getting Started
+Plataforma de notícias, agenda cultural e gestão de conteúdo construída com foco em performance, SEO, escalabilidade e experiência editorial.
 
-First, run the development server:
+## Visão Geral
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+O PortalFunil é uma aplicação full stack desenvolvida para publicação e gerenciamento de conteúdo digital, incluindo:
+
+* Notícias
+* Agenda Cultural
+* Categorias
+* Autores
+* Conteúdo Editorial
+* SEO Avançado
+
+A arquitetura foi construída utilizando monorepo com separação entre frontend e backend.
+
+---
+
+## Stack Tecnológica
+
+### Frontend
+
+* Next.js 15
+* React 19
+* TypeScript
+* Tailwind CSS
+* App Router
+
+### Backend
+
+* NestJS
+* JWT Authentication
+* Prisma ORM
+* Class Validator
+
+### Banco de Dados
+
+* PostgreSQL
+
+### Infraestrutura
+
+* Docker
+* Docker Compose
+* Redis
+
+---
+
+## Estrutura do Projeto
+
+```text
+PortalFunil/
+│
+├── apps/
+│   ├── web/        # Frontend Next.js
+│   └── api/        # Backend NestJS
+│
+├── infra/
+│   └── docker/     # Containers e infraestrutura
+│
+├── package.json
+├── pnpm-workspace.yaml
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Status do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Frontend
 
-## Learn More
+* [x] Layout principal
+* [x] Sistema de componentes
+* [x] SEO técnico
+* [x] Sitemap
+* [x] Robots.txt
+* [x] Open Graph
+* [x] Schema.org
 
-To learn more about Next.js, take a look at the following resources:
+### Backend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* [x] Estrutura NestJS
+* [x] Autenticação JWT
+* [x] Prisma Schema
+* [x] CRUD de artigos
+* [ ] Integração completa com frontend
+* [ ] Módulo de eventos
+* [ ] Módulo de categorias
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Infraestrutura
 
-## Deploy on Vercel
+* [x] Docker Compose
+* [x] PostgreSQL
+* [x] Redis
+* [ ] Deploy automatizado
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Como Executar
+
+### Instalar dependências
+
+```bash
+pnpm install
+```
+
+### Subir banco e Redis
+
+```bash
+pnpm db:up
+```
+
+### Executar migrations
+
+```bash
+pnpm db:migrate
+```
+
+### Iniciar desenvolvimento
+
+```bash
+pnpm dev
+```
+
+---
+
+## Variáveis de Ambiente
+
+Criar os arquivos:
+
+```bash
+apps/web/.env.local
+apps/api/.env
+```
+
+Configurar conforme os exemplos fornecidos no projeto.
+
+---
+
+## Roadmap
+
+### Fase Atual
+
+* Integração Frontend ↔ Backend
+* Remoção de mock data
+* Conexão com PostgreSQL
+
+### Próximas Fases
+
+* Painel Administrativo
+* Workflow Editorial
+* Gestão de Usuários
+* Sistema de Anúncios
+* Analytics
+* Deploy de Produção
+
+---
+
+## Arquitetura
+
+O projeto segue os princípios de:
+
+* Separação de responsabilidades
+* Modularização
+* Escalabilidade
+* SEO First
+* Clean Code
+
+---
+
+## Licença
+
+Projeto privado desenvolvido por Jaisson Tallison.
