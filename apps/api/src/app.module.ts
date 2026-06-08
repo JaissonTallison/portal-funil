@@ -1,10 +1,17 @@
 import { Module } from '@nestjs/common';
+import { APP_GUARD } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { PrismaModule } from './common/prisma/prisma.module';
+import { HealthController } from './common/health/health.controller';
 import { AuthModule } from './modules/auth/auth.module';
 import { ArticlesModule } from './modules/articles/articles.module';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { EventsModule } from './modules/events/events.module';
 import { UsersModule } from './modules/users/users.module';
+import { UploadModule } from './modules/upload/upload.module';
+import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
+import { RolesGuard } from './common/guards/roles.guard';
 
 @Module({
   imports: [
@@ -13,7 +20,15 @@ import { UsersModule } from './modules/users/users.module';
     PrismaModule,
     AuthModule,
     ArticlesModule,
+    CategoriesModule,
+    EventsModule,
     UsersModule,
+    UploadModule,
+  ],
+  controllers: [HealthController],
+  providers: [
+    { provide: APP_GUARD, useClass: JwtAuthGuard },
+    { provide: APP_GUARD, useClass: RolesGuard },
   ],
 })
 export class AppModule {}

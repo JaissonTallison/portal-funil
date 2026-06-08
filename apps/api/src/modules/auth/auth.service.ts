@@ -26,7 +26,8 @@ export class AuthService {
       select: { id: true, name: true, email: true, role: true, createdAt: true },
     });
 
-    return { user, token: this.sign(user.id, user.email) };
+    const token = this.sign(user.id, user.email, user.role);
+    return { user, token };
   }
 
   async login(dto: LoginDto) {
@@ -37,10 +38,11 @@ export class AuthService {
     if (!valid) throw new UnauthorizedException('Credenciais inválidas');
 
     const { passwordHash: _, ...safe } = user;
-    return { user: safe, token: this.sign(user.id, user.email) };
+    const token = this.sign(user.id, user.email, user.role);
+    return { user: safe, token };
   }
 
-  private sign(userId: string, email: string) {
-    return this.jwt.sign({ sub: userId, email });
+  sign(userId: string, email: string, role: string) {
+    return this.jwt.sign({ sub: userId, email, role });
   }
 }

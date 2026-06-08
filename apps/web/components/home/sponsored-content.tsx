@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Megaphone } from "lucide-react";
-import { getSponsoredArticles, getCategoryName } from "@/lib/data";
+import { getSponsoredArticles, getCategoryName } from "@/services/articles.service";
 import { timeAgo } from "@/lib/utils";
 
-export function SponsoredContent() {
-  const sponsored = getSponsoredArticles();
+export async function SponsoredContent() {
+  const sponsored = await getSponsoredArticles();
 
   if (sponsored.length === 0) return null;
 

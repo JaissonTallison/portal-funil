@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays } from "lucide-react";
-import { getUpcomingEvents } from "@/lib/agenda-data";
+import { getUpcomingEvents } from "@/services/events.service";
 import { EventCard } from "@/components/agenda/event-card";
 
 const FILTER_PILLS = [
@@ -13,8 +13,8 @@ const FILTER_PILLS = [
   { label: "Turismo",     href: "/agenda?cat=turismo" },
 ];
 
-export function AgendaHighlight() {
-  const upcoming = getUpcomingEvents(6);
+export async function AgendaHighlight() {
+  const upcoming = await getUpcomingEvents(6);
   const cards = upcoming.slice(0, 3);
   const compacts = upcoming.slice(3, 6);
 
