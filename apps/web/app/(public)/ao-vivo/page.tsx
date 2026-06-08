@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Activity, ArrowUpRight, Clock, Eye, Radio, TriangleAlert, Users } from "lucide-react";
-import { getLiveArticles } from "@/lib/data";
+import { getLiveArticles } from "@/services/articles.service";
 import { NewsCard } from "@/components/cards/news-card";
 import { SITE_NAME } from "@/lib/constants";
 
@@ -20,19 +20,17 @@ const feed = [
   { time: "12:30", text: "INMET confirma chuvas de até 150mm nas próximas 24 horas" },
 ];
 
-export default function AoVivoPage() {
-  const liveArticles = getLiveArticles();
+export default async function AoVivoPage() {
+  const liveArticles = await getLiveArticles();
 
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
       <section className="relative overflow-hidden bg-navy px-6 py-20">
-        {/* BG GLOWS */}
         <div className="absolute left-[-100px] top-[-100px] h-[400px] w-[400px] rounded-full bg-red-500/10 blur-[120px]" />
         <div className="absolute bottom-[-100px] right-[-100px] h-[400px] w-[400px] rounded-full bg-gold/10 blur-[120px]" />
 
         <div className="relative z-10 mx-auto max-w-7xl">
-          {/* BADGE */}
           <div className="inline-flex items-center gap-3 rounded-full border border-red-500/20 bg-red-500/10 px-5 py-2.5">
             <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-red-500" />
             <span className="text-xs font-black uppercase tracking-[0.3em] text-red-400">
@@ -51,7 +49,6 @@ export default function AoVivoPage() {
             urbanas em Manaus.
           </p>
 
-          {/* STATS */}
           <div className="mt-10 flex flex-wrap gap-6">
             {[
               { icon: Users, value: "48.2k", label: "Acompanhando" },
@@ -74,13 +71,10 @@ export default function AoVivoPage() {
         </div>
       </section>
 
-      {/* MAIN CONTENT */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
-            {/* LEFT: VIDEO PLAYER */}
             <div className="space-y-6">
-              {/* PLAYER */}
               <div className="relative overflow-hidden rounded-[40px] bg-navy shadow-[0_30px_80px_rgba(15,23,42,0.2)]">
                 <div className="absolute inset-0">
                   <div
@@ -94,34 +88,26 @@ export default function AoVivoPage() {
                 </div>
 
                 <div className="relative z-10 flex min-h-[480px] flex-col items-center justify-center gap-6">
-                  {/* PLAY BTN */}
                   <div className="flex h-20 w-20 cursor-pointer items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition hover:bg-white/20">
                     <div className="ml-1.5 h-0 w-0 border-y-[14px] border-l-[24px] border-y-transparent border-l-white" />
                   </div>
-
                   <div className="text-center">
                     <span className="inline-flex items-center gap-2 rounded-full bg-red-500 px-5 py-2 text-xs font-black uppercase tracking-[0.3em] text-white">
                       <Radio size={12} />
                       Ao vivo agora
                     </span>
-
                     <h2 className="mt-5 text-3xl font-black text-white">
                       Operações Manaus — Tempo Real
                     </h2>
-
-                    <p className="mt-3 text-sm text-zinc-400">
-                      Transmissão iniciada há 1h42min
-                    </p>
+                    <p className="mt-3 text-sm text-zinc-400">Transmissão iniciada há 1h42min</p>
                   </div>
                 </div>
 
-                {/* BOTTOM BAR */}
                 <div className="relative z-10 flex items-center justify-between border-t border-white/10 px-8 py-5">
                   <div className="flex items-center gap-2 text-sm text-zinc-400">
                     <Eye size={16} className="text-gold" />
                     <span className="font-bold text-white">48.231</span> espectadores
                   </div>
-
                   <button className="flex items-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:-translate-y-0.5">
                     Assistir em tela cheia
                     <ArrowUpRight size={16} />
@@ -129,13 +115,11 @@ export default function AoVivoPage() {
                 </div>
               </div>
 
-              {/* LIVE ARTICLES */}
               {liveArticles.length > 0 && (
                 <div>
                   <h2 className="mb-6 text-2xl font-black tracking-[-0.04em] text-navy">
                     Coberturas em andamento
                   </h2>
-
                   <div className="grid gap-6 sm:grid-cols-2">
                     {liveArticles.map((article) => (
                       <NewsCard key={article.id} article={article} variant="vertical" />
@@ -145,61 +129,42 @@ export default function AoVivoPage() {
               )}
             </div>
 
-            {/* RIGHT: LIVE FEED */}
             <div className="space-y-6">
-              {/* FEED CARD */}
               <div className="rounded-[40px] border border-black/5 bg-white p-8 shadow-[0_20px_80px_rgba(15,23,42,0.06)]">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-xs font-black uppercase tracking-[0.3em] text-gold-dark">
-                      LIVE FEED
-                    </span>
-                    <h3 className="mt-3 text-2xl font-black text-navy">
-                      Atualizações
-                    </h3>
+                    <span className="text-xs font-black uppercase tracking-[0.3em] text-gold-dark">LIVE FEED</span>
+                    <h3 className="mt-3 text-2xl font-black text-navy">Atualizações</h3>
                   </div>
                   <div className="h-3 w-3 animate-pulse rounded-full bg-red-500" />
                 </div>
-
                 <div className="mt-8 space-y-4">
                   {feed.map((item) => (
-                    <div
-                      key={item.time}
-                      className="group rounded-[24px] border border-black/5 bg-[#F8FAFC] p-5 transition hover:bg-slate-100"
-                    >
+                    <div key={item.time} className="group rounded-[24px] border border-black/5 bg-[#F8FAFC] p-5 transition hover:bg-slate-100">
                       <div className="flex items-start gap-4">
                         <div className="mt-0.5 flex shrink-0 items-center gap-1.5 text-xs font-black text-gold-dark">
                           <Clock size={12} />
                           {item.time}
                         </div>
-                        <p className="text-sm leading-relaxed text-navy">
-                          {item.text}
-                        </p>
+                        <p className="text-sm leading-relaxed text-navy">{item.text}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* ALERT CARD */}
               <div className="rounded-[32px] border border-gold/20 bg-navy p-7">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
                     <TriangleAlert className="text-gold" size={22} />
                   </div>
                   <div>
-                    <span className="text-xs font-black uppercase tracking-[0.3em] text-gold">
-                      Alerta ativo
-                    </span>
-                    <p className="mt-1 font-bold text-white">
-                      Defesa Civil em nível máximo
-                    </p>
+                    <span className="text-xs font-black uppercase tracking-[0.3em] text-gold">Alerta ativo</span>
+                    <p className="mt-1 font-bold text-white">Defesa Civil em nível máximo</p>
                   </div>
                 </div>
-
                 <p className="mt-5 text-sm leading-relaxed text-zinc-400">
-                  Todas as equipes estão mobilizadas nas zonas Norte e Centro-Oeste.
-                  Ligue 199 em caso de emergência.
+                  Todas as equipes estão mobilizadas nas zonas Norte e Centro-Oeste. Ligue 199 em caso de emergência.
                 </p>
               </div>
             </div>

@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { Headphones, Sparkles } from "lucide-react";
-import { articles } from "@/lib/data";
+import { getAllArticles } from "@/services/articles.service";
 
-export function DailyDigest() {
-  const top5 = articles
-    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-    .slice(0, 5);
+export async function DailyDigest() {
+  const all = await getAllArticles();
+  const top5 = all.slice(0, 5);
 
   return (
     <section className="px-6 pb-6 pt-6">

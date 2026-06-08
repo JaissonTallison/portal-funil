@@ -11,11 +11,11 @@ import {
   Share2,
   TriangleAlert,
 } from "lucide-react";
-import { articles } from "@/lib/data";
 import {
   getArticleBySlug,
   getCategoryName,
   getRelatedArticles,
+  getArticleSlugs,
 } from "@/services/articles.service";
 import { NewsCard } from "@/components/cards/news-card";
 import { ReadingProgress } from "@/components/news/reading-progress";
@@ -28,7 +28,8 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  const slugs = await getArticleSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -68,7 +69,7 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const related = await getRelatedArticles(article);
-  const allRelated = related.length > 0 ? related : articles.filter((a) => a.id !== article.id).slice(0, 3);
+  const allRelated = related.slice(0, 3);
   const paragraphs = article.content.split("\n\n").filter(Boolean);
   const canonical = `${SITE_URL}/noticias/${article.slug}`;
 

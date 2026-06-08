@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Clock, MapPin } from "lucide-react";
-import type { Event } from "@/lib/agenda-data";
+import type { Event } from "@/types/event";
 import { EVENT_CATEGORIES, formatEventDate } from "@/lib/agenda-data";
 
 type Props = {

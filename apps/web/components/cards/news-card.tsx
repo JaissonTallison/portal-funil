@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock, Eye, Radio } from "lucide-react";
-import { Article, getCategoryName } from "@/lib/data";
+import type { Article } from "@/types/article";
+import { getCategoryName } from "@/lib/data";
 import { timeAgo, formatViews } from "@/lib/utils";
 
 type Variant = "vertical" | "horizontal" | "compact";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LogIn, Mail, User, X } from "lucide-react";
+import { Eye, EyeOff, LogIn, Mail, User, UserPlus, X } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 
 type Props = {
@@ -9,18 +9,42 @@ type Props = {
   onClose: () => void;
 };
 
+type Tab = "login" | "register";
+
 export function LoginModal({ open, onClose }: Props) {
-  const { login } = useAuth();
+  const { login, register } = useAuth();
+  const [tab, setTab] = useState<Tab>("login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  function reset() {
+    setName(""); setEmail(""); setPassword(""); setError(""); setLoading(false);
+  }
+
+  function switchTab(t: Tab) {
+    setTab(t); setError("");
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (name.trim() && email.trim()) {
-      login(name.trim(), email.trim());
-      setName("");
-      setEmail("");
+    setError(""); setLoading(true);
+    try {
+      if (tab === "login") {
+        await login(email.trim(), password);
+      } else {
+        if (password.length < 8) throw new Error("A senha deve ter ao menos 8 caracteres");
+        await register(name.trim(), email.trim(), password);
+      }
+      reset();
       onClose();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Erro inesperado");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -28,13 +52,8 @@ export function LoginModal({ open, onClose }: Props) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-      {/* BACKDROP */}
-      <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-        onClick={onClose}
-      />
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
 
-      {/* MODAL */}
       <div className="relative w-full max-w-md overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-[0_40px_120px_rgba(15,23,42,0.25)]">
         {/* HEADER */}
         <div className="flex items-center justify-between border-b border-slate-100 px-7 py-5">
@@ -43,8 +62,8 @@ export function LoginModal({ open, onClose }: Props) {
               <LogIn size={18} className="text-gold-dark" />
             </div>
             <div>
-              <h2 className="text-base font-black text-navy">Entrar</h2>
-              <p className="text-xs text-slate-400">Acesse sua conta no Portal Funil</p>
+              <h2 className="text-base font-black text-navy">Portal Funil</h2>
+              <p className="text-xs text-slate-400">Acesse ou crie sua conta</p>
             </div>
           </div>
           <button
@@ -55,22 +74,42 @@ export function LoginModal({ open, onClose }: Props) {
           </button>
         </div>
 
+        {/* TABS */}
+        <div className="flex border-b border-slate-100">
+          {(["login", "register"] as Tab[]).map((t) => (
+            <button
+              key={t}
+              onClick={() => switchTab(t)}
+              className={`flex-1 py-3 text-sm font-bold transition ${
+                tab === t
+                  ? "border-b-2 border-navy text-navy"
+                  : "text-slate-400 hover:text-slate-600"
+              }`}
+            >
+              {t === "login" ? "Entrar" : "Criar conta"}
+            </button>
+          ))}
+        </div>
+
         {/* FORM */}
-        <form onSubmit={handleSubmit} className="space-y-5 px-7 py-7">
-          <div>
-            <label className="mb-2 block text-sm font-bold text-navy">Nome</label>
-            <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
-              <User size={16} className="shrink-0 text-slate-400" />
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Seu nome"
-                className="w-full bg-transparent text-sm text-navy outline-none placeholder:text-slate-400"
-                required
-              />
+        <form onSubmit={handleSubmit} className="space-y-4 px-7 py-7">
+          {tab === "register" && (
+            <div>
+              <label className="mb-2 block text-sm font-bold text-navy">Nome</label>
+              <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+                <User size={16} className="shrink-0 text-slate-400" />
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Seu nome completo"
+                  className="w-full bg-transparent text-sm text-navy outline-none placeholder:text-slate-400"
+                  required={tab === "register"}
+                  minLength={2}
+                />
+              </div>
             </div>
-          </div>
+          )}
 
           <div>
             <label className="mb-2 block text-sm font-bold text-navy">E-mail</label>
@@ -87,16 +126,46 @@ export function LoginModal({ open, onClose }: Props) {
             </div>
           </div>
 
+          <div>
+            <label className="mb-2 block text-sm font-bold text-navy">Senha</label>
+            <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder={tab === "register" ? "Mínimo 8 caracteres" : "Sua senha"}
+                className="w-full bg-transparent text-sm text-navy outline-none placeholder:text-slate-400"
+                required
+                minLength={tab === "register" ? 8 : 1}
+              />
+              <button type="button" onClick={() => setShowPassword((v) => !v)} className="shrink-0 text-slate-400">
+                {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+              </button>
+            </div>
+          </div>
+
+          {error && (
+            <p className="rounded-xl bg-red-50 px-4 py-2.5 text-xs font-semibold text-red-600">
+              {error}
+            </p>
+          )}
+
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-navy px-5 py-3.5 text-sm font-black text-white transition hover:bg-cobalt"
+            disabled={loading}
+            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-navy px-5 py-3.5 text-sm font-black text-white transition hover:bg-cobalt disabled:opacity-60"
           >
-            <LogIn size={16} />
-            Entrar
+            {loading ? (
+              <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+            ) : tab === "login" ? (
+              <><LogIn size={16} /> Entrar</>
+            ) : (
+              <><UserPlus size={16} /> Criar conta</>
+            )}
           </button>
 
           <p className="text-center text-xs text-slate-400">
-            Ao entrar, você concorda com os Termos de Uso e Política de Privacidade.
+            Ao continuar, você concorda com os Termos de Uso e Política de Privacidade.
           </p>
         </form>
       </div>

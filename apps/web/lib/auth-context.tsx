@@ -2,49 +2,95 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-type User = {
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3002/api/v1";
+
+type AuthUser = {
+  id: string;
   name: string;
   email: string;
-  avatar?: string;
+  role: string;
 };
 
 type AuthContextType = {
-  user: User | null;
-  login: (name: string, email: string) => void;
-  logout: () => void;
+  user: AuthUser | null;
+  token: string | null;
+  loading: boolean;
+  login: (email: string, password: string) => Promise<void>;
+  register: (name: string, email: string, password: string) => Promise<void>;
+  logout: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
-  login: () => {},
-  logout: () => {},
+  token: null,
+  loading: true,
+  login: async () => {},
+  register: async () => {},
+  logout: async () => {},
 });
 
+async function fetchMe(): Promise<AuthUser | null> {
+  try {
+    const res = await fetch(`${API_URL}/auth/me`, { credentials: "include" });
+    if (!res.ok) return null;
+    return res.json() as Promise<AuthUser>;
+  } catch {
+    return null;
+  }
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const stored = localStorage.getItem("portal-funil-user");
-    if (stored) {
-      try {
-        setUser(JSON.parse(stored));
-      } catch {}
-    }
+    fetchMe().then((u) => {
+      setUser(u);
+      setLoading(false);
+    });
   }, []);
 
-  function login(name: string, email: string) {
-    const newUser = { name, email };
-    setUser(newUser);
-    localStorage.setItem("portal-funil-user", JSON.stringify(newUser));
+  async function login(email: string, password: string) {
+    const res = await fetch(`${API_URL}/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      throw new Error((body as { message?: string }).message ?? "Credenciais inválidas");
+    }
+
+    const data = (await res.json()) as { user: AuthUser };
+    setUser(data.user);
   }
 
-  function logout() {
+  async function register(name: string, email: string, password: string) {
+    const res = await fetch(`${API_URL}/auth/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ name, email, password }),
+    });
+
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      throw new Error((body as { message?: string }).message ?? "Erro ao criar conta");
+    }
+
+    const data = (await res.json()) as { user: AuthUser };
+    setUser(data.user);
+  }
+
+  async function logout() {
+    await fetch(`${API_URL}/auth/logout`, { method: "POST", credentials: "include" });
     setUser(null);
-    localStorage.removeItem("portal-funil-user");
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, token: null, loading, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );

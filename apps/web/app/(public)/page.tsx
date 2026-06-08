@@ -1,3 +1,4 @@
+import { getAllArticles } from "@/services/articles.service";
 import { HeroSlider } from "@/components/hero/hero-slider";
 import { AgendaHighlight } from "@/components/home/agenda-highlight";
 import { CityCameras } from "@/components/home/city-cameras";
@@ -18,10 +19,11 @@ import { OperationsMap } from "@/components/map/operations-map";
 import { NewsCarousel } from "@/components/news/news-carousel";
 import { NewsSection } from "@/components/news/news-section";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const articles = await getAllArticles();
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-surface text-navy">
-      {/* WATERMARK */}
       <div
         className="pointer-events-none fixed inset-0 z-0 opacity-[0.035]"
         style={{
@@ -34,25 +36,25 @@ export default function HomePage() {
       />
 
       <div className="relative z-10">
-      <HeroSlider />
-      <DailyDigest />
-      <DiaEspecial />
-      <UrgentAlert />
-      <TrendingTopics />
-      <OperationalGrid />
-      <EconomicPanel />
-      <NewsCarousel />
-      <SponsoredContent />
-      <LiveExperience />
-      <MostRead />
-      <ReaderHub />
-      <NewsSection />
-      <PoliticsHub />
-      <ClassifiedsHighlight />
-      <AgendaHighlight />
-      <ColumnistsSpotlight />
-      <OperationsMap />
-      <CityCameras />
+        <HeroSlider />
+        <DailyDigest />
+        <DiaEspecial />
+        <UrgentAlert />
+        <TrendingTopics />
+        <OperationalGrid />
+        <EconomicPanel />
+        <NewsCarousel articles={articles} />
+        <SponsoredContent />
+        <LiveExperience />
+        <MostRead />
+        <ReaderHub />
+        <NewsSection />
+        <PoliticsHub />
+        <ClassifiedsHighlight />
+        <AgendaHighlight />
+        <ColumnistsSpotlight />
+        <OperationsMap />
+        <CityCameras />
       </div>
     </main>
   );

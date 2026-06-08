@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Newspaper } from "lucide-react";
-import { articles, CATEGORIES, getArticlesByCategory, getCategoryName } from "@/lib/data";
+import { CATEGORIES, getCategoryName } from "@/lib/data";
+import { getArticlesByCategory, getAllArticles } from "@/services/articles.service";
 import { NewsCard } from "@/components/cards/news-card";
 import { SITE_NAME, NAV_ITEMS } from "@/lib/constants";
 
@@ -29,20 +30,18 @@ export default async function CategoriaPage({ params }: Props) {
   const category = CATEGORIES.find((c) => c.slug === slug);
   if (!category) notFound();
 
-  const categoryArticles = getArticlesByCategory(slug).sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
+  const [categoryArticles, allArticles] = await Promise.all([
+    getArticlesByCategory(slug),
+    getAllArticles(),
+  ]);
 
-  const otherArticles = articles
+  const otherArticles = allArticles
     .filter((a) => a.category !== slug)
-    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .slice(0, 4);
 
   return (
     <main className="min-h-screen bg-surface text-navy">
-      {/* HEADER */}
       <section className="relative overflow-hidden bg-navy px-6 py-20">
-        {/* BG */}
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/10 blur-[100px]" />
         <div className="absolute bottom-[-80px] right-[-80px] h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/10 blur-[100px]" />
 
@@ -59,9 +58,7 @@ export default async function CategoriaPage({ params }: Props) {
             <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-gold/10">
               <Newspaper size={24} className="text-gold" />
             </div>
-            <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">
-              Editoria
-            </span>
+            <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">Editoria</span>
           </div>
 
           <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white lg:text-7xl">
@@ -69,12 +66,10 @@ export default async function CategoriaPage({ params }: Props) {
           </h1>
 
           <p className="mt-4 text-lg text-zinc-400">
-            {categoryArticles.length} matéria
-            {categoryArticles.length !== 1 ? "s" : ""} encontrada
+            {categoryArticles.length} matéria{categoryArticles.length !== 1 ? "s" : ""} encontrada
             {categoryArticles.length !== 1 ? "s" : ""}
           </p>
 
-          {/* OTHER CATEGORIES */}
           <div className="mt-10 flex flex-wrap gap-2">
             {NAV_ITEMS.map((item) => (
               <Link
@@ -93,7 +88,6 @@ export default async function CategoriaPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ARTICLES */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-7xl">
           {categoryArticles.length === 0 ? (
@@ -104,9 +98,7 @@ export default async function CategoriaPage({ params }: Props) {
               <h2 className="mt-6 text-2xl font-black text-navy">
                 Nenhuma matéria em {category.name} ainda
               </h2>
-              <p className="mt-3 text-slate-500">
-                Volte mais tarde ou explore outras editorias.
-              </p>
+              <p className="mt-3 text-slate-500">Volte mais tarde ou explore outras editorias.</p>
               <Link
                 href="/noticias"
                 className="mt-8 rounded-2xl bg-navy px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt"
@@ -122,18 +114,12 @@ export default async function CategoriaPage({ params }: Props) {
             </div>
           )}
 
-          {/* OTHER ARTICLES */}
           {otherArticles.length > 0 && (
             <div className="mt-20">
               <div className="mb-10">
-                <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
-                  OUTRAS EDITORIAS
-                </span>
-                <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-navy">
-                  Também em destaque
-                </h2>
+                <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">OUTRAS EDITORIAS</span>
+                <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-navy">Também em destaque</h2>
               </div>
-
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {otherArticles.map((article) => (
                   <NewsCard key={article.id} article={article} variant="vertical" />

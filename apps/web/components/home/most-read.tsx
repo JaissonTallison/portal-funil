@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Eye, TrendingUp } from "lucide-react";
-import { getMostRead, getCategoryName } from "@/lib/data";
+import { getMostRead, getCategoryName } from "@/services/articles.service";
 import { formatViews } from "@/lib/utils";
 
-export function MostRead() {
-  const articles = getMostRead(6);
+export async function MostRead() {
+  const articles = await getMostRead(6);
 
   return (
     <section className="relative px-6 pb-14">
