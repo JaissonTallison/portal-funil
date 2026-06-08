@@ -4,6 +4,7 @@ import {
 } from '@nestjs/common';
 import { Role } from '@prisma/client';
 import { ListingsService } from './listings.service';
+import { ListingsExpiryService } from './listings-expiry.service';
 import { CreateListingDto } from './dto/create-listing.dto';
 import { UpdateListingDto } from './dto/update-listing.dto';
 import { Public } from '../../common/decorators/public.decorator';
@@ -13,7 +14,10 @@ type AuthRequest = { user: { id: string; role: Role } };
 
 @Controller('listings')
 export class ListingsController {
-  constructor(private listingsService: ListingsService) {}
+  constructor(
+    private listingsService: ListingsService,
+    private listingsExpiryService: ListingsExpiryService,
+  ) {}
 
   @Public()
   @Get()
@@ -64,5 +68,12 @@ export class ListingsController {
   @Roles(Role.ADMIN, Role.EDITOR, Role.JOURNALIST, Role.READER)
   remove(@Param('id') id: string, @Request() req: AuthRequest) {
     return this.listingsService.remove(id, req.user.id, req.user.role);
+  }
+
+  @Post('admin/run-expiry')
+  @Roles(Role.ADMIN)
+  async runExpiry() {
+    const count = await this.listingsExpiryService.runExpiry();
+    return { expired: count, message: `${count} classificado(s) expirado(s)` };
   }
 }

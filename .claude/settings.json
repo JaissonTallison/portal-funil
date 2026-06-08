@@ -52,7 +52,9 @@
       "Bash(curl -s -X POST __TRACKED_VAR__/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"admin@portalfunil.com.br\",\"password\":\"Admin@2026\"}')",
       "Bash(pnpm --filter api exec tsc --noEmit)",
       "Bash(pnpm --filter web exec tsc --noEmit)",
-      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(k,v\\) for k,v in {**d.get\\('dependencies',{}\\), **d.get\\('devDependencies',{}\\)}.items\\(\\)]\")"
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(k,v\\) for k,v in {**d.get\\('dependencies',{}\\), **d.get\\('devDependencies',{}\\)}.items\\(\\)]\")",
+      "Bash(chmod +x /home/jaissontallison/projects/PortalFunil/scripts/backup.sh /home/jaissontallison/projects/PortalFunil/scripts/restore.sh)",
+      "Bash(bash scripts/backup.sh)"
     ],
     "additionalDirectories": [
       "/tmp"

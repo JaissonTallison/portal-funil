@@ -12,7 +12,8 @@
     "db:migrate": "prisma migrate dev",
     "db:generate": "prisma generate",
     "db:seed": "ts-node prisma/seed.ts",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "user:reset-password": "tsx src/scripts/reset-password.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.4.15",

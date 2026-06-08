@@ -10,7 +10,10 @@
     "db:migrate": "pnpm --dir apps/api db:migrate",
     "db:generate": "pnpm --dir apps/api db:generate",
     "build:web": "pnpm --dir apps/web build",
-    "build:api": "pnpm --dir apps/api build"
+    "build:api": "pnpm --dir apps/api build",
+    "backup:db": "bash scripts/backup.sh",
+    "restore:db": "bash scripts/restore.sh",
+    "user:reset-password": "pnpm --dir apps/api user:reset-password"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

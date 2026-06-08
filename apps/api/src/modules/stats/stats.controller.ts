@@ -19,7 +19,7 @@ export class StatsController {
       totalArticles, publishedArticles, draftArticles, reviewArticles,
       totalEvents, upcomingEvents,
       totalUsers,
-      totalListings, activeListings,
+      totalListings, activeListings, pendingListings,
       totalReports, pendingReports,
       todayPublished,
       recentArticles,
@@ -33,6 +33,7 @@ export class StatsController {
       this.prisma.user.count(),
       this.prisma.listing.count(),
       this.prisma.listing.count({ where: { status: 'ACTIVE' } }),
+      this.prisma.listing.count({ where: { status: 'PENDING' } }),
       this.prisma.report.count(),
       this.prisma.report.count({ where: { status: { in: ['RECEIVED', 'UNDER_REVIEW'] as never[] } } }),
       this.prisma.article.count({
@@ -54,7 +55,7 @@ export class StatsController {
       articles: { total: totalArticles, published: publishedArticles, draft: draftArticles, review: reviewArticles, todayPublished },
       events: { total: totalEvents, upcoming: upcomingEvents },
       users: { total: totalUsers },
-      listings: { total: totalListings, active: activeListings },
+      listings: { total: totalListings, active: activeListings, pending: pendingListings },
       reports: { total: totalReports, pending: pendingReports },
       recentArticles,
     };
