@@ -2,8 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
-import cookieParser from 'cookie-parser';
-import compression from 'compression';
+import cookieParser = require('cookie-parser');
+import compression = require('compression');
 import helmet from 'helmet';
 import { AppModule } from './app.module';
 
@@ -14,7 +14,8 @@ async function bootstrap() {
   app.set('trust proxy', 1);
 
   // Security headers (X-Frame-Options, X-Content-Type-Options, HSTS, etc.)
-  app.use(helmet());
+  // crossOriginResourcePolicy: 'cross-origin' — API is consumed cross-origin (port 3010→3002)
+  app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 
   // Gzip compression for JSON responses
   app.use(compression());

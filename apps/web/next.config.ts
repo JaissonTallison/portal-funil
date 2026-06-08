@@ -16,12 +16,14 @@ if (process.env.NODE_ENV !== "production") {
   remotePatterns.push({ protocol: "http", hostname: "localhost", port: "3002" });
 }
 
+const isDev = process.env.NODE_ENV !== "production";
+
 // Content Security Policy
 // - next/font/google self-hosts fonts at build time — no external font-src needed
-// - unsafe-inline required for Next.js hydration inline scripts
+// - unsafe-eval required in dev for webpack HMR; removed in production
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  isDev ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'" : "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
   [
     "img-src 'self' data: blob:",

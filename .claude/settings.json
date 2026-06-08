@@ -72,7 +72,13 @@
       "Bash(curl -si \"http://localhost:3002/api/v1/search?q=test\")",
       "Bash(pkill -f \"nest start\")",
       "Bash(grep -v \"^$\")",
-      "Bash(lsof -ti:3002)"
+      "Bash(lsof -ti:3002)",
+      "Bash(curl -si http://localhost:3002/api/v1/auth/me)",
+      "Bash(curl -si http://localhost:3002/api/v1/auth/me -H 'Origin: http://localhost:3010' -H 'Cookie: pf_access_token=invalid')",
+      "Bash(curl -si http://localhost:3002/api/v1/auth/me -H 'Origin: http://localhost:3010')",
+      "Bash(psql -h 127.0.0.1 -p 5433 -U postgres -d portalfunil -c \"SELECT email, role FROM users;\")",
+      "Bash(psql \"postgresql://portalfunil:portalfunil_dev@localhost:5433/portalfunil\" -c \"SELECT email, role, \\\\\"createdAt\\\\\" FROM users ORDER BY role;\")",
+      "Bash(pnpm --dir apps/api db:seed)"
     ],
     "additionalDirectories": [
       "/tmp"
