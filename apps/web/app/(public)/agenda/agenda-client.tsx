@@ -4,7 +4,6 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { CalendarDays, Filter, Search, X } from "lucide-react";
 import type { Event, SpecialDate } from "@/types/event";
-import { EVENT_CATEGORIES, formatEventDateLong } from "@/lib/agenda-data";
 import { EventCard } from "@/components/agenda/event-card";
 
 type EventCategory = Event["category"];
