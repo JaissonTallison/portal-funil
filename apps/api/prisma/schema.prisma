@@ -20,8 +20,10 @@ model User {
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
-  articles    Article[]   @relation("AuthorArticles")
-  listings    Listing[]
+  articles        Article[]   @relation("AuthorArticles")
+  listings        Listing[]
+  assignedReports Report[]    @relation("AssignedReports")
+  auditLogs       AuditLog[]
 
   @@map("users")
 }
@@ -167,6 +169,83 @@ enum ListingStatus {
   REFUSED
   EXPIRED
   PAUSED
+}
+
+// ─── DENÚNCIAS ───────────────────────────────────────────────────────────────
+
+model Report {
+  id           String         @id @default(cuid())
+  protocol     String         @unique
+  type         ReportType
+  name         String?
+  phone        String?
+  email        String?
+  location     String?
+  description  String         @db.Text
+  status       ReportStatus   @default(RECEIVED)
+  notes        String?        @db.Text
+  assignedToId String?        @map("assigned_to_id")
+  assignedTo   User?          @relation("AssignedReports", fields: [assignedToId], references: [id])
+  history      ReportHistory[]
+  createdAt    DateTime       @default(now()) @map("created_at")
+  updatedAt    DateTime       @updatedAt @map("updated_at")
+
+  @@index([protocol])
+  @@index([status])
+  @@map("reports")
+}
+
+model ReportHistory {
+  id         String       @id @default(cuid())
+  reportId   String       @map("report_id")
+  report     Report       @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  fromStatus ReportStatus @map("from_status")
+  toStatus   ReportStatus @map("to_status")
+  notes      String?      @db.Text
+  userId     String       @map("user_id")
+  createdAt  DateTime     @default(now()) @map("created_at")
+
+  @@index([reportId])
+  @@map("report_history")
+}
+
+enum ReportType {
+  POLICIAL
+  URBANO
+  PAUTA
+  MIDIA
+  ANONIMA
+}
+
+enum ReportStatus {
+  RECEIVED
+  UNDER_REVIEW
+  VERIFIED
+  PUBLISHED
+  CLOSED
+  REJECTED
+  REVIEW
+  RESOLVED
+}
+
+// ─── AUDITORIA ───────────────────────────────────────────────────────────────
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?  @map("user_id")
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userEmail String   @map("user_email")
+  action    String
+  entity    String
+  entityId  String?  @map("entity_id")
+  details   Json?
+  ip        String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@index([entity, entityId])
+  @@index([createdAt(sort: Desc)])
+  @@map("audit_logs")
 }
 
 // ─── NEWSLETTER ──────────────────────────────────────────────────────────────

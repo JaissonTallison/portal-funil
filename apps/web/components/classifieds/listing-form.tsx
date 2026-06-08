@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
@@ -14,8 +15,11 @@ import {
   Send,
   Tag,
   Type,
+  AlertCircle,
 } from "lucide-react";
 import { LISTING_CATEGORIES, LISTING_TYPES } from "@/lib/classifieds";
+import { useAuth } from "@/lib/auth-context";
+import { API_URL } from "@/lib/api";
 
 type Step = 1 | 2 | 3;
 
@@ -26,8 +30,12 @@ const steps = [
 ];
 
 export function ListingForm() {
+  const { user } = useAuth();
+  const router = useRouter();
   const [step, setStep] = useState<Step>(1);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const [form, setForm] = useState({
     title: "",
@@ -47,8 +55,56 @@ export function ListingForm() {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
-  function handleSubmit() {
-    setSubmitted(true);
+  async function handleSubmit() {
+    if (!user) {
+      router.push("/login?redirect=/classificados/novo");
+      return;
+    }
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const priceValue = form.priceNegotiable
+        ? null
+        : form.price
+        ? parseFloat(form.price.replace(/\./g, "").replace(",", "."))
+        : null;
+
+      const body = {
+        title: form.title,
+        description: form.description,
+        category: form.category,
+        type: form.type,
+        price: priceValue,
+        images: [],
+        contact: {
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          ...(form.whatsapp ? { whatsapp: form.whatsapp } : {}),
+          location: form.location,
+        },
+      };
+
+      const res = await fetch(`${API_URL}/listings`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.message ?? "Erro ao publicar anúncio");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Erro ao publicar anúncio. Tente novamente.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -60,7 +116,6 @@ export function ListingForm() {
         <h2 className="mt-6 text-3xl font-black text-navy">Anúncio enviado!</h2>
         <p className="mt-3 max-w-md text-base text-slate-500">
           Seu anúncio foi enviado para moderação e será publicado em breve.
-          Você receberá uma notificação quando ele estiver ativo.
         </p>
         <Link
           href="/classificados"
@@ -112,6 +167,20 @@ export function ListingForm() {
           })}
         </div>
       </div>
+
+      {/* AUTH WARNING */}
+      {!user && (
+        <div className="mx-8 mt-6 flex items-center gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4">
+          <AlertCircle size={18} className="shrink-0 text-amber-500" />
+          <p className="text-sm text-amber-700">
+            Você precisa estar{" "}
+            <Link href="/login?redirect=/classificados/novo" className="font-bold underline">
+              logado
+            </Link>{" "}
+            para publicar um anúncio.
+          </p>
+        </div>
+      )}
 
       {/* FORM CONTENT */}
       <div className="px-8 py-8">
@@ -207,7 +276,6 @@ export function ListingForm() {
               </p>
 
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                {/* Upload placeholder cards */}
                 {[1, 2, 3, 4, 5, 6].map((n) => (
                   <label
                     key={n}
@@ -299,6 +367,14 @@ export function ListingForm() {
         )}
       </div>
 
+      {/* ERROR */}
+      {error && (
+        <div className="mx-8 mb-2 flex items-center gap-3 rounded-2xl border border-red-200 bg-red-50 px-5 py-4">
+          <AlertCircle size={16} className="shrink-0 text-red-500" />
+          <p className="text-sm text-red-700">{error}</p>
+        </div>
+      )}
+
       {/* FOOTER NAVIGATION */}
       <div className="flex items-center justify-between border-t border-slate-100 px-8 py-5">
         {step > 1 ? (
@@ -324,10 +400,11 @@ export function ListingForm() {
         ) : (
           <button
             onClick={handleSubmit}
-            className="flex items-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:bg-gold-hover"
+            disabled={submitting}
+            className="flex items-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:bg-gold-hover disabled:opacity-60"
           >
             <Send size={15} />
-            Publicar anúncio
+            {submitting ? "Publicando..." : "Publicar anúncio"}
           </button>
         )}
       </div>

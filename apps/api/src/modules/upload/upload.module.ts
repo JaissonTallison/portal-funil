@@ -1,9 +1,12 @@
-import { Module } from '@nestjs/common';
+import { BadRequestException, Module } from '@nestjs/common';
 import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
 import { randomUUID } from 'crypto';
 import { UploadController } from './upload.controller';
+
+const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp']);
+const ALLOWED_EXT = /\.(jpg|jpeg|png|webp)$/i;
 
 @Module({
   imports: [
@@ -19,8 +22,10 @@ import { UploadController } from './upload.controller';
       }),
       limits: { fileSize: 5 * 1024 * 1024 },
       fileFilter: (_req, file, cb) => {
-        const allowed = /\.(jpg|jpeg|png|webp)$/i;
-        cb(null, allowed.test(file.originalname));
+        if (!ALLOWED_EXT.test(file.originalname) || !ALLOWED_MIME.has(file.mimetype)) {
+          return cb(new BadRequestException('Formato inválido. Use JPG, PNG ou WEBP.') as unknown as Error, false);
+        }
+        cb(null, true);
       },
     }),
   ],

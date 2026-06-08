@@ -52,7 +52,7 @@ export function ListingDetail({ listing }: Props) {
             <span className="text-4xl font-black text-navy">
               {formatPrice(listing.price)}
             </span>
-            {listing.type === "emprego" && listing.price && (
+            {listing.type === "JOB" && listing.price && (
               <span className="text-sm text-slate-400">/mês</span>
             )}
           </div>

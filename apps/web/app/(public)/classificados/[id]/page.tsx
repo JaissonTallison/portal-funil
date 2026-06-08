@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { getListingById, getRelatedListings } from "@/lib/classifieds";
 import { ListingDetail } from "@/components/classifieds/listing-detail";
 import { ListingCard } from "@/components/classifieds/listing-card";
+import type { Listing } from "@/types/listing";
+
+const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3002/api/v1";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -11,18 +13,33 @@ type Props = {
 
 export default async function ClassificadoDetailPage({ params }: Props) {
   const { id } = await params;
-  const listing = getListingById(id);
 
-  if (!listing) {
+  let listing: Listing;
+  try {
+    const res = await fetch(`${API_BASE}/listings/${id}`, { cache: "no-store" });
+    if (!res.ok) notFound();
+    listing = await res.json();
+  } catch {
     notFound();
   }
 
-  const related = getRelatedListings(listing, 3);
+  let related: Listing[] = [];
+  try {
+    const res = await fetch(
+      `${API_BASE}/listings?type=${listing.type}&limit=4`,
+      { cache: "no-store" }
+    );
+    if (res.ok) {
+      const data = await res.json();
+      related = (data.items ?? []).filter((l: Listing) => l.id !== listing.id).slice(0, 3);
+    }
+  } catch {
+    related = [];
+  }
 
   return (
     <main className="min-h-screen bg-surface px-6 pb-24 pt-8">
       <div className="mx-auto max-w-7xl">
-        {/* BREADCRUMB */}
         <div className="mb-8">
           <Link
             href="/classificados"
@@ -33,10 +50,8 @@ export default async function ClassificadoDetailPage({ params }: Props) {
           </Link>
         </div>
 
-        {/* DETAIL */}
         <ListingDetail listing={listing} />
 
-        {/* RELATED */}
         {related.length > 0 && (
           <section className="mt-16">
             <h2 className="mb-8 text-3xl font-black tracking-[-0.04em] text-navy">

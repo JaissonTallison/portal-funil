@@ -9,19 +9,15 @@ export const metadata: Metadata = {
   description: "Cobertura ao vivo de Manaus em tempo real.",
 };
 
-const feed = [
-  { time: "14:32", text: "Chuvas intensas atingem Zona Norte com rajadas de vento" },
-  { time: "14:18", text: "Defesa Civil distribui kits de emergência no bairro Cidade Nova" },
-  { time: "13:55", text: "IMMU registra 12 pontos de alagamento em vias principais" },
-  { time: "13:40", text: "Hospital 28 de Agosto em alerta máximo para atendimentos de emergência" },
-  { time: "13:22", text: "Sirenes de alerta ativadas em 3 bairros da Zona Norte" },
-  { time: "13:05", text: "Corpo de Bombeiros responde a 8 chamadas simultâneas de resgate" },
-  { time: "12:48", text: "Prefeitura abre centros de apoio para famílias desabrigadas" },
-  { time: "12:30", text: "INMET confirma chuvas de até 150mm nas próximas 24 horas" },
-];
-
 export default async function AoVivoPage() {
   const liveArticles = await getLiveArticles();
+
+  const feed = liveArticles.slice(0, 8).map((a) => ({
+    time: a.publishedAt
+      ? new Date(a.publishedAt).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })
+      : "--:--",
+    text: a.title,
+  }));
 
   return (
     <main className="min-h-screen bg-surface text-navy">
@@ -139,8 +135,8 @@ export default async function AoVivoPage() {
                   <div className="h-3 w-3 animate-pulse rounded-full bg-red-500" />
                 </div>
                 <div className="mt-8 space-y-4">
-                  {feed.map((item) => (
-                    <div key={item.time} className="group rounded-[24px] border border-black/5 bg-[#F8FAFC] p-5 transition hover:bg-slate-100">
+                  {feed.length > 0 ? feed.map((item, i) => (
+                    <div key={i} className="group rounded-[24px] border border-black/5 bg-[#F8FAFC] p-5 transition hover:bg-slate-100">
                       <div className="flex items-start gap-4">
                         <div className="mt-0.5 flex shrink-0 items-center gap-1.5 text-xs font-black text-gold-dark">
                           <Clock size={12} />
@@ -149,7 +145,9 @@ export default async function AoVivoPage() {
                         <p className="text-sm leading-relaxed text-navy">{item.text}</p>
                       </div>
                     </div>
-                  ))}
+                  )) : (
+                    <p className="py-4 text-center text-sm text-slate-400">Nenhuma atualização ao vivo no momento.</p>
+                  )}
                 </div>
               </div>
 

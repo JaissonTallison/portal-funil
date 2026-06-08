@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Eye, MapPin } from "lucide-react";
+import { ArrowUpRight, Eye, MapPin, ShoppingBag } from "lucide-react";
 import { Listing, getCategoryNameBySlug, getTypeName, formatPrice } from "@/lib/classifieds";
 import { timeAgo } from "@/lib/utils";
 
@@ -10,6 +10,8 @@ type Props = {
 };
 
 export function ListingCard({ listing, variant = "grid" }: Props) {
+  const coverImage = listing.images?.[0];
+
   if (variant === "list") {
     return (
       <Link
@@ -17,12 +19,18 @@ export function ListingCard({ listing, variant = "grid" }: Props) {
         className="group flex gap-5 overflow-hidden rounded-[28px] border border-black/5 bg-white p-4 shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(15,23,42,0.10)]"
       >
         <div className="relative h-[120px] w-[160px] shrink-0 overflow-hidden rounded-[20px]">
+          {coverImage ? (
           <Image
-            src={listing.images[0]}
+            src={coverImage}
             alt={listing.title}
             fill
             className="object-cover transition duration-500 group-hover:scale-105"
           />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-slate-100">
+              <ShoppingBag size={28} className="text-slate-300" />
+            </div>
+          )}
           <div className="absolute left-2.5 top-2.5">
             <span className="rounded-full bg-gold px-3 py-1 text-[9px] font-black uppercase tracking-widest text-navy">
               {getTypeName(listing.type)}
@@ -64,13 +72,19 @@ export function ListingCard({ listing, variant = "grid" }: Props) {
       href={`/classificados/${listing.id}`}
       className="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] block"
     >
-      <div className="relative h-[200px] overflow-hidden">
-        <Image
-          src={listing.images[0]}
-          alt={listing.title}
-          fill
-          className="object-cover transition duration-700 group-hover:scale-110"
-        />
+      <div className="relative h-[200px] overflow-hidden bg-slate-100">
+        {coverImage ? (
+          <Image
+            src={coverImage}
+            alt={listing.title}
+            fill
+            className="object-cover transition duration-700 group-hover:scale-110"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center">
+            <ShoppingBag size={40} className="text-slate-300" />
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
         <div className="absolute left-4 top-4 flex items-center gap-2">

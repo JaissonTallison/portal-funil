@@ -100,6 +100,16 @@ export class ArticlesController {
     return this.articlesService.publish(id);
   }
 
+  @Patch(':id/status')
+  @Roles(Role.ADMIN, Role.EDITOR, Role.JOURNALIST)
+  changeStatus(
+    @Param('id') id: string,
+    @Body('status') status: string,
+    @Request() req: AuthRequest,
+  ) {
+    return this.articlesService.changeStatus(id, status, req.user.id, req.user.role);
+  }
+
   @Delete(':id')
   @Roles(Role.ADMIN, Role.EDITOR)
   remove(@Param('id') id: string) {

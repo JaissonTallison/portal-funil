@@ -2,9 +2,9 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { Plus, Pencil, Trash2, Eye, CheckCircle, Clock, Archive } from "lucide-react";
+import { Plus, Pencil, Trash2, Eye, CheckCircle, SendHorizonal, Archive } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { apiDelete, apiPatch, API_URL } from "@/lib/api";
+import { apiDelete, API_URL } from "@/lib/api";
 
 type Article = {
   id: string;
@@ -21,10 +21,10 @@ type Article = {
 type AdminListResponse = { items: Article[]; total: number };
 
 const STATUS_LABEL: Record<string, { label: string; color: string }> = {
-  DRAFT:     { label: "Rascunho",   color: "bg-slate-100 text-slate-600" },
-  REVIEW:    { label: "Em revisão", color: "bg-yellow-100 text-yellow-700" },
-  PUBLISHED: { label: "Publicado",  color: "bg-emerald-100 text-emerald-700" },
-  ARCHIVED:  { label: "Arquivado",  color: "bg-red-100 text-red-600" },
+  DRAFT:     { label: "Rascunho",    color: "bg-slate-100 text-slate-600" },
+  REVIEW:    { label: "Em revisão",  color: "bg-yellow-100 text-yellow-700" },
+  PUBLISHED: { label: "Publicado",   color: "bg-emerald-100 text-emerald-700" },
+  ARCHIVED:  { label: "Arquivado",   color: "bg-red-100 text-red-600" },
 };
 
 export default function AdminArtigosPage() {
@@ -34,16 +34,14 @@ export default function AdminArtigosPage() {
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState("");
   const [deleting, setDeleting] = useState<string | null>(null);
-  const [publishing, setPublishing] = useState<string | null>(null);
+  const [transitioning, setTransitioning] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     if (!user) return;
     setLoading(true);
     try {
       const qs = statusFilter ? `?status=${statusFilter}` : "";
-      const res = await fetch(`${API_URL}/articles/admin/all${qs}`, {
-        credentials: 'include',
-      });
+      const res = await fetch(`${API_URL}/articles/admin/all${qs}`, { credentials: "include" });
       const data: AdminListResponse = await res.json();
       setArticles(data.items);
       setTotal(data.total);
@@ -67,24 +65,34 @@ export default function AdminArtigosPage() {
     }
   }
 
-  async function handlePublish(id: string) {
-    setPublishing(id);
+  async function changeStatus(id: string, newStatus: string) {
+    setTransitioning(id);
     try {
-      await apiPatch(`/articles/${id}/publish`, {});
+      const res = await fetch(`${API_URL}/articles/${id}/status`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ status: newStatus }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.message ?? "Erro ao alterar status");
+      }
       await load();
     } catch (e) {
-      alert(e instanceof Error ? e.message : "Erro ao publicar");
+      alert(e instanceof Error ? e.message : "Erro ao alterar status");
     } finally {
-      setPublishing(null);
+      setTransitioning(null);
     }
   }
 
-  const canDelete = user?.role === "ADMIN" || user?.role === "EDITOR";
-  const canPublish = user?.role === "ADMIN" || user?.role === "EDITOR";
+  const isAdmin = user?.role === "ADMIN";
+  const isEditor = user?.role === "EDITOR";
+  const isJournalist = user?.role === "JOURNALIST";
+  const canDelete = isAdmin || isEditor;
 
   return (
     <div className="p-8">
-      {/* HEADER */}
       <div className="mb-8 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-black text-navy">Artigos</h1>
@@ -100,7 +108,7 @@ export default function AdminArtigosPage() {
       </div>
 
       {/* FILTERS */}
-      <div className="mb-6 flex gap-2">
+      <div className="mb-6 flex flex-wrap gap-2">
         {[["", "Todos"], ["DRAFT", "Rascunho"], ["REVIEW", "Revisão"], ["PUBLISHED", "Publicado"], ["ARCHIVED", "Arquivado"]].map(([val, label]) => (
           <button
             key={val}
@@ -137,9 +145,10 @@ export default function AdminArtigosPage() {
             <tbody className="divide-y divide-slate-100">
               {articles.map((a) => {
                 const st = STATUS_LABEL[a.status] ?? STATUS_LABEL.DRAFT;
+                const busy = transitioning === a.id || deleting === a.id;
                 return (
                   <tr key={a.id} className="transition hover:bg-slate-50">
-                    <td className="max-w-[260px] px-5 py-4">
+                    <td className="max-w-[220px] px-5 py-4">
                       <p className="truncate text-sm font-semibold text-navy">{a.title}</p>
                       <p className="text-xs text-slate-400">{a.slug}</p>
                     </td>
@@ -150,7 +159,52 @@ export default function AdminArtigosPage() {
                     </td>
                     <td className="px-5 py-4 text-sm text-slate-500">{a.views.toLocaleString("pt-BR")}</td>
                     <td className="px-5 py-4">
-                      <div className="flex items-center justify-end gap-2">
+                      <div className="flex items-center justify-end gap-1">
+                        {/* Journalist: DRAFT → submit for review */}
+                        {isJournalist && a.status === "DRAFT" && (
+                          <button
+                            onClick={() => changeStatus(a.id, "REVIEW")}
+                            disabled={busy}
+                            className="rounded-lg p-1.5 text-amber-500 transition hover:bg-amber-50 disabled:opacity-40"
+                            title="Enviar para revisão"
+                          >
+                            <SendHorizonal size={15} />
+                          </button>
+                        )}
+                        {/* Editor/Admin: REVIEW → publish */}
+                        {(isEditor || isAdmin) && a.status === "REVIEW" && (
+                          <button
+                            onClick={() => changeStatus(a.id, "PUBLISHED")}
+                            disabled={busy}
+                            className="rounded-lg p-1.5 text-emerald-500 transition hover:bg-emerald-50 disabled:opacity-40"
+                            title="Publicar"
+                          >
+                            <CheckCircle size={15} />
+                          </button>
+                        )}
+                        {/* Editor/Admin: REVIEW → back to draft */}
+                        {(isEditor || isAdmin) && a.status === "REVIEW" && (
+                          <button
+                            onClick={() => changeStatus(a.id, "DRAFT")}
+                            disabled={busy}
+                            className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 disabled:opacity-40"
+                            title="Devolver para rascunho"
+                          >
+                            <SendHorizonal size={15} className="rotate-180" />
+                          </button>
+                        )}
+                        {/* Editor/Admin: PUBLISHED → archive */}
+                        {(isEditor || isAdmin) && a.status === "PUBLISHED" && (
+                          <button
+                            onClick={() => changeStatus(a.id, "ARCHIVED")}
+                            disabled={busy}
+                            className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 disabled:opacity-40"
+                            title="Arquivar"
+                          >
+                            <Archive size={15} />
+                          </button>
+                        )}
+                        {/* View published */}
                         {a.status === "PUBLISHED" && (
                           <a
                             href={`/noticias/${a.slug}`}
@@ -162,16 +216,6 @@ export default function AdminArtigosPage() {
                             <Eye size={15} />
                           </a>
                         )}
-                        {canPublish && a.status !== "PUBLISHED" && (
-                          <button
-                            onClick={() => handlePublish(a.id)}
-                            disabled={publishing === a.id}
-                            className="rounded-lg p-1.5 text-emerald-500 transition hover:bg-emerald-50 disabled:opacity-40"
-                            title="Publicar"
-                          >
-                            <CheckCircle size={15} />
-                          </button>
-                        )}
                         <Link
                           href={`/admin/artigos/${a.id}/editar`}
                           className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-navy"
@@ -182,7 +226,7 @@ export default function AdminArtigosPage() {
                         {canDelete && (
                           <button
                             onClick={() => handleDelete(a.id, a.title)}
-                            disabled={deleting === a.id}
+                            disabled={busy}
                             className="rounded-lg p-1.5 text-red-400 transition hover:bg-red-50 hover:text-red-600 disabled:opacity-40"
                             title="Excluir"
                           >

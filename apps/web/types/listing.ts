@@ -1,5 +1,5 @@
-export type ListingStatus = "pendente" | "ativo" | "recusado" | "expirado" | "pausado";
-export type ListingType = "venda" | "compra" | "servico" | "emprego" | "outro";
+export type ListingStatus = "PENDING" | "ACTIVE" | "REFUSED" | "EXPIRED" | "PAUSED";
+export type ListingType = "SALE" | "PURCHASE" | "SERVICE" | "JOB" | "OTHER";
 
 export type ListingCategory = {
   slug: string;
@@ -19,12 +19,14 @@ export type Listing = {
     name: string;
     phone: string;
     email: string;
-    whatsapp?: string;
+    whatsapp?: string | null;
     location: string;
   };
   status: ListingStatus;
   views: number;
+  isFeatured?: boolean;
+  expiresAt?: string | null;
   createdAt: string;
   updatedAt: string;
-  isFeatured?: boolean;
+  user?: { id: string; name: string };
 };

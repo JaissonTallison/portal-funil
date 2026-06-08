@@ -2,46 +2,77 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Edit3,
   Eye,
   Pause,
   Play,
   Plus,
+  ShoppingBag,
   Trash2,
 } from "lucide-react";
-import { listings, formatPrice, getCategoryNameBySlug } from "@/lib/classifieds";
-import type { Listing, ListingStatus } from "@/lib/classifieds";
+import { formatPrice, getCategoryNameBySlug, statusConfig } from "@/lib/classifieds";
+import type { Listing } from "@/lib/classifieds";
 import { timeAgo } from "@/lib/utils";
-
-const statusConfig: Record<ListingStatus, { label: string; color: string; bg: string }> = {
-  ativo: { label: "Ativo", color: "text-emerald-600", bg: "bg-emerald-50" },
-  pendente: { label: "Pendente", color: "text-amber-600", bg: "bg-amber-50" },
-  pausado: { label: "Pausado", color: "text-slate-500", bg: "bg-slate-100" },
-  recusado: { label: "Recusado", color: "text-red-600", bg: "bg-red-50" },
-  expirado: { label: "Expirado", color: "text-slate-400", bg: "bg-slate-50" },
-};
+import { API_URL } from "@/lib/api";
 
 export function MyListingsTable() {
-  const [myListings, setMyListings] = useState<Listing[]>(listings.slice(0, 5));
+  const [myListings, setMyListings] = useState<Listing[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  function toggleStatus(id: string) {
-    setMyListings((prev) =>
-      prev.map((l) =>
-        l.id === id
-          ? { ...l, status: l.status === "ativo" ? "pausado" : "ativo" }
-          : l
-      )
+  useEffect(() => {
+    fetch(`${API_URL}/listings/user/mine`, { credentials: "include" })
+      .then((r) => r.json())
+      .then((data) => setMyListings(Array.isArray(data) ? data : []))
+      .catch(() => setMyListings([]))
+      .finally(() => setLoading(false));
+  }, []);
+
+  async function toggleStatus(listing: Listing) {
+    const nextStatus = listing.status === "ACTIVE" ? "PAUSED" : "ACTIVE";
+    try {
+      const res = await fetch(`${API_URL}/listings/${listing.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ status: nextStatus }),
+      });
+      if (res.ok) {
+        setMyListings((prev) =>
+          prev.map((l) => (l.id === listing.id ? { ...l, status: nextStatus } : l))
+        );
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  async function removeListing(id: string) {
+    if (!confirm("Tem certeza que deseja excluir este anúncio?")) return;
+    try {
+      const res = await fetch(`${API_URL}/listings/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+      if (res.ok) {
+        setMyListings((prev) => prev.filter((l) => l.id !== id));
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  const activeCount = myListings.filter((l) => l.status === "ACTIVE").length;
+  const totalViews = myListings.reduce((sum, l) => sum + l.views, 0);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center py-20">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-gold border-t-transparent" />
+      </div>
     );
   }
-
-  function removeListing(id: string) {
-    setMyListings((prev) => prev.filter((l) => l.id !== id));
-  }
-
-  const activeCount = myListings.filter((l) => l.status === "ativo").length;
-  const totalViews = myListings.reduce((sum, l) => sum + l.views, 0);
 
   return (
     <div className="space-y-8">
@@ -88,19 +119,26 @@ export function MyListingsTable() {
         ) : (
           myListings.map((listing) => {
             const status = statusConfig[listing.status];
+            const coverImage = listing.images?.[0];
             return (
               <div
                 key={listing.id}
                 className="group relative flex flex-col gap-4 overflow-hidden rounded-[28px] border border-black/5 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition hover:shadow-[0_12px_40px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center"
               >
                 {/* IMAGE */}
-                <div className="relative h-[100px] w-full shrink-0 overflow-hidden rounded-[20px] sm:w-[140px]">
-                  <Image
-                    src={listing.images[0]}
-                    alt={listing.title}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="relative h-[100px] w-full shrink-0 overflow-hidden rounded-[20px] bg-slate-100 sm:w-[140px]">
+                  {coverImage ? (
+                    <Image
+                      src={coverImage}
+                      alt={listing.title}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center">
+                      <ShoppingBag size={24} className="text-slate-300" />
+                    </div>
+                  )}
                 </div>
 
                 {/* INFO */}
@@ -140,15 +178,16 @@ export function MyListingsTable() {
                   <button
                     className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-navy"
                     title="Editar"
+                    disabled
                   >
                     <Edit3 size={15} />
                   </button>
                   <button
-                    onClick={() => toggleStatus(listing.id)}
+                    onClick={() => toggleStatus(listing)}
                     className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-navy"
-                    title={listing.status === "ativo" ? "Pausar" : "Ativar"}
+                    title={listing.status === "ACTIVE" ? "Pausar" : "Ativar"}
                   >
-                    {listing.status === "ativo" ? <Pause size={15} /> : <Play size={15} />}
+                    {listing.status === "ACTIVE" ? <Pause size={15} /> : <Play size={15} />}
                   </button>
                   <button
                     onClick={() => removeListing(listing.id)}

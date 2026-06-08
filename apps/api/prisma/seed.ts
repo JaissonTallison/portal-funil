@@ -88,20 +88,31 @@ async function main() {
   }
   console.log(`  ✓ ${CATEGORIES.length} categorias criadas`);
 
-  // 2. Admin user
-  console.log('  → Criando usuário admin...');
+  // 2. Users
+  console.log('  → Criando usuários...');
   const passwordHash = await bcrypt.hash('Admin@2026', 12);
+  const editorHash = await bcrypt.hash('Editor@2026', 12);
+  const journalistHash = await bcrypt.hash('Jornalista@2026', 12);
+
   const admin = await prisma.user.upsert({
     where: { email: 'admin@portalfunil.com.br' },
     update: {},
-    create: {
-      name: 'Admin Portal Funil',
-      email: 'admin@portalfunil.com.br',
-      passwordHash,
-      role: 'ADMIN',
-    },
+    create: { name: 'Admin Portal Funil', email: 'admin@portalfunil.com.br', passwordHash, role: 'ADMIN' },
   });
-  console.log(`  ✓ Admin criado: ${admin.email}`);
+
+  await prisma.user.upsert({
+    where: { email: 'editor@portalfunil.com.br' },
+    update: {},
+    create: { name: 'Maria Editora', email: 'editor@portalfunil.com.br', passwordHash: editorHash, role: 'EDITOR' },
+  });
+
+  await prisma.user.upsert({
+    where: { email: 'jornalista@portalfunil.com.br' },
+    update: {},
+    create: { name: 'João Jornalista', email: 'jornalista@portalfunil.com.br', passwordHash: journalistHash, role: 'JOURNALIST' },
+  });
+
+  console.log('  ✓ 3 usuários criados (admin, editor, jornalista)');
 
   // 3. Sample articles
   console.log('  → Criando artigos de exemplo...');
@@ -196,9 +207,10 @@ A lentidão afeta principalmente o sentido Centro-Zona Norte.`,
   console.log('');
   console.log('✅ Seed concluído com sucesso!');
   console.log('');
-  console.log('Credenciais do admin:');
-  console.log('  Email:  admin@portalfunil.com.br');
-  console.log('  Senha:  Admin@2026');
+  console.log('Credenciais:');
+  console.log('  ADMIN      admin@portalfunil.com.br    / Admin@2026');
+  console.log('  EDITOR     editor@portalfunil.com.br   / Editor@2026');
+  console.log('  JORNALISTA jornalista@portalfunil.com.br / Jornalista@2026');
 }
 
 main()

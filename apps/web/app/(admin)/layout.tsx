@@ -3,15 +3,20 @@
 import { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
-import { LayoutDashboard, FileText, Calendar, Tag, LogOut, ExternalLink } from "lucide-react";
+import { LayoutDashboard, FileText, Calendar, Tag, Users, LogOut, ExternalLink, AlertTriangle, ShieldCheck, Activity } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 
 const ALLOWED_ROLES = ["ADMIN", "EDITOR", "JOURNALIST"];
 
 const NAV = [
-  { href: "/admin/artigos", label: "Artigos", icon: FileText },
-  { href: "/admin/eventos", label: "Eventos", icon: Calendar },
-  { href: "/admin/categorias", label: "Categorias", icon: Tag },
+  { href: "/admin/dashboard",  label: "Dashboard",   icon: LayoutDashboard, roles: ["ADMIN", "EDITOR", "JOURNALIST"] },
+  { href: "/admin/artigos",    label: "Artigos",      icon: FileText,        roles: ["ADMIN", "EDITOR", "JOURNALIST"] },
+  { href: "/admin/eventos",    label: "Eventos",      icon: Calendar,        roles: ["ADMIN", "EDITOR", "JOURNALIST"] },
+  { href: "/admin/categorias", label: "Categorias",   icon: Tag,             roles: ["ADMIN", "EDITOR", "JOURNALIST"] },
+  { href: "/admin/usuarios",   label: "Usuários",     icon: Users,           roles: ["ADMIN"] },
+  { href: "/admin/denuncias",  label: "Denúncias",    icon: AlertTriangle,   roles: ["ADMIN", "EDITOR"] },
+  { href: "/admin/auditoria",  label: "Auditoria",    icon: ShieldCheck,     roles: ["ADMIN"] },
+  { href: "/admin/saude",      label: "Saúde",        icon: Activity,        roles: ["ADMIN"] },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -33,6 +38,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </div>
     );
   }
+
+  const visibleNav = NAV.filter((n) => n.roles.includes(user.role));
 
   return (
     <div className="flex min-h-screen bg-slate-50">
@@ -57,16 +64,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         {/* NAV */}
         <nav className="flex-1 space-y-1 p-3">
-          {NAV.map(({ href, label, icon: Icon }) => {
+          {visibleNav.map(({ href, label, icon: Icon }) => {
             const active = pathname.startsWith(href);
             return (
               <Link
                 key={href}
                 href={href}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
-                  active
-                    ? "bg-navy text-white"
-                    : "text-slate-600 hover:bg-slate-50 hover:text-navy"
+                  active ? "bg-navy text-white" : "text-slate-600 hover:bg-slate-50 hover:text-navy"
                 }`}
               >
                 <Icon size={16} />

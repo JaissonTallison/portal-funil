@@ -49,7 +49,10 @@
       "Bash(python3 -c \"import sys; data=sys.stdin.read\\(\\); print\\('rejeitado' if data else 'sem resposta — verificar'\\)\")",
       "Bash(curl -s -v -H \"Origin: http://malicious.com\" \"http://localhost:3002/api/v1/categories\")",
       "Bash(curl -s -X POST __TRACKED_VAR__/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"journalist_audit@portalfunil.com.br\",\"password\":\"Journ@2026\"}')",
-      "Bash(curl -s -X POST __TRACKED_VAR__/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"admin@portalfunil.com.br\",\"password\":\"Admin@2026\"}')"
+      "Bash(curl -s -X POST __TRACKED_VAR__/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"admin@portalfunil.com.br\",\"password\":\"Admin@2026\"}')",
+      "Bash(pnpm --filter api exec tsc --noEmit)",
+      "Bash(pnpm --filter web exec tsc --noEmit)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(k,v\\) for k,v in {**d.get\\('dependencies',{}\\), **d.get\\('devDependencies',{}\\)}.items\\(\\)]\")"
     ],
     "additionalDirectories": [
       "/tmp"

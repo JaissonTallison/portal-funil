@@ -230,4 +230,47 @@ export class ArticlesService {
       select: ARTICLE_SELECT,
     });
   }
+
+  async changeStatus(
+    id: string,
+    newStatus: string,
+    requesterId: string,
+    requesterRole: Role,
+  ) {
+    const article = await this.findById(id);
+
+    const TRANSITIONS: Record<Role, Partial<Record<string, string[]>>> = {
+      [Role.JOURNALIST]: { DRAFT: ['REVIEW'] },
+      [Role.EDITOR]: { REVIEW: ['PUBLISHED', 'DRAFT'], PUBLISHED: ['ARCHIVED'] },
+      [Role.ADMIN]: {
+        DRAFT: ['REVIEW', 'PUBLISHED', 'ARCHIVED'],
+        REVIEW: ['PUBLISHED', 'DRAFT', 'ARCHIVED'],
+        PUBLISHED: ['ARCHIVED', 'DRAFT'],
+        ARCHIVED: ['DRAFT', 'PUBLISHED'],
+      },
+      [Role.READER]: {},
+    };
+
+    if (requesterRole === Role.JOURNALIST && article.authorId !== requesterId) {
+      throw new ForbiddenException('Jornalistas só podem alterar o status de seus próprios artigos');
+    }
+
+    const allowed = TRANSITIONS[requesterRole]?.[article.status] ?? [];
+    if (!allowed.includes(newStatus)) {
+      throw new ForbiddenException(
+        `Transição ${article.status} → ${newStatus} não permitida para ${requesterRole}`,
+      );
+    }
+
+    const data: Record<string, unknown> = { status: newStatus };
+    if (newStatus === 'PUBLISHED' && !article.publishedAt) {
+      data.publishedAt = new Date();
+    }
+
+    return this.prisma.article.update({
+      where: { id },
+      data,
+      select: ARTICLE_SELECT,
+    });
+  }
 }
