@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /home/jaissontallison/projects/PortalFunil -type f | sort > /tmp/portal_files.txt && wc -l /tmp/portal_files.txt && head -300 /tmp/portal_files.txt)",
+      "Bash(git -C /home/jaissontallison/projects/PortalFunil init)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm approve-builds *)",
+      "Bash(pnpm rebuild *)",
+      "Bash(node -e ' *)",
+      "Bash(pnpm --version)",
+      "Bash(pnpm config *)",
+      "Bash(npx prisma *)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  }
+}
