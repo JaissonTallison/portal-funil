@@ -6,17 +6,14 @@ import { ArrowLeft, Calendar, Clock, MapPin, Tag, Users } from "lucide-react";
 import {
   getEventBySlug,
   getRelatedEvents,
-  getEventSlugs,
 } from "@/services/events.service";
 import { EVENT_CATEGORIES, formatEventDate, formatEventDateLong } from "@/lib/agenda-data";
 import { EventCard } from "@/components/agenda/event-card";
 
-type Props = { params: Promise<{ slug: string }> };
+export const revalidate = 300;
+export const dynamicParams = true;
 
-export async function generateStaticParams() {
-  const slugs = await getEventSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
+type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

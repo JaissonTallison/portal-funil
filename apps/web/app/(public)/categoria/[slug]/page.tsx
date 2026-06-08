@@ -7,6 +7,8 @@ import { getArticlesByCategory, getAllArticles } from "@/services/articles.servi
 import { NewsCard } from "@/components/cards/news-card";
 import { SITE_NAME, NAV_ITEMS } from "@/lib/constants";
 
+export const revalidate = 60;
+
 type Props = {
   params: Promise<{ slug: string }>;
 };

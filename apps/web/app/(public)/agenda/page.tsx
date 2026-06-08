@@ -3,6 +3,8 @@ import { getAllEvents, getHighlightedEvent, getUpcomingDates } from "@/services/
 import { AgendaClient } from "./agenda-client";
 import { SITE_NAME } from "@/lib/constants";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: `Agenda Cultural | ${SITE_NAME}`,
   description: "Shows, festivais, feiras e atrações culturais de Manaus e do Amazonas.",

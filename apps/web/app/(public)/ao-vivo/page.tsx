@@ -4,6 +4,8 @@ import { getLiveArticles } from "@/services/articles.service";
 import { NewsCard } from "@/components/cards/news-card";
 import { SITE_NAME } from "@/lib/constants";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: `Ao Vivo | ${SITE_NAME}`,
   description: "Cobertura ao vivo de Manaus em tempo real.",

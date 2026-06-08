@@ -4,6 +4,8 @@ import { getEventSlugs } from "@/services/events.service";
 import { SITE_URL } from "@/lib/constants";
 import { CATEGORIES } from "@/lib/data";
 
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [articleSlugs, eventSlugs] = await Promise.all([
     getArticleSlugs(),

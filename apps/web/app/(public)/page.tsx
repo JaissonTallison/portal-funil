@@ -1,4 +1,6 @@
 import { getAllArticles } from "@/services/articles.service";
+
+export const revalidate = 60;
 import { HeroSlider } from "@/components/hero/hero-slider";
 import { AgendaHighlight } from "@/components/home/agenda-highlight";
 import { CityCameras } from "@/components/home/city-cameras";

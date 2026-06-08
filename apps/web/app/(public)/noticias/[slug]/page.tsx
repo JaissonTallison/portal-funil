@@ -15,7 +15,6 @@ import {
   getArticleBySlug,
   getCategoryName,
   getRelatedArticles,
-  getArticleSlugs,
 } from "@/services/articles.service";
 import { NewsCard } from "@/components/cards/news-card";
 import { ReadingProgress } from "@/components/news/reading-progress";
@@ -23,14 +22,12 @@ import { ShareButtons } from "@/components/news/share-buttons";
 import { formatDate, formatViews } from "@/lib/utils";
 import { SITE_NAME, SITE_URL } from "@/lib/constants";
 
+export const revalidate = 300;
+export const dynamicParams = true;
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
-
-export async function generateStaticParams() {
-  const slugs = await getArticleSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

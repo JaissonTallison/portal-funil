@@ -17,6 +17,7 @@ async function apiFetch<T>(path: string, init: RequestInit = {}, opts: FetchOpti
 
   const res = await fetch(`${API_URL}${path}`, {
     ...init,
+    signal: AbortSignal.timeout(8000),
     credentials: 'include',
     headers: { ...headers, ...(init.headers as Record<string, string> ?? {}) },
     next,
