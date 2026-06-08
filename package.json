@@ -4,6 +4,7 @@
   "scripts": {
     "dev:web": "pnpm --dir apps/web dev",
     "dev:api": "pnpm --dir apps/api start:dev",
+    "predev": "fuser -k 3002/tcp 3010/tcp 2>/dev/null || true",
     "dev": "concurrently \"pnpm dev:web\" \"pnpm dev:api\"",
     "db:up": "docker compose -f infra/docker/docker-compose.yml up -d",
     "db:down": "docker compose -f infra/docker/docker-compose.yml down",
@@ -23,5 +24,8 @@
       "bcrypt",
       "prisma"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
   }
 }

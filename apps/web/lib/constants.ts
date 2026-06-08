@@ -1,6 +1,6 @@
 export const SITE_NAME = "Portal Funil";
 export const SITE_TAGLINE = "Funil de Notícias";
-export const SITE_URL = "https://portalfunil.com.br";
+export const SITE_URL = "https://funildenoticias.com.br";
 export const SITE_DESCRIPTION =
   "Portal de notícias de Manaus com cobertura em tempo real de clima, trânsito, alertas e operações urbanas.";
 

@@ -48,8 +48,12 @@ function toArticle(a: ApiArticle): Article {
 // ─── Articles ────────────────────────────────────────────────────────────────
 
 export async function getAllArticles(): Promise<Article[]> {
-  const data = await apiGet<ApiListResponse>("/articles?limit=50");
-  return data.items.map(toArticle);
+  try {
+    const data = await apiGet<ApiListResponse>("/articles?limit=50");
+    return data.items.map(toArticle);
+  } catch {
+    return [];
+  }
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
@@ -62,49 +66,81 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
 }
 
 export async function getArticlesByCategory(category: string): Promise<Article[]> {
-  const data = await apiGet<ApiListResponse>(`/articles?category=${category}&limit=50`);
-  return data.items.map(toArticle);
+  try {
+    const data = await apiGet<ApiListResponse>(`/articles?category=${category}&limit=50`);
+    return data.items.map(toArticle);
+  } catch {
+    return [];
+  }
 }
 
 export async function getFilteredArticles(params: { categoria?: string }): Promise<Article[]> {
-  const qs = params.categoria ? `?category=${params.categoria}&limit=50` : "?limit=50";
-  const data = await apiGet<ApiListResponse>(`/articles${qs}`);
-  return data.items.map(toArticle);
+  try {
+    const qs = params.categoria ? `?category=${params.categoria}&limit=50` : "?limit=50";
+    const data = await apiGet<ApiListResponse>(`/articles${qs}`);
+    return data.items.map(toArticle);
+  } catch {
+    return [];
+  }
 }
 
 export async function getFeaturedArticles(): Promise<Article[]> {
-  const data = await apiGet<ApiArticle[]>("/articles/featured");
-  return data.map(toArticle);
+  try {
+    const data = await apiGet<ApiArticle[]>("/articles/featured");
+    return data.map(toArticle);
+  } catch {
+    return [];
+  }
 }
 
 export async function getLiveArticles(): Promise<Article[]> {
-  const data = await apiGet<ApiArticle[]>("/articles/live");
-  return data.map(toArticle);
+  try {
+    const data = await apiGet<ApiArticle[]>("/articles/live");
+    return data.map(toArticle);
+  } catch {
+    return [];
+  }
 }
 
 export async function getMostRead(limit = 5): Promise<Article[]> {
-  const data = await apiGet<ApiArticle[]>(`/articles/most-read?limit=${limit}`);
-  return data.map(toArticle);
+  try {
+    const data = await apiGet<ApiArticle[]>(`/articles/most-read?limit=${limit}`);
+    return data.map(toArticle);
+  } catch {
+    return [];
+  }
 }
 
 export async function getRelatedArticles(current: Article, limit = 3): Promise<Article[]> {
-  const data = await apiGet<ApiListResponse>(
-    `/articles?category=${current.category}&limit=${limit + 1}`
-  );
-  return data.items
-    .map(toArticle)
-    .filter((a) => a.id !== current.id)
-    .slice(0, limit);
+  try {
+    const data = await apiGet<ApiListResponse>(
+      `/articles?category=${current.category}&limit=${limit + 1}`
+    );
+    return data.items
+      .map(toArticle)
+      .filter((a) => a.id !== current.id)
+      .slice(0, limit);
+  } catch {
+    return [];
+  }
 }
 
 export async function getSponsoredArticles(): Promise<Article[]> {
-  const data = await apiGet<ApiListResponse>("/articles?limit=50");
-  return data.items.map(toArticle).filter((a) => a.isSponsored);
+  try {
+    const data = await apiGet<ApiListResponse>("/articles?limit=50");
+    return data.items.map(toArticle).filter((a) => a.isSponsored);
+  } catch {
+    return [];
+  }
 }
 
 export async function getArticleSlugs(): Promise<string[]> {
-  const data = await apiGet<ApiListResponse>("/articles?limit=200");
-  return data.items.map((a) => a.slug);
+  try {
+    const data = await apiGet<ApiListResponse>("/articles?limit=200");
+    return data.items.map((a) => a.slug);
+  } catch {
+    return [];
+  }
 }
 
 // ─── Categories ──────────────────────────────────────────────────────────────

@@ -128,9 +128,9 @@ export default function PublicidadePage() {
                   de negócio. Atendemos desde microempresas até grandes marcas nacionais.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <a href="mailto:publicidade@portalfunil.com.br"
+                  <a href="mailto:publicidade@funildenoticias.com.br"
                     className="flex items-center gap-2 rounded-2xl bg-gold px-6 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5">
-                    <Mail size={16} /> publicidade@portalfunil.com.br
+                    <Mail size={16} /> publicidade@funildenoticias.com.br
                   </a>
                 </div>
                 <p className="mt-4 text-sm text-zinc-500">Retorno em até 24h úteis.</p>

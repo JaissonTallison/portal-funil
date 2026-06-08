@@ -22,13 +22,13 @@ const contacts = [
   {
     icon: Mail,
     label: "Redação",
-    value: "redacao@portalfunil.com.br",
+    value: "redacao@funildenoticias.com.br",
     desc: "Para envio de pautas e releases",
   },
   {
     icon: Mail,
     label: "Publicidade",
-    value: "publicidade@portalfunil.com.br",
+    value: "publicidade@funildenoticias.com.br",
     desc: "Anúncios, patrocínios e parcerias",
   },
   {
@@ -46,12 +46,12 @@ const contacts = [
 ];
 
 const departments = [
-  { label: "Jornalismo", email: "redacao@portalfunil.com.br" },
-  { label: "Publicidade", email: "publicidade@portalfunil.com.br" },
-  { label: "Ouvidoria", email: "ouvidoria@portalfunil.com.br" },
-  { label: "Suporte Pro", email: "pro@portalfunil.com.br" },
-  { label: "Colunistas", email: "colunas@portalfunil.com.br" },
-  { label: "Imprensa", email: "imprensa@portalfunil.com.br" },
+  { label: "Jornalismo", email: "redacao@funildenoticias.com.br" },
+  { label: "Publicidade", email: "publicidade@funildenoticias.com.br" },
+  { label: "Ouvidoria", email: "ouvidoria@funildenoticias.com.br" },
+  { label: "Suporte Pro", email: "pro@funildenoticias.com.br" },
+  { label: "Colunistas", email: "colunas@funildenoticias.com.br" },
+  { label: "Imprensa", email: "imprensa@funildenoticias.com.br" },
 ];
 
 export default function ContatoPage() {

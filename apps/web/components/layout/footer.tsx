@@ -120,7 +120,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3 text-sm text-zinc-400">
                 <Mail size={15} className="shrink-0 text-gold" />
-                redacao@portalfunil.com.br
+                redacao@funildenoticias.com.br
               </div>
             </div>
 

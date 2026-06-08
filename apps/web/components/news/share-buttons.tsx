@@ -10,7 +10,7 @@ type Props = {
 
 export function ShareButtons({ title, slug }: Props) {
   const [copied, setCopied] = useState(false);
-  const url = `https://portalfunil.com.br/noticias/${slug}`;
+  const url = `https://funildenoticias.com.br/noticias/${slug}`;
   const encodedTitle = encodeURIComponent(title);
   const encodedUrl = encodeURIComponent(url);
 

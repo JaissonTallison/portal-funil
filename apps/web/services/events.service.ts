@@ -55,8 +55,12 @@ function toEvent(e: ApiEvent): Event {
 // ─── Events ──────────────────────────────────────────────────────────────────
 
 export async function getAllEvents(): Promise<Event[]> {
-  const data = await apiGet<ApiListResponse>("/events?limit=50");
-  return data.items.map(toEvent);
+  try {
+    const data = await apiGet<ApiListResponse>("/events?limit=50");
+    return data.items.map(toEvent);
+  } catch {
+    return [];
+  }
 }
 
 export async function getEventBySlug(slug: string): Promise<Event | null> {
@@ -78,28 +82,48 @@ export async function getHighlightedEvent(): Promise<Event | null> {
 }
 
 export async function getEventsByCategory(category: string): Promise<Event[]> {
-  const data = await apiGet<ApiListResponse>(`/events?category=${category}&limit=50`);
-  return data.items.map(toEvent);
+  try {
+    const data = await apiGet<ApiListResponse>(`/events?category=${category}&limit=50`);
+    return data.items.map(toEvent);
+  } catch {
+    return [];
+  }
 }
 
 export async function getFreeEvents(): Promise<Event[]> {
-  const data = await apiGet<ApiListResponse>("/events?limit=50");
-  return data.items.map(toEvent).filter((e) => e.isFree);
+  try {
+    const data = await apiGet<ApiListResponse>("/events?limit=50");
+    return data.items.map(toEvent).filter((e) => e.isFree);
+  } catch {
+    return [];
+  }
 }
 
 export async function getUpcomingEvents(limit = 6): Promise<Event[]> {
-  const data = await apiGet<ApiEvent[]>(`/events/upcoming?limit=${limit}`);
-  return data.map(toEvent);
+  try {
+    const data = await apiGet<ApiEvent[]>(`/events/upcoming?limit=${limit}`);
+    return data.map(toEvent);
+  } catch {
+    return [];
+  }
 }
 
 export async function getRelatedEvents(slug: string, category: string, limit = 3): Promise<Event[]> {
-  const data = await apiGet<ApiEvent[]>(`/events/${slug}/related?category=${category}`);
-  return data.slice(0, limit).map(toEvent);
+  try {
+    const data = await apiGet<ApiEvent[]>(`/events/${slug}/related?category=${category}`);
+    return data.slice(0, limit).map(toEvent);
+  } catch {
+    return [];
+  }
 }
 
 export async function getEventSlugs(): Promise<string[]> {
-  const data = await apiGet<ApiListResponse>("/events?limit=200");
-  return data.items.map((e) => e.slug);
+  try {
+    const data = await apiGet<ApiListResponse>("/events?limit=200");
+    return data.items.map((e) => e.slug);
+  } catch {
+    return [];
+  }
 }
 
 // ─── Special Dates (remain as mock — editorial calendar, no API) ──────────────

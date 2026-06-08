@@ -105,7 +105,7 @@ export default function TrabalheConoscoPage() {
             <a href="#vagas" className="flex items-center gap-2 rounded-2xl bg-gold px-8 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5">
               Ver vagas abertas <ArrowUpRight size={16} />
             </a>
-            <a href="mailto:rh@portalfunil.com.br" className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
+            <a href="mailto:rh@funildenoticias.com.br" className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
               Candidatura espontânea
             </a>
           </div>
@@ -163,7 +163,7 @@ export default function TrabalheConoscoPage() {
                     <div className="flex items-center gap-1.5 text-sm text-slate-400">
                       <Clock size={13} />Imediato
                     </div>
-                    <a href={`mailto:rh@portalfunil.com.br?subject=Candidatura: ${job.title}`}
+                    <a href={`mailto:rh@funildenoticias.com.br?subject=Candidatura: ${job.title}`}
                       className="flex items-center gap-2 rounded-2xl bg-navy px-5 py-2.5 text-sm font-black text-white transition group-hover:bg-cobalt">
                       <Briefcase size={14} /> Candidatar-se
                     </a>
@@ -178,7 +178,7 @@ export default function TrabalheConoscoPage() {
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">NÃO ENCONTROU SUA VAGA?</span>
             <h3 className="mt-4 text-3xl font-black text-white">Envie uma candidatura espontânea</h3>
             <p className="mt-3 text-zinc-400">Guardamos seu currículo e te chamamos quando surgir uma vaga ideal.</p>
-            <a href="mailto:rh@portalfunil.com.br"
+            <a href="mailto:rh@funildenoticias.com.br"
               className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-gold px-10 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5">
               Enviar currículo <ArrowUpRight size={16} />
             </a>

@@ -177,7 +177,7 @@ export default function DenunciasPage() {
                   className="flex items-center gap-3 rounded-2xl bg-emerald-500 px-6 py-4 text-sm font-black text-white transition hover:bg-emerald-600">
                   <Send size={16} /> WhatsApp
                 </a>
-                <a href="mailto:redacao@portalfunil.com.br"
+                <a href="mailto:redacao@funildenoticias.com.br"
                   className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
                   E-mail
                 </a>

@@ -100,9 +100,9 @@ const channels = [
   {
     icon: Mail,
     label: "E-mail",
-    description: "redacao@portalfunil.com.br",
+    description: "redacao@funildenoticias.com.br",
     color: "bg-slate-700 hover:bg-slate-800",
-    href: "mailto:redacao@portalfunil.com.br",
+    href: "mailto:redacao@funildenoticias.com.br",
   },
 ];
 

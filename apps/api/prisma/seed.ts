@@ -95,21 +95,21 @@ async function main() {
   const journalistHash = await bcrypt.hash('Jornalista@2026', 12);
 
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@portalfunil.com.br' },
+    where: { email: 'admin@funildenoticias.com.br' },
     update: {},
-    create: { name: 'Admin Portal Funil', email: 'admin@portalfunil.com.br', passwordHash, role: 'ADMIN' },
+    create: { name: 'Admin Portal Funil', email: 'admin@funildenoticias.com.br', passwordHash, role: 'ADMIN' },
   });
 
   await prisma.user.upsert({
-    where: { email: 'editor@portalfunil.com.br' },
+    where: { email: 'editor@funildenoticias.com.br' },
     update: {},
-    create: { name: 'Maria Editora', email: 'editor@portalfunil.com.br', passwordHash: editorHash, role: 'EDITOR' },
+    create: { name: 'Maria Editora', email: 'editor@funildenoticias.com.br', passwordHash: editorHash, role: 'EDITOR' },
   });
 
   await prisma.user.upsert({
-    where: { email: 'jornalista@portalfunil.com.br' },
+    where: { email: 'jornalista@funildenoticias.com.br' },
     update: {},
-    create: { name: 'João Jornalista', email: 'jornalista@portalfunil.com.br', passwordHash: journalistHash, role: 'JOURNALIST' },
+    create: { name: 'João Jornalista', email: 'jornalista@funildenoticias.com.br', passwordHash: journalistHash, role: 'JOURNALIST' },
   });
 
   console.log('  ✓ 3 usuários criados (admin, editor, jornalista)');
@@ -208,9 +208,9 @@ A lentidão afeta principalmente o sentido Centro-Zona Norte.`,
   console.log('✅ Seed concluído com sucesso!');
   console.log('');
   console.log('Credenciais:');
-  console.log('  ADMIN      admin@portalfunil.com.br    / Admin@2026');
-  console.log('  EDITOR     editor@portalfunil.com.br   / Editor@2026');
-  console.log('  JORNALISTA jornalista@portalfunil.com.br / Jornalista@2026');
+  console.log('  ADMIN      admin@funildenoticias.com.br    / Admin@2026');
+  console.log('  EDITOR     editor@funildenoticias.com.br   / Editor@2026');
+  console.log('  JORNALISTA jornalista@funildenoticias.com.br / Jornalista@2026');
 }
 
 main()
