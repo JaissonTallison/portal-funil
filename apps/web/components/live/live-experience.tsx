@@ -31,7 +31,7 @@ export function LiveExperience() {
             <div className="relative overflow-hidden rounded-[40px] bg-navy shadow-[0_30px_120px_rgba(15,23,42,0.15)]">
               {/* BG */}
               <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2070')] bg-cover bg-center opacity-50" />
+                <div className="absolute inset-0 bg-[url('/noticias/manaus-live.jpeg')] bg-cover bg-center opacity-50" />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
               </div>

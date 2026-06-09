@@ -75,7 +75,7 @@ export function NewsCarousel({ articles }: Props) {
                   </div>
                 </div>
                 <div className="flex items-center justify-between px-6 py-5">
-                  <span className="text-sm text-slate-500">{timeAgo(item.publishedAt)}</span>
+                  <span className="text-sm text-slate-500" suppressHydrationWarning>{timeAgo(item.publishedAt)}</span>
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cobalt text-white transition group-hover:bg-navy">
                     <ArrowUpRight size={17} />
                   </div>

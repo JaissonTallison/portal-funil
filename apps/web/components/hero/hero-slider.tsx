@@ -23,25 +23,25 @@ const SLIDE_DURATION = 5500;
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=2070",
+    image: "/noticias/neymar-fora-da-estreia.jpeg",
     category: "COPA 2026",
     label: "Futebol",
     title: "Neymar fora da estreia do Brasil contra o Marrocos na Copa do Mundo.",
-    description: "Lesão grau 2 na panturrilha deixa o camisa 10 de fora do jogo de 13 de junho. Ancelotti aposta na recuperação para o duelo contra o Haiti.",
+    description: "Lesão grau 2 na panturrilha deixa o camisa 10 de fora do jogo de 13 de junho. Ancelotti aposta na recuperação para o duelo seguinte.",
   },
   {
-    image: "https://images.unsplash.com/photo-1584744982491-665216d95f8b?q=80&w=2070",
-    category: "SAÚDE",
-    label: "Brasil",
-    title: "Ministério da Saúde suspende vacina do Butantan contra dengue após reações graves.",
-    description: "42 casos severos e 2 óbitos investigados em todo o país. Amazonas monitora 916 vacinados nos próximos 21 dias.",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1542889600-399033296d72?q=80&w=2070",
+    image: "/noticias/trump.jpeg",
     category: "MUNDO",
-    label: "Geopolítica",
-    title: "Irã reafirma controle do Estreito de Ormuz diante das sanções europeias.",
-    description: "Teerã reage a nova rodada de sanções da UE enquanto negociações nucleares com Washington permanecem em impasse.",
+    label: "EUA",
+    title: "Trump é vaiado na final da NBA e vídeo viraliza com 30 milhões de visualizações.",
+    description: "Presidente dos EUA foi recebido com vaias no Chase Center, em San Francisco. Clipe repercutiu rapidamente nas redes sociais.",
+  },
+  {
+    image: "/noticias/estreitohormuz.jpeg",
+    category: "GEOPOLÍTICA",
+    label: "Mundo",
+    title: "Irã reafirma controle do Estreito de Ormuz diante das novas sanções europeias.",
+    description: "Teerã reage à nova rodada de sanções da UE enquanto negociações nucleares com Washington permanecem em impasse.",
   },
 ];
 
