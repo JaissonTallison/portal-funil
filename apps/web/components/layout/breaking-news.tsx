@@ -1,9 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { BREAKING_NEWS } from "@/lib/constants";
 
 export function BreakingNews() {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    function tick() {
+      setTime(new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }));
+    }
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section className="relative z-30 w-full">
       <div className="flex h-[64px] overflow-hidden shadow-[0_8px_32px_rgba(7,20,38,0.20)]">
@@ -54,10 +66,7 @@ export function BreakingNews() {
         {/* horário */}
         <div className="hidden shrink-0 items-center bg-navy pr-5 lg:flex">
           <span className="text-[11px] font-semibold tabular-nums text-zinc-500">
-            {new Date().toLocaleTimeString("pt-BR", {
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
+            {time}
           </span>
         </div>
 
