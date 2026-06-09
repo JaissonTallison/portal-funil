@@ -47,8 +47,18 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-surface px-4">
-      <div className="w-full max-w-sm">
+    <main className="relative flex min-h-screen items-center justify-center bg-surface px-4">
+      <div
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          backgroundImage: "url('/images/logo4k-transparent.png')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+          backgroundSize: "80vh",
+          opacity: 0.045,
+        }}
+      />
+      <div className="relative z-10 w-full max-w-sm">
         {/* FORM */}
         <form
           onSubmit={handleSubmit}
