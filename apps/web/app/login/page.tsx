@@ -56,8 +56,8 @@ export default function LoginPage() {
         >
           <div className="mb-4 text-center">
             <h1 className="text-3xl font-black tracking-tight">
-              <span className="text-navy">Funil</span>
-              <span className="text-gold"> de</span>
+              <span className="text-cobalt">Funil </span>
+              <span className="text-gold">de</span>
               <br />
               <span className="text-gold">Notícias</span>
             </h1>
