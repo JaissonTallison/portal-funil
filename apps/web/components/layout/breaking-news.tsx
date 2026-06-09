@@ -5,8 +5,8 @@ import { BREAKING_NEWS } from "@/lib/constants";
 
 export function BreakingNews() {
   return (
-    <section className="relative z-30 w-full px-4 pb-4">
-      <div className="flex h-[68px] overflow-hidden rounded-2xl shadow-[0_16px_48px_rgba(7,20,38,0.35)]">
+    <section className="relative z-30 w-full">
+      <div className="flex h-[64px] overflow-hidden shadow-[0_8px_32px_rgba(7,20,38,0.20)]">
 
         {/* LOGO — fundo branco */}
         <div className="relative flex shrink-0 items-center justify-center bg-white px-5 sm:px-8">
