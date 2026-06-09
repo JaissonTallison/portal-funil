@@ -15,7 +15,7 @@ const topics = [
 export function TrendingTopics() {
   return (
     <section className="relative px-6 pb-10">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         <div className="overflow-hidden rounded-[36px] border border-black/5 bg-white p-8 shadow-[0_10px_50px_rgba(15,23,42,0.06)]">
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap">
             {/* LABEL */}

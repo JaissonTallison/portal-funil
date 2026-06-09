@@ -4,7 +4,7 @@ import { ArrowUpRight, Siren } from "lucide-react";
 export function UrgentAlert() {
   return (
     <section className="px-6 pb-8 pt-2">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         <Link
           href="/categoria/alerta"
           className="group flex items-center gap-4 overflow-hidden rounded-2xl border border-red-500/20 bg-gradient-to-r from-red-600 to-red-700 px-6 py-4 shadow-[0_8px_30px_rgba(239,68,68,0.25)] transition hover:shadow-[0_12px_40px_rgba(239,68,68,0.35)]"

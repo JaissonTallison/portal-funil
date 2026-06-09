@@ -44,7 +44,7 @@ export default function PoliticaEditorialPage() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-navy px-6 py-20">
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/8 blur-[120px]" />
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto max-w-[1440px]">
           <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">PORTAL FUNIL</span>
           <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white lg:text-7xl">
             Política <br /><span className="text-gold">editorial</span>
@@ -58,7 +58,7 @@ export default function PoliticaEditorialPage() {
 
       {/* PRINCIPLES */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="mb-12">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">FUNDAMENTOS</span>
             <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">Nossos princípios</h2>
@@ -79,7 +79,7 @@ export default function PoliticaEditorialPage() {
 
       {/* CORRECTIONS */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="overflow-hidden rounded-[40px] bg-navy p-12">
             <div className="relative z-10 grid gap-12 lg:grid-cols-2">
               <div>

@@ -61,7 +61,7 @@ export default function ContatoPage() {
       <section className="relative overflow-hidden bg-navy px-6 py-20">
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/8 blur-[120px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto max-w-[1440px]">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
               <MessageCircle size={22} className="text-gold" />
@@ -84,7 +84,7 @@ export default function ContatoPage() {
 
       {/* CONTENT */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="grid gap-10 lg:grid-cols-[1fr_420px]">
             {/* FORM */}
             <div className="overflow-hidden rounded-[40px] border border-black/5 bg-white p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">

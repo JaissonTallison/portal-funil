@@ -58,7 +58,7 @@ const weatherData = {
 export function OperationalGrid() {
   return (
     <section className="relative z-10 px-6 pb-14">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         {/* HEADER */}
         <div className="mb-10 flex items-end justify-between">
           <div>

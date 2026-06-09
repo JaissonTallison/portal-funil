@@ -66,7 +66,7 @@ export default function PublicidadePage() {
       <section className="relative overflow-hidden bg-navy px-6 py-20">
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/8 blur-[120px]" />
         <div className="absolute bottom-[-60px] right-[-60px] h-[240px] w-[240px] rounded-full bg-blue-600/10 blur-[100px]" />
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto max-w-[1440px]">
           <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">ANUNCIE</span>
           <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white lg:text-7xl">
             Fale com <br /><span className="text-gold">Manaus</span>
@@ -89,7 +89,7 @@ export default function PublicidadePage() {
 
       {/* FORMATS */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="mb-12">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">FORMATOS</span>
             <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">Soluções publicitárias</h2>
@@ -116,7 +116,7 @@ export default function PublicidadePage() {
 
       {/* CONTACT */}
       <section className="px-6 pb-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="overflow-hidden rounded-[40px] bg-navy p-12">
             <div className="absolute left-[-60px] top-[-60px] h-[240px] w-[240px] rounded-full bg-gold/8 blur-[100px]" />
             <div className="relative z-10 grid gap-10 lg:grid-cols-2">

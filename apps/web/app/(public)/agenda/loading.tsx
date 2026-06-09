@@ -2,14 +2,14 @@ export default function AgendaLoading() {
   return (
     <main className="min-h-screen bg-surface">
       <div className="animate-pulse bg-navy px-4 py-14 md:px-6 md:py-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="h-4 w-32 rounded-xl bg-white/10" />
           <div className="mt-8 h-16 w-80 rounded-2xl bg-white/10" />
           <div className="mt-5 h-4 w-64 rounded-xl bg-white/10" />
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+      <div className="mx-auto max-w-[1440px] px-4 py-10 md:px-6">
         <div className="mb-8 flex gap-2">
           {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="h-10 w-24 animate-pulse rounded-xl bg-slate-200" />

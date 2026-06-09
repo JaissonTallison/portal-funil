@@ -11,7 +11,7 @@ export async function SponsoredContent() {
 
   return (
     <section className="px-6 pb-14">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         <div className="overflow-hidden rounded-[36px] border border-black/5 bg-white p-6 shadow-[0_10px_40px_rgba(15,23,42,0.06)] md:p-8">
           {/* HEADER */}
           <div className="mb-6 flex items-center justify-between">

@@ -20,7 +20,7 @@ export async function AgendaHighlight() {
 
   return (
     <section className="bg-surface px-4 py-12 md:px-6 md:py-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
 
         {/* HEADER */}
         <div className="flex items-start justify-between gap-4">

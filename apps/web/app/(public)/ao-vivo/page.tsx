@@ -28,7 +28,7 @@ export default async function AoVivoPage() {
         <div className="absolute left-[-100px] top-[-100px] h-[400px] w-[400px] rounded-full bg-red-500/10 blur-[120px]" />
         <div className="absolute bottom-[-100px] right-[-100px] h-[400px] w-[400px] rounded-full bg-gold/10 blur-[120px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto max-w-[1440px]">
           <div className="inline-flex items-center gap-3 rounded-full border border-red-500/20 bg-red-500/10 px-5 py-2.5">
             <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-red-500" />
             <span className="text-xs font-black uppercase tracking-[0.3em] text-red-400">
@@ -70,7 +70,7 @@ export default async function AoVivoPage() {
       </section>
 
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
             <div className="space-y-6">
               <div className="relative overflow-hidden rounded-[40px] bg-navy shadow-[0_30px_80px_rgba(15,23,42,0.2)]">

@@ -40,7 +40,7 @@ export default async function ColumnistPage({ params }: Props) {
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/10 blur-[100px]" />
         <div className="absolute bottom-[-80px] right-[-80px] h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/15 blur-[100px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto max-w-[1440px]">
           <Link
             href="/colunas"
             className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-400 transition hover:text-white"
@@ -108,7 +108,7 @@ export default async function ColumnistPage({ params }: Props) {
 
       {/* ARTICLES */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="mb-10">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               COLUNAS
@@ -142,7 +142,7 @@ export default async function ColumnistPage({ params }: Props) {
 
       {/* OTHER COLUMNISTS */}
       <section className="border-t border-black/5 px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="mb-8">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               OUTROS COLUNISTAS

@@ -11,7 +11,7 @@ import {
 export function LiveExperience() {
   return (
     <section className="relative px-6 pb-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         {/* HEADER */}
         <div className="mb-8">
           <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">

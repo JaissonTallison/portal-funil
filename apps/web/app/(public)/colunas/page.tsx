@@ -19,7 +19,7 @@ export default function ColunasPage() {
         <div className="absolute left-[-100px] top-[-100px] h-[350px] w-[350px] rounded-full bg-gold/10 blur-[120px]" />
         <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/15 blur-[100px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto max-w-[1440px]">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
               <PenLine size={22} className="text-gold" />
@@ -58,7 +58,7 @@ export default function ColunasPage() {
 
       {/* COLUMNISTS GRID */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl space-y-8">
+        <div className="mx-auto max-w-[1440px] space-y-8">
           {columnists.map((columnist) => {
             const articles = getColumnistArticles(columnist);
             const latest = articles[0];
@@ -182,7 +182,7 @@ export default function ColunasPage() {
 
       {/* CTA */}
       <section className="px-6 pb-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="relative overflow-hidden rounded-[40px] bg-navy p-12 text-center">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="h-[400px] w-[400px] rounded-full bg-gold/5 blur-[120px]" />

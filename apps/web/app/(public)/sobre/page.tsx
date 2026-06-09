@@ -44,7 +44,7 @@ export default function SobrePage() {
         <div className="absolute left-[-80px] top-[-80px] h-[400px] w-[400px] rounded-full bg-gold/8 blur-[140px]" />
         <div className="absolute bottom-0 right-[-60px] h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/15 blur-[100px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto max-w-[1440px]">
           <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">
             PORTAL FUNIL
           </span>
@@ -63,7 +63,7 @@ export default function SobrePage() {
 
       {/* STATS */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map(({ value, label, icon: Icon }) => (
               <div
@@ -85,7 +85,7 @@ export default function SobrePage() {
 
       {/* MISSION */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="overflow-hidden rounded-[40px] bg-navy">
             <div className="grid lg:grid-cols-2">
               {/* TEXT */}
@@ -138,7 +138,7 @@ export default function SobrePage() {
 
       {/* VALUES */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="mb-12">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               PRINCÍPIOS
@@ -164,7 +164,7 @@ export default function SobrePage() {
 
       {/* TEAM / COLUMNISTS */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="mb-12 flex items-end justify-between">
             <div>
               <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">

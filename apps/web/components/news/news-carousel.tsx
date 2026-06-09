@@ -18,7 +18,7 @@ export function NewsCarousel({ articles }: Props) {
 
   return (
     <section className="relative px-6 pb-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         <div className="mb-10 flex items-end justify-between">
           <div>
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">

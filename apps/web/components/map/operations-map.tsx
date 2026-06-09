@@ -40,7 +40,7 @@ const incidents = [
 export function OperationsMap() {
   return (
     <section className="relative px-6 pb-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         {/* HEADER */}
         <div className="mb-8 flex items-end justify-between">
           <div>

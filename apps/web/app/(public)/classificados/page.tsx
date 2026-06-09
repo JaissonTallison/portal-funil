@@ -100,7 +100,7 @@ function ClassificadosContent() {
 export default function ClassificadosPage() {
   return (
     <main className="min-h-screen bg-surface px-6 pb-24 pt-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">

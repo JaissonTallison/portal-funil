@@ -222,7 +222,7 @@ export default async function ArticlePage({ params }: Props) {
 
       {/* RELATED */}
       <section className="border-t border-black/5 px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="mb-10 flex items-end justify-between">
             <div>
               <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">

@@ -47,7 +47,7 @@ export default async function CategoriaPage({ params }: Props) {
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/10 blur-[100px]" />
         <div className="absolute bottom-[-80px] right-[-80px] h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/10 blur-[100px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto max-w-[1440px]">
           <Link
             href="/noticias"
             className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-400 transition hover:text-white"
@@ -91,7 +91,7 @@ export default async function CategoriaPage({ params }: Props) {
       </section>
 
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           {categoryArticles.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-24 text-center">
               <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100">

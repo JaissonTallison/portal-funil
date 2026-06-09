@@ -39,7 +39,7 @@ export default async function ClassificadoDetailPage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-surface px-6 pb-24 pt-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         <div className="mb-8">
           <Link
             href="/classificados"

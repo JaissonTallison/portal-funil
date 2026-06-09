@@ -23,7 +23,7 @@ export default async function NoticiasPage({ searchParams }: Props) {
     <main className="min-h-screen bg-surface text-navy">
       {/* HEADER */}
       <section className="bg-navy px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
               <Newspaper size={22} className="text-gold" />
@@ -76,7 +76,7 @@ export default async function NoticiasPage({ searchParams }: Props) {
 
       {/* CONTENT */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           {sorted.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-24 text-center">
               <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100">

@@ -27,7 +27,7 @@ export function Footer() {
     <footer className="bg-navy text-white">
       {/* NEWSLETTER */}
       <div className="border-b border-white/5">
-        <div className="mx-auto max-w-7xl px-6 py-14">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto]">
             <div>
               <div className="flex items-center gap-3">
@@ -68,7 +68,7 @@ export function Footer() {
 
       {/* LIVE BANNER */}
       <div className="border-b border-white/5 bg-cobalt/40">
-        <div className="mx-auto max-w-7xl px-6 py-5">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 rounded-full bg-red-500/10 px-4 py-2">
@@ -92,7 +92,7 @@ export function Footer() {
       </div>
 
       {/* MAIN */}
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* BRAND */}
           <div>
@@ -218,7 +218,7 @@ export function Footer() {
 
       {/* BOTTOM */}
       <div className="border-t border-white/5">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-zinc-500 sm:flex-row">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 py-6 text-xs text-zinc-500 sm:flex-row">
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             <span>Todos os sistemas operacionais</span>

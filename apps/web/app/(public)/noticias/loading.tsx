@@ -3,7 +3,7 @@ export default function NoticiasLoading() {
     <main className="min-h-screen bg-surface">
       {/* Header skeleton */}
       <section className="bg-navy px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="h-6 w-32 animate-pulse rounded-xl bg-white/10" />
           <div className="mt-6 h-16 w-96 animate-pulse rounded-2xl bg-white/10" />
           <div className="mt-4 h-5 w-48 animate-pulse rounded-xl bg-white/10" />
@@ -17,7 +17,7 @@ export default function NoticiasLoading() {
 
       {/* Grid skeleton */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} className="overflow-hidden rounded-[36px] border border-black/5 bg-white">

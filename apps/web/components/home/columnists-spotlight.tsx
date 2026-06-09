@@ -6,7 +6,7 @@ import { columnists } from "@/lib/data";
 export function ColumnistsSpotlight() {
   return (
     <section className="relative px-6 pb-14">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         {/* HEADER */}
         <div className="mb-10 flex items-end justify-between">
           <div>

@@ -96,7 +96,7 @@ export default function DenunciasPage() {
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/8 blur-[120px]" />
         <div className="absolute bottom-[-60px] right-[-60px] h-[240px] w-[240px] rounded-full bg-blue-600/10 blur-[100px]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto max-w-[1440px]">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
               <MessageCircle size={22} className="text-gold" />
@@ -129,7 +129,7 @@ export default function DenunciasPage() {
 
       {/* CHANNELS */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="mb-12">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               COMO ENVIAR
@@ -163,7 +163,7 @@ export default function DenunciasPage() {
 
       {/* CTA WHATSAPP */}
       <section className="px-6 pb-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="relative overflow-hidden rounded-[40px] bg-navy p-12">
             <div className="absolute left-[-60px] top-[-60px] h-[240px] w-[240px] rounded-full bg-gold/8 blur-[100px]" />
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-8">

@@ -17,7 +17,7 @@ export function DiaEspecial() {
 
   return (
     <section className="px-4 pb-2 pt-4 md:px-6">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         <div className="overflow-hidden rounded-[28px] border border-gold/15 bg-navy">
           <div className="flex flex-col gap-4 px-5 py-4 md:flex-row md:items-center md:gap-6 md:px-6">
 

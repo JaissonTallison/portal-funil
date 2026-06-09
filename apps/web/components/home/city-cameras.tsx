@@ -58,7 +58,7 @@ export function CityCameras() {
 
   return (
     <section className="px-6 pb-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]">
         <div className="relative overflow-hidden rounded-[40px] bg-navy px-6 py-12 md:px-10">
           {/* ambient glow */}
           <div className="pointer-events-none absolute inset-0">

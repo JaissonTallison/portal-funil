@@ -64,7 +64,7 @@ export function AgendaClient({ events, upcomingDates, featured }: Props) {
     <main className="min-h-screen bg-surface">
       {/* HERO */}
       <div className="bg-navy px-4 py-14 md:px-6 md:py-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1440px]">
           <div className="flex items-center gap-2 text-xs text-white/30">
             <Link href="/" className="transition hover:text-white/60">Início</Link>
             <span>/</span>
@@ -108,7 +108,7 @@ export function AgendaClient({ events, upcomingDates, featured }: Props) {
       {/* DATAS ESPECIAIS */}
       {upcomingDates.length > 0 && (
         <div className="border-b border-gold/10 bg-cobalt px-4 py-4 md:px-6">
-          <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-[1440px]">
             <div className="flex items-center gap-4 overflow-x-auto">
               <span className="shrink-0 text-[10px] font-black uppercase tracking-widest text-gold">
                 Datas especiais
@@ -132,7 +132,7 @@ export function AgendaClient({ events, upcomingDates, featured }: Props) {
         </div>
       )}
 
-      <div className="mx-auto max-w-7xl px-4 py-10 md:px-6 md:py-14">
+      <div className="mx-auto max-w-[1440px] px-4 py-10 md:px-6 md:py-14">
         {/* DESTAQUE */}
         {featured && activeFilter === "all" && search === "" && (
           <div className="mb-12">
