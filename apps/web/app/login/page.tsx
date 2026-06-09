@@ -51,17 +51,14 @@ export default function LoginPage() {
     <main className="flex min-h-screen items-center justify-center bg-surface px-4">
       <div className="w-full max-w-sm">
         {/* LOGO */}
-        <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex items-center justify-center">
-            <Image
-              src="/images/logo-transparent.png"
-              alt="Portal Funil"
-              width={120}
-              height={120}
-              className="object-contain"
-            />
-          </div>
-          <p className="mt-2 text-sm text-slate-500">Acesso restrito à equipe editorial</p>
+        <div className="mb-4 flex justify-center">
+          <Image
+            src="/images/logo-transparent.png"
+            alt="Portal Funil"
+            width={80}
+            height={80}
+            className="object-contain"
+          />
         </div>
 
         {/* FORM */}
@@ -69,6 +66,9 @@ export default function LoginPage() {
           onSubmit={handleSubmit}
           className="space-y-4 rounded-[28px] border border-black/5 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
         >
+          <div className="mb-2 text-center">
+            <p className="text-sm text-slate-500">Acesso restrito à equipe editorial</p>
+          </div>
           <div>
             <label className="mb-2 block text-sm font-bold text-navy">E-mail</label>
             <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
