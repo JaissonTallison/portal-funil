@@ -61,8 +61,7 @@ export default function LoginPage() {
               className="object-contain"
             />
           </div>
-          <h1 className="text-2xl font-black text-navy">Portal Funil</h1>
-          <p className="mt-1 text-sm text-slate-500">Acesso restrito à equipe editorial</p>
+          <p className="mt-2 text-sm text-slate-500">Acesso restrito à equipe editorial</p>
         </div>
 
         {/* FORM */}
