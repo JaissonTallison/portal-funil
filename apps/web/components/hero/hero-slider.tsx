@@ -56,7 +56,7 @@ export function HeroSlider() {
   };
 
   return (
-    <section className="relative overflow-hidden px-4 pt-4 md:px-6 md:pt-6">
+    <section className="relative overflow-hidden px-4 md:px-6">
       <div className="mx-auto max-w-[1440px]">
         <div className="relative overflow-hidden rounded-[40px] shadow-[0_30px_120px_rgba(15,23,42,0.18)]">
 
