@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const PRODUCTION_API_HOST = "funildenoticias.com.br";
+const RAILWAY_API_HOST = "gleaming-fascination-production-102e.up.railway.app";
 
 type RemotePattern = { protocol: "http" | "https"; hostname: string; port?: string };
 
@@ -9,6 +10,7 @@ const remotePatterns: RemotePattern[] = [
   { protocol: "https", hostname: "images.unsplash.com" },
   { protocol: "https", hostname: "i.pravatar.cc" },
   { protocol: "https", hostname: PRODUCTION_API_HOST },
+  { protocol: "https", hostname: RAILWAY_API_HOST },
 ];
 
 // Keep localhost for local development
@@ -31,12 +33,14 @@ const CSP = [
     "https://i.pravatar.cc",
     "https://img.youtube.com",
     `https://${PRODUCTION_API_HOST}`,
+    `https://${RAILWAY_API_HOST}`,
     "http://localhost:3002",
   ].join(" "),
   "font-src 'self' data:",
   [
     "connect-src 'self'",
     `https://${PRODUCTION_API_HOST}`,
+    `https://${RAILWAY_API_HOST}`,
     "http://localhost:3002",
     "http://localhost:3010",
   ].join(" "),
