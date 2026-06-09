@@ -19,13 +19,15 @@ export const NAV_ITEMS = [
 ];
 
 export const BREAKING_NEWS = [
-  "COPA 2026: Dorival convoca seleção com Neymar e cinco estreantes para Mundial",
-  "Congresso aprova regulamentação de apps de transporte com piso salarial garantido",
-  "Trump anuncia acordo nuclear preliminar com Irã após negociações em Roma",
-  "Zona Franca de Manaus bate recorde com R$ 2,1 bi em investimentos no 1° trimestre",
-  "Defesa Civil decreta alerta máximo para chuvas na Zona Norte de Manaus",
-  "Ibovespa supera 140 mil pontos e dólar fecha a R$ 5,04",
-  "Tentativa de golpe de Estado na Bolívia é reprimida — general preso em La Paz",
-  "Brasileiras partem em flotilha humanitária rumo a Gaza",
-  "Amazonas FC vence clássico regional e assume liderança com 18 pontos",
+  "COPA 2026: Neymar fora da estreia contra o Marrocos — lesão na panturrilha preocupa torcida",
+  "Ministério da Saúde suspende vacina do Butantan contra dengue após 42 reações graves",
+  "Amazonas: sistema Paredão prende 4 foragidos com reconhecimento facial em Manaus",
+  "Balança comercial do Brasil registra superávit de US$ 3,247 bi na 1ª semana de junho",
+  "\"Colômbia\" vai a júri popular por mandar matar Bruno Pereira e Dom Phillips no Amazonas",
+  "Irã reafirma controle do Estreito de Ormuz diante das novas sanções da União Europeia",
+  "Papa Leão XIV discursa no Parlamento espanhol e reúne 1,2 milhão em missa em Madri",
+  "Ataques russos em Kiev, Dnipro e Kharkiv deixam ao menos 23 mortos",
+  "Eleições no Peru: Sánchez lidera com 50,1% sobre Fujimori com 94% das urnas apuradas",
+  "Dia dos Namorados deve movimentar R$ 2,84 bilhões no varejo brasileiro — alta de 2,5%",
+  "Câmara de Manaus aprova LDO 2027 em primeira discussão com projeção de R$ 8,4 bi",
 ];

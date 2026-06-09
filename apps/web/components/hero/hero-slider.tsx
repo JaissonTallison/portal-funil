@@ -23,25 +23,25 @@ const SLIDE_DURATION = 5500;
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2070",
-    category: "TECNOLOGIA",
-    label: "Zona Franca",
-    title: "Zona Franca de Manaus bate recorde de faturamento no 1º semestre.",
-    description: "Polo Industrial registra R$ 92 bilhões em receita, alta de 18%. Setor de eletrônicos lidera crescimento.",
+    image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=2070",
+    category: "COPA 2026",
+    label: "Futebol",
+    title: "Neymar fora da estreia do Brasil contra o Marrocos na Copa do Mundo.",
+    description: "Lesão grau 2 na panturrilha deixa o camisa 10 de fora do jogo de 13 de junho. Ancelotti aposta na recuperação para o duelo contra o Haiti.",
   },
   {
-    image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2070",
-    category: "ALERTA",
-    label: "Manaus",
-    title: "Defesa Civil decreta alerta máximo para chuvas em Manaus.",
-    description: "Zona Norte e Leste em risco de alagamento. 12 equipes distribuídas em pontos críticos da cidade.",
+    image: "https://images.unsplash.com/photo-1584744982491-665216d95f8b?q=80&w=2070",
+    category: "SAÚDE",
+    label: "Brasil",
+    title: "Ministério da Saúde suspende vacina do Butantan contra dengue após reações graves.",
+    description: "42 casos severos e 2 óbitos investigados em todo o país. Amazonas monitora 916 vacinados nos próximos 21 dias.",
   },
   {
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070",
-    category: "BRASIL",
-    label: "Política",
-    title: "Congresso aprova regulamentação dos motoristas de aplicativo.",
-    description: "Lei garante piso mínimo, previdência e direitos trabalhistas a mais de 1,7 milhão de trabalhadores.",
+    image: "https://images.unsplash.com/photo-1542889600-399033296d72?q=80&w=2070",
+    category: "MUNDO",
+    label: "Geopolítica",
+    title: "Irã reafirma controle do Estreito de Ormuz diante das sanções europeias.",
+    description: "Teerã reage a nova rodada de sanções da UE enquanto negociações nucleares com Washington permanecem em impasse.",
   },
 ];
 
