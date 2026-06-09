@@ -74,10 +74,10 @@ export default function NovoArtigoPage() {
   return (
     <div className="p-8">
       <div className="mb-6 flex items-center gap-4">
-        <Link href="/admin/artigos" className="rounded-xl p-2 text-slate-400 transition hover:bg-slate-100 hover:text-navy">
+        <Link href="/admin/artigos" className="rounded-xl p-2 text-slate-400 transition hover:bg-slate-100 hover:text-cobalt">
           <ArrowLeft size={18} />
         </Link>
-        <h1 className="text-2xl font-black text-navy">Novo Artigo</h1>
+        <h1 className="text-2xl font-black text-cobalt">Novo Artigo</h1>
       </div>
 
       <form onSubmit={handleSubmit} className="mx-auto max-w-3xl space-y-6">
@@ -209,7 +209,7 @@ export default function NovoArtigoPage() {
           <button
             type="submit"
             disabled={saving}
-            className="flex items-center gap-2 rounded-2xl bg-navy px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt disabled:opacity-60"
+            className="flex items-center gap-2 rounded-2xl bg-cobalt px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt disabled:opacity-60"
           >
             {saving ? <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" /> : "Salvar rascunho"}
           </button>
@@ -240,7 +240,7 @@ export default function NovoArtigoPage() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="mb-1.5 block text-xs font-bold text-navy">{label}</label>
+      <label className="mb-1.5 block text-xs font-bold text-cobalt">{label}</label>
       {children}
     </div>
   );
@@ -251,7 +251,7 @@ function Toggle({ label, checked, onChange }: { label: string; checked: boolean;
     <label className="flex cursor-pointer items-center gap-3">
       <div
         onClick={() => onChange(!checked)}
-        className={`relative h-5 w-9 rounded-full transition ${checked ? "bg-navy" : "bg-slate-200"}`}
+        className={`relative h-5 w-9 rounded-full transition ${checked ? "bg-cobalt" : "bg-slate-200"}`}
       >
         <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform ${checked ? "translate-x-4" : "translate-x-0.5"}`} />
       </div>

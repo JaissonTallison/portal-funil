@@ -60,12 +60,12 @@ export default function AdminEventosPage() {
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black text-navy">Eventos</h1>
+          <h1 className="text-2xl font-black text-cobalt">Eventos</h1>
           <p className="mt-1 text-sm text-slate-500">{total} evento(s) cadastrado(s)</p>
         </div>
         <Link
           href="/admin/eventos/novo"
-          className="flex items-center gap-2 rounded-2xl bg-navy px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
+          className="flex items-center gap-2 rounded-2xl bg-cobalt px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
         >
           <Plus size={16} />
           Novo evento
@@ -75,7 +75,7 @@ export default function AdminEventosPage() {
       <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <div className="h-6 w-6 animate-spin rounded-full border-2 border-navy border-t-transparent" />
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
           </div>
         ) : events.length === 0 ? (
           <div className="py-16 text-center text-sm text-slate-400">Nenhum evento cadastrado.</div>
@@ -98,7 +98,7 @@ export default function AdminEventosPage() {
                     <div className="flex items-center gap-2">
                       {ev.isHighlighted && <Star size={13} className="shrink-0 text-gold" fill="currentColor" />}
                       <div>
-                        <p className="truncate text-sm font-semibold text-navy">{ev.title}</p>
+                        <p className="truncate text-sm font-semibold text-cobalt">{ev.title}</p>
                         <p className="text-xs text-slate-400">{ev.slug}</p>
                       </div>
                     </div>
@@ -117,7 +117,7 @@ export default function AdminEventosPage() {
                     <div className="flex items-center justify-end gap-2">
                       <Link
                         href={`/admin/eventos/${ev.id}/editar`}
-                        className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-navy"
+                        className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-cobalt"
                         title="Editar"
                       >
                         <Pencil size={15} />

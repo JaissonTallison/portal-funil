@@ -77,7 +77,7 @@ export default function AdminSaudePage() {
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black text-navy">Saúde Operacional</h1>
+          <h1 className="text-2xl font-black text-cobalt">Saúde Operacional</h1>
           <p className="mt-1 text-sm text-slate-500">
             {lastChecked ? `Verificado às ${lastChecked.toLocaleTimeString("pt-BR")}` : "Verificando..."}
           </p>
@@ -85,7 +85,7 @@ export default function AdminSaudePage() {
         <button
           onClick={check}
           disabled={loading}
-          className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-navy transition hover:bg-slate-50 disabled:opacity-50"
+          className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-cobalt transition hover:bg-slate-50 disabled:opacity-50"
         >
           <RefreshCw size={14} className={loading ? "animate-spin" : ""} />
           Atualizar
@@ -119,9 +119,9 @@ export default function AdminSaudePage() {
           {(Object.entries(data.services) as [string, string][]).map(([name, status]) => (
             <div key={name} className="rounded-[20px] border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50">
-                <Activity size={18} className="text-navy" />
+                <Activity size={18} className="text-cobalt" />
               </div>
-              <p className="text-sm font-black capitalize text-navy">
+              <p className="text-sm font-black capitalize text-cobalt">
                 {name === "database" ? "Banco de Dados" : name === "redis" ? "Redis (Cache)" : "API"}
               </p>
               <div className="mt-2">
@@ -143,7 +143,7 @@ export default function AdminSaudePage() {
       {/* DETALHES TÉCNICOS */}
       {data && (
         <div className="mt-6 rounded-[20px] border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="mb-3 text-sm font-black text-navy">Detalhes técnicos</h2>
+          <h2 className="mb-3 text-sm font-black text-cobalt">Detalhes técnicos</h2>
           <dl className="grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
             {[
               { label: "Versão", value: data.version },
@@ -153,7 +153,7 @@ export default function AdminSaudePage() {
             ].map(({ label, value }) => (
               <div key={label}>
                 <dt className="text-xs font-bold uppercase tracking-wider text-slate-400">{label}</dt>
-                <dd className="mt-0.5 font-semibold text-navy">{value}</dd>
+                <dd className="mt-0.5 font-semibold text-cobalt">{value}</dd>
               </div>
             ))}
           </dl>

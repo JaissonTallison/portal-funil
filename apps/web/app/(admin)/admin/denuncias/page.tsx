@@ -109,7 +109,7 @@ export default function AdminDenunciasPage() {
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black text-navy">Denúncias</h1>
+          <h1 className="text-2xl font-black text-cobalt">Denúncias</h1>
           <p className="mt-1 text-sm text-slate-500">{total} denúncia(s)</p>
         </div>
       </div>
@@ -118,7 +118,7 @@ export default function AdminDenunciasPage() {
       <div className="mb-6 flex flex-wrap gap-2">
         <button
           onClick={() => setStatusFilter("")}
-          className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${!statusFilter ? "bg-navy text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-navy/20"}`}
+          className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${!statusFilter ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
         >
           Todos
         </button>
@@ -126,7 +126,7 @@ export default function AdminDenunciasPage() {
           <button
             key={s}
             onClick={() => setStatusFilter(s)}
-            className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${statusFilter === s ? "bg-navy text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-navy/20"}`}
+            className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${statusFilter === s ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
           >
             {STATUS_CONFIG[s]?.label ?? s}
           </button>
@@ -155,7 +155,7 @@ export default function AdminDenunciasPage() {
       <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <div className="h-6 w-6 animate-spin rounded-full border-2 border-navy border-t-transparent" />
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
           </div>
         ) : reports.length === 0 ? (
           <div className="py-16 text-center text-sm text-slate-400">Nenhuma denúncia encontrada.</div>
@@ -176,7 +176,7 @@ export default function AdminDenunciasPage() {
                 const sc = STATUS_CONFIG[r.status] ?? STATUS_CONFIG.RECEIVED;
                 return (
                   <tr key={r.id} className="transition hover:bg-slate-50">
-                    <td className="px-5 py-4 font-mono text-sm font-bold text-navy">{r.protocol}</td>
+                    <td className="px-5 py-4 font-mono text-sm font-bold text-cobalt">{r.protocol}</td>
                     <td className="px-5 py-4 text-sm text-slate-600">{TYPE_LABEL[r.type] ?? r.type}</td>
                     <td className="px-5 py-4">
                       <span className={`rounded-lg px-2.5 py-1 text-xs font-bold ${sc.color}`}>{sc.label}</span>
@@ -194,7 +194,7 @@ export default function AdminDenunciasPage() {
                     <td className="px-5 py-4 text-right">
                       <button
                         onClick={() => openDetail(r)}
-                        className="rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-semibold text-navy transition hover:bg-navy hover:text-white"
+                        className="rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-semibold text-cobalt transition hover:bg-cobalt hover:text-white"
                       >
                         Gerenciar
                       </button>
@@ -217,7 +217,7 @@ export default function AdminDenunciasPage() {
                   <AlertTriangle size={16} className="text-amber-500" />
                   <span className="text-xs font-black uppercase tracking-widest text-slate-400">Denúncia</span>
                 </div>
-                <h2 className="mt-1 text-lg font-black text-navy">{detail.report.protocol}</h2>
+                <h2 className="mt-1 text-lg font-black text-cobalt">{detail.report.protocol}</h2>
                 <span className={`mt-1 inline-block rounded-lg px-2.5 py-0.5 text-xs font-bold ${STATUS_CONFIG[detail.report.status]?.color}`}>
                   {STATUS_CONFIG[detail.report.status]?.label ?? detail.report.status}
                 </span>
@@ -231,7 +231,7 @@ export default function AdminDenunciasPage() {
             </div>
 
             <div className="mb-4 rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
-              <p className="font-semibold text-navy">Descrição</p>
+              <p className="font-semibold text-cobalt">Descrição</p>
               <p className="mt-1 leading-relaxed">{detail.report.description}</p>
               {detail.report.location && (
                 <p className="mt-2 text-xs text-slate-500">
@@ -252,7 +252,7 @@ export default function AdminDenunciasPage() {
                 value={detail.notes}
                 onChange={(e) => setDetail((d) => ({ ...d, notes: e.target.value }))}
                 rows={3}
-                className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-navy outline-none focus:border-cobalt"
+                className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-cobalt outline-none focus:border-cobalt"
                 placeholder="Observações sobre a apuração..."
               />
             </div>
@@ -263,7 +263,7 @@ export default function AdminDenunciasPage() {
                 <select
                   value={detail.nextStatus}
                   onChange={(e) => setDetail((d) => ({ ...d, nextStatus: e.target.value }))}
-                  className="w-full appearance-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-navy outline-none focus:border-cobalt"
+                  className="w-full appearance-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-cobalt outline-none focus:border-cobalt"
                 >
                   {(NEXT_STATUSES[detail.report.status] ?? []).map((s) => (
                     <option key={s} value={s}>{STATUS_CONFIG[s]?.label ?? s}</option>
@@ -283,7 +283,7 @@ export default function AdminDenunciasPage() {
               <button
                 onClick={saveStatus}
                 disabled={saving}
-                className="flex-1 rounded-xl bg-navy py-2.5 text-sm font-bold text-white transition hover:bg-cobalt disabled:opacity-50"
+                className="flex-1 rounded-xl bg-cobalt py-2.5 text-sm font-bold text-white transition hover:bg-cobalt disabled:opacity-50"
               >
                 {saving ? "Salvando..." : "Salvar"}
               </button>

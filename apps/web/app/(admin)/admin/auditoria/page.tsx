@@ -57,12 +57,12 @@ export default function AdminAuditoriaPage() {
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black text-navy">Auditoria</h1>
+          <h1 className="text-2xl font-black text-cobalt">Auditoria</h1>
           <p className="mt-1 text-sm text-slate-500">{total} registro(s)</p>
         </div>
         <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2">
           <ShieldCheck size={16} className="text-cobalt" />
-          <span className="text-xs font-bold text-navy">Logs de atividade</span>
+          <span className="text-xs font-bold text-cobalt">Logs de atividade</span>
         </div>
       </div>
 
@@ -70,7 +70,7 @@ export default function AdminAuditoriaPage() {
       <div className="mb-6 flex flex-wrap gap-2">
         <button
           onClick={() => { setEntityFilter(""); setOffset(0); }}
-          className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${!entityFilter ? "bg-navy text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-navy/20"}`}
+          className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${!entityFilter ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
         >
           Todos
         </button>
@@ -78,7 +78,7 @@ export default function AdminAuditoriaPage() {
           <button
             key={e}
             onClick={() => { setEntityFilter(e); setOffset(0); }}
-            className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${entityFilter === e ? "bg-navy text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-navy/20"}`}
+            className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${entityFilter === e ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
           >
             {e}
           </button>
@@ -88,7 +88,7 @@ export default function AdminAuditoriaPage() {
       <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <div className="h-6 w-6 animate-spin rounded-full border-2 border-navy border-t-transparent" />
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
           </div>
         ) : logs.length === 0 ? (
           <div className="py-16 text-center text-sm text-slate-400">Nenhum log encontrado.</div>
@@ -111,7 +111,7 @@ export default function AdminAuditoriaPage() {
                     {new Date(l.createdAt).toLocaleString("pt-BR")}
                   </td>
                   <td className="px-5 py-3">
-                    <p className="text-sm font-semibold text-navy">{l.user?.name ?? "—"}</p>
+                    <p className="text-sm font-semibold text-cobalt">{l.user?.name ?? "—"}</p>
                     <p className="text-xs text-slate-400">{l.userEmail}</p>
                   </td>
                   <td className="px-5 py-3">
@@ -141,14 +141,14 @@ export default function AdminAuditoriaPage() {
             <button
               onClick={() => setOffset((o) => Math.max(0, o - LIMIT))}
               disabled={offset === 0}
-              className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-navy disabled:opacity-40"
+              className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-cobalt disabled:opacity-40"
             >
               Anterior
             </button>
             <button
               onClick={() => setOffset((o) => o + LIMIT)}
               disabled={offset + LIMIT >= total}
-              className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-navy disabled:opacity-40"
+              className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-cobalt disabled:opacity-40"
             >
               Próxima
             </button>

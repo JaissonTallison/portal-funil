@@ -96,12 +96,12 @@ export default function AdminCategoriasPage() {
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black text-navy">Categorias</h1>
+          <h1 className="text-2xl font-black text-cobalt">Categorias</h1>
           <p className="mt-1 text-sm text-slate-500">{categories.length} categorias cadastradas</p>
         </div>
         <button
           onClick={() => { setCreating(true); setError(""); }}
-          className="flex items-center gap-2 rounded-2xl bg-navy px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
+          className="flex items-center gap-2 rounded-2xl bg-cobalt px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
         >
           <Plus size={16} />
           Nova categoria
@@ -115,7 +115,7 @@ export default function AdminCategoriasPage() {
       <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <div className="h-6 w-6 animate-spin rounded-full border-2 border-navy border-t-transparent" />
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
           </div>
         ) : (
           <table className="w-full">
@@ -183,7 +183,7 @@ export default function AdminCategoriasPage() {
                         className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-gold/40"
                       />
                     ) : (
-                      <span className="text-sm font-semibold text-navy">{cat.name}</span>
+                      <span className="text-sm font-semibold text-cobalt">{cat.name}</span>
                     )}
                   </td>
                   <td className="px-5 py-3">
@@ -211,7 +211,7 @@ export default function AdminCategoriasPage() {
                         </>
                       ) : (
                         <>
-                          <button onClick={() => startEdit(cat)} className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-navy" title="Editar">
+                          <button onClick={() => startEdit(cat)} className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-cobalt" title="Editar">
                             <Pencil size={15} />
                           </button>
                           {isAdmin && (

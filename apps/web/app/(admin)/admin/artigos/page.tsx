@@ -95,12 +95,12 @@ export default function AdminArtigosPage() {
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black text-navy">Artigos</h1>
+          <h1 className="text-2xl font-black text-cobalt">Artigos</h1>
           <p className="mt-1 text-sm text-slate-500">{total} artigo(s) encontrado(s)</p>
         </div>
         <Link
           href="/admin/artigos/novo"
-          className="flex items-center gap-2 rounded-2xl bg-navy px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
+          className="flex items-center gap-2 rounded-2xl bg-cobalt px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
         >
           <Plus size={16} />
           Novo artigo
@@ -114,7 +114,7 @@ export default function AdminArtigosPage() {
             key={val}
             onClick={() => setStatusFilter(val)}
             className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
-              statusFilter === val ? "bg-navy text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-navy/20"
+              statusFilter === val ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"
             }`}
           >
             {label}
@@ -126,7 +126,7 @@ export default function AdminArtigosPage() {
       <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <div className="h-6 w-6 animate-spin rounded-full border-2 border-navy border-t-transparent" />
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
           </div>
         ) : articles.length === 0 ? (
           <div className="py-16 text-center text-sm text-slate-400">Nenhum artigo encontrado.</div>
@@ -149,7 +149,7 @@ export default function AdminArtigosPage() {
                 return (
                   <tr key={a.id} className="transition hover:bg-slate-50">
                     <td className="max-w-[220px] px-5 py-4">
-                      <p className="truncate text-sm font-semibold text-navy">{a.title}</p>
+                      <p className="truncate text-sm font-semibold text-cobalt">{a.title}</p>
                       <p className="text-xs text-slate-400">{a.slug}</p>
                     </td>
                     <td className="px-5 py-4 text-sm text-slate-600">{a.category.name}</td>
@@ -210,7 +210,7 @@ export default function AdminArtigosPage() {
                             href={`/noticias/${a.slug}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-navy"
+                            className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-cobalt"
                             title="Ver publicado"
                           >
                             <Eye size={15} />
@@ -218,7 +218,7 @@ export default function AdminArtigosPage() {
                         )}
                         <Link
                           href={`/admin/artigos/${a.id}/editar`}
-                          className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-navy"
+                          className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-cobalt"
                           title="Editar"
                         >
                           <Pencil size={15} />

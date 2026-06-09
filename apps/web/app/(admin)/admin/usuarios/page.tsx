@@ -12,7 +12,7 @@ type User = {
 };
 
 const ROLE_CONFIG: Record<string, { label: string; color: string }> = {
-  ADMIN:      { label: "Admin",      color: "bg-navy text-white" },
+  ADMIN:      { label: "Admin",      color: "bg-cobalt text-white" },
   EDITOR:     { label: "Editor",     color: "bg-cobalt/10 text-cobalt" },
   JOURNALIST: { label: "Jornalista", color: "bg-gold/10 text-yellow-700" },
   READER:     { label: "Leitor",     color: "bg-slate-100 text-slate-500" },
@@ -63,7 +63,7 @@ export default function AdminUsuariosPage() {
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black text-navy">Usuários</h1>
+          <h1 className="text-2xl font-black text-cobalt">Usuários</h1>
           <p className="mt-1 text-sm text-slate-500">{users.length} contas cadastradas</p>
         </div>
       </div>
@@ -75,7 +75,7 @@ export default function AdminUsuariosPage() {
       <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <div className="h-6 w-6 animate-spin rounded-full border-2 border-navy border-t-transparent" />
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
           </div>
         ) : (
           <table className="w-full">
@@ -96,10 +96,10 @@ export default function AdminUsuariosPage() {
                   <tr key={u.id} className="transition hover:bg-slate-50">
                     <td className="px-5 py-4">
                       <div className="flex items-center gap-2">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-navy/5 text-xs font-black text-navy">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-cobalt/5 text-xs font-black text-cobalt">
                           {u.name.charAt(0).toUpperCase()}
                         </div>
-                        <span className="text-sm font-semibold text-navy">
+                        <span className="text-sm font-semibold text-cobalt">
                           {u.name}{isSelf && <span className="ml-1 text-xs text-slate-400">(você)</span>}
                         </span>
                       </div>
@@ -120,7 +120,7 @@ export default function AdminUsuariosPage() {
                           className={`rounded-lg border-0 px-3 py-1.5 text-xs font-bold outline-none cursor-pointer disabled:opacity-50 ${rc.color}`}
                         >
                           {ROLES.map((r) => (
-                            <option key={r} value={r} className="bg-white text-navy">
+                            <option key={r} value={r} className="bg-white text-cobalt">
                               {ROLE_CONFIG[r].label}
                             </option>
                           ))}
