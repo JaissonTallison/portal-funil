@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Eye, EyeOff, LogIn, Mail } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 
@@ -51,8 +52,14 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         {/* LOGO */}
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-navy">
-            <span className="text-2xl font-black text-gold">PF</span>
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center overflow-hidden rounded-3xl bg-navy">
+            <Image
+              src="/images/logo-transparent.png"
+              alt="Portal Funil"
+              width={48}
+              height={48}
+              className="object-contain"
+            />
           </div>
           <h1 className="text-2xl font-black text-navy">Portal Funil</h1>
           <p className="mt-1 text-sm text-slate-500">Acesso restrito à equipe editorial</p>

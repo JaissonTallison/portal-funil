@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { LayoutDashboard, FileText, Calendar, Tag, Users, LogOut, ExternalLink, AlertTriangle, ShieldCheck, Activity } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
@@ -47,8 +48,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside className="fixed inset-y-0 left-0 z-40 flex w-60 flex-col border-r border-slate-200 bg-white">
         {/* LOGO */}
         <div className="flex h-16 items-center gap-3 border-b border-slate-100 px-5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-navy">
-            <span className="text-xs font-black text-gold">PF</span>
+          <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-xl bg-navy">
+            <Image
+              src="/images/logo-transparent.png"
+              alt="Portal Funil"
+              width={24}
+              height={24}
+              className="object-contain"
+            />
           </div>
           <div>
             <p className="text-sm font-black text-navy">Portal Funil</p>
