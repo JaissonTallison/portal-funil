@@ -60,25 +60,31 @@ export function Navbar() {
           </button>
 
           {/* LOGO */}
-          <Link href="/" className="group flex shrink-0 items-center gap-3">
-            <Image
-              src="/images/logo-transparent.png"
-              alt="Funil de Notícias"
-              width={260}
-              height={260}
-              priority
-              className="h-[130px] w-auto object-contain transition duration-300 group-hover:scale-[1.02]"
-            />
-            <div className="hidden lg:block">
-              <span className="block text-[10px] font-black uppercase tracking-[0.38em] text-gold-dark">
-                LIVE INTELLIGENCE
-              </span>
-              <p className="mt-0.5 text-[15px] font-black tracking-tight text-navy">
-                Funil de Notícias
-              </p>
-              <span className="mt-0.5 block text-[12px] text-slate-400">
-                Manaus&nbsp;•&nbsp;Tempo Real
-              </span>
+          <Link href="/" className="group flex shrink-0 items-stretch overflow-hidden rounded-2xl border border-slate-200 transition hover:shadow-md">
+            {/* logo image */}
+            <div className="flex items-center justify-center bg-white px-4 py-2">
+              <Image
+                src="/images/logo-transparent.png"
+                alt="Funil de Notícias"
+                width={260}
+                height={260}
+                priority
+                className="h-[110px] w-auto object-contain transition duration-300 group-hover:scale-[1.02]"
+              />
+            </div>
+            {/* divider + text */}
+            <div className="hidden items-center border-l border-slate-200 bg-white px-5 lg:flex">
+              <div>
+                <span className="block text-[10px] font-black uppercase tracking-[0.38em] text-gold-dark">
+                  LIVE INTELLIGENCE
+                </span>
+                <p className="mt-1 text-[15px] font-black tracking-tight text-navy">
+                  Funil de Notícias
+                </p>
+                <span className="mt-0.5 block text-[12px] text-slate-400">
+                  Manaus&nbsp;•&nbsp;Tempo Real
+                </span>
+              </div>
             </div>
           </Link>
 
