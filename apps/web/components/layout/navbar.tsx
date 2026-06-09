@@ -60,20 +60,18 @@ export function Navbar() {
           </button>
 
           {/* LOGO */}
-          <Link href="/" className="group flex shrink-0 items-stretch overflow-hidden rounded-2xl border border-slate-200 transition hover:shadow-md">
-            {/* logo image */}
-            <div className="flex items-center justify-center bg-white px-4 py-2">
-              <Image
-                src="/images/logo-transparent.png"
-                alt="Funil de Notícias"
-                width={260}
-                height={260}
-                priority
-                className="h-[110px] w-auto object-contain transition duration-300 group-hover:scale-[1.02]"
-              />
-            </div>
+          <Link href="/" className="group flex shrink-0 items-center gap-0">
+            <Image
+              src="/images/logo-transparent.png"
+              alt="Funil de Notícias"
+              width={300}
+              height={300}
+              priority
+              className="h-[130px] w-auto object-contain transition duration-300 group-hover:scale-[1.02]"
+            />
             {/* divider + text */}
-            <div className="hidden items-center border-l border-slate-200 bg-white px-5 lg:flex">
+            <div className="hidden items-center gap-0 lg:flex">
+              <div className="mx-5 h-16 w-px bg-slate-200" />
               <div>
                 <span className="block text-[10px] font-black uppercase tracking-[0.38em] text-gold-dark">
                   LIVE INTELLIGENCE
