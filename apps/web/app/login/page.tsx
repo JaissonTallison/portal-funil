@@ -51,11 +51,13 @@ export default function LoginPage() {
       <div
         className="pointer-events-none fixed inset-0 z-0"
         style={{
-          backgroundImage: "url('/images/logo4k-transparent.png')",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
-          backgroundSize: "80vh",
-          opacity: 0.045,
+          backgroundImage: `repeating-linear-gradient(
+            -55deg,
+            transparent,
+            transparent 18px,
+            rgba(11, 42, 91, 0.045) 18px,
+            rgba(11, 42, 91, 0.045) 19px
+          )`,
         }}
       />
       <div className="relative z-10 w-full max-w-sm">
