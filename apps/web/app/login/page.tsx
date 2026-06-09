@@ -52,12 +52,12 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         {/* LOGO */}
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center overflow-hidden rounded-3xl bg-navy">
+          <div className="mx-auto mb-4 flex items-center justify-center">
             <Image
               src="/images/logo-transparent.png"
               alt="Portal Funil"
-              width={48}
-              height={48}
+              width={120}
+              height={120}
               className="object-contain"
             />
           </div>

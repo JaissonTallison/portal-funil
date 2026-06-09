@@ -48,12 +48,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside className="fixed inset-y-0 left-0 z-40 flex w-60 flex-col border-r border-slate-200 bg-white">
         {/* LOGO */}
         <div className="flex h-16 items-center gap-3 border-b border-slate-100 px-5">
-          <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-xl bg-navy">
+          <div className="flex h-10 w-10 items-center justify-center">
             <Image
               src="/images/logo-transparent.png"
               alt="Portal Funil"
-              width={24}
-              height={24}
+              width={40}
+              height={40}
               className="object-contain"
             />
           </div>
