@@ -35,7 +35,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   if (loading || !user) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-slate-50">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-navy border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
       </div>
     );
   }
@@ -51,21 +51,24 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="flex h-10 w-10 items-center justify-center">
             <Image
               src="/images/logo-transparent.png"
-              alt="Portal Funil"
+              alt="Funil de Notícias"
               width={40}
               height={40}
               className="object-contain"
             />
           </div>
           <div>
-            <p className="text-sm font-black text-navy">Portal Funil</p>
+            <p className="text-sm font-black">
+              <span className="text-cobalt">Funil </span>
+              <span className="text-gold">de Notícias</span>
+            </p>
             <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">Editorial</p>
           </div>
         </div>
 
         {/* USER */}
         <div className="border-b border-slate-100 px-5 py-3">
-          <p className="text-xs font-bold text-navy">{user.name}</p>
+          <p className="text-xs font-bold text-cobalt">{user.name}</p>
           <p className="text-[11px] text-slate-400">{user.role}</p>
         </div>
 
@@ -78,7 +81,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 key={href}
                 href={href}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
-                  active ? "bg-navy text-white" : "text-slate-600 hover:bg-slate-50 hover:text-navy"
+                  active ? "bg-cobalt text-white" : "text-slate-600 hover:bg-slate-50 hover:text-cobalt"
                 }`}
               >
                 <Icon size={16} />
@@ -94,7 +97,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             href="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-500 transition hover:bg-slate-50 hover:text-navy"
+            className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-500 transition hover:bg-slate-50 hover:text-cobalt"
           >
             <ExternalLink size={16} />
             Ver portal

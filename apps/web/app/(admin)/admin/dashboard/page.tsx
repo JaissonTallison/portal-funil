@@ -64,7 +64,7 @@ export default function DashboardPage() {
   if (loading) {
     return (
       <div className="flex h-full items-center justify-center p-16">
-        <div className="h-6 w-6 animate-spin rounded-full border-2 border-navy border-t-transparent" />
+        <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
       </div>
     );
   }
@@ -133,7 +133,7 @@ export default function DashboardPage() {
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black text-navy">Dashboard</h1>
+          <h1 className="text-2xl font-black text-cobalt">Dashboard</h1>
           <p className="mt-1 text-sm text-slate-500">Visão operacional em tempo real</p>
         </div>
         {pendingTotal > 0 && (
@@ -163,10 +163,10 @@ export default function DashboardPage() {
               <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${c.bg}`}>
                 <c.icon size={18} className={c.color} />
               </div>
-              <div className={`text-3xl font-black ${c.urgent ? "text-amber-700" : "text-navy"}`}>
+              <div className={`text-3xl font-black ${c.urgent ? "text-amber-700" : "text-cobalt"}`}>
                 {c.value.toLocaleString("pt-BR")}
               </div>
-              <div className="mt-1 text-sm font-semibold text-navy">{c.label}</div>
+              <div className="mt-1 text-sm font-semibold text-cobalt">{c.label}</div>
               <div className="mt-0.5 text-xs text-slate-400">{c.sub}</div>
             </div>
           );
@@ -182,8 +182,8 @@ export default function DashboardPage() {
       <div className="rounded-[20px] border border-slate-200 bg-white shadow-sm">
         <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
           <div className="flex items-center gap-2">
-            <TrendingUp size={16} className="text-navy" />
-            <h2 className="text-sm font-black text-navy">Artigos recentes</h2>
+            <TrendingUp size={16} className="text-cobalt" />
+            <h2 className="text-sm font-black text-cobalt">Artigos recentes</h2>
           </div>
           <Link href="/admin/artigos" className="text-xs font-bold text-cobalt hover:underline">
             Ver todos
@@ -203,7 +203,7 @@ export default function DashboardPage() {
             {stats.recentArticles.map((a) => (
               <tr key={a.id} className="transition hover:bg-slate-50">
                 <td className="max-w-[260px] px-5 py-3">
-                  <p className="truncate text-sm font-semibold text-navy">{a.title}</p>
+                  <p className="truncate text-sm font-semibold text-cobalt">{a.title}</p>
                 </td>
                 <td className="px-5 py-3 text-sm text-slate-500">{a.category.name}</td>
                 <td className="px-5 py-3 text-sm text-slate-500">{a.author.name}</td>
@@ -223,7 +223,7 @@ export default function DashboardPage() {
       <div className="mt-4 flex justify-end">
         <Link
           href="/admin/saude"
-          className="flex items-center gap-2 text-xs font-semibold text-slate-400 transition hover:text-navy"
+          className="flex items-center gap-2 text-xs font-semibold text-slate-400 transition hover:text-cobalt"
         >
           <Activity size={13} />
           Ver saúde operacional
