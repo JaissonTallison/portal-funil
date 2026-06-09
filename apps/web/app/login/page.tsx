@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { Eye, EyeOff, LogIn, Mail } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 
@@ -50,24 +49,19 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-surface px-4">
       <div className="w-full max-w-sm">
-        {/* LOGO */}
-        <div className="mb-4 flex justify-center">
-          <Image
-            src="/images/logo-transparent.png"
-            alt="Portal Funil"
-            width={80}
-            height={80}
-            className="object-contain"
-          />
-        </div>
-
         {/* FORM */}
         <form
           onSubmit={handleSubmit}
           className="space-y-4 rounded-[28px] border border-black/5 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
         >
-          <div className="mb-2 text-center">
-            <p className="text-sm text-slate-500">Acesso restrito à equipe editorial</p>
+          <div className="mb-4 text-center">
+            <h1 className="text-3xl font-black tracking-tight">
+              <span className="text-navy">Funil</span>
+              <span className="text-gold"> de</span>
+              <br />
+              <span className="text-gold">Notícias</span>
+            </h1>
+            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Área editorial</p>
           </div>
           <div>
             <label className="mb-2 block text-sm font-bold text-navy">E-mail</label>
