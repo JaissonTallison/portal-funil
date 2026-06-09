@@ -64,7 +64,7 @@ export default function LoginPage() {
             <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Área editorial</p>
           </div>
           <div>
-            <label className="mb-2 block text-sm font-bold text-navy">E-mail</label>
+            <label className="mb-2 block text-sm font-bold text-cobalt">E-mail</label>
             <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
               <Mail size={16} className="shrink-0 text-slate-400" />
               <input
@@ -80,7 +80,7 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label className="mb-2 block text-sm font-bold text-navy">Senha</label>
+            <label className="mb-2 block text-sm font-bold text-cobalt">Senha</label>
             <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
               <input
                 type={showPassword ? "text" : "password"}
@@ -109,7 +109,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={submitting}
-            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-navy px-5 py-3.5 text-sm font-black text-white transition hover:bg-cobalt disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-cobalt px-5 py-3.5 text-sm font-black text-white transition hover:bg-navy disabled:opacity-60"
           >
             {submitting ? (
               <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
