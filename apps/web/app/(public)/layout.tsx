@@ -10,8 +10,8 @@ export default function PublicLayout({
   return (
     <>
       <Navbar />
-      {/* pt compensa navbar fixo: mobile ~120px, desktop topbar(120) + catNav(52) = 172px */}
-      <div className="pt-[120px] lg:pt-[172px]">
+      {/* pt compensa navbar fixo: mobile ~140px, desktop topbar(140) + catNav(52) = 192px */}
+      <div className="pt-[140px] lg:pt-[192px]">
         <BreakingNews />
         {children}
       </div>

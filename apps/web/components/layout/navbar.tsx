@@ -48,7 +48,7 @@ export function Navbar() {
       <header className="fixed left-0 top-0 z-50 w-full border-b border-slate-200 bg-white shadow-[0_2px_24px_rgba(15,23,42,0.06)]">
 
         {/* TOP BAR */}
-        <div className="mx-auto flex h-[120px] max-w-[1920px] items-center justify-between px-4 lg:px-8">
+        <div className="mx-auto flex h-[140px] max-w-[1920px] items-center justify-between px-4 lg:px-8">
 
           {/* HAMBURGER (mobile) */}
           <button
@@ -67,16 +67,16 @@ export function Navbar() {
               width={260}
               height={260}
               priority
-              className="h-[110px] w-auto object-contain transition duration-300 group-hover:scale-[1.02]"
+              className="h-[130px] w-auto object-contain transition duration-300 group-hover:scale-[1.02]"
             />
             <div className="hidden lg:block">
-              <span className="block text-[9px] font-black uppercase tracking-[0.42em] text-gold-dark">
+              <span className="block text-[10px] font-black uppercase tracking-[0.38em] text-gold-dark">
                 LIVE INTELLIGENCE
               </span>
-              <p className="mt-0.5 text-[13px] font-black tracking-tight text-navy">
+              <p className="mt-0.5 text-[15px] font-black tracking-tight text-navy">
                 Funil de Notícias
               </p>
-              <span className="mt-0.5 block text-[11px] text-slate-400">
+              <span className="mt-0.5 block text-[12px] text-slate-400">
                 Manaus&nbsp;•&nbsp;Tempo Real
               </span>
             </div>
@@ -103,9 +103,16 @@ export function Navbar() {
           <div className="flex shrink-0 items-center gap-2.5">
             <Link
               href="/ao-vivo"
-              className="hidden items-center gap-1.5 rounded-2xl border border-red-100 bg-red-50 px-4 py-2.5 text-xs font-black uppercase tracking-wide text-red-600 transition hover:bg-red-100 sm:flex"
+              className="hidden items-center gap-2 rounded-2xl border border-red-200 px-4 py-2.5 text-xs font-black uppercase tracking-wide text-red-600 transition hover:bg-red-50 sm:flex"
             >
-              <Radio size={13} className="animate-pulse" />
+              <span className="flex items-center gap-0.5 text-[10px] font-black text-red-500">
+                <span>((</span>
+                <span className="relative flex h-2 w-2 items-center justify-center">
+                  <span className="absolute h-full w-full animate-ping rounded-full bg-red-500 opacity-60" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                </span>
+                <span>))</span>
+              </span>
               AO VIVO
             </Link>
 
@@ -141,7 +148,7 @@ export function Navbar() {
 
         {/* CATEGORY NAV */}
         <div className="hidden border-t border-slate-100 lg:block">
-          <div className="scrollbar-hide mx-auto flex max-w-[1920px] items-center gap-0 overflow-x-auto px-6">
+          <div className="scrollbar-hide mx-auto flex w-full max-w-[1920px] items-stretch justify-between overflow-x-auto px-2">
 
             {/* "Todas" */}
             <NavItem
@@ -265,7 +272,7 @@ function NavItem({ href, label, icon: Icon, active }: {
   return (
     <Link
       href={href}
-      className={`group relative flex flex-col items-center gap-1 whitespace-nowrap px-4 py-3 text-[12px] font-semibold transition ${
+      className={`group relative flex flex-1 flex-col items-center justify-center gap-1 whitespace-nowrap py-3 text-[12px] font-semibold transition ${
         active ? "text-navy" : "text-slate-500 hover:text-navy"
       }`}
     >
