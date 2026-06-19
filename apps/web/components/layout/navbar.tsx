@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import {
   Bell, LogIn, Menu, Radio, Search, X, Crown,
   Home, Landmark, CircleDot, ShieldCheck, BarChart2,
-  Monitor, Heart, Globe, PenLine, Star, HelpCircle, Tag,
+  Monitor, Heart, Globe, PenLine, Star, HelpCircle, Tag, Car,
 } from "lucide-react";
 import { useState } from "react";
 import { NAV_ITEMS } from "@/lib/constants";
@@ -26,6 +26,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   colunas:       PenLine,
   famosos:       Star,
   curiosidades:  HelpCircle,
+  automotors:    Car,
   classificados: Tag,
 };
 

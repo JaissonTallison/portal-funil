@@ -17,6 +17,7 @@ const CATEGORIES = [
   { slug: 'colunas',       name: 'Colunas' },
   { slug: 'famosos',       name: 'Famosos' },
   { slug: 'curiosidades',  name: 'Curiosidades' },
+  { slug: 'automotors',    name: 'Funil Automotors' },
 ];
 
 const EVENTS = [
@@ -201,6 +202,7 @@ A lentidão afeta principalmente o sentido Centro-Zona Norte.`,
   const economiaCategory = await prisma.category.findUnique({ where: { slug: 'economia' } });
   const tecnologiaCategory = await prisma.category.findUnique({ where: { slug: 'tecnologia' } });
   const saudeCategory    = await prisma.category.findUnique({ where: { slug: 'saude' } });
+  const automotorsCategory = await prisma.category.findUnique({ where: { slug: 'automotors' } });
 
   const editorialArticles = [
     {
@@ -485,6 +487,174 @@ Golden State Warriors venceu o jogo 7 por 112 a 108 e conquistou o título da NB
     });
   }
   console.log(`  ✓ ${editorialArticles.length} artigos editoriais criados`);
+
+  // 3c. Artigos Funil Automotors
+  console.log('  → Criando artigos do Funil Automotors...');
+  const automotorsArticles = [
+    {
+      slug: 'venda-de-veiculos-novos-no-brasil-cresce-12-em-maio-de-2026-aponta-fenabrave',
+      title: 'Venda de veículos novos no Brasil cresce 12% em maio de 2026, aponta Fenabrave',
+      description: 'O resultado é o melhor para o mês desde 2019, impulsionado pela queda nos juros do financiamento e pelo lançamento de novos modelos populares.',
+      content: `O mercado automotivo brasileiro emplacou 215,4 mil veículos novos em maio de 2026, alta de 12% em relação ao mesmo mês do ano anterior, segundo dados da Federação Nacional da Distribuição de Veículos Automotores (Fenabrave).
+
+O resultado é o melhor para o mês de maio desde 2019, antes da pandemia, e consolida a recuperação do setor ao longo do primeiro semestre. Os SUVs compactos continuam como a categoria mais procurada, respondendo por quase um terço das vendas.
+
+Entre os fatores que impulsionaram o desempenho, especialistas destacam a redução gradual da taxa de financiamento de veículos e o lançamento de novos modelos com motorização flex-híbrida, que ampliaram as opções para o consumidor.
+
+Em Manaus, as concessionárias da capital registraram alta de 9% nas vendas no período, segundo o Sindicato dos Distribuidores de Veículos do Amazonas, com destaque para picapes e SUVs compactos.`,
+      image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-06-09T08:00:00Z'),
+      readTime: 3,
+      views: 980,
+      isFeatured: true,
+      authorId: admin.id,
+      categoryId: automotorsCategory!.id,
+    },
+    {
+      slug: 'nova-fiat-pulse-2027-chega-ao-brasil-com-versao-hibrida-e-pacote-de-seguranca-ampliado',
+      title: 'Nova Fiat Pulse 2027 chega ao Brasil com versão híbrida e pacote de segurança ampliado',
+      description: 'O SUV compacto da Fiat ganha motorização híbrida flex inédita na categoria e passa a oferecer frenagem autônoma de série em todas as versões.',
+      content: `A Fiat apresentou a nova geração do Pulse para o mercado brasileiro, trazendo pela primeira vez uma versão híbrida flex no segmento de SUVs compactos nacionais.
+
+O novo sistema combina um motor 1.0 turbo flex com um motor elétrico, prometendo redução de até 18% no consumo de combustível em ciclo urbano sem perda de desempenho. A montadora também ampliou os itens de série, com frenagem autônoma de emergência disponível em toda a linha.
+
+O design recebeu retoques na frente e nas lanternas traseiras, além de um novo painel digital de 10,2 polegadas com integração sem fio para Apple CarPlay e Android Auto.
+
+A Fiat informou que a Pulse híbrida chega às concessionárias brasileiras no segundo semestre de 2026, com preços a partir de R$ 119.990.`,
+      image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-06-10T09:30:00Z'),
+      readTime: 3,
+      views: 1340,
+      authorId: admin.id,
+      categoryId: automotorsCategory!.id,
+    },
+    {
+      slug: 'sete-cuidados-essenciais-para-proteger-o-carro-na-temporada-de-chuvas-em-manaus',
+      title: '7 cuidados essenciais para proteger o carro na temporada de chuvas em Manaus',
+      description: 'Mecânicos da capital alertam para revisão de pneus, freios e sistema elétrico antes do período mais chuvoso do ano na região amazônica.',
+      content: `Com a intensificação das chuvas em Manaus, oficinas mecânicas da capital relatam aumento na procura por revisões preventivas. Especialistas listam os cuidados essenciais para evitar problemas e acidentes nas ruas alagadas da cidade.
+
+O primeiro ponto de atenção é o estado dos pneus: sulcos rasos reduzem drasticamente a aderência em pista molhada e aumentam o risco de aquaplanagem. A recomendação é trocar os pneus quando a profundidade dos sulcos chegar a 1,6 mm.
+
+Os freios também merecem atenção redobrada — pastilhas desgastadas aumentam a distância de frenagem em piso úmido. Outro ponto crítico é o sistema elétrico: para-brisas embaçados e faróis com baixa luminosidade comprometem a visibilidade durante temporais.
+
+Por fim, mecânicos recomendam verificar a vedação das portas e do porta-malas, evitar atravessar áreas alagadas com a água acima do meio da roda, e manter o nível do óleo e do fluido de freio sempre dentro do recomendado pelo fabricante.`,
+      image: 'https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-06-11T10:00:00Z'),
+      readTime: 4,
+      views: 760,
+      authorId: admin.id,
+      categoryId: automotorsCategory!.id,
+    },
+    {
+      slug: 'vendas-de-carros-eletrificados-no-brasil-batem-recorde-e-superam-15-do-mercado-total',
+      title: 'Vendas de carros eletrificados no Brasil batem recorde e superam 15% do mercado total',
+      description: 'BYD, GWM e Volvo lideram a expansão dos elétricos e híbridos no país, impulsionada pela ampliação da rede de eletropostos e incentivos fiscais.',
+      content: `As vendas de veículos elétricos e híbridos no Brasil atingiram 15,3% do total de carros novos comercializados em 2026, segundo a Associação Brasileira do Veículo Elétrico (ABVE), um recorde histórico para o país.
+
+A BYD lidera o segmento com cerca de 40% de participação, seguida por GWM e Volvo. O crescimento é atribuído à ampliação da rede pública e privada de eletropostos, que já passa de 12 mil pontos de recarga em todo o território nacional.
+
+Incentivos fiscais estaduais e a redução de impostos de importação para elétricos também contribuíram para tornar os modelos mais competitivos frente aos veículos a combustão equivalentes.
+
+No Amazonas, a infraestrutura de recarga ainda é incipiente, com pouco mais de 20 eletropostos instalados, concentrados majoritariamente em Manaus — um dos principais desafios apontados por especialistas para a popularização da tecnologia na região Norte.`,
+      image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-06-12T11:00:00Z'),
+      readTime: 4,
+      views: 1120,
+      authorId: admin.id,
+      categoryId: automotorsCategory!.id,
+    },
+    {
+      slug: 'honda-amplia-producao-em-manaus-e-lanca-nova-cg-160-2027-com-painel-digital',
+      title: 'Honda amplia produção em Manaus e lança nova CG 160 2027 com painel digital',
+      description: 'A moto mais vendida do Brasil ganha painel totalmente digital, novo desenho de farol e injeção eletrônica revisada para maior economia de combustível.',
+      content: `A Honda anunciou a nova geração da CG 160, a motocicleta mais vendida do Brasil há mais de uma década, com produção concentrada na fábrica da montadora no Distrito Industrial de Manaus.
+
+A atualização traz painel de instrumentos totalmente digital, novo desenho de farol em LED e revisão na injeção eletrônica, que passa a entregar redução de 6% no consumo de combustível em ciclo combinado.
+
+Para acompanhar o lançamento, a Honda confirmou ampliação da linha de produção em Manaus, com investimento adicional na planta que já emprega mais de 6 mil trabalhadores diretos no Polo Industrial de Duas Rodas.
+
+A nova CG 160 chega às concessionárias em julho de 2026, com preço sugerido a partir de R$ 14.490 na versão de entrada.`,
+      image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-06-13T08:30:00Z'),
+      readTime: 3,
+      views: 1540,
+      authorId: admin.id,
+      categoryId: automotorsCategory!.id,
+    },
+    {
+      slug: 'volvo-apresenta-novo-caminhao-eletrico-para-o-mercado-brasileiro-de-cargas',
+      title: 'Volvo apresenta novo caminhão elétrico para o mercado brasileiro de cargas',
+      description: 'Modelo promete autonomia de até 300 km por carga e chega ao país em 2027, mirando frotas de logística urbana e distribuição de curta distância.',
+      content: `A Volvo Trucks apresentou ao mercado brasileiro seu novo caminhão 100% elétrico voltado para operações de logística urbana e distribuição de curta e média distância.
+
+Segundo a montadora, o modelo tem autonomia de até 300 km por carga completa e suporta recarga rápida em cerca de 90 minutos. A capacidade de carga útil é equivalente à dos modelos a diesel da mesma categoria, sem perda de eficiência operacional.
+
+A chegada ao Brasil está prevista para o início de 2027, com foco inicial em frotas de empresas de e-commerce e distribuidoras de bebidas e alimentos nos grandes centros urbanos.
+
+A Volvo também anunciou parceria com fabricantes de eletropostos para instalar pontos de recarga rápida em centros de distribuição de clientes-piloto nas regiões Sudeste e Sul.`,
+      image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-06-14T09:00:00Z'),
+      readTime: 3,
+      views: 690,
+      authorId: admin.id,
+      categoryId: automotorsCategory!.id,
+    },
+    {
+      slug: 'volkswagen-convoca-recall-de-mais-de-40-mil-unidades-do-novo-polo-por-falha-no-airbag',
+      title: 'Volkswagen convoca recall de mais de 40 mil unidades do Novo Polo por falha no airbag',
+      description: 'A montadora identificou defeito no módulo do airbag do motorista que pode impedir o acionamento correto em caso de colisão. Reparo é gratuito.',
+      content: `A Volkswagen do Brasil convocou recall de 41.280 unidades do Novo Polo, fabricadas entre janeiro de 2025 e março de 2026, após identificar um defeito no módulo do airbag do motorista.
+
+Segundo a montadora, em condições específicas o componente pode não acionar corretamente em caso de colisão frontal, comprometendo a proteção do condutor. Nenhum acidente relacionado à falha foi registrado até o momento.
+
+Os proprietários dos veículos afetados serão notificados por carta e podem verificar se o chassi está na lista de recall no site oficial da Volkswagen ou em qualquer concessionária autorizada da marca.
+
+O reparo, que consiste na substituição do módulo do airbag, é gratuito e tem duração estimada de uma hora. A Volkswagen recomenda que os proprietários agendem a revisão o mais rápido possível.`,
+      image: 'https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-06-15T07:00:00Z'),
+      readTime: 3,
+      views: 2030,
+      authorId: admin.id,
+      categoryId: automotorsCategory!.id,
+    },
+    {
+      slug: 'polo-industrial-de-duas-rodas-de-manaus-bate-recorde-historico-de-producao-em-2026',
+      title: 'Polo Industrial de Duas Rodas de Manaus bate recorde histórico de produção em 2026',
+      description: 'Fabricantes instaladas na Zona Franca produziram mais de 1,8 milhão de motocicletas neste ano, consolidando Manaus como maior polo do tipo na América Latina.',
+      content: `O Polo Industrial de Duas Rodas de Manaus registrou produção histórica em 2026, com mais de 1,8 milhão de motocicletas fabricadas até maio, segundo dados da Associação Brasileira dos Fabricantes de Motocicletas, Ciclomotores, Motonetas, Bicicletas e Similares (Abraciclo).
+
+O resultado representa alta de 14% em relação ao mesmo período do ano anterior e consolida Manaus como o maior polo de produção de motocicletas da América Latina, concentrando montadoras como Honda, Yamaha e Dafra.
+
+O setor é um dos pilares da economia do Amazonas, respondendo por cerca de 80 mil empregos diretos e indiretos na capital, segundo a Federação das Indústrias do Estado do Amazonas (Fieam).
+
+Representantes do setor atribuem o crescimento à demanda por mobilidade urbana de baixo custo e à expansão das entregas por aplicativo, que impulsionaram as vendas de modelos de entrada em todo o país.`,
+      image: 'https://images.unsplash.com/photo-1558980664-10e7170b5df9?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-06-16T08:00:00Z'),
+      readTime: 4,
+      views: 1280,
+      isFeatured: true,
+      authorId: admin.id,
+      categoryId: automotorsCategory!.id,
+    },
+  ];
+
+  for (const article of automotorsArticles) {
+    await prisma.article.upsert({
+      where: { slug: article.slug },
+      update: {},
+      create: article,
+    });
+  }
+  console.log(`  ✓ ${automotorsArticles.length} artigos do Funil Automotors criados`);
 
   // 4. Events
   console.log('  → Criando eventos...');

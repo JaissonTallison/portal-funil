@@ -16,6 +16,7 @@ export const CATEGORIES: Category[] = [
   { slug: "colunas", name: "Colunas" },
   { slug: "famosos", name: "Famosos" },
   { slug: "curiosidades", name: "Curiosidades" },
+  { slug: "automotors", name: "Funil Automotors" },
 ];
 
 export function getCategoryName(slug: string): string {

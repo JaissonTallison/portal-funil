@@ -15,6 +15,7 @@ export const NAV_ITEMS = [
   { label: "Colunas", slug: "colunas" },
   { label: "Famosos", slug: "famosos" },
   { label: "Curiosidades", slug: "curiosidades" },
+  { label: "Funil Automotors", slug: "automotors" },
   { label: "Classificados", slug: "classificados" },
 ];
 
