@@ -107,7 +107,8 @@ export default async function ArticlePage({ params }: Props) {
           alt={article.title}
           fill
           priority
-          className="object-cover opacity-50"
+          sizes="100vw"
+          className="object-cover object-[center_30%] opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent" />
 
