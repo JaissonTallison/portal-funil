@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Flame, TrendingUp } from "lucide-react";
-import { getAllArticles, getCategoryName } from "@/services/articles.service";
+import { getNewsArticles, getCategoryName } from "@/services/articles.service";
 import type { Article } from "@/types/article";
 
 const LABEL_OVERRIDES: Record<string, string> = { policial: "Segurança" };
@@ -23,7 +23,7 @@ function buildTopics(articles: Article[]) {
 }
 
 export async function TrendingTopics() {
-  const topics = buildTopics(await getAllArticles());
+  const topics = buildTopics(await getNewsArticles());
   if (topics.length === 0) return null;
 
   return (

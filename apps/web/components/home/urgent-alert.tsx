@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { ArrowUpRight, Siren } from "lucide-react";
-import { getAllArticles } from "@/services/articles.service";
+import { getNewsArticles } from "@/services/articles.service";
 import type { Article } from "@/types/article";
 
 const MAX_AGE_MS = 48 * 60 * 60 * 1000;
 
 export async function UrgentAlert() {
-  const articles = await getAllArticles();
+  const articles = await getNewsArticles();
   const byDate = (a: Article, b: Article) =>
     new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
   const isRecent = (a: Article) => Date.now() - new Date(a.publishedAt).getTime() <= MAX_AGE_MS;

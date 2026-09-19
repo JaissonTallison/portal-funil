@@ -11,14 +11,14 @@ import {
 } from "lucide-react";
 import { getManausWeather } from "@/lib/weather";
 import { timeAgo } from "@/lib/utils";
-import { HERO_SLUGS, pickLiveLead } from "@/lib/home-highlights";
-import { getAllArticles } from "@/services/articles.service";
+import { HERO_SLUGS, pickDiverse, pickLiveLead } from "@/lib/home-highlights";
+import { getNewsArticles } from "@/services/articles.service";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const FEED_ITEMS = 5;
 
 export async function LiveExperience() {
-  const [articles, weather] = await Promise.all([getAllArticles(), getManausWeather()]);
+  const [articles, weather] = await Promise.all([getNewsArticles(), getManausWeather()]);
   // Destaque e feed evitam as matérias que já estão no carrossel principal.
   const latest = articles.filter((a) => !HERO_SLUGS.includes(a.slug)).sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
@@ -152,7 +152,7 @@ export async function LiveExperience() {
 
             {/* FEED */}
             <div className="mt-10 space-y-5">
-              {latest.filter((a) => a.slug !== lead.slug).slice(0, FEED_ITEMS).map((item, index) => (
+              {pickDiverse(latest.filter((a) => a.slug !== lead.slug), FEED_ITEMS).map((item, index) => (
                 <Link
                   key={item.id}
                   href={`/noticias/${item.slug}`}

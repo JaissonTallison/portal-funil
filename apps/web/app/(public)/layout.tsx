@@ -1,7 +1,7 @@
 import { BreakingNews } from "@/components/layout/breaking-news";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { getAllArticles } from "@/services/articles.service";
+import { getNewsArticles } from "@/services/articles.service";
 
 const TICKER_MAX_AGE_MS = 72 * 60 * 60 * 1000;
 const TICKER_MAX_ITEMS = 10;
@@ -11,7 +11,7 @@ export default async function PublicLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const articles = await getAllArticles();
+  const articles = await getNewsArticles();
   const latest = [...articles].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );

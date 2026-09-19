@@ -1,61 +1,53 @@
 import {
-  Activity,
   AlertTriangle,
+  Camera,
   CloudRain,
   Droplets,
-  Radio,
+  Sun,
   Thermometer,
   TrendingDown,
   TrendingUp,
   TriangleAlert,
   Wind,
 } from "lucide-react";
+import { aqiLevel, uvLevel } from "@/lib/levels";
+import { getManausAirQuality, getManausConditions } from "@/lib/weather";
+import type { Article } from "@/types/article";
 
-const cards = [
-  {
-    title: "Ocorrências ativas",
-    value: "148",
-    trend: "+12",
-    trendUp: true,
-    icon: TriangleAlert,
-    accentColor: "text-orange-500",
-    accentBg: "bg-orange-50",
-    glowColor: "bg-orange-400/10",
-    desc: "Nas últimas 2h",
-  },
-  {
-    title: "Transmissões ao vivo",
-    value: "12",
-    trend: "+3",
-    trendUp: true,
-    icon: Radio,
-    accentColor: "text-red-500",
-    accentBg: "bg-red-50",
-    glowColor: "bg-red-400/10",
-    desc: "Canais ativos agora",
-  },
-  {
-    title: "Sensores urbanos",
-    value: "2.4k",
-    trend: "-18",
-    trendUp: false,
-    icon: Activity,
-    accentColor: "text-emerald-500",
-    accentBg: "bg-emerald-50",
-    glowColor: "bg-emerald-400/10",
-    desc: "Online e reportando",
-  },
-];
+const INCIDENT_CATEGORIES = ["policial", "transito", "alerta", "clima"];
+const DAY_MS = 24 * 60 * 60 * 1000;
 
-const weatherData = {
-  temp: "29°C",
-  feelsLike: "34°C",
-  humidity: "78%",
-  airQuality: "Boa",
-  alert: "Chuva forte às 16h",
+type Props = {
+  articles: Article[];
+  /** Quantidade de transmissões ao vivo disponíveis (câmeras da cidade). */
+  cameraCount: number;
 };
 
-export function OperationalGrid() {
+export async function OperationalGrid({ articles, cameraCount }: Props) {
+  const [conditions, air] = await Promise.all([getManausConditions(), getManausAirQuality()]);
+
+  const now = Date.now();
+  const incidents = articles.filter((a) => INCIDENT_CATEGORIES.includes(a.category));
+  const last24h = incidents.filter((a) => now - new Date(a.publishedAt).getTime() <= DAY_MS).length;
+  const previous24h = incidents.filter((a) => {
+    const age = now - new Date(a.publishedAt).getTime();
+    return age > DAY_MS && age <= 2 * DAY_MS;
+  }).length;
+  const delta = last24h - previous24h;
+
+  const aqi = air ? aqiLevel(air.aqi) : null;
+  const uv = conditions ? uvLevel(conditions.uvMax) : null;
+
+  const peakRain = conditions
+    ? conditions.nextHours.reduce((max, h) => (h.rainChance > max.rainChance ? h : max))
+    : null;
+  const rainAlert =
+    peakRain && peakRain.rainChance >= 50
+      ? `Chuva provável às ${peakRain.hour} (${peakRain.rainChance}%)`
+      : peakRain
+        ? "Sem previsão de chuva forte nas próximas horas"
+        : null;
+
   return (
     <section className="relative z-10 px-6 pb-14">
       <div className="mx-auto max-w-[1440px]">
@@ -77,8 +69,8 @@ export function OperationalGrid() {
             </h2>
 
             <p className="mt-4 max-w-2xl text-lg text-slate-500">
-              Dados urbanos, clima, trânsito e monitoramento operacional em tempo
-              real.
+              Clima, qualidade do ar, ocorrências noticiadas e transmissões ao vivo de
+              Manaus, com dados de fontes públicas e do Portal Funil.
             </p>
           </div>
         </div>
@@ -95,89 +87,151 @@ export function OperationalGrid() {
               </div>
 
               <h3 className="mt-6 text-5xl font-black tracking-[-0.05em] text-navy">
-                {weatherData.temp}
+                {conditions ? `${conditions.temperature}°C` : "—"}
               </h3>
 
               <span className="mt-2 block text-sm font-semibold text-slate-600">
-                Monitoramento climático
+                {conditions ? `Manaus agora · ${conditions.description}` : "Clima indisponível no momento"}
               </span>
 
-              {/* MINI STATS */}
-              <div className="mt-4 grid grid-cols-2 gap-2">
-                <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
-                  <Thermometer size={11} className="text-orange-400" />
-                  <span className="text-[10px] font-bold text-slate-600">Sensação {weatherData.feelsLike}</span>
+              {conditions && (
+                <div className="mt-4 grid grid-cols-2 gap-2">
+                  <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
+                    <Thermometer size={11} className="text-orange-400" />
+                    <span className="text-[10px] font-bold text-slate-600">Sensação {conditions.feelsLike}°</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
+                    <Droplets size={11} className="text-sky-400" />
+                    <span className="text-[10px] font-bold text-slate-600">Umidade {conditions.humidity}%</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
+                    <Wind size={11} className="text-emerald-400" />
+                    <span className="text-[10px] font-bold text-slate-600">
+                      Ar: {aqi ? aqi.label : "—"}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
+                    <Wind size={11} className="text-slate-400" />
+                    <span className="text-[10px] font-bold text-slate-600">Vento {conditions.windKmh} km/h</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
-                  <Droplets size={11} className="text-sky-400" />
-                  <span className="text-[10px] font-bold text-slate-600">Umidade {weatherData.humidity}</span>
-                </div>
-                <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
-                  <Wind size={11} className="text-emerald-400" />
-                  <span className="text-[10px] font-bold text-slate-600">Ar: {weatherData.airQuality}</span>
-                </div>
-                <div className="flex items-center gap-1.5 rounded-xl bg-amber-50 px-2.5 py-1.5">
-                  <AlertTriangle size={11} className="text-amber-500" />
-                  <span className="text-[10px] font-bold text-amber-700">Alerta</span>
-                </div>
-              </div>
+              )}
 
-              {/* ALERT */}
-              <div className="mt-3 flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2">
-                <AlertTriangle size={12} className="shrink-0 text-amber-500" />
-                <span className="text-[11px] font-semibold text-amber-800">{weatherData.alert}</span>
-              </div>
+              {rainAlert && (
+                <div className="mt-3 flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2">
+                  <AlertTriangle size={12} className="shrink-0 text-amber-500" />
+                  <span className="text-[11px] font-semibold text-amber-800">{rainAlert}</span>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* OTHER CARDS */}
-          {cards.map((card) => {
-            const Icon = card.icon;
-            const TrendIcon = card.trendUp ? TrendingUp : TrendingDown;
+          {/* INCIDENTS */}
+          <StatCard
+            icon={TriangleAlert}
+            accentColor="text-orange-500"
+            accentBg="bg-orange-50"
+            glowColor="bg-orange-400/10"
+            value={String(last24h)}
+            title="Ocorrências nas notícias"
+            desc="Últimas 24h · policial, trânsito, alerta e clima"
+            badge={
+              delta === 0
+                ? { text: "= 24h antes", tone: "neutral" }
+                : {
+                    text: `${delta > 0 ? "+" : ""}${delta}`,
+                    tone: delta > 0 ? "warn" : "up",
+                    icon: delta > 0 ? TrendingUp : TrendingDown,
+                  }
+            }
+          />
 
-            return (
-              <div
-                key={card.title}
-                className="group relative overflow-hidden rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
-              >
-                {/* GLOW */}
-                <div className={`absolute right-[-30px] top-[-30px] h-[140px] w-[140px] rounded-full ${card.glowColor} blur-[70px]`} />
+          {/* CAMERAS */}
+          <StatCard
+            icon={Camera}
+            accentColor="text-red-500"
+            accentBg="bg-red-50"
+            glowColor="bg-red-400/10"
+            value={String(cameraCount)}
+            title="Transmissões ao vivo"
+            desc="Câmeras de Manaus via AmzLive"
+          />
 
-                <div className="relative z-10">
-                  {/* ICON */}
-                  <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${card.accentBg}`}>
-                    <Icon size={26} className={card.accentColor} />
-                  </div>
-
-                  {/* VALUE */}
-                  <h3 className="mt-6 text-5xl font-black tracking-[-0.05em] text-navy">
-                    {card.value}
-                  </h3>
-
-                  {/* TITLE */}
-                  <span className="mt-2 block text-sm font-semibold text-slate-600">
-                    {card.title}
-                  </span>
-
-                  {/* FOOTER */}
-                  <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
-                    <span className="text-xs text-slate-400">{card.desc}</span>
-
-                    <div className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-black ${
-                      card.trendUp
-                        ? "bg-emerald-50 text-emerald-600"
-                        : "bg-red-50 text-red-500"
-                    }`}>
-                      <TrendIcon size={10} />
-                      {card.trend}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {/* UV */}
+          <StatCard
+            icon={Sun}
+            accentColor="text-amber-500"
+            accentBg="bg-amber-50"
+            glowColor="bg-amber-400/10"
+            value={conditions ? String(conditions.uvMax) : "—"}
+            title="Índice UV"
+            desc="Máximo previsto para hoje"
+            badge={uv ? { text: uv.label, tone: uv.bar.includes("red") ? "down" : uv.bar.includes("orange") ? "warn" : "up" } : undefined}
+          />
         </div>
       </div>
     </section>
+  );
+}
+
+type Badge = {
+  text: string;
+  tone: "up" | "down" | "warn" | "neutral";
+  icon?: typeof TrendingUp;
+};
+
+const BADGE_STYLES: Record<Badge["tone"], string> = {
+  up: "bg-emerald-50 text-emerald-600",
+  warn: "bg-orange-50 text-orange-600",
+  down: "bg-red-50 text-red-500",
+  neutral: "bg-slate-100 text-slate-500",
+};
+
+function StatCard({
+  icon: Icon,
+  accentColor,
+  accentBg,
+  glowColor,
+  value,
+  title,
+  desc,
+  badge,
+}: {
+  icon: typeof TrendingUp;
+  accentColor: string;
+  accentBg: string;
+  glowColor: string;
+  value: string;
+  title: string;
+  desc: string;
+  badge?: Badge;
+}) {
+  const BadgeIcon = badge?.icon;
+
+  return (
+    <div className="group relative overflow-hidden rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
+      <div className={`absolute right-[-30px] top-[-30px] h-[140px] w-[140px] rounded-full ${glowColor} blur-[70px]`} />
+
+      <div className="relative z-10">
+        <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${accentBg}`}>
+          <Icon size={26} className={accentColor} />
+        </div>
+
+        <h3 className="mt-6 text-5xl font-black tracking-[-0.05em] text-navy">{value}</h3>
+
+        <span className="mt-2 block text-sm font-semibold text-slate-600">{title}</span>
+
+        <div className="mt-5 flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
+          <span className="text-xs text-slate-400">{desc}</span>
+
+          {badge && (
+            <div className={`flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-black ${BADGE_STYLES[badge.tone]}`}>
+              {BadgeIcon && <BadgeIcon size={10} />}
+              {badge.text}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

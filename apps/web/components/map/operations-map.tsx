@@ -1,43 +1,75 @@
+import Link from "next/link";
 import {
   Activity,
   AlertTriangle,
-  CheckCircle2,
   CloudRain,
   Droplets,
   Radio,
   ThermometerSun,
   TrafficCone,
   Wind,
-  Zap,
+  type LucideIcon,
 } from "lucide-react";
+import { aqiLevel, particleLevel, rainLevel, uvLevel } from "@/lib/levels";
+import { getManausAirQuality, getManausConditions } from "@/lib/weather";
+import { timeAgo } from "@/lib/utils";
+import type { Article } from "@/types/article";
 
-const zones = [
-  { name: "Zona Norte", incidents: 23, level: "alto", color: "bg-red-500", ring: "ring-red-500/30", text: "text-red-400", x: "50%", y: "8%" },
-  { name: "Zona Leste", incidents: 14, level: "médio", color: "bg-orange-400", ring: "ring-orange-400/30", text: "text-orange-400", x: "80%", y: "38%" },
-  { name: "Centro",     incidents: 9,  level: "médio", color: "bg-yellow-400", ring: "ring-yellow-400/30", text: "text-yellow-400", x: "50%", y: "50%" },
-  { name: "Zona Sul",   incidents: 5,  level: "normal", color: "bg-emerald-400", ring: "ring-emerald-400/30", text: "text-emerald-400", x: "50%", y: "85%" },
-  { name: "Zona Oeste", incidents: 7,  level: "médio", color: "bg-orange-400", ring: "ring-orange-400/30", text: "text-orange-400", x: "18%", y: "52%" },
-  { name: "Adrianópolis", incidents: 3, level: "normal", color: "bg-emerald-400", ring: "ring-emerald-400/30", text: "text-emerald-400", x: "70%", y: "22%" },
-  { name: "Ponta Negra", incidents: 2, level: "normal", color: "bg-emerald-400", ring: "ring-emerald-400/30", text: "text-emerald-400", x: "20%", y: "72%" },
-];
+const RADAR_URL =
+  "https://embed.windy.com/embed2.html?lat=-3.119&lon=-60.022&detailLat=-3.119&detailLon=-60.022&zoom=8&level=surface&overlay=radar&product=radar&menu=&message=&marker=true&calendar=now&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1";
 
-const roads = [
-  { name: "Av. Djalma Batista", level: "Intenso", pct: 85, color: "bg-red-500" },
-  { name: "Av. Autaz Mirim",    level: "Moderado", pct: 52, color: "bg-orange-400" },
-  { name: "Av. das Torres",     level: "Livre",    pct: 22, color: "bg-emerald-500" },
-  { name: "AM-010",             level: "Moderado", pct: 48, color: "bg-orange-400" },
-];
+const INCIDENT_CATEGORIES: Record<string, { icon: LucideIcon; color: string; bg: string }> = {
+  policial: { icon: AlertTriangle, color: "text-red-400", bg: "bg-red-500/10" },
+  alerta: { icon: AlertTriangle, color: "text-orange-400", bg: "bg-orange-500/10" },
+  transito: { icon: TrafficCone, color: "text-yellow-400", bg: "bg-yellow-500/10" },
+  clima: { icon: CloudRain, color: "text-sky-400", bg: "bg-sky-500/10" },
+};
 
-const incidents = [
-  { icon: AlertTriangle, text: "Acidente Djalma Batista km 4",   time: "4min",  color: "text-red-400",    bg: "bg-red-500/10" },
-  { icon: CloudRain,     text: "Alagamento Zona Norte",           time: "11min", color: "text-sky-400",    bg: "bg-sky-500/10" },
-  { icon: Zap,           text: "Queda de energia Aleixo",         time: "22min", color: "text-yellow-400", bg: "bg-yellow-500/10" },
-  { icon: AlertTriangle, text: "Ocorrência policial no Centro",   time: "31min", color: "text-red-400",    bg: "bg-red-500/10" },
-  { icon: TrafficCone,   text: "Bloqueio na AM-010 km 12",        time: "43min", color: "text-orange-400", bg: "bg-orange-500/10" },
-  { icon: Activity,      text: "Sensor offline em Adrianópolis",  time: "58min", color: "text-purple-400", bg: "bg-purple-500/10" },
-];
+const INCIDENT_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
 
-export function OperationsMap() {
+export async function OperationsMap({ articles }: { articles: Article[] }) {
+  const [conditions, air] = await Promise.all([getManausConditions(), getManausAirQuality()]);
+
+  const incidents = articles
+    .filter(
+      (a) =>
+        a.category in INCIDENT_CATEGORIES &&
+        Date.now() - new Date(a.publishedAt).getTime() <= INCIDENT_WINDOW_MS,
+    )
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .slice(0, 6);
+
+  const aqi = air ? aqiLevel(air.aqi) : null;
+  const uv = conditions ? uvLevel(conditions.uvMax) : null;
+  const rain = conditions ? rainLevel(conditions.rainChanceToday) : null;
+
+  const stats = [
+    {
+      label: "Sensação térmica",
+      value: conditions ? `${conditions.feelsLike}°` : "—",
+      sub: conditions ? `Ar a ${conditions.temperature}°C` : "indisponível",
+      color: "text-gold",
+    },
+    {
+      label: "Índice UV",
+      value: conditions ? String(conditions.uvMax) : "—",
+      sub: uv?.label ?? "indisponível",
+      color: "text-orange-400",
+    },
+    {
+      label: "Chance de chuva",
+      value: conditions ? `${conditions.rainChanceToday}%` : "—",
+      sub: conditions ? "máxima hoje" : "indisponível",
+      color: "text-sky-400",
+    },
+    {
+      label: "Qualidade do ar",
+      value: air ? String(air.aqi) : "—",
+      sub: aqi?.label ?? "indisponível",
+      color: "text-emerald-400",
+    },
+  ];
+
   return (
     <section className="relative px-6 pb-16">
       <div className="mx-auto max-w-[1440px]">
@@ -57,8 +89,8 @@ export function OperationsMap() {
               Central operacional urbana
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-slate-500">
-              Monitoramento inteligente em tempo real com sensores, clima,
-              ocorrências e tráfego urbano de Manaus.
+              Radar de chuva, clima, qualidade do ar e ocorrências de Manaus, com
+              dados atualizados de fontes públicas e do Portal Funil.
             </p>
           </div>
 
@@ -79,148 +111,51 @@ export function OperationsMap() {
 
         {/* MAIN GRID */}
         <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
-
-          {/* ── MAP ── */}
+          {/* ── RADAR ── */}
           <div className="relative flex flex-col overflow-hidden rounded-[40px] border border-white/5 bg-navy shadow-[0_24px_80px_rgba(2,6,23,0.3)]">
-
-            {/* ambient glows */}
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute left-[15%] top-[10%] h-[320px] w-[320px] rounded-full bg-gold/8 blur-[120px]" />
               <div className="absolute bottom-[-60px] right-[-60px] h-[260px] w-[260px] rounded-full bg-[#1E3A8A]/20 blur-[100px]" />
             </div>
 
-            {/* dot grid */}
-            <div
-              className="pointer-events-none absolute inset-0 opacity-[0.07]"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)",
-                backgroundSize: "32px 32px",
-              }}
-            />
-
             <div className="relative z-10 flex flex-1 flex-col p-8">
-              {/* top bar */}
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-[11px] font-black uppercase tracking-[0.3em] text-gold">
-                    Manaus — AM • Realtime
+                    Manaus — AM • Dados ao vivo
                   </span>
-                  <h3 className="mt-2 text-3xl font-black text-white">
-                    Radar operacional
-                  </h3>
+                  <h3 className="mt-2 text-3xl font-black text-white">Radar de chuva</h3>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-                    <span className="text-[11px] font-black text-emerald-400">ONLINE</span>
-                  </div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
-                    <Radio size={22} className="text-gold" />
-                  </div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+                  <Radio size={22} className="text-gold" />
                 </div>
               </div>
 
-              {/* MAP AREA */}
+              {/* RADAR EMBED */}
               <div className="relative mt-7 h-[480px] overflow-hidden rounded-[28px] border border-white/5 bg-[#060E1E]">
-
-                {/* coordinate grid lines */}
-                <div
-                  className="absolute inset-0 opacity-[0.06]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
-                    backgroundSize: "60px 60px",
-                  }}
+                <iframe
+                  src={RADAR_URL}
+                  title="Radar de chuva ao vivo sobre Manaus"
+                  loading="lazy"
+                  className="h-full w-full border-0"
+                  referrerPolicy="no-referrer"
                 />
-
-                {/* RADAR RINGS — centered */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  {/* outer ring */}
-                  <div className="h-[360px] w-[360px] rounded-full border border-gold/10" />
-                  {/* mid ring */}
-                  <div className="absolute left-1/2 top-1/2 h-[240px] w-[240px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/15" />
-                  {/* inner ring */}
-                  <div className="absolute left-1/2 top-1/2 h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/20" />
-
-                  {/* SWEEP — conic gradient that spins */}
-                  <div
-                    className="animate-radar-sweep absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-                    style={{
-                      background:
-                        "conic-gradient(from 0deg, transparent 0deg, rgba(244,197,66,0.18) 50deg, transparent 50deg)",
-                    }}
-                  />
-
-                  {/* cross hairs */}
-                  <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gold/8" />
-                  <div className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-gold/8" />
-
-                  {/* CENTER DOT */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="animate-radar-ping absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/30" />
-                    <div className="relative h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold shadow-[0_0_20px_#F4C542]" />
-                  </div>
-                </div>
-
-                {/* ZONE DOTS */}
-                {zones.map((zone) => (
-                  <div
-                    key={zone.name}
-                    className="absolute -translate-x-1/2 -translate-y-1/2"
-                    style={{ left: zone.x, top: zone.y }}
-                  >
-                    {/* ping ring */}
-                    <div className={`absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full ${zone.color} opacity-30 animate-radar-ping`} />
-                    {/* dot */}
-                    <div className={`relative h-3 w-3 rounded-full ${zone.color} shadow-[0_0_12px_currentColor]`} />
-                    {/* label */}
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap">
-                      <span className={`text-[10px] font-black ${zone.text}`}>{zone.name}</span>
-                      <span className="ml-1.5 text-[9px] text-white/40">{zone.incidents} ocorr.</span>
-                    </div>
-                  </div>
-                ))}
-
-                {/* COMPASS */}
-                {[
-                  { label: "N", pos: "top-3 left-1/2 -translate-x-1/2" },
-                  { label: "S", pos: "bottom-3 left-1/2 -translate-x-1/2" },
-                  { label: "L", pos: "right-3 top-1/2 -translate-y-1/2" },
-                  { label: "O", pos: "left-3 top-1/2 -translate-y-1/2" },
-                ].map(({ label, pos }) => (
-                  <span
-                    key={label}
-                    className={`absolute text-[11px] font-black text-white/20 ${pos}`}
-                  >
-                    {label}
-                  </span>
-                ))}
-
-                {/* BOTTOM STATUS */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <span className="text-[10px] font-semibold text-white/30">
-                    {zones.reduce((s, z) => s + z.incidents, 0)} ocorrências monitoradas
-                  </span>
-                  <span className="text-[10px] font-semibold tabular-nums text-white/30">
-                    Atualizado agora
-                  </span>
-                </div>
+              </div>
+              <div className="mt-3 flex items-center justify-between text-[10px] font-semibold text-white/30">
+                <span>Radar: Windy.com</span>
+                <span className="tabular-nums">
+                  {conditions ? `Clima atualizado às ${conditions.updatedAt.slice(11, 16)} (Manaus)` : "Clima indisponível no momento"}
+                </span>
               </div>
 
-              {/* OPERATIONAL STATS */}
-              <div className="mt-6 grid grid-cols-4 gap-3">
-                {[
-                  { label: "Sensores online", value: "147", sub: "de 162 ativos", color: "text-emerald-400" },
-                  { label: "Viaturas campo", value: "24", sub: "em operação", color: "text-gold" },
-                  { label: "Zonas em alerta", value: "03", sub: "nível alto/médio", color: "text-red-400" },
-                  { label: "Tempo de resp.", value: "7min", sub: "média última hora", color: "text-sky-400" },
-                ].map((stat) => (
+              {/* STATS */}
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {stats.map((stat) => (
                   <div key={stat.label} className="rounded-2xl border border-white/8 bg-white/5 px-4 py-4 text-center">
                     <div className={`text-2xl font-black tabular-nums ${stat.color}`}>{stat.value}</div>
                     <div className="mt-1.5 text-[10px] font-black uppercase tracking-wide text-white/40">{stat.label}</div>
-                    <div className="mt-0.5 text-[9px] text-white/20">{stat.sub}</div>
+                    <div className="mt-0.5 text-[9px] text-white/30">{stat.sub}</div>
                   </div>
                 ))}
               </div>
@@ -229,66 +164,97 @@ export function OperationsMap() {
               <div className="mt-6 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-black uppercase tracking-[0.3em] text-white/40">
-                    Últimas ocorrências
+                    Ocorrências nas notícias
                   </span>
                   <span className="text-[10px] font-semibold text-white/30">
-                    {incidents.length} registradas
+                    Policial, trânsito, alertas e clima · últimos 7 dias
                   </span>
                 </div>
-                <div className="grid gap-3 sm:grid-cols-3">
-                  {incidents.map(({ icon: Icon, text, time, color, bg }) => (
-                    <div
-                      key={text}
-                      className={`flex items-center gap-3 rounded-2xl border border-white/5 ${bg} px-4 py-3`}
-                    >
-                      <Icon size={15} className={`shrink-0 ${color}`} />
-                      <div className="min-w-0">
-                        <p className="truncate text-xs font-semibold text-white/80">{text}</p>
-                        <span className="text-[10px] text-white/30">{time} atrás</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                {incidents.length === 0 ? (
+                  <p className="rounded-2xl border border-white/5 bg-white/5 px-4 py-6 text-center text-xs text-white/40">
+                    Nenhuma ocorrência publicada recentemente.
+                  </p>
+                ) : (
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    {incidents.map((article) => {
+                      const { icon: Icon, color, bg } = INCIDENT_CATEGORIES[article.category];
+                      return (
+                        <Link
+                          key={article.slug}
+                          href={`/noticias/${article.slug}`}
+                          className={`flex items-center gap-3 rounded-2xl border border-white/5 ${bg} px-4 py-3 transition hover:border-white/15`}
+                        >
+                          <Icon size={15} className={`shrink-0 ${color}`} />
+                          <div className="min-w-0">
+                            <p className="line-clamp-2 text-xs font-semibold leading-snug text-white/80">
+                              {article.title}
+                            </p>
+                            <span className="text-[10px] text-white/30">{timeAgo(article.publishedAt)}</span>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
           </div>
 
           {/* ── RIGHT PANEL ── */}
           <div className="space-y-5">
-
-            {/* TRAFFIC */}
+            {/* AIR QUALITY */}
             <div className="rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-50">
-                  <TrafficCone size={20} className="text-orange-500" />
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50">
+                  <Wind size={20} className="text-emerald-500" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    TRÁFEGO
-                  </span>
-                  <h3 className="text-lg font-black text-navy">Vias monitoradas</h3>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">AR</span>
+                  <h3 className="text-lg font-black text-navy">Qualidade do ar</h3>
                 </div>
               </div>
 
-              <div className="mt-6 space-y-4">
-                {roads.map((road) => (
-                  <div key={road.name}>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-semibold text-navy">{road.name}</span>
-                      <span className={`text-xs font-black ${
-                        road.level === "Intenso" ? "text-red-500" :
-                        road.level === "Moderado" ? "text-orange-500" : "text-emerald-600"
-                      }`}>{road.level}</span>
-                    </div>
-                    <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
-                      <div
-                        className={`h-full rounded-full ${road.color} transition-all duration-700`}
-                        style={{ width: `${road.pct}%` }}
-                      />
-                    </div>
+              {air && aqi ? (
+                <>
+                  <div className="mt-5 flex items-end justify-between">
+                    <span className="text-5xl font-black tracking-[-0.05em] text-navy">{air.aqi}</span>
+                    <span className={`mb-1.5 text-sm font-black ${aqi.text}`}>{aqi.label}</span>
                   </div>
-                ))}
-              </div>
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
+                    <div
+                      className={`h-full rounded-full ${aqi.bar} transition-all duration-700`}
+                      style={{ width: `${Math.min(100, (air.aqi / 200) * 100)}%` }}
+                    />
+                  </div>
+
+                  <div className="mt-5 space-y-4">
+                    {[
+                      { name: "PM2.5", value: air.pm25, level: particleLevel(air.pm25, 9, 35.4), max: 55.4 },
+                      { name: "PM10", value: air.pm10, level: particleLevel(air.pm10, 54, 154), max: 254 },
+                    ].map((p) => (
+                      <div key={p.name}>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-semibold text-navy">
+                            {p.name} <span className="text-xs font-normal text-slate-400">{p.value} µg/m³</span>
+                          </span>
+                          <span className={`text-xs font-black ${p.level.text}`}>{p.level.label}</span>
+                        </div>
+                        <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
+                          <div
+                            className={`h-full rounded-full ${p.level.bar} transition-all duration-700`}
+                            style={{ width: `${Math.min(100, (p.value / p.max) * 100)}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-[10px] text-slate-400">
+                    Ozônio {air.ozone} µg/m³ · NO₂ {air.no2} µg/m³ · Índice US AQI. Fonte: Open-Meteo.
+                  </p>
+                </>
+              ) : (
+                <p className="mt-6 text-sm text-slate-400">Dados de qualidade do ar indisponíveis no momento.</p>
+              )}
             </div>
 
             {/* WEATHER */}
@@ -298,70 +264,73 @@ export function OperationsMap() {
                   <ThermometerSun size={20} className="text-sky-500" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    CLIMA
-                  </span>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">CLIMA</span>
                   <h3 className="text-lg font-black text-navy">Manaus agora</h3>
                 </div>
               </div>
 
-              <div className="mt-5 flex items-end gap-3">
-                <span className="text-6xl font-black tracking-[-0.06em] text-navy">29°C</span>
-                <span className="mb-2 text-sm text-slate-400">Parcialmente nublado</span>
-              </div>
-
-              <div className="mt-5 grid grid-cols-3 gap-3">
-                {[
-                  { icon: Droplets, label: "Umidade", value: "84%" },
-                  { icon: Wind,     label: "Vento",   value: "12 km/h" },
-                  { icon: CloudRain,label: "Chuva",   value: "Possível" },
-                ].map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="rounded-2xl bg-slate-50 p-3 text-center">
-                    <Icon size={16} className="mx-auto text-sky-400" />
-                    <span className="mt-2 block text-[10px] text-slate-400">{label}</span>
-                    <span className="block text-xs font-black text-navy">{value}</span>
+              {conditions && rain ? (
+                <>
+                  <div className="mt-5 flex items-end gap-3">
+                    <span className="text-6xl font-black tracking-[-0.06em] text-navy">{conditions.temperature}°C</span>
+                    <span className="mb-2 text-sm text-slate-400">{conditions.description}</span>
                   </div>
-                ))}
-              </div>
+
+                  <div className="mt-5 grid grid-cols-3 gap-3">
+                    {[
+                      { icon: Droplets, label: "Umidade", value: `${conditions.humidity}%` },
+                      { icon: Wind, label: "Vento", value: `${conditions.windKmh} km/h` },
+                      { icon: CloudRain, label: "Chuva hoje", value: `${conditions.rainChanceToday}%` },
+                    ].map(({ icon: Icon, label, value }) => (
+                      <div key={label} className="rounded-2xl bg-slate-50 p-3 text-center">
+                        <Icon size={16} className="mx-auto text-sky-400" />
+                        <span className="mt-2 block text-[10px] text-slate-400">{label}</span>
+                        <span className="block text-xs font-black text-navy">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <p className="mt-6 text-sm text-slate-400">Dados de clima indisponíveis no momento.</p>
+              )}
             </div>
 
-            {/* REGIONS */}
+            {/* NEXT HOURS */}
             <div className="rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gold/10">
                   <Activity size={20} className="text-gold-dark" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    SENSORES
-                  </span>
-                  <h3 className="text-lg font-black text-navy">Regiões ativas</h3>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">PREVISÃO</span>
+                  <h3 className="text-lg font-black text-navy">Chuva nas próximas horas</h3>
                 </div>
               </div>
 
-              <div className="mt-5 space-y-2.5">
-                {zones.slice(0, 5).map((zone) => (
-                  <div
-                    key={zone.name}
-                    className="flex items-center justify-between rounded-2xl border border-black/5 bg-slate-50 px-4 py-3"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <span className={`h-2 w-2 rounded-full ${zone.color}`} />
-                      <span className="text-sm font-semibold text-navy">{zone.name}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-slate-400">{zone.incidents} ocorr.</span>
-                      {zone.level === "normal" ? (
-                        <CheckCircle2 size={14} className="text-emerald-500" />
-                      ) : (
-                        <AlertTriangle size={14} className={zone.level === "alto" ? "text-red-500" : "text-orange-400"} />
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {conditions ? (
+                <div className="mt-5 space-y-2.5">
+                  {conditions.nextHours.map(({ hour, rainChance }) => {
+                    const level = rainLevel(rainChance);
+                    return (
+                      <div key={hour} className="flex items-center gap-3">
+                        <span className="w-11 text-xs font-semibold tabular-nums text-slate-500">{hour}</span>
+                        <div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-100">
+                          <div
+                            className={`h-full rounded-full ${level.bar} transition-all duration-700`}
+                            style={{ width: `${rainChance}%` }}
+                          />
+                        </div>
+                        <span className={`w-10 text-right text-xs font-black tabular-nums ${level.text}`}>
+                          {rainChance}%
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <p className="mt-6 text-sm text-slate-400">Previsão indisponível no momento.</p>
+              )}
             </div>
-
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Headphones, Sparkles } from "lucide-react";
 import { ListenButton } from "@/components/home/listen-button";
 import { HERO_SLUGS } from "@/lib/home-highlights";
-import { getAllArticles, getCategoryName } from "@/services/articles.service";
+import { getNewsArticles, getCategoryName } from "@/services/articles.service";
 import type { Article } from "@/types/article";
 
 const DIGEST_ITEMS = 5;
@@ -21,7 +21,7 @@ function pickDigest(articles: Article[]): Article[] {
 }
 
 export async function DailyDigest() {
-  const top5 = pickDigest(await getAllArticles());
+  const top5 = pickDigest(await getNewsArticles());
   if (top5.length === 0) return null;
 
   const spoken = `Resumo do dia. ${top5.map((a) => `${a.title}. ${a.description}`).join(" ")}`;

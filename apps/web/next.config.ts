@@ -44,7 +44,7 @@ const CSP = [
     "http://localhost:3002",
     "http://localhost:3010",
   ].join(" "),
-  "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
+  "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://embed.windy.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

@@ -1,7 +1,8 @@
-import { HERO_SLUGS } from "@/lib/home-highlights";
+import { HERO_SLUGS, pickDiverse, pickLiveLead, pickPowerFeatured } from "@/lib/home-highlights";
 import { timeAgo } from "@/lib/utils";
+import { getLiveCameras } from "@/lib/cameras";
 import { getManausWeather } from "@/lib/weather";
-import { getAllArticles } from "@/services/articles.service";
+import { getNewsArticles } from "@/services/articles.service";
 
 export const revalidate = 60;
 import { HeroSlider } from "@/components/hero/hero-slider";
@@ -26,9 +27,19 @@ import { NewsCarousel } from "@/components/news/news-carousel";
 import { NewsSection } from "@/components/news/news-section";
 
 export default async function HomePage() {
-  const [articles, weather] = await Promise.all([getAllArticles(), getManausWeather()]);
+  const [articles, weather, cameras] = await Promise.all([
+    getNewsArticles(),
+    getManausWeather(),
+    getLiveCameras(),
+  ]);
   const byDate = [...articles].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+  );
+  const liveLeadSlug = pickLiveLead(articles)?.slug;
+  const powerSlug = pickPowerFeatured(articles)?.slug;
+  const carouselArticles = pickDiverse(
+    articles.filter((a) => !HERO_SLUGS.includes(a.slug) && a.slug !== liveLeadSlug && a.slug !== powerSlug),
+    6,
   );
   const heroPanel = {
     weather,
@@ -58,9 +69,9 @@ export default async function HomePage() {
         <DiaEspecial />
         <UrgentAlert />
         <TrendingTopics />
-        <OperationalGrid />
+        <OperationalGrid articles={articles} cameraCount={cameras.filter((c) => !c.replay).length} />
         <EconomicPanel />
-        <NewsCarousel articles={articles.filter((a) => !HERO_SLUGS.includes(a.slug))} />
+        <NewsCarousel articles={carouselArticles} />
         <SponsoredContent />
         <LiveExperience />
         <MostRead />
@@ -71,8 +82,8 @@ export default async function HomePage() {
         <ClassifiedsHighlight />
         <AgendaHighlight />
         <ColumnistsSpotlight />
-        <OperationsMap />
-        <CityCameras />
+        <OperationsMap articles={articles} />
+        <CityCameras cameras={cameras} />
       </div>
     </main>
   );

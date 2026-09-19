@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock3, Radio, TriangleAlert } from "lucide-react";
-import { getAllArticles, getCategoryName } from "@/services/articles.service";
-import { HERO_SLUGS, pickLiveLead, pickPowerFeatured } from "@/lib/home-highlights";
+import { getNewsArticles, getCategoryName } from "@/services/articles.service";
+import { HERO_SLUGS, pickDiverse, pickLiveLead, pickPowerFeatured } from "@/lib/home-highlights";
 import { timeAgo } from "@/lib/utils";
 
 export async function NewsSection() {
-  const articles = await getAllArticles();
+  const articles = await getNewsArticles();
   // Evita repetir o carrossel principal, o destaque da Central ao vivo e a seção local (Amazonas).
   const liveLeadSlug = pickLiveLead(articles)?.slug;
   const powerSlug = pickPowerFeatured(articles)?.slug;
@@ -15,7 +15,10 @@ export async function NewsSection() {
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
   const notBreaking = (a: { category: string }) => a.category !== "amazonas" && a.category !== "musica";
   const featured = pool.find(notBreaking) ?? pool[0];
-  const sideNews = pool.filter((a) => a.id !== featured?.id && notBreaking(a)).slice(0, 3);
+  const sideNews = pickDiverse(
+    pool.filter((a) => a.id !== featured?.id && a.category !== featured?.category && notBreaking(a)),
+    3,
+  );
 
   if (!featured) return null;
 

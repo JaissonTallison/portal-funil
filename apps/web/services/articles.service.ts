@@ -1,5 +1,6 @@
 import type { Article, Category, Columnist } from "@/types/article";
 import { apiGet } from "@/lib/api";
+import { isColumnArticle } from "@/lib/home-highlights";
 import { columnists, CATEGORIES, getColumnistArticles as getMockColumnistArticles } from "@/lib/data";
 
 // ─── API response shapes ──────────────────────────────────────────────────────
@@ -54,6 +55,11 @@ export async function getAllArticles(): Promise<Article[]> {
   } catch {
     return [];
   }
+}
+
+/** Matérias de notícia, sem os textos de opinião das colunas. Usadas nos blocos da home. */
+export async function getNewsArticles(): Promise<Article[]> {
+  return (await getAllArticles()).filter((a) => !isColumnArticle(a.slug));
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {

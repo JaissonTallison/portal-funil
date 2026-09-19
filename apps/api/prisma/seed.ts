@@ -364,6 +364,200 @@ Quem quiser ir deve confirmar horário, local e valores diretamente com a banda 
       categoryId: musicaCategory!.id,
     },
     {
+      slug: 'palmeiras-encara-o-gremio-em-porto-alegre-de-olho-na-lideranca-do-brasileirao',
+      title: 'Palmeiras encara o Grêmio em Porto Alegre de olho na liderança do Brasileirão',
+      description: 'Vice-líder com 56 pontos, o Palmeiras joga neste domingo (20), às 11h, contra o 16º colocado. O Flamengo lidera com 57 pontos na 28ª rodada.',
+      content: `O Palmeiras enfrenta o Grêmio neste domingo (20), às 11h (horário de Brasília), na Arena do Grêmio, em Porto Alegre, pela 28ª rodada do Campeonato Brasileiro. A transmissão é do Premiere.
+
+O Palmeiras é o vice-líder, com 56 pontos, um a menos que o Flamengo, que lidera com 57. Uma vitória pode dar ao time paulista a liderança provisória. O time chega embalado por uma vitória por 2 a 0 sobre o São Paulo na rodada anterior e pela classificação para a semifinal da Libertadores, em confronto com a LDU.
+
+O Grêmio ocupa a 16ª posição, com 28 pontos, a primeira fora da zona de rebaixamento. A equipe tenta encerrar uma sequência de três derrotas e marca o reencontro do técnico Renato Gaúcho com a torcida.
+
+Na parte de baixo da tabela, Remo e Chapecoense estão no Z4, e Vasco e Internacional também lutam para escapar da queda. O campeonato vai até dezembro.
+
+Fonte: Diário do Grande ABC, Terra e Palmeiras Online.`,
+      image: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T16:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: futebolCategory!.id,
+    },
+    {
+      slug: 'amazonas-fc-empata-com-o-ypiranga-e-se-despede-da-serie-c',
+      title: 'Amazonas FC empata com o Ypiranga e se despede da Série C',
+      description: 'Empate por 2 a 2 no Carlos Zamith deixou a Onça em 13º, com 26 pontos, fora do quadrangular. O clube garantiu vaga na Série C de 2027.',
+      content: `O Amazonas FC empatou por 2 a 2 com o Ypiranga-RS, no sábado (30 de agosto), no estádio Carlos Zamith, em Manaus, na última rodada da primeira fase da Série C, e ficou fora do quadrangular de acesso.
+
+O Ypiranga abriu o placar aos 19 minutos do primeiro tempo, com Pedro, e ampliou aos 3 do segundo, com William. A reação amazonense veio logo depois: Ronan diminuiu aos 4 minutos e Adrien empatou aos 13.
+
+O Amazonas terminou a fase em 13º lugar, com 26 pontos. O resultado, porém, garante a permanência do clube na Série C de 2027. O Ypiranga ficou em 9º, com 29 pontos, e também não se classificou.
+
+Fonte: Canal 92 AM.`,
+      image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-08-30T22:00:00Z'),
+      readTime: 2,
+      authorId: admin.id,
+      categoryId: futebolCategory!.id,
+    },
+    {
+      slug: 'apple-lanca-iphone-18-pro-e-primeiro-iphone-dobravel-veja-precos-no-brasil',
+      title: 'Apple lança iPhone 18 Pro e o primeiro iPhone dobrável; veja preços no Brasil',
+      description: 'iPhone 18 Pro parte de R$ 11.999 e chega às lojas em 18 de setembro. O iPhone Duo, dobrável, começa em R$ 21.999 e só chega em 23 de outubro.',
+      content: `A Apple apresentou em 9 de setembro, no Apple Park, a linha iPhone 18, o primeiro iPhone dobrável, o iPhone Duo, e novos relógios e fones. O evento, segundo a cobertura, marcou a estreia de John Ternus como apresentador após assumir o comando da empresa.
+
+iPhone 18 Pro e Pro Max: o Pro parte de R$ 11.999 e o Pro Max, de R$ 12.999. Os dois usam o chip A20 Pro, de 2 nanômetros, e um sistema de câmera de abertura variável, que permite controlar a profundidade de campo manualmente. A Apple promete até 36 horas de vídeo no Pro e 45 horas no Pro Max, com 50% de carga em 15 minutos. A pré-venda começou em 12 de setembro, e os aparelhos chegam a todos em 18 de setembro.
+
+iPhone Duo: o dobrável tem tela externa de 5,4 e interna de 7,6 polegadas, chip A20 Pro, câmeras de 48 MP e bateria para até 44 horas de vídeo. Os preços vão de R$ 21.999 (256 GB) a R$ 30.999 (2 TB). A pré-venda começa em 16 de outubro, e a venda geral, em 23 de outubro.
+
+Outros lançamentos: o Apple Watch Series 12 começa em R$ 5.499 e o Ultra 4, em R$ 10.499. O AirPods 5 custa de R$ 1.499 a R$ 1.699 e chega em 18 de setembro.
+
+Fonte: TechTudo, O Tempo e Times Brasil (CNBC).`,
+      image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-09T22:00:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: tecnologiaCategory!.id,
+    },
+    {
+      slug: 'operacao-gota-leva-vacinacao-a-22-aldeias-no-medio-purus-no-amazonas',
+      title: 'Operação Gota leva vacinação a 22 aldeias do Médio Purus, no Amazonas',
+      description: 'Última missão de 2026, de 10 a 20 de setembro, atende Lábrea, Canutama e Tapauá e prevê aplicar 2,3 mil doses, com apoio da Força Aérea.',
+      content: `O Ministério da Saúde, em parceria com a Força Aérea Brasileira, realiza de 10 a 20 de setembro a última etapa da Operação Gota de 2026, com vacinação em 22 aldeias indígenas dos municípios de Lábrea, Canutama e Tapauá, no Médio Rio Purus, no Amazonas. A expectativa é aplicar cerca de 2,3 mil doses.
+
+Crianças, adultos, idosos e gestantes recebem os imunizantes do Calendário Nacional de Vacinação do SUS, conforme a idade e a situação vacinal. Entre eles estão BCG, hepatite B, pentavalente, poliomielite, rotavírus, pneumocócicas, meningocócicas, influenza, covid-19, febre amarela, tríplice viral, varicela, HPV e VSR, além de profilaxia antirrábica. Como a logística é feita 100% por via aérea, a operação leva a vacinação a locais de difícil acesso.
+
+Em 2026, a Operação Gota já vacinou 8,4 mil indígenas e aplicou 14 mil doses, com missões em 121 aldeias ao todo. Segundo a secretária de Saúde Indígena, Lucinha Tremembé, manter a caderneta atualizada ajuda a prevenir doenças e a cuidar da saúde individual e coletiva.
+
+Fonte: Agência Gov (EBC), 10/09/2026.`,
+      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-10T15:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: saudeCategory!.id,
+    },
+    {
+      slug: 'recuperafone-apreende-52-celulares-e-prende-cinco-pessoas-em-manaus',
+      title: 'RecuperaFone apreende 52 celulares e prende cinco pessoas em Manaus',
+      description: 'Segunda fase da operação da Polícia Civil fiscalizou o Centro e o bairro Redenção nesta quinta-feira (17). Em três dias, foram 286 aparelhos recuperados.',
+      content: `A segunda fase da operação RecuperaFone apreendeu 52 celulares e prendeu cinco pessoas em flagrante nesta quinta-feira (17), em fiscalizações no Centro e no bairro Redenção, em Manaus. A ação é da Secretaria de Segurança Pública do Amazonas (SSP-AM), por meio do Núcleo de Investigação e Recuperação de Celulares (Nirc) da Polícia Civil.
+
+Participaram mais de 30 agentes e 8 viaturas. O objetivo é recuperar celulares roubados ou furtados e combater a receptação. A nota da SSP-AM não detalha o crime atribuído a cada preso.
+
+Entre 15 e 17 de setembro, a operação somou 49 estabelecimentos fiscalizados, 8 prisões, 286 aparelhos recuperados e 600 pessoas notificadas, das quais 428 compareceram.
+
+Fonte: SSP-AM, via Segundo a Segundo.`,
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-17T21:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: policialCategory!.id,
+    },
+    {
+      slug: 'copom-reduz-selic-para-13-75-pela-quinta-vez-seguida',
+      title: 'Copom reduz Selic para 13,75% ao ano pela quinta vez seguida',
+      description: 'Corte de 0,25 ponto foi unânime e veio com a inflação em queda: o IPCA de agosto recuou 0,32% e acumula 4,22% em 12 meses, abaixo do teto da meta.',
+      content: `O Comitê de Política Monetária (Copom) do Banco Central reduziu a taxa básica de juros, a Selic, em 0,25 ponto percentual, para 13,75% ao ano. É o quinto corte consecutivo do mesmo tamanho, e a decisão foi unânime.
+
+O principal argumento foi o alívio da inflação. O IPCA de agosto registrou queda de 0,32%, e o índice acumulado em 12 meses ficou em 4,22%, abaixo do teto da meta, de 4,5%.
+
+Apesar do corte, o comunicado do Copom não assumiu compromisso com os próximos passos. O comitê reforçou que as decisões dependem dos dados e citou riscos de inflação para cima. Especialistas ouvidos na cobertura apontam que o ciclo de queda pode estar perto do fim, por causa do cenário externo, em que juros mais altos nos Estados Unidos reduzem a vantagem de rendimento que atrai capital ao Brasil.
+
+Para o consumidor, a Selic mais baixa tende a baratear o crédito e o financiamento ao longo do tempo, mas o efeito não é imediato e depende também do custo de captação dos bancos e do risco de cada operação.
+
+Fonte: O Tempo, com informações do Banco Central.`,
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-16T22:30:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: economiaCategory!.id,
+    },
+    {
+      slug: 'ibovespa-fecha-semana-no-vermelho-e-dolar-sobe-a-r-5-14',
+      title: 'Ibovespa fecha semana no vermelho e dólar sobe a R$ 5,14',
+      description: 'Índice caiu 0,41% na sexta-feira (18) e acumulou perda de 1,02% na semana, a primeira desde meados de agosto. Dólar fechou a R$ 5,1451.',
+      content: `O Ibovespa fechou a sexta-feira (18) em queda de 0,41%, aos 185.229,17 pontos, com volume financeiro de R$ 26,14 bilhões. No acumulado da semana, a baixa foi de 1,02%, o primeiro resultado negativo desde meados de agosto.
+
+O dólar comercial terminou o dia cotado a R$ 5,1451, alta de 0,11%. Na semana, a moeda subiu 0,39%, mas segue em queda de 6,27% no acumulado do ano.
+
+Entre as ações, a Vale recuou mais de 1% com incertezas sobre a demanda e margens menores no setor siderúrgico. A Petrobras caiu num dia de oscilação do petróleo, com o Brent acima de US$ 100 o barril. O Itaú Unibanco perdeu cerca de 0,3% com a alta dos juros futuros.
+
+O mercado também acompanhou o cenário externo, com o aumento de juros pelo Federal Reserve nos Estados Unidos e o corte da Selic para 13,75% no Brasil. Segundo a CNN Brasil, a pesquisa Datafolha divulgada no período mostrou Lula com 46% e Flávio Bolsonaro com 44% em um eventual segundo turno, empate técnico dentro da margem de erro de 2 pontos.
+
+Fonte: CNN Brasil.`,
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-18T21:30:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: economiaCategory!.id,
+    },
+    {
+      slug: 'polo-industrial-de-manaus-fatura-r-121-8-bilhoes-no-primeiro-semestre',
+      title: 'Polo Industrial de Manaus fatura R$ 121,8 bilhões no primeiro semestre',
+      description: 'Resultado é quase 10% maior que o de 2025. O setor manteve média mensal de 130,9 mil empregos, segundo a Suframa.',
+      content: `O Polo Industrial de Manaus (PIM) faturou R$ 121,8 bilhões no primeiro semestre de 2026, alta de quase 10% sobre o mesmo período de 2025, quando o faturamento foi de R$ 110,8 bilhões. Os dados são da Superintendência da Zona Franca de Manaus (Suframa).
+
+O polo manteve média mensal de 130.903 empregos entre janeiro e junho. As exportações somaram US$ 391,04 milhões no semestre, sendo US$ 51,56 milhões apenas em junho.
+
+Por segmento, lideraram o faturamento os bens de informática (22,01%), as duas rodas (19,77%) e o eletroeletrônico (15,90%), seguidos por químico (10,87%), termoplástico (10,49%), metalúrgico (8,78%) e mecânico (6,33%). O maior crescimento foi o de bebidas, com alta de 48,05%.
+
+Na produção, a Suframa registrou 1.152.715 motocicletas e ciclomotores e 6.226.893 aparelhos de telefone celular no semestre.
+
+Fonte: Portal Amazônia, com dados da Suframa (11/08/2026).`,
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-08-11T15:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: economiaCategory!.id,
+    },
+    {
+      slug: 'fed-eleva-juros-nos-eua-pela-primeira-vez-em-tres-anos',
+      title: 'Fed eleva juros nos EUA pela primeira vez em três anos',
+      description: 'Banco central americano subiu a taxa em 0,25 ponto, para a faixa de 3,75% a 4,00%, em decisão unânime, e a maioria do comitê prevê mais uma alta neste ano.',
+      content: `O Federal Reserve (Fed), banco central dos Estados Unidos, elevou a taxa básica de juros em 0,25 ponto percentual, para a faixa de 3,75% a 4,00% ao ano, na quarta-feira (16). A decisão foi unânime e é a primeira alta desde julho de 2023.
+
+O objetivo é conter a inflação, que estava em 3,4% em agosto. É o primeiro aperto monetário sob o comando de Kevin Warsh, que assumiu a presidência do Fed em 2026.
+
+As novas projeções do comitê indicam um cenário de "juros mais altos por mais tempo": a maioria dos integrantes prevê ao menos mais uma alta antes do fim do ano.
+
+A decisão afeta o mundo todo. Juros maiores nos EUA tendem a atrair capital para o dólar e podem pressionar moedas de países emergentes, como o real. Segundo a CNN Brasil, o Banco do Japão também elevou os juros, para 1,25%, o maior nível em 31 anos.
+
+Fonte: Exame, Space Money e Seu Dinheiro.`,
+      image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-16T20:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: mundoCategory!.id,
+    },
+    {
+      slug: 'petroleo-fecha-acima-de-us-100-com-confrontos-no-estreito-de-ormuz',
+      title: 'Petróleo fecha acima de US$ 100 com confrontos no Estreito de Ormuz',
+      description: 'Brent para novembro encerrou a US$ 101,21, com versões conflitantes de EUA e Irã sobre ataques a navios. Agência americana revisou a projeção para 2026.',
+      content: `O petróleo Brent para novembro fechou a quarta-feira (9) a US$ 101,21 o barril, alta de 3,36%. O WTI para outubro subiu 3,25%, a US$ 96,05, em meio a novos confrontos no Estreito de Ormuz, rota estratégica do comércio mundial.
+
+As versões sobre o que aconteceu divergem. A agência iraniana Fars relatou explosões perto de Jask, na costa sul do Irã. O Comando Central dos EUA negou que a Guarda Revolucionária tenha atacado destróieres americanos e disse que forças dos EUA atingiram dez petroleiros iranianos no estreito. A organização britânica UKMTO registrou ao menos três ataques a embarcações no Golfo Pérsico em 24 horas. O Irã anunciou ainda a criação de uma zona marítima restrita a partir de Chabahar.
+
+Na guerra da Ucrânia, a Rússia sofreu ataques a infraestruturas, inclusive de energia, e o avião do presidente Volodymyr Zelenski escapou de ataques de drones a caminho de Oslo, segundo a cobertura. O porta-voz do Kremlin, Dmitri Peskov, sugeriu que o gás na Europa terá "novos recordes" de preço.
+
+A Administração de Informação de Energia dos EUA (EIA) elevou a projeção do Brent para 2026 a US$ 91 (e US$ 74 em 2027), citando choques de oferta e estoques apertados de diesel. Para analistas, o petróleo caro pode manter os juros das grandes economias altos por mais tempo.
+
+Fonte: Times Brasil (CNBC).`,
+      image: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-09T22:00:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: mundoCategory!.id,
+    },
+    {
       slug: 'arquitetura-para-o-clima-de-manaus-conforto-comeca-no-projeto',
       title: 'Arquitetura para o clima de Manaus: o conforto começa no projeto',
       description: 'Na estreia da coluna, a arquiteta Mariana Normando explica por que ventilação, sombra e escolha de materiais pesam mais do que o ar-condicionado em uma cidade quente e úmida.',

@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Eye, TrendingUp } from "lucide-react";
 import { getMostRead, getCategoryName } from "@/services/articles.service";
+import { isColumnArticle } from "@/lib/home-highlights";
 import { formatViews } from "@/lib/utils";
 
 export async function MostRead() {
-  const articles = await getMostRead(6);
+  const articles = (await getMostRead(12)).filter((a) => !isColumnArticle(a.slug)).slice(0, 6);
 
   if (articles.length === 0) return null;
 

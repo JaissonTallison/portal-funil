@@ -1,3 +1,5 @@
+import { columnists } from "@/lib/data";
+
 /** Matérias fixas do carrossel principal da home. Os demais blocos evitam repeti-las. */
 export const HERO_SLIDES = [
   {
@@ -57,4 +59,31 @@ export function pickPowerFeatured<T extends { slug: string; category: string; is
         a.slug !== liveLeadSlug,
     )
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())[0];
+}
+
+const COLUMN_SLUGS = new Set(columnists.flatMap((c) => c.articleSlugs ?? []));
+
+/** Textos de opinião assinados por colunistas. Ficam nas páginas de colunas, não nos blocos de notícias. */
+export function isColumnArticle(slug: string): boolean {
+  return COLUMN_SLUGS.has(slug);
+}
+
+/**
+ * Escolhe até `limit` matérias variando a editoria: uma por categoria (a mais nova de cada,
+ * começando pela categoria com a matéria mais recente), e só repete categoria quando faltam outras.
+ */
+export function pickDiverse<T extends { category: string; publishedAt: string }>(articles: T[], limit: number): T[] {
+  const byDate = [...articles].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+  const queues = new Map<string, T[]>();
+  for (const a of byDate) queues.set(a.category, [...(queues.get(a.category) ?? []), a]);
+
+  const picked: T[] = [];
+  while (picked.length < limit && queues.size > 0) {
+    for (const [category, queue] of queues) {
+      if (picked.length >= limit) break;
+      picked.push(queue.shift() as T);
+      if (queue.length === 0) queues.delete(category);
+    }
+  }
+  return picked;
 }

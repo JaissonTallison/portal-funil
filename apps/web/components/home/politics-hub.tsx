@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { pickPowerFeatured } from "@/lib/home-highlights";
 import { timeAgo } from "@/lib/utils";
-import { getAllArticles, getCategoryName } from "@/services/articles.service";
+import { getNewsArticles, getCategoryName } from "@/services/articles.service";
 import type { Article } from "@/types/article";
 
 // Calendário eleitoral 2026 — fonte: CNN Brasil (art. 236 do Código Eleitoral).
@@ -35,7 +35,7 @@ const byDate = (a: Article, b: Article) =>
   new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
 
 export async function PoliticsHub() {
-  const articles = (await getAllArticles()).sort(byDate);
+  const articles = (await getNewsArticles()).sort(byDate);
   const featured = pickPowerFeatured(articles);
   const scopes = scopeStyles
     .map((scope) => ({
@@ -190,7 +190,7 @@ export async function PoliticsHub() {
                 </div>
                 <div>
                   <span className="block text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    POLÍTICA
+                    EDITORIA
                   </span>
                   <h3 className={`text-base font-black ${color}`}>{label}</h3>
                 </div>
