@@ -76,19 +76,21 @@ export async function OperationalGrid({ articles, cameraCount }: Props) {
         </div>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-3 sm:gap-6 xl:grid-cols-4">
           {/* WEATHER CARD — expanded */}
-          <div className="group relative overflow-hidden rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
+          <div className="group relative overflow-hidden rounded-[26px] border border-black/5 bg-white p-5 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] sm:rounded-[32px] sm:p-7">
             <div className="absolute right-[-30px] top-[-30px] h-[140px] w-[140px] rounded-full bg-sky-400/10 blur-[70px]" />
 
             <div className="relative z-10">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-50">
-                <CloudRain size={26} className="text-sky-500" />
+              <div className="flex items-center justify-between gap-4 sm:block">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sky-50 sm:h-14 sm:w-14">
+                <CloudRain size={24} className="text-sky-500" />
               </div>
 
-              <h3 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
+              <h3 className="text-4xl font-black tracking-[-0.05em] text-navy sm:mt-6 sm:text-4xl lg:text-5xl">
                 {conditions ? `${conditions.temperature}°C` : "—"}
               </h3>
+              </div>
 
               <span className="mt-2 block text-sm font-semibold text-slate-600">
                 {conditions ? `Manaus agora · ${conditions.description}` : "Clima indisponível no momento"}
@@ -126,6 +128,7 @@ export async function OperationalGrid({ articles, cameraCount }: Props) {
             </div>
           </div>
 
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 xl:contents">
           {/* INCIDENTS */}
           <StatCard
             icon={TriangleAlert}
@@ -168,6 +171,7 @@ export async function OperationalGrid({ articles, cameraCount }: Props) {
             desc="Máximo previsto para hoje"
             badge={uv ? { text: uv.label, tone: uv.bar.includes("red") ? "down" : uv.bar.includes("orange") ? "warn" : "up" } : undefined}
           />
+          </div>
         </div>
       </div>
     </section>
@@ -209,23 +213,23 @@ function StatCard({
   const BadgeIcon = badge?.icon;
 
   return (
-    <div className="group relative overflow-hidden rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
+    <div className="group relative overflow-hidden rounded-[22px] border border-black/5 bg-white p-3.5 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] sm:rounded-[32px] sm:p-7">
       <div className={`absolute right-[-30px] top-[-30px] h-[140px] w-[140px] rounded-full ${glowColor} blur-[70px]`} />
 
       <div className="relative z-10">
-        <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${accentBg}`}>
-          <Icon size={26} className={accentColor} />
+        <div className={`flex h-9 w-9 items-center justify-center rounded-xl sm:h-14 sm:w-14 sm:rounded-2xl ${accentBg}`}>
+          <Icon size={18} className={`${accentColor} sm:h-[26px] sm:w-[26px]`} />
         </div>
 
-        <h3 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">{value}</h3>
+        <h3 className="mt-3 text-3xl font-black leading-none tracking-[-0.05em] text-navy sm:mt-6 sm:text-5xl">{value}</h3>
 
-        <span className="mt-2 block text-sm font-semibold text-slate-600">{title}</span>
+        <span className="mt-1.5 block text-[11px] font-semibold leading-snug text-slate-600 sm:mt-2 sm:text-sm">{title}</span>
 
-        <div className="mt-5 flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
-          <span className="text-xs text-slate-400">{desc}</span>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-3 sm:mt-5 sm:gap-3 sm:pt-4">
+          <span className="hidden text-xs text-slate-400 sm:block">{desc}</span>
 
           {badge && (
-            <div className={`flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-black ${BADGE_STYLES[badge.tone]}`}>
+            <div className={`flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-black sm:px-2.5 sm:py-1 sm:text-[11px] ${BADGE_STYLES[badge.tone]}`}>
               {BadgeIcon && <BadgeIcon size={10} />}
               {badge.text}
             </div>

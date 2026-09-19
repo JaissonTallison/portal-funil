@@ -139,41 +139,45 @@ export function ReaderHub() {
         </div>
 
         {/* STATS BAR */}
-        <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="mb-4 grid grid-cols-2 gap-3 sm:mb-6 sm:gap-4 lg:grid-cols-4">
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-[28px] border border-black/5 bg-white px-6 py-5 shadow-[0_8px_30px_rgba(15,23,42,0.05)]"
+              className="rounded-[20px] border border-black/5 bg-white px-4 py-3 shadow-[0_8px_30px_rgba(15,23,42,0.05)] sm:rounded-[28px] sm:px-6 sm:py-5"
             >
-              <div className="text-3xl font-black tracking-[-0.04em] text-navy">
+              <div className="text-2xl font-black tracking-[-0.04em] text-navy sm:text-3xl">
                 {s.value}
               </div>
-              <div className="mt-1 text-sm text-slate-400">{s.label}</div>
+              <div className="mt-0.5 text-xs text-slate-400 sm:mt-1 sm:text-sm">{s.label}</div>
             </div>
           ))}
         </div>
 
-        {/* ACTION CARDS */}
-        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {/* ACTION CARDS — linhas compactas no celular/tablet, cartões altos só no desktop */}
+        <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
           {actions.map(({ icon: Icon, color, bg, border, title, description, cta, href }) => (
             <Link
               key={title}
               href={href}
-              className={`group flex flex-col overflow-hidden rounded-[32px] border ${border} bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.10)]`}
+              className={`group flex items-center gap-4 overflow-hidden rounded-[22px] border ${border} bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.10)] lg:flex-col lg:items-stretch lg:gap-0 lg:rounded-[32px] lg:p-7 lg:hover:-translate-y-1`}
             >
               {/* Icon */}
-              <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${bg}`}>
-                <Icon size={22} className={color} />
+              <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${bg} lg:h-12 lg:w-12`}>
+                <Icon size={20} className={color} />
               </div>
 
               {/* Text */}
-              <h3 className="mt-5 text-lg font-black text-navy">{title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-400">{description}</p>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-base font-black leading-tight text-navy lg:mt-5 lg:text-lg">{title}</h3>
+                <p className="mt-0.5 line-clamp-2 text-xs leading-snug text-slate-400 lg:mt-2 lg:line-clamp-none lg:text-sm lg:leading-relaxed">
+                  {description}
+                </p>
+              </div>
 
               {/* CTA */}
-              <div className={`mt-6 flex items-center gap-2 text-sm font-black ${color} transition group-hover:gap-3`}>
-                {cta}
-                <ArrowUpRight size={14} />
+              <div className={`flex shrink-0 items-center gap-2 text-sm font-black ${color} transition group-hover:gap-3 lg:mt-6`}>
+                <span className="hidden lg:inline">{cta}</span>
+                <ArrowUpRight size={16} />
               </div>
             </Link>
           ))}

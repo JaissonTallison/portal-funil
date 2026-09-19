@@ -88,47 +88,53 @@ export async function LiveExperience() {
             </div>
 
             {/* STATS */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              <div className="rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10">
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4 lg:gap-6">
+              <div className="flex items-center gap-4 rounded-[22px] border border-black/5 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] md:block md:rounded-[28px] md:p-5 lg:rounded-[32px] lg:p-7">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold/10 md:h-12 md:w-12 lg:h-14 lg:w-14">
                   <Newspaper className="text-gold-dark" />
                 </div>
 
-                <h3 className="mt-8 text-3xl sm:text-4xl lg:text-5xl font-black text-navy">
-                  {weekCount}
-                </h3>
+                <div className="min-w-0">
+                  <h3 className="text-3xl font-black leading-none text-navy md:mt-5 lg:mt-8 lg:text-5xl">
+                    {weekCount}
+                  </h3>
 
-                <span className="mt-2 block text-slate-500">
-                  Matérias na semana
-                </span>
+                  <span className="mt-1 block text-sm text-slate-500 md:mt-2">
+                    Matérias na semana
+                  </span>
+                </div>
               </div>
 
-              <div className="rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10">
+              <div className="flex items-center gap-4 rounded-[22px] border border-black/5 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] md:block md:rounded-[28px] md:p-5 lg:rounded-[32px] lg:p-7">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-500/10 md:h-12 md:w-12 lg:h-14 lg:w-14">
                   <WeatherIcon className="text-blue-500" />
                 </div>
 
-                <h3 className="mt-8 text-3xl sm:text-4xl lg:text-5xl font-black text-navy">
-                  {weather ? `${weather.temperature}°` : "—"}
-                </h3>
+                <div className="min-w-0">
+                  <h3 className="text-3xl font-black leading-none text-navy md:mt-5 lg:mt-8 lg:text-5xl">
+                    {weather ? `${weather.temperature}°` : "—"}
+                  </h3>
 
-                <span className="mt-2 block text-slate-500">
-                  {weather ? `Manaus agora · ${weather.description}, umidade ${weather.humidity}%` : "Clima indisponível"}
-                </span>
+                  <span className="mt-1 block text-sm text-slate-500 md:mt-2">
+                    {weather ? `Manaus agora · ${weather.description}, umidade ${weather.humidity}%` : "Clima indisponível"}
+                  </span>
+                </div>
               </div>
 
-              <div className="rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-500/10">
+              <div className="flex items-center gap-4 rounded-[22px] border border-black/5 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] md:block md:rounded-[28px] md:p-5 lg:rounded-[32px] lg:p-7">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-red-500/10 md:h-12 md:w-12 lg:h-14 lg:w-14">
                   <TriangleAlert className="text-red-500" />
                 </div>
 
-                <h3 className="mt-8 text-3xl sm:text-4xl lg:text-5xl font-black text-navy">
-                  {alertCount}
-                </h3>
+                <div className="min-w-0">
+                  <h3 className="text-3xl font-black leading-none text-navy md:mt-5 lg:mt-8 lg:text-5xl">
+                    {alertCount}
+                  </h3>
 
-                <span className="mt-2 block text-slate-500">
-                  Alertas nas últimas 48h
-                </span>
+                  <span className="mt-1 block text-sm text-slate-500 md:mt-2">
+                    Alertas nas últimas 48h
+                  </span>
+                </div>
               </div>
             </div>
           </div>
