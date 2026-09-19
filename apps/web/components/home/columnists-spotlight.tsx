@@ -28,7 +28,7 @@ export function ColumnistsSpotlight() {
         </div>
 
         {/* GRID */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {columnists.map((columnist) => (
             <Link
               key={columnist.id}
@@ -36,14 +36,15 @@ export function ColumnistsSpotlight() {
               className="group flex flex-col overflow-hidden rounded-[36px] border border-black/5 bg-white shadow-[0_10px_50px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-2"
             >
               {/* TOP */}
-              <div className="relative h-[180px] overflow-hidden bg-gradient-to-br from-navy to-cobalt">
+              <div className="relative aspect-[4/4.2] overflow-hidden bg-gradient-to-br from-navy to-cobalt">
                 <Image
                   src={columnist.avatar}
                   alt={columnist.name}
                   fill
-                  className="object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-90"
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover object-top transition duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
                 <div className="absolute bottom-4 left-4">
                   <span className="rounded-full bg-gold px-3 py-1 text-[9px] font-black uppercase tracking-widest text-navy">
@@ -70,7 +71,8 @@ export function ColumnistsSpotlight() {
 
                 <div className="mt-5 flex items-center justify-between">
                   <span className="text-xs text-slate-400">
-                    {columnist.articleIds.length} colunas
+                    {(columnist.articleIds.length + (columnist.articleSlugs?.length ?? 0))}{" "}
+                    {columnist.articleIds.length + (columnist.articleSlugs?.length ?? 0) === 1 ? "coluna" : "colunas"}
                   </span>
 
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-navy text-white transition group-hover:bg-cobalt">

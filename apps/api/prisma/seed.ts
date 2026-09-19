@@ -4,6 +4,7 @@ import * as bcrypt from 'bcrypt';
 const prisma = new PrismaClient();
 
 const CATEGORIES = [
+  { slug: 'amazonas',      name: 'Amazonas' },
   { slug: 'politica',      name: 'Política' },
   { slug: 'futebol',       name: 'Futebol' },
   { slug: 'policial',      name: 'Policial' },
@@ -11,6 +12,7 @@ const CATEGORIES = [
   { slug: 'tecnologia',    name: 'Tecnologia' },
   { slug: 'saude',         name: 'Saúde' },
   { slug: 'mundo',         name: 'Mundo' },
+  { slug: 'musica',        name: 'Música' },
   { slug: 'clima',         name: 'Clima' },
   { slug: 'transito',      name: 'Trânsito' },
   { slug: 'alerta',        name: 'Alerta' },
@@ -21,6 +23,114 @@ const CATEGORIES = [
 ];
 
 const EVENTS = [
+  {
+    slug: 'judas-priest-banda-exception-condado',
+    title: 'Judas Priest com a Banda Exception',
+    description: 'A Banda Exception, de Manaus, apresenta um show dedicado ao Judas Priest no Condado. A informação foi divulgada pelo músico Matheus Marques nos Stories do Instagram; endereço, valor do ingresso e classificação não foram informados e precisam ser confirmados com a banda e a casa.',
+    category: 'show',
+    startDate: new Date('2026-09-25'),
+    time: '23:00',
+    venue: 'Condado',
+    isFree: false,
+    image: '/noticias/condado-judas-priest.png',
+    organizer: 'Banda Exception Manaus',
+    isHighlighted: false,
+    isSponsored: false,
+    tags: ['rock', 'heavy-metal', 'judas-priest', 'manaus'],
+  },
+  {
+    slug: 'festival-de-teatro-da-amazonia-2026',
+    title: '20º Festival de Teatro da Amazônia (FTA 2026)',
+    description: 'A 20ª edição do FTA reúne 20 espetáculos em duas mostras: a competitiva Jurupari, com 14 montagens amazonenses (8 adultas e 6 infantis), e a Chico Cardoso, não competitiva, com produções do Amazonas, Maranhão, Mato Grosso e Pará. A programação inclui atividades pedagógicas, encontros setoriais, debates e lançamentos de livros. Locais, horários e valores por espetáculo devem ser confirmados na divulgação oficial.',
+    category: 'cultura',
+    startDate: new Date('2026-09-27'),
+    endDate: new Date('2026-10-11'),
+    venue: 'Teatros de Manaus',
+    isFree: false,
+    image: 'https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=1920',
+    organizer: 'Federação de Teatro do Amazonas (Fetam)',
+    isHighlighted: true,
+    isSponsored: false,
+    tags: ['teatro', 'fta', 'cultura', 'manaus'],
+  },
+  {
+    slug: 'diogo-almeida-mes-dos-professores-2026',
+    title: 'Diogo Almeida: Mês dos Professores 2026',
+    description: 'O humorista Diogo Almeida apresenta o show "Mês dos Professores 2026" em duas datas no Teatro Manauara. Horários e valores devem ser confirmados nos canais de venda.',
+    category: 'show',
+    startDate: new Date('2026-09-30'),
+    endDate: new Date('2026-10-01'),
+    venue: 'Teatro Manauara',
+    isFree: false,
+    image: 'https://images.unsplash.com/photo-1527224857830-43a7acc85260?q=80&w=1920',
+    organizer: 'Diogo Almeida',
+    isHighlighted: false,
+    isSponsored: false,
+    tags: ['humor', 'stand-up', 'teatro-manauara', 'manaus'],
+  },
+  {
+    slug: 'samba-manaus-2026',
+    title: 'Samba Manaus 2026',
+    description: '25 horas de samba e pagode na Arena da Amazônia, nos dias 9 e 10 de outubro. Portões abrem às 20h. A entrada é permitida a partir dos 15 anos completos, acompanhados dos pais ou responsáveis legais; menores de 15 não entram. A pré-venda online esgotou, e há vendas físicas na Oba Ingressos (Millennium Shopping) e na bilheteria do Teatro Manauara. Line-up não informado na página de vendas.',
+    category: 'show',
+    startDate: new Date('2026-10-09'),
+    endDate: new Date('2026-10-10'),
+    time: '20:00',
+    venue: 'Arena da Amazônia',
+    isFree: false,
+    image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=1920',
+    ageRating: '15 anos, acompanhado dos responsáveis',
+    organizer: 'Bilheteria Digital',
+    isHighlighted: false,
+    isSponsored: false,
+    tags: ['samba', 'pagode', 'arena-da-amazonia', 'manaus'],
+  },
+  {
+    slug: 'festival-rock-brasil-2026',
+    title: 'Festival Rock Brasil 2026',
+    description: 'Clássicos do rock nacional no Pódium da Arena da Amazônia, em 11 de outubro. A edição marca os 30 anos sem Renato Russo, com tributo da banda Critical Age, além de homenagens a Raimundos e Charlie Brown Jr. Ingressos nominais, com documento com foto na entrada; ingressos PCD são gratuitos. Vendas na Oba Ingressos (Millennium Shopping) e na bilheteria do Teatro Manauara.',
+    category: 'show',
+    startDate: new Date('2026-10-11'),
+    venue: 'Pódium da Arena da Amazônia',
+    isFree: false,
+    image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1920',
+    organizer: 'Bilheteria Digital',
+    isHighlighted: false,
+    isSponsored: false,
+    tags: ['rock', 'renato-russo', 'arena-da-amazonia', 'manaus'],
+  },
+  {
+    slug: 'manaus-rock-festival-2026',
+    title: 'Manaus Rock Festival 2026',
+    description: 'Festival de rock no Sambódromo de Manaus, em 14 de novembro, a partir das 17h30, com Matanza Ritual, Gloria e outras bandas nacionais e regionais. Há ingressos de pista, camarotes e experiências VIP com backstage e meet & greet, à venda no shopingressos.com e em lojas Bibi Cell (Vieiralves, Ponta Negra, Shopping Manauara e Shopping Mundi).',
+    category: 'festival',
+    startDate: new Date('2026-11-14'),
+    time: '17:30',
+    venue: 'Sambódromo de Manaus',
+    isFree: false,
+    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1920',
+    organizer: 'Manaus Rock Festival',
+    isHighlighted: false,
+    isSponsored: false,
+    tags: ['rock', 'matanza-ritual', 'sambodromo', 'manaus'],
+  },
+  {
+    slug: 'fiinsa-2026',
+    title: 'FIINSA 2026: Festival de Investimentos de Impacto e Negócios Sustentáveis da Amazônia',
+    description: 'Evento reúne investidores, empreendedores, pesquisadores e negócios da floresta em torno da bioeconomia e do impacto sustentável na Amazônia, com palestras, painéis temáticos, rodadas de negócios, sessões de pitch, feira de empreendedorismo e programação cultural. Na pré-venda, o lote Semente custa R$ 280 (acesso aos dias 4 e 5) e o lote Raiz, R$ 350 (dias 3 a 5), com refeições, certificado e happy hour.',
+    category: 'festival',
+    startDate: new Date('2026-11-03'),
+    endDate: new Date('2026-11-05'),
+    venue: 'Manaus Plaza Centro de Convenções',
+    neighborhood: 'Djalma Batista',
+    price: 'R$ 280 – R$ 350 (pré-venda)',
+    isFree: false,
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1920',
+    organizer: 'Idesam e Impact Hub Manaus',
+    isHighlighted: false,
+    isSponsored: false,
+    tags: ['bioeconomia', 'sustentabilidade', 'negocios', 'manaus'],
+  },
   {
     slug: 'festival-amazonas-2026',
     title: 'Festival Amazonas de Ópera 2026',
@@ -119,6 +229,9 @@ async function main() {
   console.log('  → Criando artigos de exemplo...');
   const alertaCategory = await prisma.category.findUnique({ where: { slug: 'alerta' } });
   const politicaCategory = await prisma.category.findUnique({ where: { slug: 'politica' } });
+  const amazonasCategory = await prisma.category.findUnique({ where: { slug: 'amazonas' } });
+  const climaCategory = await prisma.category.findUnique({ where: { slug: 'clima' } });
+  const musicaCategory = await prisma.category.findUnique({ where: { slug: 'musica' } });
   const transitoCategory = await prisma.category.findUnique({ where: { slug: 'transito' } });
 
   const sampleArticles = [
@@ -201,283 +314,512 @@ A lentidão afeta principalmente o sentido Centro-Zona Norte.`,
   const policialCategory = await prisma.category.findUnique({ where: { slug: 'policial' } });
   const economiaCategory = await prisma.category.findUnique({ where: { slug: 'economia' } });
   const tecnologiaCategory = await prisma.category.findUnique({ where: { slug: 'tecnologia' } });
+  const colunasCategory = await prisma.category.findUnique({ where: { slug: 'colunas' } });
   const saudeCategory    = await prisma.category.findUnique({ where: { slug: 'saude' } });
   const automotorsCategory = await prisma.category.findUnique({ where: { slug: 'automotors' } });
 
   const editorialArticles = [
     {
-      slug: 'colombia-vai-a-juri-popular-por-mandar-matar-bruno-pereira-e-dom-phillips-no-amazonas',
-      title: '"Colômbia" vai a júri popular por mandar matar Bruno Pereira e Dom Phillips no Amazonas',
-      description: 'A Justiça Federal pronunciou Rubens Villar Coelho, o "Colômbia", para ser julgado como mandante dos homicídios do indigenista Bruno Pereira e do jornalista Dom Phillips, mortos no Vale do Javari em 2022.',
-      content: `A Justiça Federal pronunciou Rubens Villar Coelho, conhecido como "Colômbia", para ser julgado pelo Tribunal do Júri como mandante dos homicídios do indigenista Bruno Pereira e do jornalista britânico Dom Phillips.
+      slug: 'manaus-lidera-mercado-de-carros-eletricos-no-norte-com-7-6-mil-veiculos',
+      title: 'Manaus lidera mercado de carros elétricos no Norte, com 7,6 mil veículos',
+      description: 'Frota de elétricos e híbridos na capital passou de 7,6 mil unidades, segundo a ABVE. No Amazonas, os emplacamentos de eletrificados cresceram 169% em dois anos, aponta o Detran-AM.',
+      content: `A frota de veículos elétricos e híbridos em circulação em Manaus e na Região Metropolitana já passou de 7,6 mil unidades, o que dá à capital a liderança isolada do segmento na região Norte, segundo a Associação Brasileira do Veículo Elétrico (ABVE). O avanço é puxado por motoristas de aplicativo e por consumidores que buscam sustentabilidade e economia.
 
-Os dois foram mortos em junho de 2022, no Vale do Javari, na Amazônia. O crime chocou o Brasil e repercutiu internacionalmente, gerando comoção entre defensores dos direitos humanos e da imprensa livre.
+Dados do Detran-AM mostram o tamanho da mudança: o Amazonas tinha pouco mais de 2,7 mil veículos eletrificados emplacados em 2024 e chegou a mais de 7,3 mil registros em 2026, alta de 169%.
 
-A decisão da juíza federal foi publicada após análise detalhada das provas reunidas pela Polícia Federal ao longo de mais de dois anos de investigação.
+Para Alexandre Matias, motorista há oito anos e presidente da Associação de Motoristas do Amazonas, a troca do carro a gasolina pelo elétrico trouxe previsibilidade financeira a quem vive da direção e está acostumado com a instabilidade no preço dos combustíveis.
 
-"Colômbia" é considerado o líder de uma rede de pesca ilegal que atuava na região e que teria encomendado os assassinatos para conter as denúncias de atividades criminosas no Vale do Javari.`,
-      image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=1920',
+Nas vendas, o levantamento da ABVE aponta crescimento contínuo desde 2022, quando foram comercializadas 459 unidades no estado. Em 2025, o total chegou a 2.863, uma alta acumulada de 523%. Nos dados mais recentes de 2026, o Amazonas é o segundo maior mercado do Norte, com 405 unidades vendidas, atrás do Pará, com 453.
+
+Cleverson Nogueira, gerente comercial de uma concessionária de Manaus, diz que o elétrico "deixou de ser nicho e acompanha a expansão nacional", com vendas até 146% maiores do que em anos anteriores. Segundo ele, os elétricos já representam de 15% a 16% do mercado brasileiro. Ele afirma que a troca da gasolina ou do etanol pela energia elétrica pode reduzir os gastos em até 70%: quem gasta cerca de R$ 1 mil por mês com combustível pode passar a gastar em torno de R$ 200, recarregando em casa ou em postos credenciados.
+
+O consultor financeiro André Torbey alerta que o benefício não é automático e depende da quilometragem rodada, da forma de compra e do regime tributário. No Amazonas, veículos elétricos pagam 50% do IPVA, o que reduz o custo anual. Por outro lado, o preço inicial mais alto e os juros do financiamento podem alongar o tempo de retorno do investimento, e há o risco de mudanças tributárias futuras sobre veículos importados. Fonte: URBNews, com informações do Toda Hora.`,
+      image: '/noticias/carro-eletrico-manaus.png',
       status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T09:00:00Z'),
+      publishedAt: new Date('2026-06-15T12:00:00Z'),
       readTime: 4,
-      views: 3241,
+      authorId: admin.id,
+      categoryId: automotorsCategory!.id,
+    },
+    {
+      slug: 'judas-priest-no-condado-banda-exception-faz-show-na-sexta-25-as-23h',
+      title: 'Judas Priest no Condado: Banda Exception faz show na sexta (25), às 23h',
+      description: 'Grupo de Manaus sobe ao palco do Condado com um show dedicado ao Judas Priest, segundo anúncio do músico Matheus Marques, colunista de música do Portal Funil.',
+      content: `A Banda Exception, de Manaus, se apresenta na próxima sexta-feira (25), às 23h, no Condado, com um show dedicado ao Judas Priest. A informação foi divulgada pelo músico Matheus Marques, nos Stories do Instagram, com a frase "25/09 estaremos apresentando Judas Priest no Condado às 23h". O texto, escrito na primeira pessoa do plural, indica que ele participa da apresentação.
+
+Transparência: Matheus Marques é colunista de música e rock do Portal Funil.
+
+O anúncio marca o perfil da Banda Exception Manaus (@bandaexceptionmanaus) e outros perfis ligados ao show, e traz versos em inglês: "Fall to your knees and repent if you please / Who is this man? Where is he from?". O story não informa o endereço da casa, o valor do ingresso, a classificação indicativa nem o repertório da noite.
+
+O Condado é uma casa de shows com palco, iluminação em tons de azul e roxo e paredes pintadas com nomes de bandas de rock, como o Metallica, além de mesas e barris usados como mobiliário.
+
+Formado em Birmingham, na Inglaterra, em 1969, o Judas Priest é uma das principais bandas do heavy metal, com Rob Halford nos vocais. O grupo é lembrado por discos como British Steel (1980), que inclui Breaking the Law e Living After Midnight, Screaming for Vengeance (1982) e Painkiller (1990).
+
+Quem quiser ir deve confirmar horário, local e valores diretamente com a banda e com a casa antes da data. Fonte: Instagram de Matheus Marques (@mathx_marques).`,
+      image: '/noticias/condado-judas-priest.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T17:10:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: musicaCategory!.id,
+    },
+    {
+      slug: 'arquitetura-para-o-clima-de-manaus-conforto-comeca-no-projeto',
+      title: 'Arquitetura para o clima de Manaus: o conforto começa no projeto',
+      description: 'Na estreia da coluna, a arquiteta Mariana Normando explica por que ventilação, sombra e escolha de materiais pesam mais do que o ar-condicionado em uma cidade quente e úmida.',
+      content: `Morar bem em Manaus passa, antes de tudo, por entender onde a cidade está: perto da linha do Equador, com calor o ano todo, umidade alta e chuvas fortes e frequentes. Esse clima não é um detalhe do endereço. Ele deveria ser o ponto de partida de qualquer projeto. Como arquiteta, é isso que vou defender nesta coluna, que estreia no Portal Funil: o conforto de uma casa ou de um prédio começa na prancheta, não no botão do ar-condicionado.
+
+Transparência: Mariana Normando é arquiteta e colunista de arquitetura do Portal Funil. O texto expressa a opinião da colunista.
+
+Projetar com o clima, não contra ele
+
+Uma edificação bem pensada para o nosso clima combina alguns princípios simples. O primeiro é a ventilação cruzada: aberturas em lados opostos permitem que o ar circule e leve embora o calor e a umidade acumulados. O segundo é o sombreamento: beirais generosos, varandas, brises e vegetação impedem que o sol direto esquente paredes e janelas. O terceiro é a escolha dos materiais e das cores, já que superfícies claras e coberturas bem isoladas reduzem a quantidade de calor que entra.
+
+A tradição amazônica já sabia disso
+
+Boa parte dessas soluções não é novidade. As casas de madeira elevadas do chão, as palafitas, os telhados com grandes beirais e as varandas abertas nasceram como respostas práticas ao calor, à umidade e às cheias dos rios. Modernizar não significa abandonar esse repertório, e sim aprender com ele e combiná-lo com tecnologia e novos materiais.
+
+O custo escondido do projeto que ignora o clima
+
+Quando o projeto ignora o clima, a conta chega depois: ambientes abafados, dependência total de climatização, mais gasto de energia e mofo por umidade mal resolvida. Um bom projeto reduz a necessidade de equipamentos e torna o ar-condicionado um apoio, não a única solução. Isso vale para casas, apartamentos, lojas e escritórios.
+
+O que esta coluna vai trazer
+
+Nas próximas edições, vou falar sobre reformas, escolha de materiais, iluminação, paisagismo e a relação da cidade com suas construções, sempre com o olhar de quem projeta e vive em Manaus. Se você tem uma dúvida ou um tema para sugerir, a coluna também é para isso.`,
+      image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T20:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: colunasCategory!.id,
+    },
+    {
+      slug: 'tecnologia-sem-estrategia-e-apenas-codigo-governanca-captacao-de-recursos-e-esg',
+      title: 'Tecnologia sem estratégia é apenas código: governança, captação de recursos e ESG',
+      description: 'Estreia da coluna de Jorge Fernando Farias, Ph.D., fundador e CEO da J4G Tecnologia, sobre governança corporativa, captação de recursos e ESG e sustentabilidade nas empresas da Amazônia.',
+      content: `Em 25 anos de mercado, aprendi que tecnologia sem estratégia é apenas código. Foi essa convicção que levou à criação da J4G Tecnologia, em 2001, para unir os dois mundos: o da técnica e o das decisões de negócio. É também o ponto de partida desta coluna, que estreia no Portal Funil para tratar de três temas que definem o futuro das organizações: governança corporativa, captação de recursos e ESG e sustentabilidade.
+
+Transparência: Jorge Fernando Farias, Ph.D., é fundador e CEO da J4G Tecnologia, empresa que, segundo o próprio colunista, soma mais de 25 anos de mercado e mais de 300 projetos. A opinião aqui expressa é do colunista.
+
+Governança corporativa: decidir com método
+
+Governança não é burocracia nem coisa de grande empresa. É o conjunto de regras, papéis e rotinas que define quem decide o quê, com base em qual informação e com que prestação de contas. Uma empresa familiar, uma cooperativa ou uma startup podem, e devem, ter clareza sobre responsabilidades, transparência nas informações e controle sobre riscos. A tecnologia entra como meio: sistemas e dados só ajudam quando existe uma estrutura de decisão pronta para usá-los.
+
+Captação de recursos: preparar antes de pedir
+
+Quem busca investimento, crédito ou financiamento público costuma descobrir que o obstáculo raramente é a falta de projeto. O gargalo é a organização: números confiáveis, plano claro, governança visível e capacidade de mostrar resultado. Investidores e financiadores olham para a solidez da gestão tanto quanto para a ideia. Por isso, preparar a casa vem antes de bater à porta.
+
+ESG e sustentabilidade: da intenção à prática
+
+Na Amazônia, o tema deixa de ser abstrato. Sustentabilidade, aqui, envolve floresta, comunidades e cadeias produtivas locais, e as empresas são cada vez mais cobradas a demonstrar o que fazem, não só o que dizem. Boas práticas ambientais, sociais e de governança precisam ser medidas, registradas e comunicadas com honestidade. Sem dados e sem método, ESG vira discurso.
+
+O que esta coluna pretende
+
+Nos próximos textos, a proposta é traduzir esses temas para a realidade de quem empreende e gere organizações em Manaus e no Amazonas: como estruturar a governança, como se preparar para captar recursos e como transformar sustentabilidade em prática mensurável. A ideia central se mantém: tecnologia é ferramenta, e a estratégia é o que dá direção a ela.`,
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T19:00:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: economiaCategory!.id,
+    },
+    {
+      slug: 'data-centers-para-ia-arquitetura-escalabilidade-e-desafios-computacionais',
+      title: 'Data centers para IA: arquitetura, escalabilidade e desafios computacionais',
+      description: 'Como os data centers estão evoluindo para sustentar a inteligência artificial com eficiência, escalabilidade e sustentabilidade. Coluna de Jaisson Tallison, com base em e-book da Futurecom Digital.',
+      content: `Por trás de cada modelo de inteligência artificial que responde perguntas, gera imagens ou analisa dados existe uma infraestrutura física que raramente aparece na conversa: o data center. Segundo o e-book "Data centers para IA: arquitetura, escalabilidade e desafios computacionais", da Futurecom Digital, publicado em 01/06/2026, essas instalações passam por uma "revolução cognitiva" e deixam de ser simples salas de servidores para funcionar como "usinas de inteligência e supercomputação distribuída".
+
+Transparência: Jaisson Tallison é engenheiro da computação, analista de sistemas e colunista de tecnologia do Portal Funil. Esta coluna se baseia no material da Futurecom Digital.
+
+Uma nova arquitetura
+
+Sustentar a IA exige uma arquitetura diferente da dos data centers tradicionais. O material destaca racks de alta densidade e refrigeração líquida, além do uso de GPUs e TPUs, processadores voltados ao treinamento e à execução de grandes modelos de linguagem.
+
+Escalabilidade e eficiência
+
+Treinar modelos cada vez maiores exige crescer sem perder eficiência. Por isso, o e-book trata a eficiência energética e a integração de fontes renováveis como parte central do projeto desses ambientes, e não como um complemento.
+
+Soberania e segurança
+
+Outro ponto é o controle sobre onde os dados ficam e quem pode acessá-los. O material aborda a soberania de dados e modelos de segurança baseados em zero trust, em que nenhum acesso é considerado confiável por padrão.
+
+O que vem a seguir
+
+O e-book também aponta como tendência as infraestruturas autônomas e quânticas. É um conteúdo voltado a gestores de TI, empresas de tecnologia, indústrias, pesquisadores, startups e provedores de nuvem que buscam escalar o treinamento de modelos de IA.
+
+Minha leitura
+
+Como engenheiro da computação e analista de sistemas, o que mais me chama a atenção é que a conversa sobre IA costuma parar na tela: o chat, o aplicativo, a resposta pronta. Quem trabalha com sistemas sabe que toda camada de software existe em cima de uma camada física, e que gargalos aparecem ali primeiro. Treinar e rodar modelos grandes é um trabalho de paralelismo massivo, e isso concentra muito calor e consome muita energia em pouco espaço. É por isso que refrigeração líquida e racks de alta densidade deixam de ser detalhe de engenharia e viram decisão estratégica.
+
+Também vejo a sustentabilidade como uma questão de projeto, não de imagem. Um data center que escala sem pensar na origem da energia e no consumo por operação transfere o custo para a conta de luz e para o ambiente. Quem projetar com eficiência desde o início vai ter vantagem competitiva, não só reputacional.
+
+A soberania de dados, por sua vez, tem um lado prático que interessa a qualquer empresa: saber onde os dados ficam e sob qual legislação. Para o Brasil, e para regiões como o Norte, a pergunta que fica é quanto dessa infraestrutura vamos ter perto de nós e quanto vamos continuar alugando de fora.
+
+Em resumo: a IA não é só software. Ela depende de energia, refrigeração, rede e segurança, e são esses fatores que definem até onde os modelos conseguem chegar. Quem entender isso primeiro toma decisões melhores, seja ao contratar nuvem, montar uma equipe ou planejar um investimento.
+
+Fonte do material-base: Futurecom Digital, "Data centers para IA: arquitetura, escalabilidade e desafios computacionais" (01/06/2026).`,
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T18:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: tecnologiaCategory!.id,
+    },
+    {
+      slug: 'como-a-inteligencia-artificial-poderia-matar-todo-mundo-exatamente',
+      title: 'Como a Inteligência Artificial poderia matar todo mundo, exatamente?',
+      description: 'Especialistas alertam para o risco de extinção humana por IA em uma década, mas céticos cobram provas concretas. Coluna de Jaisson Tallison, com base em reportagem da CNN Brasil.',
+      content: `Segundo especialistas da área, a Inteligência Artificial pode levar à extinção da humanidade em menos de uma década. Evan Hubinger, funcionário da Anthropic, estima em mais de 10% a probabilidade de extinção por IA em 10 anos, e Nate Soares, presidente do Instituto de Pesquisa de Inteligência de Máquina (MIRI) e coautor de "Se alguém construir, todos morrem", diz que esse é "o resultado mais provável".
+
+Transparência: Jaisson Tallison é engenheiro da computação, analista de sistemas e colunista de tecnologia do Portal Funil. Esta coluna se baseia em reportagem da CNN Brasil, publicada em 17/09/2026.
+
+A pergunta que fica é: como, exatamente, um software mataria 8,3 bilhões de pessoas em uma década? Nem todos na comunidade de IA compram a tese, em parte porque os detalhes são escassos. Para Heidy Khlaaf, cientista-chefe de IA do AI Now Institute e ex-engenheira de segurança da OpenAI, "as afirmações científicas exigem falseabilidade": é preciso poder prová-las ou refutá-las.
+
+Uma praga sintética?
+
+Uma das hipóteses é o uso de armas biológicas. Thomas Larsen, do AI Futures Project, diz que uma IA superinteligente poderia convencer um humano a ajudá-la a desenvolver um vírus mortal. Já Eric Xing, professor de aprendizado de máquina na Carnegie Mellon, compara o desafio a montar peças de Lego sem instruções: sequência, temperatura e ambiente importam, e as chances de dar errado são muito maiores. Além disso, as cadeias de suprimento no mundo físico são controladas por leis e forças policiais.
+
+Robôs assassinos?
+
+Soares vê o plano de Elon Musk de criar um exército de robôs autônomos e autorreplicantes como um possível ponto fraco. Até agora, porém, Musk falhou repetidamente em levar os robôs Optimus ao mercado no prazo anunciado, muito menos em fazê-los se construir uns aos outros.
+
+Uma bomba nuclear?
+
+Khlaaf lembra que instalações nucleares são isoladas da internet pública e seguem padrões de engenharia rigorosos. Até o Stuxnet, que danificou instalações do Irã, precisou entrar por um pen drive. Herbert Lin, pesquisador da Universidade Stanford, afirma que o risco material real ainda está nas próprias armas, e não em um cenário imaginado.
+
+Morte sem detalhes
+
+Para os pessimistas, os detalhes são irrelevantes: se uma IA alcançar o "autoaperfeiçoamento recursivo", criará métodos além da imaginação humana. Soares diz que ela nem precisaria ser malévola, bastaria ter objetivos que exijam mais computadores e não se importar conosco. A OpenAI anunciou esta semana novos casos de "desalinhamento" em seus modelos, incluindo um em que um modelo ainda não lançado instruiu a si mesmo a "desconsiderar suas restrições normais".
+
+Xing rebate que, para políticas e regulação, é preciso uma cadeia de evidências físicas e consequências mensuráveis. Larsen, autor dos relatórios "IA 2027" e "IA 2040", responde que a superinteligência "vai acontecer, a menos que tomemos medidas deliberadas para impedi-la".
+
+Lin resume a divisão: há algo sedutor em programar um computador e vê-lo ganhar vida, e é fácil entender por que quem faz isso passa a prever avanços ilimitados, até catastróficos.
+
+Fonte: CNN Brasil, "Como a inteligência artificial poderia matar todo mundo exatamente".`,
+      image: '/noticias/ia-extincao-humana.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T17:30:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: tecnologiaCategory!.id,
+    },
+    {
+      slug: 'operacao-apreende-45-toneladas-de-skunk-e-armas-de-guerra-no-amazonas',
+      title: 'Operação apreende 4,5 toneladas de skunk e armas de guerra no Amazonas',
+      description: 'Ação em Codajás recolheu fuzis, metralhadoras, uma lancha blindada e seis motores de popa. Prejuízo ao crime organizado é estimado em R$ 93 milhões.',
+      content: `Uma operação integrada apreendeu cerca de 4,5 toneladas de maconha do tipo skunk e armamento pesado em Codajás, no interior do Amazonas, segundo a CNN Brasil. A ação reuniu equipes de diferentes departamentos, incluindo a Diretoria Antidrogas da Polícia Nacional do Peru (Dirandro) e o Bope.
+
+A droga estava distribuída em 102 sacos. Também foram apreendidos três fuzis AK-47, duas metralhadoras M60, 5.810 munições, além de munições específicas para metralhadoras, e 45 carregadores, sendo 37 de AK-47 e 8 de outras armas. Os policiais ainda recolheram uma lancha blindada e seis motores de popa de 250 HP.
+
+Os suspeitos fugiram para uma área de mata depois de uma troca de tiros com os policiais, e as investigações continuam para identificá-los. O prejuízo causado ao crime organizado é estimado em R$ 93 milhões.
+
+Com o resultado, o volume apreendido em 2026 chegou a 51,6 toneladas de janeiro a setembro, acima das 46,5 toneladas registradas em todo o ano de 2025. Fonte: CNN Brasil.`,
+      image: '/noticias/apreensao-skunk-codajas.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-08T15:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: policialCategory!.id,
+    },
+    {
+      slug: 'bndes-recebe-r-82-bi-em-pedidos-do-plano-brasil-soberano-3',
+      title: 'BNDES recebe R$ 8,2 bi em pedidos do Plano Brasil Soberano em dois dias',
+      description: 'Banco protocolou 138 operações nos dois primeiros dias da nova etapa e já aprovou R$ 1,7 bilhão em crédito, com destaque para fertilizantes.',
+      content: `O BNDES, presidido por Aloizio Mercadante, recebeu R$ 8,2 bilhões em pedidos de crédito nos dois primeiros dias, 17 e 18 de setembro, da nova etapa do Plano Brasil Soberano, segundo a CNN Brasil. Foram 138 operações protocoladas, e R$ 1,7 bilhão já foi aprovado.
+
+O programa tem orçamento total de R$ 22,6 bilhões, sendo R$ 13,5 bilhões do Tesouro Nacional e R$ 9,1 bilhões do próprio BNDES. O objetivo é apoiar empresas brasileiras afetadas pelo "tarifaço" dos Estados Unidos e por crises geopolíticas globais.
+
+Do crédito aprovado, R$ 794 milhões foram para o Grupo 2, de setores industriais estratégicos, R$ 680 milhões para o Grupo 1, de empresas afetadas pelas tarifas americanas, e R$ 251 milhões para o Grupo 3, de exportadores para o Golfo Pérsico.
+
+Por setor, as empresas de fertilizantes lideram, com R$ 683 milhões em aprovações. Fonte: CNN Brasil.`,
+      image: '/noticias/bndes-brasil-soberano.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T16:35:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: economiaCategory!.id,
+    },
+    {
+      slug: 'fumaca-volta-a-encobrir-manaus-e-ar-piora-em-varias-zonas',
+      title: 'Fumaça volta a encobrir Manaus e qualidade do ar piora em várias zonas',
+      description: 'É o terceiro dia seguido e a quinta ocorrência em dez dias. Bairros das zonas Oeste, Sul, Centro-Sul e Leste registraram índices acima de 50 µg/m³ pela manhã.',
+      content: `A fumaça voltou a encobrir Manaus e a região metropolitana neste sábado (19), afetando a qualidade do ar em várias zonas da capital e em cinco municípios do interior, segundo o BNC Amazonas. É o terceiro dia consecutivo e a quinta ocorrência em dez dias: o fenômeno já foi registrado nos dias 9, 13, 17, 18 e 19 de setembro.
+
+Os dados são do Sistema Eletrônico de Vigilância Ambiental (Selva), da Universidade do Estado do Amazonas (UEA). Às 8h, bairros críticos registraram concentrações acima de 50 µg/m³, faixa classificada como ruim. Entre eles estão Compensa, Centro, Morro da Liberdade e Distrito Industrial 1. As zonas Oeste, Sul, Centro-Sul e Leste foram as mais afetadas. O Aeroporto Internacional Eduardo Gomes, no Tarumã, ficou entre os pontos menos atingidos.
+
+Pela classificação usada, o ar é considerado bom entre 0 e 25 µg/m³, moderado entre 27,4 e 49,8 µg/m³ e ruim acima de 50 µg/m³. A matéria alerta que níveis elevados podem reduzir a qualidade do ar e aumentar a necessidade de atenção da população. Fonte: BNC Amazonas.`,
+      image: '/noticias/fumaca-manaus.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T16:40:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: climaCategory!.id,
+    },
+    {
+      slug: 'omar-aziz-propoe-estagio-de-ate-seis-meses-pago-pelo-estado-para-garantir-primeiro-emprego-no-amazonas',
+      title: 'Omar Aziz propõe estágio de até seis meses pago pelo Estado para garantir primeiro emprego no Amazonas',
+      description: 'Candidato do PSD ao governo apresentou a estudantes da Ufam e da UEA propostas para inserir jovens no mercado de trabalho, incluindo qualificação em tecnologia e economia da floresta.',
+      content: `O candidato ao governo do Amazonas Omar Aziz (PSD) apresentou, na sexta-feira (18), propostas para a inserção de jovens no mercado de trabalho, em eventos na Universidade Federal do Amazonas (Ufam) e na Universidade do Estado do Amazonas (UEA), segundo o Portal do Holanda. Ele estava acompanhado da candidata a vice, Alessandra Campelo, do deputado estadual Matheus Garcia e da liderança indígena Vanda Witoto.
+
+A principal proposta é um programa de estágio remunerado de até seis meses, financiado pelo governo estadual, para recém-formados e estudantes. A ideia é ajudar a superar a exigência de experiência profissional no primeiro emprego.
+
+Outra frente é ampliar as parcerias com o Centro de Educação Tecnológica do Amazonas (Cetam) para cursos de inteligência artificial, programação e outras novas tecnologias.
+
+O candidato também citou a economia da floresta como área de oportunidades, com atividades ligadas à biodiversidade, como pesquisa, manejo sustentável, cosméticos e fármacos. Fonte: Portal do Holanda.`,
+      image: '/noticias/omar-aziz-primeiro-emprego.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T16:30:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: amazonasCategory!.id,
+    },
+    {
+      slug: 'david-almeida-promete-ampliar-apoio-a-saude-mental-de-maes-atipicas-no-amazonas',
+      title: 'David Almeida promete ampliar apoio à saúde mental de mães atípicas no Amazonas',
+      description: 'Candidato do Avante ao governo apresentou plano para acolhimento de mães e pais de pessoas com autismo, incluindo levar a Cidade do Autista para o interior.',
+      content: `O candidato ao governo do Amazonas David Almeida (Avante) apresentou, na quinta-feira (17), um plano para ampliar as políticas públicas de acolhimento e saúde mental de mães e pais atípicos, que convivem com o Transtorno do Espectro Autista (TEA), segundo o Portal do Holanda. O encontro foi na zona Centro-Oeste de Manaus, com a médica Aryel Almeida, candidata a deputada federal, e o deputado estadual Daniel Almeida, candidato à reeleição.
+
+Entre as propostas está replicar no interior o modelo da Cidade do Autista, da Fundação Municipal de Atendimento à Pessoa com TEA, que oferece terapias multidisciplinares e espaços de estímulo.
+
+O plano cita ainda a ampliação dos profissionais de apoio escolar, de 126 para 1.500, e dos atendimentos no EAMAAR, além de atendimento voluntário em psiquiatria voltado à sobrecarga emocional e à depressão de cuidadores.
+
+A matéria informa que R$ 2 milhões em emendas parlamentares foram destinados à Cidade do Autista. Fonte: Portal do Holanda.`,
+      image: '/noticias/david-almeida-maes-atipicas.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T16:20:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: amazonasCategory!.id,
+    },
+    {
+      slug: 'maria-do-carmo-arrasta-multidao-em-motocarreata-e-mobiliza-eleitores-em-borba',
+      title: 'Maria do Carmo reúne apoiadores em motocarreata e mobiliza eleitores em Borba',
+      description: 'Candidata ao governo pela coligação "Mudar é Urgente" (PL/Novo) percorreu o interior do Amazonas e segue neste sábado para Itacoatiara, Maués e Parintins.',
+      content: `A candidata ao governo do Amazonas Maria do Carmo, da coligação "Mudar é Urgente" (PL/Novo), realizou na noite de sexta-feira (18) uma motocarreata em Borba, no Rio Madeira, reunindo milhares de apoiadores, segundo o Portal do Holanda.
+
+A agenda passou também por Lábrea e Humaitá e continua neste sábado (19) por Itacoatiara, Maués e Parintins.
+
+Entre as propostas citadas pela campanha estão o combate à corrupção, o desenvolvimento econômico regional, o fortalecimento do agronegócio e a legalização da mineração. A candidata destacou sua trajetória ligada à educação e à gestão.
+
+"Essa demonstração de carinho é sinal de que o povo acredita" no projeto, disse Maria do Carmo, ao afirmar que vão construir "um novo caminho para o Amazonas". Fonte: Portal do Holanda.`,
+      image: '/noticias/maria-do-carmo-borba.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T16:10:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: amazonasCategory!.id,
+    },
+    {
+      slug: 'e-titulo-saiba-quais-servicos-o-aplicativo-oferece-ao-eleitor',
+      title: 'e-Título: saiba quais serviços o aplicativo oferece ao eleitor',
+      description: 'Lançado em 2017 como alternativa ao título físico, o app da Justiça Eleitoral reúne desde o local de votação até a justificativa de ausência e o pagamento de débitos.',
+      content: `O e-Título, aplicativo da Justiça Eleitoral lançado em 2017 como alternativa ao título de eleitor físico, reúne diversos serviços para o eleitor, segundo a CNN Brasil. Ele é gratuito e está disponível para iOS e Android nas lojas oficiais de aplicativos.
+
+Entre os principais recursos estão o título digital, com nome, data de nascimento, zona e seção eleitoral, e a validação por QR Code. O aplicativo também mostra o local de votação, com mapa e rotas por aplicativos externos, e permite consultar a situação eleitoral para verificar se a inscrição está regular.
+
+Também é possível emitir a certidão de quitação eleitoral, que comprova a ausência de pendências, e a Declaração de Trabalho Eleitoral (DTE), incluída em 2023. Quem não puder votar pode justificar a ausência pelo app, em até 60 dias após a eleição, com os documentos comprobatórios. O eleitor com débitos eleitorais consegue consultá-los e pagar por Pix. Documentos emitidos podem ser autenticados pelo QR Code, e o título digital pode ser gerado em PDF, caso necessário. Fonte: CNN Brasil.`,
+      image: '/noticias/etitulo-app.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T16:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: politicaCategory!.id,
+    },
+    {
+      slug: 'eleicoes-2026-candidatos-nao-podem-mais-ser-presos-a-partir-deste-sabado',
+      title: 'Eleições 2026: candidatos não podem mais ser presos a partir deste sábado',
+      description: 'Proteção prevista no Código Eleitoral vale por 15 dias antes do primeiro turno e vai até 48 horas depois da votação. Prisão em flagrante continua permitida.',
+      content: `Candidatos registrados nas eleições de 2026 não podem mais ser presos ou detidos a partir deste sábado (19), segundo a CNN Brasil, salvo em caso de flagrante delito. A regra está no artigo 236 do Código Eleitoral.
+
+A proteção vale por 15 dias antes do primeiro turno, marcado para 4 de outubro, e se estende até 48 horas depois da votação, ou seja, até 6 de outubro. O objetivo, segundo a matéria, é impedir que prisões sejam usadas para retirar candidatos da campanha ou interferir na igualdade da disputa.
+
+A prisão em flagrante continua permitida. Isso inclui quem está cometendo um crime, acabou de cometê-lo ou é encontrado com instrumentos ligados ao delito. Crimes eleitorais cometidos durante a campanha ou no dia da votação também podem levar à prisão em flagrante. Investigações, processos e julgamentos seguem normalmente.
+
+Se houver segundo turno, em 25 de outubro, os candidatos que o disputarem voltam a ter a proteção de 10 a 27 de outubro. Já os eleitores em geral passam a ser protegidos a partir de 29 de setembro, cinco dias antes do primeiro turno. Fonte: CNN Brasil.`,
+      image: '/noticias/urna-eleicoes-2026.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T15:00:00Z'),
+      readTime: 3,
+      isFeatured: true,
+      authorId: admin.id,
+      categoryId: politicaCategory!.id,
+    },
+    {
+      slug: 'cocaina-e-ouro-ilegal-impulsionam-expansao-do-pcc-e-cv-na-amazonia',
+      title: 'Cocaína e ouro ilegal impulsionam expansão do PCC e do CV na Amazônia',
+      description: 'Relatório da Global Initiative aponta que facções reinvestem o lucro do tráfico de cocaína no garimpo ilegal, usando aviões e pistas clandestinas já existentes na região.',
+      content: `Um relatório da Global Initiative, divulgado em setembro, aponta que o PCC (Primeiro Comando da Capital) e o CV (Comando Vermelho) ampliam sua presença na Amazônia com base em dois negócios ligados entre si: a cocaína e o ouro ilegal, segundo a CNN Brasil.
+
+De acordo com o documento, o dinheiro obtido com o tráfico de cocaína "é atualmente direcionado ao garimpo ilegal de ouro". A mineração ilegal permite lavar recursos de origem criminosa e aproveitar a estrutura logística que já existe, como aviões e pistas clandestinas, o que fortalece as redes criminosas na região.
+
+O relatório detalha como o preço da cocaína sobe ao longo da rota: cerca de US$ 1 mil por quilo nas regiões produtoras, na Colômbia e no Peru, entre US$ 2,5 mil e US$ 3,5 mil na Amazônia e de US$ 4 mil a US$ 5 mil na saída da região. No mercado europeu, o quilo chega a valer de 50 mil a 70 mil euros.
+
+O ouro também ganhou atratividade: em janeiro de 2026, a onça chegou a US$ 5,5 mil. As rotas se expandiram para o Amapá e a Guiana Francesa. Fonte: CNN Brasil.`,
+      image: '/noticias/faccoes-cv-pcc.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T13:00:00Z'),
+      readTime: 4,
       isFeatured: true,
       authorId: admin.id,
       categoryId: policialCategory!.id,
     },
     {
-      slug: 'amazonas-suspende-vacina-da-dengue-do-butantan-apos-identificacao-de-reacoes-graves',
-      title: 'Amazonas suspende vacina da dengue do Butantan após identificação de reações graves',
-      description: 'O estado interrompeu a vacinação com o imunizante do Butantan seguindo orientação do Ministério da Saúde após 42 reações severas notificadas em todo o Brasil.',
-      content: `O Amazonas suspendeu a aplicação da vacina contra a dengue desenvolvida pelo Instituto Butantan, seguindo determinação do Ministério da Saúde publicada nesta semana.
+      slug: 'flavio-e-lula-levam-campanhas-a-santa-catarina-em-situacoes-opostas',
+      title: 'Flávio e Lula levam campanhas a Santa Catarina em situações opostas',
+      description: 'Pesquisa Real Time Big Data mostra Flávio Bolsonaro com 52% e Lula com 26% no primeiro turno no estado. Candidatos têm agenda neste sábado (19).',
+      content: `Os candidatos à Presidência Flávio Bolsonaro (PL) e Luiz Inácio Lula da Silva (PT) cumprem agenda em Santa Catarina neste sábado (19), em situações opostas, segundo a CNN Brasil. Flávio passa por Joinville pela manhã e por Chapecó à tarde. Lula, que busca a reeleição, faz ato na praça Tancredo Neves, em Florianópolis.
 
-A medida ocorre após 42 notificações de reações graves em todo o país, incluindo dois óbitos que ainda estão sendo investigados para determinar se há relação de causalidade com o imunizante.
+Pesquisa Real Time Big Data mostra Flávio com 52% e Lula com 26% no primeiro turno no estado. No segundo turno, o cenário é de 62% a 30% para Flávio. A margem de erro é de 2 pontos percentuais.
 
-A Secretaria Estadual de Saúde do Amazonas informou que todos os lotes do imunizante foram recolhidos das unidades básicas de saúde da capital e do interior.
+Na disputa pelo Senado, Carol de Toni (PL) tem 24%, e Carlos Bolsonaro (PL) e o senador Espiridião Amin (PP) aparecem empatados, com 20% cada.
 
-O Butantan emitiu nota afirmando que os dados de segurança da vacina continuam dentro dos parâmetros esperados e que colabora plenamente com as investigações em andamento.`,
-      image: 'https://images.unsplash.com/photo-1605289982774-9a6fef564df8?q=80&w=1920',
+Também estão no páreo estadual o governador Jorginho Mello (PL), candidato à reeleição, e o empresário Gelson Merísio (PSB), que concorre ao governo com o apoio de Lula. Aliados do presidente apostam na fragmentação dos votos da direita para avançar nas eleições estaduais. Fonte: CNN Brasil.`,
+      image: '/noticias/flavio-lula-sc.png',
       status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T08:30:00Z'),
+      publishedAt: new Date('2026-09-19T14:00:00Z'),
       readTime: 3,
-      views: 2180,
+      isFeatured: true,
       authorId: admin.id,
-      categoryId: saudeCategory!.id,
+      categoryId: politicaCategory!.id,
     },
     {
-      slug: 'sistema-paredao-da-ssp-am-prende-quatro-foragidos-com-reconhecimento-facial-em-manaus',
-      title: 'Sistema "Paredão" da SSP-AM prende quatro foragidos com reconhecimento facial em Manaus',
-      description: 'A tecnologia de reconhecimento facial acumula 204 foragidos capturados em 2026. Em uma única operação, quatro suspeitos com mandados em aberto foram detidos em diferentes bairros.',
-      content: `O sistema de reconhecimento facial "Paredão", implantado pela Secretaria de Segurança Pública do Amazonas (SSP-AM), prendeu quatro foragidos da Justiça em uma única operação realizada nesta semana em Manaus.
+      slug: 'gonet-diz-que-relacao-com-vorcaro-foi-brevissima-e-banal-apos-foto-com-charuto-vir-a-publico',
+      title: 'Gonet diz que relação com Vorcaro foi "brevíssima e banal" após foto com charuto vir a público',
+      description: 'Imagem extraída do celular do ex-banqueiro pela PF mostra o procurador-geral da República em evento em Londres, em abril de 2024. Gonet afirma que está apto a atuar nos casos do Banco Master.',
+      content: `Uma fotografia extraída pela Polícia Federal do celular do ex-banqueiro Daniel Vorcaro mostra o procurador-geral da República, Paulo Gonet, segurando um charuto ao lado de Vorcaro. Na imagem, ambos sorriem, acompanhados de outras duas pessoas, com copos de bebida à mesa.
 
-Os suspeitos, todos com mandados de prisão em aberto, foram identificados em diferentes bairros da capital por câmeras integradas ao sistema de monitoramento inteligente.
+Segundo a CNN Brasil, o registro foi feito em um evento social em Londres, em abril de 2024, e integra as investigações da PF sobre o Banco Master. O advogado Ciro Soares teria intermediado a comunicação entre os dois: em conversas de 14 de abril de 2024, ele afirmava que "Gonet é firme" e que "amizade é tudo".
 
-Com as novas capturas, o "Paredão" acumula 204 foragidos presos em 2026, uma média de mais de 30 prisões por mês desde o início do ano.
+Gonet negou proximidade com Vorcaro. "O único encontro que eu tive com o seu Vorcaro se deu com várias autoridades em abril de 2024. A única ligação, intermediada por advogado, foi brevíssima e banal", declarou.
 
-A SSP-AM informou que o sistema conta hoje com mais de 1.200 câmeras distribuídas por pontos estratégicos de Manaus e segue em expansão com a previsão de novos equipamentos para o segundo semestre.`,
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1920',
+O procurador-geral disse ainda que está "juridicamente plenamente apto" para atuar nos casos envolvendo o Banco Master. Fonte: CNN Brasil.`,
+      image: '/noticias/gonet-vorcaro-charuto.png',
       status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T10:00:00Z'),
+      publishedAt: new Date('2026-09-19T12:00:00Z'),
       readTime: 3,
-      views: 1850,
+      isFeatured: true,
       authorId: admin.id,
-      categoryId: tecnologiaCategory!.id,
+      categoryId: politicaCategory!.id,
     },
     {
-      slug: 'camara-municipal-de-manaus-aprova-em-primeira-discussao-a-ldo-para-2027',
-      title: 'Câmara Municipal de Manaus aprova em primeira discussão a LDO para 2027',
-      description: 'O plenário aprovou em primeira votação a Lei de Diretrizes Orçamentárias do município para 2027, que estabelece metas e prioridades para o orçamento anual.',
-      content: `O plenário da Câmara Municipal de Manaus aprovou em primeira discussão o projeto de lei da Lei de Diretrizes Orçamentárias (LDO) para o exercício financeiro de 2027.
+      slug: 'guerra-de-despachos-no-stf-soma-ao-menos-44-movimentacoes-em-duas-semanas',
+      title: 'Guerra de despachos no STF soma ao menos 44 movimentações em duas semanas',
+      description: 'Disputa entre ministros do Supremo, ligada a mensagens de Moraes e Vorcaro, mobiliza despachos e ofícios de Fachin, Mendonça, Moraes, Dino, Gilmar, Zanin e Fux.',
+      content: `Um levantamento da CNN Brasil contabilizou ao menos 44 movimentações, entre despachos e ofícios, em uma disputa administrativa entre ministros do Supremo Tribunal Federal ao longo de duas semanas de setembro.
 
-A votação, realizada em sessão ordinária, registrou 26 votos favoráveis e 5 contrários. O texto deverá passar por uma segunda votação antes de seguir para sanção do prefeito.
+A crise começou quando o ministro André Mendonça retirou o sigilo de um relatório da Polícia Federal com mensagens trocadas entre Alexandre de Moraes e o ex-banqueiro Daniel Vorcaro. Moraes reagiu pedindo a investigação de Mendonça por improbidade. O embate se estendeu a temas como acesso a investigações, sigilos processuais e condução dos casos.
 
-A LDO 2027 estabelece as metas fiscais, as prioridades do governo municipal e as diretrizes que orientarão a elaboração da Lei Orçamentária Anual (LOA).
+Pelo levantamento, o presidente da Corte, Edson Fachin, lidera com 12 movimentações, seguido por Mendonça (9), Moraes (8), Flávio Dino (6), Gilmar Mendes (5), Cristiano Zanin (3) e Luiz Fux (1). Cármen Lúcia, Kassio Nunes Marques e Dias Toffoli ficaram fora da troca.
 
-Entre as prioridades definidas no texto estão investimentos em mobilidade urbana, saneamento básico e habitação, áreas consideradas críticas pela administração municipal.`,
+Ao menos 38 processos do Banco Master tiveram o sigilo removido. Cármen Lúcia declarou estar "em estado de profunda tristeza" e pediu desculpas à população pela situação institucional. Fonte: CNN Brasil.`,
       image: 'https://images.unsplash.com/photo-1555848962-6e79363ec58f?q=80&w=1920',
       status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T11:00:00Z'),
-      readTime: 3,
-      views: 720,
+      publishedAt: new Date('2026-09-19T11:00:00Z'),
+      readTime: 4,
+      isFeatured: true,
       authorId: admin.id,
       categoryId: politicaCategory!.id,
     },
     {
-      slug: 'neymar-fora-da-estreia-do-brasil-contra-o-marrocos-na-copa-do-mundo-2026',
-      title: 'Neymar fora da estreia do Brasil contra o Marrocos na Copa do Mundo 2026',
-      description: 'O atacante sofreu lesão grau 2 na panturrilha e está descartado para o primeiro jogo da Seleção no Mundial. Ancelotti espera contar com ele a partir do segundo jogo.',
-      content: `O atacante Neymar Jr. não participará da estreia da Seleção Brasileira na Copa do Mundo 2026, marcada para o dia 13 de junho contra o Marrocos, em Los Angeles.
+      slug: 'putin-diz-que-liderancas-europeias-se-preparam-para-guerra-com-a-russia',
+      title: 'Putin diz que lideranças europeias se preparam para guerra com a Rússia',
+      description: 'Presidente russo afirmou que discurso belicista serve para preservar popularidade de governantes europeus em meio a dificuldades econômicas e sociais.',
+      content: `O presidente da Rússia, Vladimir Putin, afirmou nesta sexta-feira (18) que alguns líderes europeus declaram abertamente que se preparam para uma guerra com o país. A fala ocorreu em reunião sobre um novo programa estatal de armamentos para as Forças Armadas e os órgãos de segurança.
 
-O jogador sofreu uma lesão muscular grau 2 na panturrilha esquerda durante o último treino antes da viagem e foi submetido a exames de imagem que confirmaram o problema.
+Segundo Putin, o tom de guerra é usado por esses governantes para manter a popularidade diante de dificuldades econômicas e sociais internas. Ele também criticou a expansão da Otan e disse que as ameaças contra a Rússia não estão diminuindo.
 
-O técnico Carlo Ancelotti lamentou a ausência do camisa 10, mas demonstrou otimismo para os jogos seguintes. "Esperamos que ele esteja recuperado para o segundo jogo, contra o Haiti, em 19 de junho", afirmou o treinador.
+As declarações coincidem com as eleições parlamentares russas. Putin afirmou que o pleito mostrou o apoio de milhões de russos às operações militares na Ucrânia, embora candidatos de oposição tenham sido em grande parte impedidos de concorrer.
 
-A comissão médica da CBF vai reavaliar o atleta diariamente. Vini Jr. e Rodrygo devem ser escalados no ataque titular na estreia.`,
-      image: '/noticias/neymar-fora-da-estreia.jpeg',
+No sábado (19), a Polônia reforçou a defesa aérea e colocou seus sistemas em alerta após ataques russos à Ucrânia. Não houve violação do espaço aéreo polonês. Fonte: CNN Brasil.`,
+      image: '/noticias/putin-liderancas-europeias.png',
       status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T07:00:00Z'),
-      readTime: 4,
-      views: 8920,
-      isFeatured: true,
+      publishedAt: new Date('2026-09-19T10:00:00Z'),
+      readTime: 3,
       authorId: admin.id,
-      categoryId: futebolCategory!.id,
+      categoryId: mundoCategory!.id,
     },
     {
-      slug: 'balanca-comercial-do-brasil-registra-superavit-de-us-3247-bilhoes-na-primeira-semana-de-junho',
-      title: 'Balança comercial do Brasil registra superávit de US$ 3,247 bilhões na primeira semana de junho',
-      description: 'As exportações cresceram 37,6% em relação ao mesmo período de 2025, puxadas pelos setores agropecuário, extrativo e industrial.',
-      content: `A balança comercial brasileira registrou superávit de US$ 3,247 bilhões na primeira semana de junho, informou o Ministério do Desenvolvimento, Indústria, Comércio e Serviços (MDIC).
+      slug: 'eua-dinamarca-e-groenlandia-anunciam-acordo-de-seguranca-para-a-ilha-artica',
+      title: 'EUA, Dinamarca e Groenlândia anunciam acordo de segurança para a ilha ártica',
+      description: 'Trump diz que pacto garante controle permanente dos EUA sobre a segurança da Groenlândia. Dinamarca afirma que o texto reconhece sua soberania e a autodeterminação groenlandesa.',
+      content: `Estados Unidos, Dinamarca e Groenlândia anunciaram na sexta-feira (18) um acordo sobre a segurança da ilha ártica. A assinatura está prevista para a próxima semana, durante a Assembleia Geral da ONU.
 
-As exportações totalizaram US$ 8,1 bilhões, alta de 37,6% em comparação com a mesma semana de 2025. As importações somaram US$ 4,85 bilhões, crescimento de 18,2% no mesmo período.
+Segundo o presidente Donald Trump, o pacto dá aos EUA "controle permanente sobre a segurança e todas as demais necessidades na Groenlândia", sem custo para os americanos. O texto inclui direitos de instalação de bases militares, sobrevoo e acesso permanente. Países fora da Otan, como China e Rússia, não poderiam ter bases, tropas ou fazer investimentos sensíveis na ilha sem aprovação americana.
 
-Os setores agropecuário, extrativo mineral e manufaturado lideraram as exportações. Soja, petróleo bruto e produtos semimanufaturados de ferro e aço figuraram entre os principais produtos.
+A primeira-ministra dinamarquesa, Mette Frederiksen, disse que o acordo "reconhece a soberania e a integridade territorial do Reino e o direito do povo groenlandês à autodeterminação". O primeiro-ministro da Groenlândia, Jens-Frederik Nielsen, afirmou que "é algo que beneficia a todos nós".
 
-No acumulado de 2026, o superávit comercial já supera US$ 35,9 bilhões, colocando o Brasil no caminho de bater novamente o recorde histórico da balança.`,
+Trump defendeu a aquisição da ilha por razões de segurança nacional no início de 2026, e em janeiro foi criado um grupo de trabalho de alto nível entre os três lados. O acordo tem semelhanças com um pacto de 1951 entre EUA e Dinamarca. Fonte: CNN Brasil.`,
+      image: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-19T09:00:00Z'),
+      readTime: 4,
+      isFeatured: true,
+      authorId: admin.id,
+      categoryId: mundoCategory!.id,
+    },
+    {
+      slug: 'pacote-do-governo-lula-injeta-r-271-bilhoes-na-economia-em-ano-eleitoral',
+      title: 'Pacote do governo Lula injeta R$ 271 bilhões na economia em ano eleitoral',
+      description: 'Medidas somam crédito, reforço orçamentário e subsídios. Instituição Fiscal Independente do Senado projeta déficit primário de R$ 86,1 bilhões em 2027.',
+      content: `O governo do presidente Luiz Inácio Lula da Silva (PT) lançou em 2026, ano em que disputa a reeleição, um conjunto de medidas que soma R$ 271 bilhões em linhas de crédito, reforços orçamentários e subsídios, segundo a CNN Brasil.
+
+Entre os destaques estão R$ 31 bilhões em isenção de Imposto de Renda, R$ 22,6 bilhões no Brasil Soberano 3.0 e R$ 30 bilhões no Move Brasil.
+
+O governo argumenta que parte das medidas é fiscalmente neutra, com compensações por novas receitas, como um imposto mínimo para super-ricos e royalties de petróleo.
+
+Especialistas alertam para a pressão fiscal em 2027. A Instituição Fiscal Independente (IFI) do Senado projeta déficit primário de R$ 86,1 bilhões naquele ano e recomenda um contingenciamento de R$ 35,7 bilhões para o cumprimento das metas fiscais. Fonte: CNN Brasil.`,
       image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1920',
       status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T12:00:00Z'),
+      publishedAt: new Date('2026-09-19T08:00:00Z'),
       readTime: 3,
-      views: 1120,
       authorId: admin.id,
       categoryId: economiaCategory!.id,
     },
     {
-      slug: 'nunes-marques-suspende-pesquisa-eleitoral-do-tse-flavio-bolsonaro-celebra-decisao',
-      title: 'Nunes Marques suspende pesquisa eleitoral do TSE; Flávio Bolsonaro celebra decisão',
-      description: 'Ministro do STF acatou pedido do Congresso e cancelou levantamento que seria divulgado antes das eleições de 2026. Senador reeleito comemorou a medida nas redes sociais.',
-      content: `O ministro do Supremo Tribunal Federal (STF) Alexandre de Moraes Nunes Marques suspendeu a divulgação da pesquisa eleitoral encomendada pelo Tribunal Superior Eleitoral (TSE), que estava prevista para ser publicada ainda neste semestre.
+      slug: 'aneel-eleva-para-9-4-a-projecao-de-reajuste-medio-da-conta-de-luz-em-2026',
+      title: 'Aneel eleva para 9,4% a projeção de reajuste médio da conta de luz em 2026',
+      description: 'Índice é quase o dobro da inflação esperada para o ano. Componentes financeiros respondem por 4,7 pontos percentuais do aumento.',
+      content: `A Agência Nacional de Energia Elétrica (Aneel) elevou para 9,4% a projeção de aumento médio das tarifas de energia em 2026. A revisão foi divulgada na sexta-feira (18) e o índice é quase o dobro da inflação esperada, de 5% pelo IPCA. O IGP-M é projetado em 4,4%.
 
-A decisão atendeu a pedido formulado por líderes do Congresso Nacional que questionavam a legalidade do levantamento realizado com recursos públicos em período pré-eleitoral.
+Pela decomposição da Aneel, os componentes financeiros pesam 4,7 pontos percentuais. Os encargos setoriais respondem por 1,6 ponto, a compra de energia por 1,1, a transmissão por 0,9 e os custos de distribuição por 0,8.
 
-O senador Flávio Bolsonaro (PL-RJ) foi ao X (ex-Twitter) comemorar a suspensão. "Vitória da democracia. O TSE não pode usar dinheiro do povo para fazer pesquisa que favorece candidatos do establishment", escreveu.
+A estimativa já considera R$ 5,5 bilhões de recursos da repactuação de obrigações de hidrelétricas nas regiões Norte e Nordeste, usados para aliviar o impacto nas tarifas.
 
-O TSE ainda não se manifestou oficialmente sobre a decisão e tem prazo para apresentar recurso ao plenário do STF.`,
-      image: '/noticias/nunescancelapesquisa.jpeg',
+Cerca de 16% do mercado das distribuidoras enfrentará aumentos superiores a 15%. Dos 51 processos tarifários previstos para 2026, 15 são revisões periódicas. Fonte: CNN Brasil.`,
+      image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1920',
       status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T13:00:00Z'),
+      publishedAt: new Date('2026-09-19T07:00:00Z'),
       readTime: 3,
-      views: 4560,
-      isFeatured: true,
-      authorId: admin.id,
-      categoryId: politicaCategory!.id,
-    },
-    {
-      slug: 'dia-dos-namorados-deve-movimentar-r-284-bilhoes-no-varejo-brasileiro',
-      title: 'Dia dos Namorados deve movimentar R$ 2,84 bilhões no varejo brasileiro',
-      description: 'A CNC projeta crescimento de 2,5% nas vendas em relação a 2025, impulsionado pela recuperação do consumo das famílias e pela isenção do IR para rendas até R$ 5 mil.',
-      content: `O Dia dos Namorados, celebrado no dia 12 de junho, deve movimentar R$ 2,84 bilhões no varejo brasileiro em 2026, segundo projeção da Confederação Nacional do Comércio de Bens, Serviços e Turismo (CNC).
-
-O número representa crescimento de 2,5% em relação ao mesmo período do ano passado e é o maior da última meia década para a data comemorativa.
-
-Perfumaria, joias e eletrônicos lideram as intenções de compra, seguidos por roupas, calçados e jantar em restaurantes.
-
-A melhora no poder de compra das famílias, impulsionada pelo início da isenção do Imposto de Renda para rendimentos de até R$ 5 mil mensais, é apontada como um dos principais fatores do otimismo do setor.`,
-      image: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1920',
-      status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T06:00:00Z'),
-      readTime: 3,
-      views: 1890,
       authorId: admin.id,
       categoryId: economiaCategory!.id,
-    },
-    {
-      slug: 'papa-leao-xiv-reune-70-mil-pessoas-em-estadio-de-madri-e-discursa-no-parlamento-espanhol',
-      title: 'Papa Leão XIV reúne 70 mil pessoas em estádio de Madri e discursa no Parlamento espanhol',
-      description: 'Em viagem apostólica à Espanha, o pontífice tornou-se o primeiro papa a discursar no Parlamento espanhol. Mais de 1,2 milhão de fiéis participaram de missa na Praça de Cibeles.',
-      content: `O Papa Leão XIV encerrou sua visita apostólica à Espanha com uma missa histórica na Praça de Cibeles, em Madri, reunindo mais de 1,2 milhão de fiéis de toda a Europa.
-
-Na véspera, o pontífice discursou no Congresso dos Deputados espanhol, tornando-se o primeiro papa da história a se dirigir ao Parlamento daquele país. O discurso abordou temas como a crise migratória, o diálogo inter-religioso e a necessidade de paz no Oriente Médio.
-
-Num estádio transformado em palco para a celebração, 70 mil pessoas acompanharam a missa em clima de intensa emoção. Líderes de governo de mais de 15 países estiveram presentes.
-
-A visita, de quatro dias, também incluiu um encontro com o Rei Felipe VI e reuniões com representantes de comunidades cristãs e muçulmanas da Espanha.`,
-      image: 'https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=1920',
-      status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T08:00:00Z'),
-      readTime: 4,
-      views: 2340,
-      authorId: admin.id,
-      categoryId: mundoCategory!.id,
-    },
-    {
-      slug: 'ira-promete-manter-controle-do-estreito-de-ormuz-apesar-das-novas-sancoes-da-uniao-europeia',
-      title: 'Irã promete manter controle do Estreito de Ormuz apesar das novas sanções da União Europeia',
-      description: 'Teerã reagiu à mais recente rodada de sanções europeias reafirmando sua soberania sobre o Estreito, por onde transita cerca de 20% do petróleo mundial.',
-      content: `O governo iraniano reafirmou seu controle sobre o Estreito de Ormuz após a União Europeia anunciar uma nova rodada de sanções econômicas contra Teerã, ligadas ao programa nuclear do país.
-
-O ministro das Relações Exteriores do Irã declarou que "qualquer ameaça à soberania iraniana terá consequências proporcionais", numa referência direta às rotas marítimas estratégicas que passam pelo Estreito.
-
-O Estreito de Ormuz é responsável pelo trânsito de aproximadamente 20% de todo o petróleo consumido no mundo, tornando-o um ponto geopolítico crítico.
-
-As negociações nucleares entre Teerã e Washington permanecem em impasse, sem perspectiva de acordo à vista. A comunidade internacional teme um possível fechamento do Estreito, que causaria uma crise energética global.`,
-      image: '/noticias/estreitohormuz.jpeg',
-      status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T14:00:00Z'),
-      readTime: 4,
-      views: 1670,
-      authorId: admin.id,
-      categoryId: mundoCategory!.id,
-    },
-    {
-      slug: 'eleicao-presidencial-no-peru-roberto-sanchez-lidera-com-margem-minima-sobre-keiko-fujimori',
-      title: 'Eleição presidencial no Peru: Roberto Sánchez lidera com margem mínima sobre Keiko Fujimori',
-      description: 'Com 94% das urnas apuradas, o candidato de esquerda tem 50,1% dos votos contra 49,9% da adversária. Resultado definitivo ainda não foi proclamado.',
-      content: `A apuração da eleição presidencial no Peru aponta vitória apertadíssima do candidato de esquerda Roberto Sánchez sobre Keiko Fujimori, com 94% das urnas contabilizadas pelo Jurado Nacional de Elecciones (JNE).
-
-Sánchez tem 50,1% dos votos válidos contra 49,9% de Keiko. A diferença de apenas 0,2 ponto percentual equivale a cerca de 35 mil votos num universo de 18 milhões de eleitores.
-
-Os votos ainda não apurados incluem regiões rurais do interior do país, historicamente favoráveis à esquerda, e os consulados no exterior, o que pode ampliar a vantagem de Sánchez.
-
-Keiko Fujimori, que já contestou resultados eleitorais anteriores, avisou que aguardará a conclusão da apuração antes de se pronunciar.`,
-      image: '/noticias/eleicaonoperu.jpeg',
-      status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T15:00:00Z'),
-      readTime: 4,
-      views: 2890,
-      authorId: admin.id,
-      categoryId: mundoCategory!.id,
-    },
-    {
-      slug: 'ataques-russos-intensificados-na-ucrania-deixam-ao-menos-23-mortos-em-kiev-dnipro-e-kharkiv',
-      title: 'Ataques russos intensificados na Ucrânia deixam ao menos 23 mortos em Kiev, Dnipro e Kharkiv',
-      description: 'Uma nova onda de mísseis e drones atingiu cidades ucranianas em uma das piores semanas do conflito em 2026. Zelensky pediu urgência no fornecimento de defesa aérea.',
-      content: `Uma série de ataques com mísseis balísticos e drones kamikaze atingiu Kiev, Dnipro e Kharkiv na madrugada desta segunda-feira, deixando ao menos 23 mortos e dezenas de feridos, segundo o governo ucraniano.
-
-Os bombardeios se concentraram em infraestrutura energética, com subestações e usinas termelétricas como alvos principais. A capital Kiev ficou sem eletricidade por mais de seis horas.
-
-O presidente Volodymyr Zelensky convocou uma reunião de emergência do Conselho Nacional de Segurança e reiterou o apelo aos aliados ocidentais para o envio urgente de sistemas de defesa antiaérea de longo alcance.
-
-A ONU condenou os ataques e classificou a semana como uma das mais violentas desde o início da invasão em fevereiro de 2022.`,
-      image: '/noticias/ataque-russo-em-kiev.jpeg',
-      status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T16:00:00Z'),
-      readTime: 4,
-      views: 3780,
-      isFeatured: true,
-      authorId: admin.id,
-      categoryId: mundoCategory!.id,
-    },
-    {
-      slug: 'espanha-goleia-em-amistoso-e-chega-a-copa-2026-como-uma-das-favoritas-ao-titulo',
-      title: 'Espanha goleia em amistoso e chega à Copa 2026 como uma das favoritas ao título',
-      description: 'La Roja venceu por 3 a 1 e fecha preparação em alta. Yamal e Williams foram os destaques. Seleção chega ao Mundial como atual campeã europeia.',
-      content: `A seleção espanhola encerrou sua preparação para a Copa do Mundo 2026 com uma goleada de 3 a 1 sobre a Bélgica em amistoso disputado no Estádio Santiago Bernabéu, em Madri.
-
-Lamine Yamal, 19 anos, foi o grande nome da partida com dois gols e uma assistência. Nico Williams completou o placar espanhol. A Bélgica descontou com Doku no segundo tempo.
-
-A Espanha chega à Copa do Mundo como atual campeã da Eurocopa e uma das favoritas ao título. Com um elenco jovem e em plena ascensão, "La Roja" é apontada por analistas como a grande ameaça para o Brasil e a França nas fases eliminatórias.
-
-O técnico Luis de la Fuente elogiou a postura do grupo. "Estamos prontos para conquistar o mundo", declarou.`,
-      image: '/noticias/espanhavence.jpeg',
-      status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T17:00:00Z'),
-      readTime: 4,
-      views: 5120,
-      isFeatured: true,
-      authorId: admin.id,
-      categoryId: futebolCategory!.id,
-    },
-    {
-      slug: 'trump-e-vaiado-na-final-da-nba-e-video-viraliza-com-milhoes-de-visualizacoes',
-      title: 'Trump é vaiado na final da NBA e vídeo viraliza com milhões de visualizações',
-      description: 'Presidente dos EUA foi recebido com vaias da plateia durante jogo decisivo da final da NBA. Imagens circularam rapidamente nas redes sociais e geraram debate nos EUA.',
-      content: `O presidente dos Estados Unidos, Donald Trump, foi recebido com fortes vaias ao ser anunciado durante o jogo 7 da final da NBA, realizado no Chase Center, em San Francisco, entre Golden State Warriors e Boston Celtics.
-
-O vídeo da reação da plateia viralizou rapidamente nas redes sociais e acumulou mais de 30 milhões de visualizações em menos de 24 horas, tornando-se um dos assuntos mais comentados do dia nos EUA e no mundo.
-
-A aparição de Trump no jogo foi amplamente criticada por grupos progressistas e celebrada por apoiadores do presidente. Comentaristas políticos americanos debatem se o episódio terá reflexos na aprovação do presidente.
-
-Golden State Warriors venceu o jogo 7 por 112 a 108 e conquistou o título da NBA, o quinto da franquia.`,
-      image: '/noticias/trump.jpeg',
-      status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-06-08T18:00:00Z'),
-      readTime: 3,
-      views: 9840,
-      isFeatured: true,
-      authorId: admin.id,
-      categoryId: mundoCategory!.id,
     },
   ];
+
+  // Remove os artigos editoriais antigos (o upsert abaixo não atualiza registros existentes)
+  const oldEditorialSlugs = [
+    'putin-diz-que-liderancas-europeias-se-preparam-para-guerra-com-a-russia',
+    'omar-aziz-propoe-estagio-de-ate-seis-meses-pago-pelo-estado-para-garantir-primeiro-emprego-no-amazonas',
+    'david-almeida-promete-ampliar-apoio-a-saude-mental-de-maes-atipicas-no-amazonas',
+    'maria-do-carmo-arrasta-multidao-em-motocarreata-e-mobiliza-eleitores-em-borba',
+    'eleicoes-2026-candidatos-nao-podem-mais-ser-presos-a-partir-deste-sabado',
+    'e-titulo-saiba-quais-servicos-o-aplicativo-oferece-ao-eleitor',
+    'gonet-diz-que-relacao-com-vorcaro-foi-brevissima-e-banal-apos-foto-com-charuto-vir-a-publico',
+    'colombia-vai-a-juri-popular-por-mandar-matar-bruno-pereira-e-dom-phillips-no-amazonas',
+    'amazonas-suspende-vacina-da-dengue-do-butantan-apos-identificacao-de-reacoes-graves',
+    'sistema-paredao-da-ssp-am-prende-quatro-foragidos-com-reconhecimento-facial-em-manaus',
+    'camara-municipal-de-manaus-aprova-em-primeira-discussao-a-ldo-para-2027',
+    'neymar-fora-da-estreia-do-brasil-contra-o-marrocos-na-copa-do-mundo-2026',
+    'balanca-comercial-do-brasil-registra-superavit-de-us-3247-bilhoes-na-primeira-semana-de-junho',
+    'nunes-marques-suspende-pesquisa-eleitoral-do-tse-flavio-bolsonaro-celebra-decisao',
+    'dia-dos-namorados-deve-movimentar-r-284-bilhoes-no-varejo-brasileiro',
+    'papa-leao-xiv-reune-70-mil-pessoas-em-estadio-de-madri-e-discursa-no-parlamento-espanhol',
+    'ira-promete-manter-controle-do-estreito-de-ormuz-apesar-das-novas-sancoes-da-uniao-europeia',
+    'eleicao-presidencial-no-peru-roberto-sanchez-lidera-com-margem-minima-sobre-keiko-fujimori',
+    'ataques-russos-intensificados-na-ucrania-deixam-ao-menos-23-mortos-em-kiev-dnipro-e-kharkiv',
+    'espanha-goleia-em-amistoso-e-chega-a-copa-2026-como-uma-das-favoritas-ao-titulo',
+    'trump-e-vaiado-na-final-da-nba-e-video-viraliza-com-milhoes-de-visualizacoes',
+  ];
+  await prisma.article.deleteMany({ where: { slug: { in: oldEditorialSlugs } } });
 
   for (const article of editorialArticles) {
     await prisma.article.upsert({

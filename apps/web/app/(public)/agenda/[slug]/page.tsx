@@ -127,7 +127,7 @@ export default async function EventDetailPage({ params }: Props) {
                   Ingresso / Entrada
                 </p>
                 <p className={`mt-1 text-3xl font-black ${event.isFree ? "text-emerald-600" : "text-navy"}`}>
-                  {event.isFree ? "Gratuito" : event.price}
+                  {event.isFree ? "Gratuito" : (event.price ?? "A confirmar")}
                 </p>
                 {event.ageRating && (
                   <p className="mt-1 text-xs text-slate-400">Classificação: {event.ageRating}</p>

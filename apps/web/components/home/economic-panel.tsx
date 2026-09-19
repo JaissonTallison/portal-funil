@@ -1,7 +1,16 @@
 import { ArrowDown, ArrowUp, Minus, TrendingUp } from "lucide-react";
-import { marketData } from "@/lib/market-data";
+import { getMarketData } from "@/lib/market-data";
 
-export function EconomicPanel() {
+export async function EconomicPanel() {
+  const market = await getMarketData();
+  if (!market) return null;
+
+  const updatedAt = market.updatedAt.toLocaleTimeString("pt-BR", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "America/Manaus",
+  });
+
   return (
     <section className="px-6 pb-14">
       <div className="mx-auto max-w-[1440px]">
@@ -17,13 +26,13 @@ export function EconomicPanel() {
               </div>
             </div>
             <span className="text-[11px] text-slate-400">
-              Atualizado às 14h32 — dados ilustrativos
+              Atualizado às {updatedAt} (Manaus)
             </span>
           </div>
 
           {/* TICKER */}
           <div className="scrollbar-hide flex gap-3 overflow-x-auto">
-            {marketData.map((item) => {
+            {market.items.map((item) => {
               const isUp = item.change > 0;
               const isDown = item.change < 0;
               const isNeutral = item.change === 0;

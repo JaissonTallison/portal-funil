@@ -47,7 +47,7 @@ export function EventCard({ event, variant = "default" }: Props) {
               : "bg-slate-50 text-slate-500"
           }`}
         >
-          {event.isFree ? "Grátis" : event.price}
+          {event.isFree ? "Grátis" : (event.price ?? "A confirmar")}
         </span>
       </Link>
     );
@@ -119,7 +119,7 @@ export function EventCard({ event, variant = "default" }: Props) {
             <span
               className={`text-sm font-black ${event.isFree ? "text-emerald-600" : "text-navy"}`}
             >
-              {event.isFree ? "Gratuito" : event.price}
+              {event.isFree ? "Gratuito" : (event.price ?? "A confirmar")}
             </span>
           </div>
         </div>
@@ -182,7 +182,7 @@ export function EventCard({ event, variant = "default" }: Props) {
           <span
             className={`text-xs font-black ${event.isFree ? "text-emerald-600" : "text-navy"}`}
           >
-            {event.isFree ? "Gratuito" : event.price}
+            {event.isFree ? "Gratuito" : (event.price ?? "A confirmar")}
           </span>
           {event.ageRating && (
             <span className="text-[10px] text-slate-400">{event.ageRating}</span>

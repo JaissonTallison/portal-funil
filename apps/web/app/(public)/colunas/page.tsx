@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, PenLine } from "lucide-react";
-import { columnists, getColumnistArticles } from "@/lib/data";
+import { columnists } from "@/lib/data";
+import { getColumnistArticles } from "@/services/articles.service";
 import { SITE_NAME } from "@/lib/constants";
 import { timeAgo } from "@/lib/utils";
 
@@ -11,7 +12,14 @@ export const metadata: Metadata = {
   description: "Leia as colunas dos nossos especialistas e analistas sobre política, economia, saúde e muito mais.",
 };
 
-export default function ColunasPage() {
+export const revalidate = 60;
+
+export default async function ColunasPage() {
+  const entries = await Promise.all(
+    columnists.map(async (columnist) => ({ columnist, articles: await getColumnistArticles(columnist) })),
+  );
+  const totalArticles = entries.reduce((acc, e) => acc + e.articles.length, 0);
+
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HEADER */}
@@ -48,7 +56,7 @@ export default function ColunasPage() {
             </div>
             <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
               <span className="text-2xl font-black text-gold">
-                {columnists.reduce((acc, c) => acc + c.articleIds.length, 0)}
+                {totalArticles}
               </span>
               <span className="text-sm text-zinc-400">colunas publicadas</span>
             </div>
@@ -59,8 +67,7 @@ export default function ColunasPage() {
       {/* COLUMNISTS GRID */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px] space-y-8">
-          {columnists.map((columnist) => {
-            const articles = getColumnistArticles(columnist);
+          {entries.map(({ columnist, articles }) => {
             const latest = articles[0];
 
             return (
@@ -81,7 +88,7 @@ export default function ColunasPage() {
                           src={columnist.avatar}
                           alt={columnist.name}
                           fill
-                          className="object-cover"
+                          className="object-cover object-top"
                         />
                       </div>
                     </div>

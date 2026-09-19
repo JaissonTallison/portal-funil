@@ -3,49 +3,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import {
-  AlertTriangle,
-  ArrowUpRight,
-  ChevronLeft,
-  ChevronRight,
-  CloudRain,
-  Radio,
-  Shield,
-  TrafficCone,
-} from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Radio } from "lucide-react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import { HERO_SLIDES } from "@/lib/home-highlights";
+import type { Weather } from "@/lib/weather";
+
+export type HeroPanel = {
+  weather: Weather | null;
+  weekCount: number;
+  latest: { title: string; slug: string; time: string }[];
+};
 
 const SLIDE_DURATION = 5500;
 
-const slides = [
-  {
-    image: "/noticias/neymar-fora-da-estreia.jpeg",
-    category: "COPA 2026",
-    label: "Futebol",
-    title: "Neymar fora da estreia do Brasil contra o Marrocos na Copa do Mundo.",
-    description: "Lesão grau 2 na panturrilha deixa o camisa 10 de fora do jogo de 13 de junho. Ancelotti aposta na recuperação para o duelo seguinte.",
-  },
-  {
-    image: "/noticias/trump.jpeg",
-    category: "MUNDO",
-    label: "EUA",
-    title: "Trump é vaiado na final da NBA e vídeo viraliza com 30 milhões de visualizações.",
-    description: "Presidente dos EUA foi recebido com vaias no Chase Center, em San Francisco. Clipe repercutiu rapidamente nas redes sociais.",
-  },
-  {
-    image: "/noticias/estreitohormuz.jpeg",
-    category: "GEOPOLÍTICA",
-    label: "Mundo",
-    title: "Irã reafirma controle do Estreito de Ormuz diante das novas sanções europeias.",
-    description: "Teerã reage à nova rodada de sanções da UE enquanto negociações nucleares com Washington permanecem em impasse.",
-  },
-];
+const slides = HERO_SLIDES;
 
-export function HeroSlider() {
+export function HeroSlider({ panel }: { panel: HeroPanel }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progressKey, setProgressKey] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null);
@@ -113,10 +90,10 @@ export function HeroSlider() {
                       {/* CTA */}
                       <div className="mt-8 flex flex-wrap gap-3">
                         <Link
-                          href="/noticias"
+                          href={`/noticias/${slide.slug}`}
                           className="flex items-center gap-2 rounded-2xl bg-gold px-8 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
                         >
-                          Explorar portal
+                          Ler matéria
                           <ArrowUpRight size={15} />
                         </Link>
                         <Link
@@ -130,7 +107,7 @@ export function HeroSlider() {
                     </div>
                   </div>
 
-                  {/* RIGHT CARD — Central operacional */}
+                  {/* RIGHT CARD — Portal agora (dados reais) */}
                   <div className="absolute bottom-28 right-8 hidden w-[320px] rounded-[28px] border border-white/15 bg-black/40 p-5 backdrop-blur-2xl lg:block md:bottom-32">
                     {/* Header */}
                     <div className="mb-4 flex items-center justify-between">
@@ -140,64 +117,52 @@ export function HeroSlider() {
                           <span className="relative h-2 w-2 rounded-full bg-red-500" />
                         </span>
                         <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gold">
-                          CENTRAL OPERACIONAL
+                          PORTAL AGORA
                         </span>
                       </div>
-                      <span className="text-[10px] tabular-nums text-white/30">AO VIVO</span>
+                      <span className="text-[10px] uppercase tracking-wide text-white/30">Manaus</span>
                     </div>
 
                     {/* Stats grid */}
                     <div className="mb-4 grid grid-cols-3 gap-2">
                       <div className="rounded-2xl bg-white/8 px-3 py-2.5 text-center">
-                        <div className="text-lg font-black leading-none text-white">32°</div>
+                        <div className="text-lg font-black leading-none text-white">
+                          {panel.weather ? `${panel.weather.temperature}°` : "—"}
+                        </div>
                         <div className="mt-1 text-[9px] uppercase tracking-wide text-white/35">Temp.</div>
                       </div>
                       <div className="rounded-2xl bg-white/8 px-3 py-2.5 text-center">
-                        <div className="text-lg font-black leading-none text-white">78%</div>
+                        <div className="text-lg font-black leading-none text-white">
+                          {panel.weather ? `${panel.weather.humidity}%` : "—"}
+                        </div>
                         <div className="mt-1 text-[9px] uppercase tracking-wide text-white/35">Umidade</div>
                       </div>
-                      <div className="rounded-2xl border border-red-500/25 bg-red-500/15 px-3 py-2.5 text-center">
-                        <div className="text-lg font-black leading-none text-red-400">03</div>
-                        <div className="mt-1 text-[9px] uppercase tracking-wide text-white/35">Alertas</div>
+                      <div className="rounded-2xl border border-gold/25 bg-gold/10 px-3 py-2.5 text-center">
+                        <div className="text-lg font-black leading-none text-gold">{panel.weekCount}</div>
+                        <div className="mt-1 text-[9px] uppercase tracking-wide text-white/35">Na semana</div>
                       </div>
                     </div>
 
-                    {/* Section title */}
-                    <h3 className="mb-3 text-sm font-black text-white">Ocorrências ativas</h3>
-
-                    {/* Alert items */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-3 rounded-xl border border-red-500/20 bg-red-500/10 px-3.5 py-2.5">
-                        <AlertTriangle size={13} className="shrink-0 text-red-400" />
-                        <span className="text-xs font-semibold text-white">Acidente grave na Djalma Batista</span>
-                      </div>
-                      <div className="flex items-center gap-3 rounded-xl border border-sky-400/20 bg-sky-400/10 px-3.5 py-2.5">
-                        <CloudRain size={13} className="shrink-0 text-sky-300" />
-                        <span className="text-xs font-semibold text-white">Chuva intensa na Zona Norte</span>
-                      </div>
-                      <div className="flex items-center gap-3 rounded-xl border border-amber-400/20 bg-amber-400/10 px-3.5 py-2.5">
-                        <TrafficCone size={13} className="shrink-0 text-amber-300" />
-                        <span className="text-xs font-semibold text-white">Trânsito intenso no Centro</span>
-                      </div>
-                    </div>
-
-                    {/* Footer stats */}
-                    <div className="mt-4 grid grid-cols-2 gap-2">
-                      <div className="flex items-center gap-2.5 rounded-xl bg-gold/10 px-3.5 py-3">
-                        <Radio size={12} className="shrink-0 animate-pulse text-gold" />
-                        <div>
-                          <div className="text-[10px] font-black leading-none text-gold">12 ao vivo</div>
-                          <div className="mt-0.5 text-[9px] text-white/30">transmissões</div>
+                    {/* Latest headlines */}
+                    {panel.latest.length > 0 && (
+                      <>
+                        <h3 className="mb-3 text-sm font-black text-white">Últimas do portal</h3>
+                        <div className="space-y-2">
+                          {panel.latest.map((item) => (
+                            <Link
+                              key={item.slug}
+                              href={`/noticias/${item.slug}`}
+                              className="block rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 transition hover:bg-white/10"
+                            >
+                              <span className="line-clamp-2 text-xs font-semibold text-white">{item.title}</span>
+                              <span className="mt-1 block text-[10px] text-white/35" suppressHydrationWarning>
+                                {item.time}
+                              </span>
+                            </Link>
+                          ))}
                         </div>
-                      </div>
-                      <div className="flex items-center gap-2.5 rounded-xl bg-white/5 px-3.5 py-3">
-                        <Shield size={12} className="shrink-0 text-emerald-400" />
-                        <div>
-                          <div className="text-[10px] font-black leading-none text-white">24 viaturas</div>
-                          <div className="mt-0.5 text-[9px] text-white/30">em operação</div>
-                        </div>
-                      </div>
-                    </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </SwiperSlide>

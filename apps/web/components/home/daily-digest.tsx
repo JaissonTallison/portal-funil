@@ -1,10 +1,30 @@
 import Link from "next/link";
 import { Headphones, Sparkles } from "lucide-react";
-import { getAllArticles } from "@/services/articles.service";
+import { ListenButton } from "@/components/home/listen-button";
+import { HERO_SLUGS } from "@/lib/home-highlights";
+import { getAllArticles, getCategoryName } from "@/services/articles.service";
+import type { Article } from "@/types/article";
+
+const DIGEST_ITEMS = 5;
+const MAX_AGE_MS = 48 * 60 * 60 * 1000;
+
+/** Uma matéria por editoria (as mais novas, fora do carrossel principal); sobras completam a lista. */
+function pickDigest(articles: Article[]): Article[] {
+  const now = Date.now();
+  const pool = articles
+    .filter((a) => !HERO_SLUGS.includes(a.slug) && now - new Date(a.publishedAt).getTime() <= MAX_AGE_MS)
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+
+  const firstPerCategory = pool.filter((a, i) => pool.findIndex((b) => b.category === a.category) === i);
+  const rest = pool.filter((a) => !firstPerCategory.includes(a));
+  return [...firstPerCategory, ...rest].slice(0, DIGEST_ITEMS);
+}
 
 export async function DailyDigest() {
-  const all = await getAllArticles();
-  const top5 = all.slice(0, 5);
+  const top5 = pickDigest(await getAllArticles());
+  if (top5.length === 0) return null;
+
+  const spoken = `Resumo do dia. ${top5.map((a) => `${a.title}. ${a.description}`).join(" ")}`;
 
   return (
     <section className="px-6 pb-6 pt-6">
@@ -20,7 +40,7 @@ export async function DailyDigest() {
                 <div className="flex items-center gap-2">
                   <h2 className="text-base font-black text-navy">Resumo do dia</h2>
                   <span className="rounded-full bg-navy px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-gold">
-                    IA
+                    Últimas 48h
                   </span>
                 </div>
               </div>
@@ -35,9 +55,10 @@ export async function DailyDigest() {
                       href={`/noticias/${article.slug}`}
                       className="text-sm leading-snug text-slate-600 transition hover:text-navy"
                     >
+                      <span className="mr-2 rounded-md bg-slate-100 px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wide text-slate-500">
+                        {getCategoryName(article.category)}
+                      </span>
                       <span className="font-bold text-navy">{article.title}</span>
-                      {" — "}
-                      {article.description.slice(0, 80)}...
                     </Link>
                   </li>
                 ))}
@@ -45,10 +66,7 @@ export async function DailyDigest() {
             </div>
 
             {/* AUDIO BUTTON */}
-            <button className="flex shrink-0 items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-600 transition hover:bg-slate-100">
-              <Headphones size={14} />
-              Ouvir resumo
-            </button>
+            <ListenButton text={spoken} />
           </div>
         </div>
       </div>

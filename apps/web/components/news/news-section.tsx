@@ -2,12 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock3, Radio, TriangleAlert } from "lucide-react";
 import { getAllArticles, getCategoryName } from "@/services/articles.service";
+import { HERO_SLUGS, pickLiveLead, pickPowerFeatured } from "@/lib/home-highlights";
 import { timeAgo } from "@/lib/utils";
 
 export async function NewsSection() {
   const articles = await getAllArticles();
-  const featured = articles.find((a) => a.isFeatured && a.isLive) ?? articles[0];
-  const sideNews = articles.filter((a) => a.id !== featured?.id).slice(0, 3);
+  // Evita repetir o carrossel principal, o destaque da Central ao vivo e a seção local (Amazonas).
+  const liveLeadSlug = pickLiveLead(articles)?.slug;
+  const powerSlug = pickPowerFeatured(articles)?.slug;
+  const pool = [...articles]
+    .filter((a) => !HERO_SLUGS.includes(a.slug) && a.slug !== liveLeadSlug && a.slug !== powerSlug)
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+  const notBreaking = (a: { category: string }) => a.category !== "amazonas" && a.category !== "musica";
+  const featured = pool.find(notBreaking) ?? pool[0];
+  const sideNews = pool.filter((a) => a.id !== featured?.id && notBreaking(a)).slice(0, 3);
 
   if (!featured) return null;
 
@@ -39,18 +47,19 @@ export async function NewsSection() {
             className="group relative overflow-hidden rounded-[40px] border border-black/5 bg-navy p-10 text-white shadow-[0_20px_80px_rgba(2,6,23,0.25)] transition hover:-translate-y-1 block"
           >
             <div className="absolute inset-0">
-              <div className="absolute left-[-120px] top-[-120px] h-[300px] w-[300px] rounded-full bg-gold/20 blur-[120px]" />
-              <div className="absolute bottom-[-140px] right-[-140px] h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/20 blur-[120px]" />
+              <Image src={featured.image} alt={featured.title} fill className="object-cover transition duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-navy/60 via-transparent to-transparent" />
             </div>
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-navy">
                 {featured.isLive && <Radio size={14} />}
                 {featured.isLive ? "Ao vivo" : getCategoryName(featured.category)}
               </div>
-              <h3 className="mt-8 max-w-4xl text-5xl font-black leading-[1] tracking-[-0.05em] transition group-hover:text-gold lg:text-7xl">
+              <h3 className="mt-8 max-w-4xl text-5xl font-black leading-[1] tracking-[-0.05em] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] transition group-hover:text-gold lg:text-7xl">
                 {featured.title}
               </h3>
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-400">
+              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-200 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
                 {featured.description}
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-zinc-400">

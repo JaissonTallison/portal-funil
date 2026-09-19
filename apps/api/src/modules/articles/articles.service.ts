@@ -105,12 +105,24 @@ export class ArticlesService {
   }
 
   async findMostRead(limit = 5) {
-    return this.prisma.article.findMany({
-      where: { status: 'PUBLISHED' },
+    // Ranking recente: últimos 7 dias, por visualizações e, no empate, pela mais nova.
+    const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const recent = await this.prisma.article.findMany({
+      where: { status: 'PUBLISHED', publishedAt: { gte: since } },
       select: ARTICLE_SELECT,
-      orderBy: { views: 'desc' },
+      orderBy: [{ views: 'desc' }, { publishedAt: 'desc' }],
       take: limit,
     });
+    if (recent.length >= limit) return recent;
+
+    // Poucas matérias recentes: completa com as mais lidas de todos os tempos.
+    const older = await this.prisma.article.findMany({
+      where: { status: 'PUBLISHED', id: { notIn: recent.map((a) => a.id) } },
+      select: ARTICLE_SELECT,
+      orderBy: { views: 'desc' },
+      take: limit - recent.length,
+    });
+    return [...recent, ...older];
   }
 
   async findLive() {

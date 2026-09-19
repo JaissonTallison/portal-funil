@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Eye, TrendingUp } from "lucide-react";
 import { getMostRead, getCategoryName } from "@/services/articles.service";
@@ -38,13 +39,18 @@ export async function MostRead() {
           >
             {/* BG */}
             <div className="absolute inset-0">
-              <div className="absolute left-[-60px] top-[-60px] h-[240px] w-[240px] rounded-full bg-gold/10 blur-[80px]" />
-              <div className="absolute bottom-[-60px] right-[-60px] h-[200px] w-[200px] rounded-full bg-[#1E3A8A]/20 blur-[80px]" />
+              <Image
+                src={articles[0].image}
+                alt={articles[0].title}
+                fill
+                className="object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/10" />
             </div>
 
             <div className="relative z-10">
               <div className="flex items-center gap-3">
-                <span className="text-7xl font-black text-gold/20">01</span>
+                <span className="text-7xl font-black text-gold/60 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">01</span>
                 <div className="flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-navy">
                   <TrendingUp size={11} />
                   Mais lida
@@ -55,11 +61,11 @@ export async function MostRead() {
                 {getCategoryName(articles[0].category)}
               </span>
 
-              <h3 className="mt-4 text-3xl font-black leading-tight tracking-[-0.04em] text-white transition group-hover:text-gold lg:text-4xl">
+              <h3 className="mt-4 text-3xl font-black leading-tight tracking-[-0.04em] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] transition group-hover:text-gold lg:text-4xl">
                 {articles[0].title}
               </h3>
 
-              <p className="mt-5 line-clamp-3 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-5 line-clamp-3 text-sm leading-relaxed text-zinc-200 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
                 {articles[0].description}
               </p>
 

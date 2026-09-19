@@ -1,18 +1,31 @@
 import Link from "next/link";
 import { Flame, TrendingUp } from "lucide-react";
+import { getAllArticles, getCategoryName } from "@/services/articles.service";
+import type { Article } from "@/types/article";
 
-const topics = [
-  { label: "Trânsito", slug: "transito", count: "8.4k", hot: true },
-  { label: "Futebol", slug: "futebol", count: "6.1k", hot: true },
-  { label: "Clima", slug: "clima", count: "4.9k", hot: false },
-  { label: "Segurança", slug: "policial", count: "4.2k", hot: false },
-  { label: "Política", slug: "politica", count: "3.8k", hot: false },
-  { label: "Saúde", slug: "saude", count: "2.7k", hot: false },
-  { label: "Economia", slug: "economia", count: "2.1k", hot: false },
-  { label: "Tecnologia", slug: "tecnologia", count: "1.5k", hot: false },
-];
+const LABEL_OVERRIDES: Record<string, string> = { policial: "Segurança" };
+const MAX_TOPICS = 8;
+const HOT_TOPICS = 2;
 
-export function TrendingTopics() {
+function buildTopics(articles: Article[]) {
+  const counts = new Map<string, number>();
+  for (const a of articles) counts.set(a.category, (counts.get(a.category) ?? 0) + 1);
+
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, MAX_TOPICS)
+    .map(([slug, count], i) => ({
+      slug,
+      label: LABEL_OVERRIDES[slug] ?? getCategoryName(slug),
+      count: `${count} ${count === 1 ? "matéria" : "matérias"}`,
+      hot: i < HOT_TOPICS,
+    }));
+}
+
+export async function TrendingTopics() {
+  const topics = buildTopics(await getAllArticles());
+  if (topics.length === 0) return null;
+
   return (
     <section className="relative px-6 pb-10">
       <div className="mx-auto max-w-[1440px]">

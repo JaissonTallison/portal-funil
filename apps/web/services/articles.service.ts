@@ -1,6 +1,6 @@
 import type { Article, Category, Columnist } from "@/types/article";
 import { apiGet } from "@/lib/api";
-import { columnists, CATEGORIES } from "@/lib/data";
+import { columnists, CATEGORIES, getColumnistArticles as getMockColumnistArticles } from "@/lib/data";
 
 // ─── API response shapes ──────────────────────────────────────────────────────
 
@@ -165,5 +165,13 @@ export async function getColumnistBySlug(slug: string): Promise<Columnist | null
 
 export async function getColumnistArticles(columnist: Columnist): Promise<Article[]> {
   const data = await getAllArticles();
-  return data.filter((a) => columnist.articleIds.includes(a.id));
+  const fromApi = data.filter(
+    (a) => columnist.articleIds.includes(a.id) || columnist.articleSlugs?.includes(a.slug),
+  );
+  // Colunas de demonstração (dados locais) continuam valendo; evita duplicar por slug.
+  const slugs = new Set(fromApi.map((a) => a.slug));
+  const fromMock = getMockColumnistArticles(columnist).filter((a) => !slugs.has(a.slug));
+  return [...fromApi, ...fromMock].sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+  );
 }

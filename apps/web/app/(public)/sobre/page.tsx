@@ -195,7 +195,7 @@ export default function SobrePage() {
                     src={c.avatar}
                     alt={c.name}
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
                 <div>

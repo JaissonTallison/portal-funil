@@ -3,9 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Instagram, Twitter } from "lucide-react";
-import { columnists, getColumnistBySlug, getColumnistArticles } from "@/lib/data";
+import { columnists, getColumnistBySlug } from "@/lib/data";
+import { getColumnistArticles } from "@/services/articles.service";
 import { NewsCard } from "@/components/cards/news-card";
 import { SITE_NAME } from "@/lib/constants";
+
+export const revalidate = 60;
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -30,7 +33,7 @@ export default async function ColumnistPage({ params }: Props) {
   const columnist = getColumnistBySlug(slug);
   if (!columnist) notFound();
 
-  const articles = getColumnistArticles(columnist);
+  const articles = await getColumnistArticles(columnist);
 
   return (
     <main className="min-h-screen bg-surface text-navy">
@@ -57,7 +60,7 @@ export default async function ColumnistPage({ params }: Props) {
                 alt={columnist.name}
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
 
@@ -166,7 +169,7 @@ export default async function ColumnistPage({ params }: Props) {
                       src={c.avatar}
                       alt={c.name}
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                     />
                   </div>
                   <div className="min-w-0">

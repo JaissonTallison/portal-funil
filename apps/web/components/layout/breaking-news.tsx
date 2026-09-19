@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { BREAKING_NEWS } from "@/lib/constants";
+type Headline = { title: string; slug: string };
 
-export function BreakingNews() {
+export function BreakingNews({ headlines }: { headlines: Headline[] }) {
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -15,6 +16,8 @@ export function BreakingNews() {
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
   }, []);
+
+  if (headlines.length === 0) return null;
 
   return (
     <section className="relative z-30 w-full">
@@ -46,14 +49,17 @@ export function BreakingNews() {
         {/* TICKER */}
         <div className="relative flex flex-1 items-center overflow-hidden bg-navy">
           <div className="flex animate-breaking items-center whitespace-nowrap">
-            {[...BREAKING_NEWS, ...BREAKING_NEWS].map((item, index) => (
+            {[...headlines, ...headlines].map((item, index) => (
               <span
                 key={index}
                 className="inline-flex items-center gap-5 px-7"
               >
-                <span className="text-sm font-semibold tracking-wide text-white/95">
-                  {item}
-                </span>
+                <Link
+                  href={`/noticias/${item.slug}`}
+                  className="text-sm font-semibold tracking-wide text-white/95 transition hover:text-gold"
+                >
+                  {item.title}
+                </Link>
                 <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
               </span>
             ))}

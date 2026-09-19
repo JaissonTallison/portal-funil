@@ -30,5 +30,7 @@ export type Columnist = {
   bio: string;
   avatar: string;
   articleIds: string[];
+  /** Matérias do portal (API) vinculadas ao colunista pelo slug. */
+  articleSlugs?: string[];
   social?: { twitter?: string; instagram?: string };
 };
