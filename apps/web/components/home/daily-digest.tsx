@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Headphones, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { ListenButton } from "@/components/home/listen-button";
 import { HERO_SLUGS } from "@/lib/home-highlights";
 import { getNewsArticles, getCategoryName } from "@/services/articles.service";
