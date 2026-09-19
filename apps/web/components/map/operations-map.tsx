@@ -118,7 +118,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
               <div className="absolute bottom-[-60px] right-[-60px] h-[260px] w-[260px] rounded-full bg-[#1E3A8A]/20 blur-[100px]" />
             </div>
 
-            <div className="relative z-10 flex flex-1 flex-col p-8">
+            <div className="relative z-10 flex flex-1 flex-col p-4 sm:p-8">
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-[11px] font-black uppercase tracking-[0.3em] text-gold">
@@ -133,7 +133,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
               </div>
 
               {/* RADAR EMBED */}
-              <div className="relative mt-7 h-[480px] overflow-hidden rounded-[28px] border border-white/5 bg-[#060E1E]">
+              <div className="relative mt-5 h-[320px] overflow-hidden sm:mt-7 sm:h-[400px] lg:h-[480px] rounded-[28px] border border-white/5 bg-[#060E1E]">
                 <iframe
                   src={RADAR_URL}
                   title="Radar de chuva ao vivo sobre Manaus"
@@ -201,9 +201,9 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
           </div>
 
           {/* ── RIGHT PANEL ── */}
-          <div className="space-y-5">
+          <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:block lg:space-y-5 lg:overflow-visible lg:px-0 lg:pb-0">
             {/* AIR QUALITY */}
-            <div className="rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
+            <div className="w-[86%] shrink-0 snap-center rounded-[28px] border border-black/5 bg-white p-5 shadow sm:w-[46%] sm:p-7 lg:w-auto lg:rounded-[32px]-[0_10px_40px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50">
                   <Wind size={20} className="text-emerald-500" />
@@ -258,7 +258,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
             </div>
 
             {/* WEATHER */}
-            <div className="overflow-hidden rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
+            <div className="w-[86%] shrink-0 snap-center overflow-hidden rounded-[28px] border border-black/5 bg-white p-5 shadow sm:w-[46%] sm:p-7 lg:w-auto lg:rounded-[32px]-[0_10px_40px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50">
                   <ThermometerSun size={20} className="text-sky-500" />
@@ -296,7 +296,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
             </div>
 
             {/* NEXT HOURS */}
-            <div className="rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
+            <div className="w-[86%] shrink-0 snap-center rounded-[28px] border border-black/5 bg-white p-5 shadow sm:w-[46%] sm:p-7 lg:w-auto lg:rounded-[32px]-[0_10px_40px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gold/10">
                   <Activity size={20} className="text-gold-dark" />

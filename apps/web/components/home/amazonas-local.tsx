@@ -41,12 +41,12 @@ export async function AmazonasLocal() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
           {articles.map((item) => (
             <Link
               key={item.id}
               href={`/noticias/${item.slug}`}
-              className="group block overflow-hidden rounded-[36px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-2"
+              className="group block w-[80%] shrink-0 snap-center overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-2 md:w-auto md:rounded-[36px]"
             >
               <div className="relative h-[260px] overflow-hidden">
                 <Image

@@ -78,12 +78,12 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
               </div>
 
               {/* GRID */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="-mx-2 flex snap-x snap-mandatory gap-3 overflow-x-auto px-2 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
                 {cameras.map((cam) => (
                   <button
                     key={cam.id}
                     onClick={() => setActiveId(cam.youtubeId)}
-                    className="group relative overflow-hidden rounded-[28px] border border-white/8 bg-[#0B1D35] text-left transition duration-300 hover:-translate-y-1 hover:border-gold/20 hover:shadow-[0_20px_60px_rgba(244,197,66,0.08)]"
+                    className="group relative w-[78%] shrink-0 snap-center overflow-hidden rounded-[24px] border border-white/8 bg-[#0B1D35] text-left sm:w-auto sm:rounded-[28px] transition duration-300 hover:-translate-y-1 hover:border-gold/20 hover:shadow-[0_20px_60px_rgba(244,197,66,0.08)]"
                   >
                     {/* THUMBNAIL / IFRAME PREVIEW */}
                     <div className="relative h-[200px] overflow-hidden">

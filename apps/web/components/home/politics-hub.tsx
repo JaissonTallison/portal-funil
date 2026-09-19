@@ -108,7 +108,7 @@ export async function PoliticsHub() {
                 )}
               </div>
 
-              <h3 className="mt-7 text-3xl font-black leading-tight tracking-[-0.04em] text-white transition group-hover:text-gold lg:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+              <h3 className="mt-5 text-2xl font-black leading-tight tracking-[-0.04em] text-white transition group-hover:text-gold sm:mt-7 sm:text-3xl lg:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
                 {featured.title}
               </h3>
 
@@ -177,11 +177,11 @@ export async function PoliticsHub() {
         </div>
 
         {/* BOTTOM ROW — 3 scopes */}
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+        <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0 lg:pb-0">
           {scopes.map(({ id, label, icon: Icon, color, bg, border, href, news }) => (
             <div
               key={id}
-              className="overflow-hidden rounded-[36px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)]"
+              className="w-[88%] shrink-0 snap-center overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] sm:w-[60%] lg:w-auto lg:rounded-[36px]"
             >
               {/* scope header */}
               <div className={`flex items-center gap-3 border-b ${border} bg-gradient-to-r from-slate-50 to-white px-6 py-5`}>

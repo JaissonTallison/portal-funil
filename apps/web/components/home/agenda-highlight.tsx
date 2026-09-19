@@ -68,9 +68,11 @@ export async function AgendaHighlight() {
         </div>
 
         {/* CARDS GRID */}
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="-mx-6 mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
           {cards.map((event) => (
-            <EventCard key={event.id} event={event} variant="default" />
+            <div key={event.id} className="w-[80%] shrink-0 snap-center sm:w-auto">
+              <EventCard event={event} variant="default" />
+            </div>
           ))}
         </div>
 

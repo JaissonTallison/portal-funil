@@ -59,13 +59,13 @@ export async function NewsSection() {
                 {featured.isLive && <Radio size={14} />}
                 {featured.isLive ? "Ao vivo" : getCategoryName(featured.category)}
               </div>
-              <h3 className="mt-8 max-w-4xl text-5xl font-black leading-[1] tracking-[-0.05em] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] transition group-hover:text-gold lg:text-7xl">
+              <h3 className="mt-5 max-w-4xl text-3xl font-black leading-[1.05] tracking-[-0.05em] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] transition group-hover:text-gold sm:mt-8 sm:text-5xl lg:text-7xl">
                 {featured.title}
               </h3>
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-200 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
+              <p className="mt-4 line-clamp-3 max-w-2xl text-base leading-relaxed text-zinc-200 sm:mt-8 sm:line-clamp-none sm:text-lg drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
                 {featured.description}
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-zinc-400">
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-zinc-400 sm:mt-10">
                 <div className="flex items-center gap-2">
                   <Clock3 size={16} />
                   {timeAgo(featured.publishedAt)}

@@ -61,18 +61,18 @@ export async function LiveExperience() {
               </div>
 
               {/* CONTENT */}
-              <div className="relative z-10 flex min-h-[520px] flex-col justify-end p-6 sm:p-10">
+              <div className="relative z-10 flex min-h-[380px] flex-col justify-end p-5 sm:min-h-[520px] sm:p-10">
                 <div className="inline-flex w-fit items-center gap-2 rounded-full bg-red-500 px-5 py-2 text-xs font-black uppercase tracking-[0.3em] text-white">
                   <Radio size={14} />
 
                   {lead.isLive ? "Ao vivo" : "Última hora"}
                 </div>
 
-                <h3 className="mt-8 line-clamp-4 max-w-4xl text-4xl font-black leading-[1] tracking-[-0.05em] text-white md:text-5xl">
+                <h3 className="mt-5 line-clamp-4 max-w-4xl text-2xl font-black leading-[1.05] tracking-[-0.05em] text-white sm:mt-8 sm:text-4xl md:text-5xl">
                   {lead.title}
                 </h3>
 
-                <p className="mt-6 line-clamp-3 max-w-2xl text-lg leading-relaxed text-zinc-300">
+                <p className="mt-4 line-clamp-2 max-w-2xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:line-clamp-3 sm:text-lg">
                   {lead.description}
                 </p>
 
@@ -157,26 +157,26 @@ export async function LiveExperience() {
             </div>
 
             {/* FEED */}
-            <div className="mt-10 space-y-5">
+            <div className="mt-6 space-y-3 sm:mt-10 sm:space-y-5">
               {pickDiverse(latest.filter((a) => a.slug !== lead.slug), FEED_ITEMS).map((item, index) => (
                 <Link
                   key={item.id}
                   href={`/noticias/${item.slug}`}
-                  className="group block rounded-[28px] border border-black/5 bg-[#F8FAFC] p-5 transition hover:bg-slate-100"
+                  className="group block rounded-[22px] border border-black/5 bg-[#F8FAFC] p-3.5 transition hover:bg-slate-100 sm:rounded-[28px] sm:p-5"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold/10">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold/10 sm:mt-1 sm:h-12 sm:w-12 sm:rounded-2xl">
                       <span className="font-black text-gold-dark">
                         0{index + 1}
                       </span>
                     </div>
 
                     <div>
-                      <h4 className="line-clamp-3 font-bold leading-relaxed text-navy">
+                      <h4 className="line-clamp-2 text-sm font-bold leading-snug text-navy sm:line-clamp-3 sm:text-base sm:leading-relaxed">
                         {item.title}
                       </h4>
 
-                      <span className="mt-2 block text-sm text-slate-500" suppressHydrationWarning>
+                      <span className="mt-1 block text-xs text-slate-500 sm:mt-2 sm:text-sm" suppressHydrationWarning>
                         {timeAgo(item.publishedAt)}
                       </span>
                     </div>
