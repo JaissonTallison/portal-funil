@@ -109,7 +109,7 @@ export function ListingForm() {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center rounded-[40px] border border-black/5 bg-white px-8 py-20 text-center shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+      <div className="flex flex-col items-center justify-center rounded-[40px] border border-black/5 bg-white px-8 py-12 sm:py-16 lg:py-20 text-center shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50">
           <Check size={36} className="text-emerald-500" />
         </div>
@@ -211,7 +211,7 @@ export function ListingForm() {
               />
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label className="mb-2 block text-sm font-bold text-navy">Categoria</label>
                 <select
@@ -306,7 +306,7 @@ export function ListingForm() {
               />
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label className="mb-2 block text-sm font-bold text-navy">Telefone</label>
                 <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">

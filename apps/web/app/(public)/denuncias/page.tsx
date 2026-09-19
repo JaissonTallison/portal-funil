@@ -92,7 +92,7 @@ export default function DenunciasPage() {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy px-6 py-20">
+      <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 lg:py-20">
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/8 blur-[120px]" />
         <div className="absolute bottom-[-60px] right-[-60px] h-[240px] w-[240px] rounded-full bg-blue-600/10 blur-[100px]" />
 
@@ -134,12 +134,12 @@ export default function DenunciasPage() {
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               COMO ENVIAR
             </span>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em] text-navy">
               Escolha o canal
             </h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {channels.map(({ icon: Icon, color, bg, border, title, description, cta, href }) => (
               <Link
                 key={title}

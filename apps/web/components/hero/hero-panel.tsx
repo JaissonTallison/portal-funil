@@ -83,7 +83,7 @@ export function HeroPanel() {
                 Clima
               </span>
 
-              <h3 className="mt-2 text-5xl font-black text-navy">
+              <h3 className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-black text-navy">
                 29°
               </h3>
 

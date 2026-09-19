@@ -38,7 +38,7 @@ export default async function ColumnistPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy px-6 py-20">
+      <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 lg:py-20">
         {/* GLOWS */}
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/10 blur-[100px]" />
         <div className="absolute bottom-[-80px] right-[-80px] h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/15 blur-[100px]" />
@@ -52,7 +52,7 @@ export default async function ColumnistPage({ params }: Props) {
             Todos os colunistas
           </Link>
 
-          <div className="grid gap-12 lg:grid-cols-[auto_1fr]">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[auto_1fr]">
             {/* AVATAR */}
             <div className="relative h-[160px] w-[160px] overflow-hidden rounded-[32px] border-4 border-gold/20 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
               <Image
@@ -122,13 +122,13 @@ export default async function ColumnistPage({ params }: Props) {
           </div>
 
           {articles.length > 0 ? (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {articles.map((article) => (
                 <NewsCard key={article.id} article={article} variant="vertical" />
               ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center py-24 text-center">
+            <div className="flex flex-col items-center justify-center py-14 sm:py-20 lg:py-24 text-center">
               <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100">
                 <span className="text-3xl">✍️</span>
               </div>
@@ -155,7 +155,7 @@ export default async function ColumnistPage({ params }: Props) {
             </h2>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {columnists
               .filter((c) => c.id !== columnist.id)
               .map((c) => (

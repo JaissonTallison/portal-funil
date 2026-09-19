@@ -42,7 +42,7 @@ export default function PoliticaEditorialPage() {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy px-6 py-20">
+      <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 lg:py-20">
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/8 blur-[120px]" />
         <div className="relative z-10 mx-auto max-w-[1440px]">
           <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">PORTAL FUNIL</span>
@@ -61,9 +61,9 @@ export default function PoliticaEditorialPage() {
         <div className="mx-auto max-w-[1440px]">
           <div className="mb-12">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">FUNDAMENTOS</span>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">Nossos princípios</h2>
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em]">Nossos princípios</h2>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {principles.map(({ icon: Icon, title, body }) => (
               <div key={title} className="rounded-[32px] border border-black/5 bg-white p-9 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
@@ -81,10 +81,10 @@ export default function PoliticaEditorialPage() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
           <div className="overflow-hidden rounded-[40px] bg-navy p-12">
-            <div className="relative z-10 grid gap-12 lg:grid-cols-2">
+            <div className="relative z-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
               <div>
                 <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">TRANSPARÊNCIA</span>
-                <h2 className="mt-6 text-4xl font-black leading-tight text-white">
+                <h2 className="mt-6 text-3xl sm:text-4xl font-black leading-tight text-white">
                   Política de erros e correções
                 </h2>
                 <p className="mt-5 leading-relaxed text-zinc-400">

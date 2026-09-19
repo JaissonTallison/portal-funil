@@ -18,7 +18,7 @@ export default function NoticiasLoading() {
       {/* Grid skeleton */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} className="overflow-hidden rounded-[36px] border border-black/5 bg-white">
                 <div className="h-[260px] animate-pulse bg-slate-200" />

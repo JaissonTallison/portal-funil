@@ -85,7 +85,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
                 OPERATIONS MAP
               </span>
             </div>
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Central operacional urbana
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-slate-500">
@@ -110,7 +110,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
         </div>
 
         {/* MAIN GRID */}
-        <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_380px]">
           {/* ── RADAR ── */}
           <div className="relative flex flex-col overflow-hidden rounded-[40px] border border-white/5 bg-navy shadow-[0_24px_80px_rgba(2,6,23,0.3)]">
             <div className="pointer-events-none absolute inset-0">
@@ -175,7 +175,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
                     Nenhuma ocorrência publicada recentemente.
                   </p>
                 ) : (
-                  <div className="grid gap-3 sm:grid-cols-3">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                     {incidents.map((article) => {
                       const { icon: Icon, color, bg } = INCIDENT_CATEGORIES[article.category];
                       return (
@@ -217,7 +217,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
               {air && aqi ? (
                 <>
                   <div className="mt-5 flex items-end justify-between">
-                    <span className="text-5xl font-black tracking-[-0.05em] text-navy">{air.aqi}</span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">{air.aqi}</span>
                     <span className={`mb-1.5 text-sm font-black ${aqi.text}`}>{aqi.label}</span>
                   </div>
                   <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
@@ -272,7 +272,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
               {conditions && rain ? (
                 <>
                   <div className="mt-5 flex items-end gap-3">
-                    <span className="text-6xl font-black tracking-[-0.06em] text-navy">{conditions.temperature}°C</span>
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-[-0.06em] text-navy">{conditions.temperature}°C</span>
                     <span className="mb-2 text-sm text-slate-400">{conditions.description}</span>
                   </div>
 

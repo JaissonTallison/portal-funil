@@ -57,7 +57,7 @@ export async function PoliticsHub() {
                 POLÍTICA
               </span>
             </div>
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Poder em foco
             </h2>
             <p className="mt-3 max-w-xl text-lg text-slate-500">
@@ -75,13 +75,13 @@ export async function PoliticsHub() {
         </div>
 
         {/* TOP ROW — Featured + Agenda */}
-        <div className="mb-6 grid gap-6 lg:grid-cols-[1fr_340px]">
+        <div className="mb-6 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_340px]">
 
           {/* FEATURED */}
           {featured && (
           <Link
             href={`/noticias/${featured.slug}`}
-            className="group relative overflow-hidden rounded-[40px] bg-navy p-10 shadow-[0_20px_80px_rgba(2,6,23,0.2)] transition hover:-translate-y-1 block"
+            className="group relative overflow-hidden rounded-[40px] bg-navy p-6 sm:p-10 shadow-[0_20px_80px_rgba(2,6,23,0.2)] transition hover:-translate-y-1 block"
           >
             {/* foto */}
             <div className="pointer-events-none absolute inset-0">
@@ -177,7 +177,7 @@ export async function PoliticsHub() {
         </div>
 
         {/* BOTTOM ROW — 3 scopes */}
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {scopes.map(({ id, label, icon: Icon, color, bg, border, href, news }) => (
             <div
               key={id}

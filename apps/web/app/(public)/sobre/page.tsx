@@ -40,7 +40,7 @@ export default function SobrePage() {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy px-6 py-24">
+      <section className="relative overflow-hidden bg-navy px-6 py-14 sm:py-20 lg:py-24">
         <div className="absolute left-[-80px] top-[-80px] h-[400px] w-[400px] rounded-full bg-gold/8 blur-[140px]" />
         <div className="absolute bottom-0 right-[-60px] h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/15 blur-[100px]" />
 
@@ -49,7 +49,7 @@ export default function SobrePage() {
             PORTAL FUNIL
           </span>
 
-          <h1 className="mt-6 max-w-4xl text-5xl font-black leading-none tracking-[-0.05em] text-white lg:text-8xl">
+          <h1 className="mt-6 max-w-4xl text-3xl sm:text-4xl lg:text-5xl font-black leading-none tracking-[-0.05em] text-white lg:text-8xl">
             O portal de
             <br />
             <span className="text-gold">Manaus</span>
@@ -64,7 +64,7 @@ export default function SobrePage() {
       {/* STATS */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map(({ value, label, icon: Icon }) => (
               <div
                 key={label}
@@ -73,7 +73,7 @@ export default function SobrePage() {
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10">
                   <Icon size={26} className="text-gold-dark" />
                 </div>
-                <h3 className="mt-8 text-5xl font-black tracking-[-0.05em] text-navy">
+                <h3 className="mt-8 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
                   {value}
                 </h3>
                 <span className="mt-2 block text-slate-500">{label}</span>
@@ -87,7 +87,7 @@ export default function SobrePage() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
           <div className="overflow-hidden rounded-[40px] bg-navy">
-            <div className="grid lg:grid-cols-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* TEXT */}
               <div className="relative p-12 lg:p-16">
                 <div className="absolute left-[-60px] top-[-60px] h-[240px] w-[240px] rounded-full bg-gold/10 blur-[80px]" />
@@ -95,7 +95,7 @@ export default function SobrePage() {
                   <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">
                     NOSSA MISSÃO
                   </span>
-                  <h2 className="mt-6 text-4xl font-black leading-tight tracking-[-0.04em] text-white">
+                  <h2 className="mt-6 text-3xl sm:text-4xl font-black leading-tight tracking-[-0.04em] text-white">
                     Informação que transforma Manaus
                   </h2>
                   <p className="mt-6 text-lg leading-relaxed text-zinc-400">
@@ -143,12 +143,12 @@ export default function SobrePage() {
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               PRINCÍPIOS
             </span>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em] text-navy">
               Nossos valores editoriais
             </h2>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {values.map(({ title, desc }) => (
               <div
                 key={title}
@@ -170,7 +170,7 @@ export default function SobrePage() {
               <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
                 TIME
               </span>
-              <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-navy">
+              <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em] text-navy">
                 Nossos colunistas
               </h2>
             </div>
@@ -183,7 +183,7 @@ export default function SobrePage() {
             </Link>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {columnists.map((c) => (
               <Link
                 key={c.id}

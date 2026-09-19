@@ -24,7 +24,7 @@ export default async function AoVivoPage() {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy px-6 py-20">
+      <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 lg:py-20">
         <div className="absolute left-[-100px] top-[-100px] h-[400px] w-[400px] rounded-full bg-red-500/10 blur-[120px]" />
         <div className="absolute bottom-[-100px] right-[-100px] h-[400px] w-[400px] rounded-full bg-gold/10 blur-[120px]" />
 
@@ -36,7 +36,7 @@ export default async function AoVivoPage() {
             </span>
           </div>
 
-          <h1 className="mt-8 text-5xl font-black leading-none tracking-[-0.06em] text-white lg:text-8xl">
+          <h1 className="mt-8 text-3xl sm:text-4xl lg:text-5xl font-black leading-none tracking-[-0.06em] text-white lg:text-8xl">
             Cobertura
             <br />
             <span className="text-gold">ao vivo</span>
@@ -71,7 +71,7 @@ export default async function AoVivoPage() {
 
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
-          <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_380px]">
             <div className="space-y-6">
               <div className="relative overflow-hidden rounded-[40px] bg-navy shadow-[0_30px_80px_rgba(15,23,42,0.2)]">
                 <div className="absolute inset-0">
@@ -118,7 +118,7 @@ export default async function AoVivoPage() {
                   <h2 className="mb-6 text-2xl font-black tracking-[-0.04em] text-navy">
                     Coberturas em andamento
                   </h2>
-                  <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     {liveArticles.map((article) => (
                       <NewsCard key={article.id} article={article} variant="vertical" />
                     ))}

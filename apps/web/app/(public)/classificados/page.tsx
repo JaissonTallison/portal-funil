@@ -62,7 +62,7 @@ function ClassificadosContent() {
       </div>
 
       {loading ? (
-        <div className="flex justify-center py-20">
+        <div className="flex justify-center py-12 sm:py-16 lg:py-20">
           <div className="h-8 w-8 animate-spin rounded-full border-2 border-gold border-t-transparent" />
         </div>
       ) : results.length > 0 ? (
@@ -70,14 +70,14 @@ function ClassificadosContent() {
           <p className="mb-6 text-sm text-slate-400">
             {results.length} anúncio{results.length !== 1 ? "s" : ""} encontrado{results.length !== 1 ? "s" : ""}
           </p>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {results.map((listing) => (
               <ListingCard key={listing.id} listing={listing} />
             ))}
           </div>
         </>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-[32px] border border-black/5 bg-white px-8 py-20 text-center">
+        <div className="flex flex-col items-center justify-center rounded-[32px] border border-black/5 bg-white px-8 py-12 sm:py-16 lg:py-20 text-center">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-slate-100">
             <ShoppingBag size={28} className="text-slate-300" />
           </div>
@@ -109,7 +109,7 @@ export default function ClassificadosPage() {
                 CLASSIFICADOS
               </span>
             </div>
-            <h1 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Classificados Manaus
             </h1>
           </div>
@@ -125,7 +125,7 @@ export default function ClassificadosPage() {
 
         <Suspense
           fallback={
-            <div className="flex justify-center py-20">
+            <div className="flex justify-center py-12 sm:py-16 lg:py-20">
               <div className="h-8 w-8 animate-spin rounded-full border-2 border-gold border-t-transparent" />
             </div>
           }

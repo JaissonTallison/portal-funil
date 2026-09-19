@@ -58,7 +58,7 @@ export default function ContatoPage() {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy px-6 py-20">
+      <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 lg:py-20">
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/8 blur-[120px]" />
 
         <div className="relative z-10 mx-auto max-w-[1440px]">
@@ -85,9 +85,9 @@ export default function ContatoPage() {
       {/* CONTENT */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
-          <div className="grid gap-10 lg:grid-cols-[1fr_420px]">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_420px]">
             {/* FORM */}
-            <div className="overflow-hidden rounded-[40px] border border-black/5 bg-white p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
+            <div className="overflow-hidden rounded-[40px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
               <h2 className="text-3xl font-black tracking-[-0.04em] text-navy">
                 Envie uma mensagem
               </h2>
@@ -96,7 +96,7 @@ export default function ContatoPage() {
               </p>
 
               <form className="mt-10 space-y-5">
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
                     <label className="mb-2 block text-sm font-semibold text-navy">
                       Nome
@@ -179,14 +179,14 @@ export default function ContatoPage() {
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold/10">
                         <Icon size={18} className="text-gold-dark" />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">
                           {label}
                         </span>
-                        <p className="mt-0.5 font-semibold text-navy">
+                        <p className="mt-0.5 break-words font-semibold text-navy">
                           {value}
                         </p>
-                        <p className="mt-0.5 text-sm text-slate-400">{desc}</p>
+                        <p className="mt-0.5 break-words text-sm text-slate-400">{desc}</p>
                       </div>
                     </div>
                   ))}

@@ -146,7 +146,7 @@ export default function DashboardPage() {
 
       {/* PENDÊNCIAS — barra de atenção */}
       {pendingTotal > 0 && (
-        <div className="mb-6 grid gap-2 sm:grid-cols-3">
+        <div className="mb-6 grid grid-cols-1 gap-2 sm:grid-cols-3">
           <PendingBadge count={stats.articles.review}   label="Artigos aguardando revisão"  href="/admin/artigos?status=REVIEW" />
           <PendingBadge count={stats.listings.pending}  label="Classificados para aprovar"  href="/admin/denuncias" />
           <PendingBadge count={stats.reports.pending}   label="Denúncias em análise"        href="/admin/denuncias" />
@@ -154,7 +154,7 @@ export default function DashboardPage() {
       )}
 
       {/* STAT CARDS */}
-      <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {cards.map((c) => {
           const inner = (
             <div className={`rounded-[20px] border bg-white p-5 shadow-sm transition hover:shadow-md ${

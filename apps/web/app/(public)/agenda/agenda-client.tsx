@@ -192,7 +192,7 @@ export function AgendaClient({ events, upcomingDates, featured }: Props) {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center rounded-[28px] border border-dashed border-slate-200 bg-white py-24">
+          <div className="flex flex-col items-center justify-center rounded-[28px] border border-dashed border-slate-200 bg-white py-14 sm:py-20 lg:py-24">
             <CalendarDays size={40} className="text-slate-300" />
             <p className="mt-4 text-sm font-semibold text-slate-400">Nenhum evento encontrado</p>
             <button

@@ -64,7 +64,7 @@ export async function OperationalGrid({ articles, cameraCount }: Props) {
               </span>
             </div>
 
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Central de operações
             </h2>
 
@@ -76,7 +76,7 @@ export async function OperationalGrid({ articles, cameraCount }: Props) {
         </div>
 
         {/* GRID */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {/* WEATHER CARD — expanded */}
           <div className="group relative overflow-hidden rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
             <div className="absolute right-[-30px] top-[-30px] h-[140px] w-[140px] rounded-full bg-sky-400/10 blur-[70px]" />
@@ -86,7 +86,7 @@ export async function OperationalGrid({ articles, cameraCount }: Props) {
                 <CloudRain size={26} className="text-sky-500" />
               </div>
 
-              <h3 className="mt-6 text-5xl font-black tracking-[-0.05em] text-navy">
+              <h3 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
                 {conditions ? `${conditions.temperature}°C` : "—"}
               </h3>
 
@@ -217,7 +217,7 @@ function StatCard({
           <Icon size={26} className={accentColor} />
         </div>
 
-        <h3 className="mt-6 text-5xl font-black tracking-[-0.05em] text-navy">{value}</h3>
+        <h3 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">{value}</h3>
 
         <span className="mt-2 block text-sm font-semibold text-slate-600">{title}</span>
 

@@ -30,7 +30,7 @@ export async function NewsSection() {
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               BREAKING NEWS
             </span>
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Cobertura em destaque
             </h2>
           </div>
@@ -43,11 +43,11 @@ export async function NewsSection() {
           </Link>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_420px]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.2fr_420px]">
           {/* MAIN */}
           <Link
             href={`/noticias/${featured.slug}`}
-            className="group relative overflow-hidden rounded-[40px] border border-black/5 bg-navy p-10 text-white shadow-[0_20px_80px_rgba(2,6,23,0.25)] transition hover:-translate-y-1 block"
+            className="group relative overflow-hidden rounded-[40px] border border-black/5 bg-navy p-6 sm:p-10 text-white shadow-[0_20px_80px_rgba(2,6,23,0.25)] transition hover:-translate-y-1 block"
           >
             <div className="absolute inset-0">
               <Image src={featured.image} alt={featured.title} fill className="object-cover transition duration-700 group-hover:scale-105" />

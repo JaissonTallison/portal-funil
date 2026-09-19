@@ -28,7 +28,7 @@ export function Footer() {
       {/* NEWSLETTER */}
       <div className="border-b border-white/5">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-14">
-          <div className="grid gap-10 lg:grid-cols-[1fr_auto]">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_auto]">
             <div>
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gold/10">
@@ -93,7 +93,7 @@ export function Footer() {
 
       {/* MAIN */}
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid gap-12 lg:grid-cols-[2fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* BRAND */}
           <div>
             <Image

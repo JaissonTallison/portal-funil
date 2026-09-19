@@ -120,7 +120,7 @@ export function ReaderHub() {
                 CENTRAL DO LEITOR
               </span>
             </div>
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Sua voz na redação
             </h2>
             <p className="mt-3 max-w-xl text-lg text-slate-500">
@@ -154,7 +154,7 @@ export function ReaderHub() {
         </div>
 
         {/* ACTION CARDS */}
-        <div className="mb-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {actions.map(({ icon: Icon, color, bg, border, title, description, cta, href }) => (
             <Link
               key={title}

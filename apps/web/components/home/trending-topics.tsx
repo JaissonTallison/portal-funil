@@ -29,7 +29,7 @@ export async function TrendingTopics() {
   return (
     <section className="relative px-6 pb-10">
       <div className="mx-auto max-w-[1440px]">
-        <div className="overflow-hidden rounded-[36px] border border-black/5 bg-white p-8 shadow-[0_10px_50px_rgba(15,23,42,0.06)]">
+        <div className="overflow-hidden rounded-[28px] border border-black/5 bg-white p-5 shadow-[0_10px_50px_rgba(15,23,42,0.06)] sm:rounded-[36px] sm:p-8">
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap">
             {/* LABEL */}
             <div className="flex shrink-0 items-center gap-2.5">
@@ -46,7 +46,7 @@ export async function TrendingTopics() {
             </div>
 
             {/* TOPICS */}
-            <div className="scrollbar-hide flex flex-1 flex-wrap gap-2.5 overflow-x-auto sm:flex-nowrap">
+            <div className="scrollbar-hide flex w-full min-w-0 flex-nowrap gap-2.5 overflow-x-auto pb-1 lg:w-auto lg:flex-1">
               {topics.map((topic) => (
                 <Link
                   key={topic.slug}

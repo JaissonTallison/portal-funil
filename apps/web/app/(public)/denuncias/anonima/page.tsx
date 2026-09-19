@@ -65,8 +65,8 @@ export default function DenunciaAnonima() {
 
       <section className="px-6 py-14">
         <div className="mx-auto max-w-4xl">
-          <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
-            <div className="rounded-[40px] border border-black/5 bg-white p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
+            <div className="rounded-[40px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
 
               {protocol ? (
                 <div className="flex flex-col items-center py-8 text-center">

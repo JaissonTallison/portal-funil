@@ -136,7 +136,7 @@ export function PricingGrid() {
       </div>
 
       {/* GRID */}
-      <div className="grid gap-5 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-4">
         {plans.map((plan) => {
           const Icon = plan.icon;
           const price = annual ? plan.annual : plan.monthly;

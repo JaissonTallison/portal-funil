@@ -43,7 +43,7 @@ export default async function CategoriaPage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-surface text-navy">
-      <section className="relative overflow-hidden bg-navy px-6 py-20">
+      <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 lg:py-20">
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/10 blur-[100px]" />
         <div className="absolute bottom-[-80px] right-[-80px] h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/10 blur-[100px]" />
 
@@ -93,7 +93,7 @@ export default async function CategoriaPage({ params }: Props) {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
           {categoryArticles.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-24 text-center">
+            <div className="flex flex-col items-center justify-center py-14 sm:py-20 lg:py-24 text-center">
               <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100">
                 <Newspaper size={32} className="text-slate-300" />
               </div>
@@ -109,7 +109,7 @@ export default async function CategoriaPage({ params }: Props) {
               </Link>
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {categoryArticles.map((article) => (
                 <NewsCard key={article.id} article={article} variant="vertical" />
               ))}
@@ -122,7 +122,7 @@ export default async function CategoriaPage({ params }: Props) {
                 <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">OUTRAS EDITORIAS</span>
                 <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-navy">Também em destaque</h2>
               </div>
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {otherArticles.map((article) => (
                   <NewsCard key={article.id} article={article} variant="vertical" />
                 ))}

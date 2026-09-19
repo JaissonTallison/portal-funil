@@ -70,7 +70,7 @@ export default async function EventDetailPage({ params }: Props) {
       </div>
 
       <div className="mx-auto max-w-5xl px-4 py-10 md:px-6 md:py-14">
-        <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
           <div>
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">

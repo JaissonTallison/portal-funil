@@ -46,7 +46,7 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
             loop
             speed={900}
             autoplay={{ delay: SLIDE_DURATION, disableOnInteraction: false }}
-            className="h-[600px] md:h-[740px]"
+            className="h-[640px] sm:h-[620px] md:h-[740px]"
           >
             {slides.map((slide, i) => (
               <SwiperSlide key={slide.title}>
@@ -65,11 +65,11 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
 
                   {/* CONTENT */}
-                  <div className="relative z-10 flex h-full items-center px-8 pb-28 md:px-16 md:pb-32">
+                  <div className="relative z-10 flex h-full items-center px-5 pb-24 pt-6 sm:px-8 md:px-16 md:pb-32">
                     <div className="max-w-2xl">
                       {/* CATEGORY */}
                       <div className="flex items-center gap-3">
-                        <span className="rounded-full bg-gold px-5 py-2 text-xs font-black uppercase tracking-[0.3em] text-navy">
+                        <span className="rounded-full bg-gold px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.25em] text-navy sm:px-5 sm:py-2 sm:text-xs sm:tracking-[0.3em]">
                           {slide.category}
                         </span>
                         <span className="text-xs font-semibold uppercase tracking-widest text-white/40">
@@ -78,27 +78,27 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
                       </div>
 
                       {/* TITLE */}
-                      <h1 className="mt-7 text-4xl font-black leading-[1.0] tracking-[-0.05em] text-white md:text-6xl lg:text-[72px]">
+                      <h1 className="mt-5 text-3xl font-black leading-[1.05] tracking-[-0.05em] text-white sm:mt-7 sm:text-4xl md:text-6xl lg:text-[72px]">
                         {slide.title}
                       </h1>
 
                       {/* DESCRIPTION */}
-                      <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300 md:text-lg">
+                      <p className="mt-4 line-clamp-3 max-w-xl text-sm leading-relaxed text-zinc-300 sm:mt-5 sm:text-base md:line-clamp-none md:text-lg">
                         {slide.description}
                       </p>
 
                       {/* CTA */}
-                      <div className="mt-8 flex flex-wrap gap-3">
+                      <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8 sm:gap-3">
                         <Link
                           href={`/noticias/${slide.slug}`}
-                          className="flex items-center gap-2 rounded-2xl bg-gold px-8 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
+                          className="flex items-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-black uppercase tracking-wide text-navy sm:px-8 sm:py-4 transition hover:-translate-y-0.5 hover:bg-gold-hover"
                         >
                           Ler matéria
                           <ArrowUpRight size={15} />
                         </Link>
                         <Link
                           href="/ao-vivo"
-                          className="flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur-xl transition hover:bg-white/20"
+                          className="flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-xl sm:px-8 sm:py-4 transition hover:bg-white/20"
                         >
                           <Radio size={14} className="text-red-400" />
                           Assistir ao vivo
@@ -174,21 +174,21 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
             {/* gradient fade */}
             <div className="pointer-events-none h-16 bg-gradient-to-t from-navy/70 to-transparent" />
 
-            <div className="flex items-center justify-between gap-4 bg-navy/50 px-6 py-4 backdrop-blur-md md:px-10">
+            <div className="flex items-center justify-between gap-3 bg-navy/50 px-4 py-3 backdrop-blur-md sm:gap-4 sm:px-6 sm:py-4 md:px-10">
 
               {/* THUMBNAILS + PROGRESS BARS */}
-              <div className="flex items-center gap-3">
+              <div className="flex min-w-0 items-center gap-2 sm:gap-3">
                 {slides.map((slide, i) => (
                   <button
                     key={i}
                     onClick={() => swiperRef.current?.slideToLoop(i)}
                     className={`group relative overflow-hidden rounded-xl transition-all duration-400 ${
                       i === activeIndex
-                        ? "w-[96px] ring-2 ring-gold ring-offset-1 ring-offset-transparent"
-                        : "w-[56px] opacity-50 hover:opacity-80"
+                        ? "w-[72px] ring-2 ring-gold ring-offset-1 ring-offset-transparent sm:w-[96px]"
+                        : "w-[40px] opacity-50 hover:opacity-80 sm:w-[56px]"
                     }`}
                   >
-                    <div className="relative h-[52px]">
+                    <div className="relative h-[40px] sm:h-[52px]">
                       <Image
                         src={slide.image}
                         alt={slide.category}
@@ -224,14 +224,14 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
               </div>
 
               {/* COUNTER + NAVIGATION */}
-              <div className="flex items-center gap-3">
+              <div className="flex shrink-0 items-center gap-2 sm:gap-3">
                 <span className="hidden tabular-nums text-sm font-black text-white/40 sm:block">
                   {String(activeIndex + 1).padStart(2, "0")}&nbsp;/&nbsp;{String(slides.length).padStart(2, "0")}
                 </span>
 
                 <button
                   onClick={() => swiperRef.current?.slidePrev()}
-                  className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 active:scale-95"
+                  className="flex h-9 w-9 items-center justify-center rounded-2xl border border-white/15 sm:h-10 sm:w-10 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 active:scale-95"
                   aria-label="Slide anterior"
                 >
                   <ChevronLeft size={18} />
@@ -239,7 +239,7 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
 
                 <button
                   onClick={() => swiperRef.current?.slideNext()}
-                  className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gold text-navy transition hover:bg-gold-hover active:scale-95"
+                  className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gold text-navy sm:h-10 sm:w-10 transition hover:bg-gold-hover active:scale-95"
                   aria-label="Próximo slide"
                 >
                   <ChevronRight size={18} />

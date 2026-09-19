@@ -22,7 +22,7 @@ export default function NovoAnuncioPage() {
           <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
             NOVO ANÚNCIO
           </span>
-          <h1 className="mt-3 text-4xl font-black tracking-[-0.05em] text-navy">
+          <h1 className="mt-3 text-3xl sm:text-4xl font-black tracking-[-0.05em] text-navy">
             Criar anúncio
           </h1>
           <p className="mt-2 text-base text-slate-500">

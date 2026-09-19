@@ -115,7 +115,7 @@ export default function AdminSaudePage() {
 
       {/* SERVIÇOS */}
       {data && (
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {(Object.entries(data.services) as [string, string][]).map(([name, status]) => (
             <div key={name} className="rounded-[20px] border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50">

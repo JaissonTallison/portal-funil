@@ -19,7 +19,7 @@ export async function MostRead() {
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               RANKING
             </span>
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Mais lidas
             </h2>
           </div>
@@ -32,7 +32,7 @@ export async function MostRead() {
           </Link>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           {/* TOP 1 */}
           <Link
             href={`/noticias/${articles[0].slug}`}
@@ -51,7 +51,7 @@ export async function MostRead() {
 
             <div className="relative z-10">
               <div className="flex items-center gap-3">
-                <span className="text-7xl font-black text-gold/60 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">01</span>
+                <span className="text-5xl sm:text-6xl lg:text-7xl font-black text-gold/60 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">01</span>
                 <div className="flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-navy">
                   <TrendingUp size={11} />
                   Mais lida
@@ -87,7 +87,7 @@ export async function MostRead() {
               href={`/noticias/${article.slug}`}
               className="group flex items-center gap-5 rounded-[28px] border border-black/5 bg-white/80 p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] backdrop-blur-xl transition hover:-translate-y-0.5"
             >
-              <span className="shrink-0 text-4xl font-black text-slate-100 transition group-hover:text-gold/30">
+              <span className="shrink-0 text-3xl sm:text-4xl font-black text-slate-100 transition group-hover:text-gold/30">
                 {String(i + 2).padStart(2, "0")}
               </span>
 

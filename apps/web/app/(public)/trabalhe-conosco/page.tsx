@@ -90,7 +90,7 @@ export default function TrabalheConoscoPage() {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy px-6 py-20">
+      <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 lg:py-20">
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/8 blur-[120px]" />
         <div className="relative z-10 mx-auto max-w-[1440px]">
           <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">CARREIRAS</span>
@@ -117,9 +117,9 @@ export default function TrabalheConoscoPage() {
         <div className="mx-auto max-w-[1440px]">
           <div className="mb-12">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">BENEFÍCIOS</span>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">O que oferecemos</h2>
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em]">O que oferecemos</h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b) => (
               <div key={b} className="flex items-center gap-3 rounded-2xl border border-black/5 bg-white px-5 py-4 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
                 <Zap size={16} className="shrink-0 text-gold-dark" />
@@ -135,7 +135,7 @@ export default function TrabalheConoscoPage() {
         <div className="mx-auto max-w-[1440px]">
           <div className="mb-12">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">OPORTUNIDADES</span>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">Vagas abertas</h2>
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em]">Vagas abertas</h2>
           </div>
 
           <div className="space-y-4">
@@ -174,12 +174,12 @@ export default function TrabalheConoscoPage() {
           </div>
 
           {/* SPONTANEOUS */}
-          <div className="mt-8 overflow-hidden rounded-[32px] bg-navy p-10 text-center">
+          <div className="mt-8 overflow-hidden rounded-[32px] bg-navy p-6 sm:p-10 text-center">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">NÃO ENCONTROU SUA VAGA?</span>
             <h3 className="mt-4 text-3xl font-black text-white">Envie uma candidatura espontânea</h3>
             <p className="mt-3 text-zinc-400">Guardamos seu currículo e te chamamos quando surgir uma vaga ideal.</p>
             <a href="mailto:rh@funildenoticias.com.br"
-              className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-gold px-10 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5">
+              className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-gold px-5 sm:px-10 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5">
               Enviar currículo <ArrowUpRight size={16} />
             </a>
           </div>

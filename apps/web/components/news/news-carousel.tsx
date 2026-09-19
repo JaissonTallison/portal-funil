@@ -24,7 +24,7 @@ export function NewsCarousel({ articles }: Props) {
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               EDITORIAL EXPERIENCE
             </span>
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Cobertura premium
             </h2>
           </div>

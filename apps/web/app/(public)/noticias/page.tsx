@@ -78,7 +78,7 @@ export default async function NoticiasPage({ searchParams }: Props) {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
           {sorted.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-24 text-center">
+            <div className="flex flex-col items-center justify-center py-14 sm:py-20 lg:py-24 text-center">
               <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100">
                 <Newspaper size={32} className="text-slate-300" />
               </div>
@@ -96,7 +96,7 @@ export default async function NoticiasPage({ searchParams }: Props) {
               </Link>
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {sorted.map((article) => (
                 <NewsCard key={article.id} article={article} variant="vertical" />
               ))}

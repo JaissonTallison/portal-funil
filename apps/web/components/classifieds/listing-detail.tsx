@@ -20,7 +20,7 @@ type Props = {
 
 export function ListingDetail({ listing }: Props) {
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_380px]">
       {/* LEFT — Gallery + Info */}
       <div className="space-y-8">
         <ListingGallery images={listing.images} title={listing.title} />
@@ -49,7 +49,7 @@ export function ListingDetail({ listing }: Props) {
 
           {/* PRICE */}
           <div className="mt-5 flex items-baseline gap-3">
-            <span className="text-4xl font-black text-navy">
+            <span className="text-3xl sm:text-4xl font-black text-navy">
               {formatPrice(listing.price)}
             </span>
             {listing.type === "JOB" && listing.price && (

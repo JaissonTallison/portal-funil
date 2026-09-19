@@ -53,7 +53,7 @@ export default function AssinarPage() {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy px-6 py-24 text-center">
+      <section className="relative overflow-hidden bg-navy px-6 py-14 sm:py-20 lg:py-24 text-center">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="h-[500px] w-[500px] rounded-full bg-gold/8 blur-[160px]" />
         </div>
@@ -101,18 +101,18 @@ export default function AssinarPage() {
       </section>
 
       {/* FEATURES */}
-      <section id="funcionalidades" className="px-6 py-20">
+      <section id="funcionalidades" className="px-6 py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               BENEFÍCIOS
             </span>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em] text-navy">
               O que você ganha com o Pro
             </h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {proFeatures.map(({ icon: Icon, text }) => (
               <div
                 key={text}
@@ -131,13 +131,13 @@ export default function AssinarPage() {
       </section>
 
       {/* PLANS */}
-      <section id="planos" className="bg-navy px-6 py-20">
+      <section id="planos" className="bg-navy px-6 py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">
               PLANOS
             </span>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em] text-white">
               Escolha o seu plano
             </h2>
             <p className="mt-4 text-lg text-zinc-400">
@@ -151,13 +151,13 @@ export default function AssinarPage() {
       </section>
 
       {/* FAQ */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12 text-center">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               DÚVIDAS
             </span>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em] text-navy">
               Perguntas frequentes
             </h2>
           </div>
@@ -186,14 +186,14 @@ export default function AssinarPage() {
 
             <div className="relative z-10">
               <Crown size={32} className="mx-auto text-gold" />
-              <h2 className="mt-6 text-4xl font-black tracking-[-0.05em] text-white">
+              <h2 className="mt-6 text-3xl sm:text-4xl font-black tracking-[-0.05em] text-white">
                 Comece grátis hoje
               </h2>
               <p className="mx-auto mt-5 max-w-md leading-relaxed text-zinc-400">
                 7 dias de Portal Funil Pro sem cobrar nada. Cancele antes do
                 período acabar e não paga um centavo.
               </p>
-              <button className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-gold px-10 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5">
+              <button className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-gold px-5 sm:px-10 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5">
                 Iniciar 7 dias grátis
                 <ArrowUpRight size={16} />
               </button>

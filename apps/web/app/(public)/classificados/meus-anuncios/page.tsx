@@ -26,7 +26,7 @@ export default function MeusAnunciosPage() {
                 PAINEL DO ANUNCIANTE
               </span>
             </div>
-            <h1 className="mt-4 text-4xl font-black tracking-[-0.05em] text-navy">
+            <h1 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.05em] text-navy">
               Meus anúncios
             </h1>
             <p className="mt-2 text-base text-slate-500">

@@ -67,8 +67,8 @@ export default function DenunciaPolicialPage() {
 
       <section className="px-6 py-14">
         <div className="mx-auto max-w-4xl">
-          <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
-            <div className="rounded-[40px] border border-black/5 bg-white p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
+            <div className="rounded-[40px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
 
               {protocol ? (
                 <div className="flex flex-col items-center py-8 text-center">
@@ -91,7 +91,7 @@ export default function DenunciaPolicialPage() {
                   <p className="mt-2 text-sm text-slate-400">Preencha com o máximo de detalhes possível.</p>
 
                   <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-                    <div className="grid gap-5 sm:grid-cols-2">
+                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <div>
                         <label className="mb-2 block text-sm font-semibold">Nome (opcional)</label>
                         <input value={form.name} onChange={(e) => update("name", e.target.value)} type="text" placeholder="Seu nome" className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />

@@ -63,7 +63,7 @@ export default function PublicidadePage() {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy px-6 py-20">
+      <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 lg:py-20">
         <div className="absolute left-[-80px] top-[-80px] h-[300px] w-[300px] rounded-full bg-gold/8 blur-[120px]" />
         <div className="absolute bottom-[-60px] right-[-60px] h-[240px] w-[240px] rounded-full bg-blue-600/10 blur-[100px]" />
         <div className="relative z-10 mx-auto max-w-[1440px]">
@@ -92,10 +92,10 @@ export default function PublicidadePage() {
         <div className="mx-auto max-w-[1440px]">
           <div className="mb-12">
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">FORMATOS</span>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">Soluções publicitárias</h2>
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black tracking-[-0.04em]">Soluções publicitárias</h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {formats.map(({ icon: Icon, title, desc, badge, badgeColor }) => (
               <div key={title} className="relative flex flex-col rounded-[32px] border border-black/5 bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
                 {badge && (
@@ -119,10 +119,10 @@ export default function PublicidadePage() {
         <div className="mx-auto max-w-[1440px]">
           <div className="overflow-hidden rounded-[40px] bg-navy p-12">
             <div className="absolute left-[-60px] top-[-60px] h-[240px] w-[240px] rounded-full bg-gold/8 blur-[100px]" />
-            <div className="relative z-10 grid gap-10 lg:grid-cols-2">
+            <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
               <div>
                 <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">FALE COM A GENTE</span>
-                <h2 className="mt-6 text-4xl font-black leading-tight text-white">Vamos criar sua campanha?</h2>
+                <h2 className="mt-6 text-3xl sm:text-4xl font-black leading-tight text-white">Vamos criar sua campanha?</h2>
                 <p className="mt-5 leading-relaxed text-zinc-400">
                   Nossa equipe comercial elabora propostas personalizadas para cada tipo
                   de negócio. Atendemos desde microempresas até grandes marcas nacionais.

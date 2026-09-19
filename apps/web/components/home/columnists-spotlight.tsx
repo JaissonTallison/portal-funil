@@ -13,7 +13,7 @@ export function ColumnistsSpotlight() {
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold-dark">
               OPINIÃO
             </span>
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Nossos colunistas
             </h2>
           </div>

@@ -26,7 +26,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto grid min-h-[85vh] max-w-[1440px] items-center gap-16 lg:grid-cols-[1.1fr_460px]">
+      <div className="relative z-10 mx-auto grid grid-cols-1 min-h-[85vh] max-w-[1440px] items-center gap-16 lg:grid-cols-[1.1fr_460px]">
         {/* LEFT */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
@@ -39,7 +39,7 @@ export function Hero() {
           </span>
 
           {/* TITLE */}
-          <h1 className="mt-8 max-w-5xl text-6xl font-black leading-[0.92] tracking-[-0.06em] text-white lg:text-[92px]">
+          <h1 className="mt-8 max-w-5xl text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.92] tracking-[-0.06em] text-white lg:text-[92px]">
             O futuro do
             <br />
 

@@ -57,7 +57,7 @@ export default async function ClassificadoDetailPage({ params }: Props) {
             <h2 className="mb-8 text-3xl font-black tracking-[-0.04em] text-navy">
               Anúncios relacionados
             </h2>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((item) => (
                 <ListingCard key={item.id} listing={item} />
               ))}

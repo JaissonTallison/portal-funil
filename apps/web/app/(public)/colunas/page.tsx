@@ -23,7 +23,7 @@ export default async function ColunasPage() {
   return (
     <main className="min-h-screen bg-surface text-navy">
       {/* HEADER */}
-      <section className="relative overflow-hidden bg-navy px-6 py-20">
+      <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 lg:py-20">
         <div className="absolute left-[-100px] top-[-100px] h-[350px] w-[350px] rounded-full bg-gold/10 blur-[120px]" />
         <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-[#1E3A8A]/15 blur-[100px]" />
 
@@ -75,9 +75,9 @@ export default async function ColunasPage() {
                 key={columnist.id}
                 className="overflow-hidden rounded-[40px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)]"
               >
-                <div className="grid lg:grid-cols-[320px_1fr]">
+                <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr]">
                   {/* LEFT – PROFILE */}
-                  <div className="relative flex flex-col items-center justify-center gap-6 overflow-hidden bg-gradient-to-br from-navy to-cobalt p-10 text-center">
+                  <div className="relative flex flex-col items-center justify-center gap-6 overflow-hidden bg-gradient-to-br from-navy to-cobalt p-6 sm:p-10 text-center">
                     {/* GLOW */}
                     <div className="absolute left-1/2 top-0 h-[200px] w-[200px] -translate-x-1/2 rounded-full bg-gold/10 blur-[80px]" />
 
@@ -200,7 +200,7 @@ export default async function ColunasPage() {
                 ESCREVA PARA NÓS
               </span>
 
-              <h2 className="mt-6 text-4xl font-black tracking-[-0.05em] text-white">
+              <h2 className="mt-6 text-3xl sm:text-4xl font-black tracking-[-0.05em] text-white">
                 Quer ser colunista do Portal Funil?
               </h2>
 

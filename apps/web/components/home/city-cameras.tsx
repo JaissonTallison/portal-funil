@@ -48,7 +48,7 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
                     </span>
                   </div>
 
-                  <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-white">
+                  <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-white">
                     Visão da cidade
                   </h2>
 
@@ -78,12 +78,12 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
               </div>
 
               {/* GRID */}
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {cameras.map((cam) => (
                   <button
                     key={cam.id}
                     onClick={() => setActiveId(cam.youtubeId)}
-                    className="group relative overflow-hidden rounded-[28px] border border-white/8 bg-[#0B1D35] text-left transition duration-300 hover:-translate-y-1 hover:border-gold/20 hover:shadow-[0_20px_60px_rgba(244,197,66,0.08)] "
+                    className="group relative overflow-hidden rounded-[28px] border border-white/8 bg-[#0B1D35] text-left transition duration-300 hover:-translate-y-1 hover:border-gold/20 hover:shadow-[0_20px_60px_rgba(244,197,66,0.08)]"
                   >
                     {/* THUMBNAIL / IFRAME PREVIEW */}
                     <div className="relative h-[200px] overflow-hidden">

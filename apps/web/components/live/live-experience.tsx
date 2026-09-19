@@ -42,13 +42,13 @@ export async function LiveExperience() {
             LIVE EXPERIENCE
           </span>
 
-          <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
             Central ao vivo
           </h2>
         </div>
 
         {/* GRID */}
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_420px]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.2fr_420px]">
           {/* LEFT */}
           <div className="space-y-6">
             {/* VIDEO */}
@@ -61,7 +61,7 @@ export async function LiveExperience() {
               </div>
 
               {/* CONTENT */}
-              <div className="relative z-10 flex min-h-[520px] flex-col justify-end p-10">
+              <div className="relative z-10 flex min-h-[520px] flex-col justify-end p-6 sm:p-10">
                 <div className="inline-flex w-fit items-center gap-2 rounded-full bg-red-500 px-5 py-2 text-xs font-black uppercase tracking-[0.3em] text-white">
                   <Radio size={14} />
 
@@ -88,13 +88,13 @@ export async function LiveExperience() {
             </div>
 
             {/* STATS */}
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               <div className="rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10">
                   <Newspaper className="text-gold-dark" />
                 </div>
 
-                <h3 className="mt-8 text-5xl font-black text-navy">
+                <h3 className="mt-8 text-3xl sm:text-4xl lg:text-5xl font-black text-navy">
                   {weekCount}
                 </h3>
 
@@ -108,7 +108,7 @@ export async function LiveExperience() {
                   <WeatherIcon className="text-blue-500" />
                 </div>
 
-                <h3 className="mt-8 text-5xl font-black text-navy">
+                <h3 className="mt-8 text-3xl sm:text-4xl lg:text-5xl font-black text-navy">
                   {weather ? `${weather.temperature}°` : "—"}
                 </h3>
 
@@ -122,7 +122,7 @@ export async function LiveExperience() {
                   <TriangleAlert className="text-red-500" />
                 </div>
 
-                <h3 className="mt-8 text-5xl font-black text-navy">
+                <h3 className="mt-8 text-3xl sm:text-4xl lg:text-5xl font-black text-navy">
                   {alertCount}
                 </h3>
 

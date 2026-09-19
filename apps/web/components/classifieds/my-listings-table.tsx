@@ -68,7 +68,7 @@ export function MyListingsTable() {
 
   if (loading) {
     return (
-      <div className="flex justify-center py-20">
+      <div className="flex justify-center py-12 sm:py-16 lg:py-20">
         <div className="h-8 w-8 animate-spin rounded-full border-2 border-gold border-t-transparent" />
       </div>
     );

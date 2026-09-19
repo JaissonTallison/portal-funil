@@ -22,7 +22,7 @@ export async function ClassifiedsHighlight() {
                 CLASSIFICADOS
               </span>
             </div>
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Compre e venda em Manaus
             </h2>
             <p className="mt-3 max-w-xl text-lg text-slate-500">
@@ -49,7 +49,7 @@ export async function ClassifiedsHighlight() {
         </div>
 
         {/* GRID */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((listing) => {
             const coverImage = listing.images?.[0];
             return (

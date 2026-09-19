@@ -24,7 +24,7 @@ export async function AmazonasLocal() {
                 AMAZONAS
               </span>
             </div>
-            <h2 className="mt-4 text-5xl font-black tracking-[-0.05em] text-navy">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
               Notícias locais
             </h2>
             <p className="mt-3 max-w-xl text-lg text-slate-500">
@@ -41,7 +41,7 @@ export async function AmazonasLocal() {
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {articles.map((item) => (
             <Link
               key={item.id}
