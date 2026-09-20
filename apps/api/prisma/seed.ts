@@ -364,26 +364,6 @@ Quem quiser ir deve confirmar horário, local e valores diretamente com a banda 
       categoryId: musicaCategory!.id,
     },
     {
-      slug: 'palmeiras-encara-o-gremio-em-porto-alegre-de-olho-na-lideranca-do-brasileirao',
-      title: 'Palmeiras encara o Grêmio em Porto Alegre de olho na liderança do Brasileirão',
-      description: 'Vice-líder com 56 pontos, o Palmeiras joga neste domingo (20), às 11h, contra o 16º colocado. O Flamengo lidera com 57 pontos na 28ª rodada.',
-      content: `O Palmeiras enfrenta o Grêmio neste domingo (20), às 11h (horário de Brasília), na Arena do Grêmio, em Porto Alegre, pela 28ª rodada do Campeonato Brasileiro. A transmissão é do Premiere.
-
-O Palmeiras é o vice-líder, com 56 pontos, um a menos que o Flamengo, que lidera com 57. Uma vitória pode dar ao time paulista a liderança provisória. O time chega embalado por uma vitória por 2 a 0 sobre o São Paulo na rodada anterior e pela classificação para a semifinal da Libertadores, em confronto com a LDU.
-
-O Grêmio ocupa a 16ª posição, com 28 pontos, a primeira fora da zona de rebaixamento. A equipe tenta encerrar uma sequência de três derrotas e marca o reencontro do técnico Renato Gaúcho com a torcida.
-
-Na parte de baixo da tabela, Remo e Chapecoense estão no Z4, e Vasco e Internacional também lutam para escapar da queda. O campeonato vai até dezembro.
-
-Fonte: Diário do Grande ABC, Terra e Palmeiras Online.`,
-      image: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1920',
-      status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-09-19T16:00:00Z'),
-      readTime: 3,
-      authorId: admin.id,
-      categoryId: futebolCategory!.id,
-    },
-    {
       slug: 'amazonas-fc-empata-com-o-ypiranga-e-se-despede-da-serie-c',
       title: 'Amazonas FC empata com o Ypiranga e se despede da Série C',
       description: 'Empate por 2 a 2 no Carlos Zamith deixou a Onça em 13º, com 26 pontos, fora do quadrangular. O clube garantiu vaga na Série C de 2027.',
@@ -1177,6 +1157,7 @@ Cerca de 16% do mercado das distribuidoras enfrentará aumentos superiores a 15%
 
   // Remove os artigos editoriais antigos (o upsert abaixo não atualiza registros existentes)
   const oldEditorialSlugs = [
+    'palmeiras-encara-o-gremio-em-porto-alegre-de-olho-na-lideranca-do-brasileirao',
     'putin-diz-que-liderancas-europeias-se-preparam-para-guerra-com-a-russia',
     'omar-aziz-propoe-estagio-de-ate-seis-meses-pago-pelo-estado-para-garantir-primeiro-emprego-no-amazonas',
     'david-almeida-promete-ampliar-apoio-a-saude-mental-de-maes-atipicas-no-amazonas',

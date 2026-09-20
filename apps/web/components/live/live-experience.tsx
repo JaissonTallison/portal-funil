@@ -15,7 +15,7 @@ import { HERO_SLUGS, pickDiverse, pickLiveLead } from "@/lib/home-highlights";
 import { getNewsArticles } from "@/services/articles.service";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
-const FEED_ITEMS = 5;
+const FEED_ITEMS = 4;
 
 export async function LiveExperience() {
   const [articles, weather] = await Promise.all([getNewsArticles(), getManausWeather()]);
@@ -140,7 +140,7 @@ export async function LiveExperience() {
           </div>
 
           {/* RIGHT */}
-          <div className="rounded-[16px] border border-black/5 bg-white p-8 shadow-[0_20px_80px_rgba(15,23,42,0.06)]">
+          <div className="flex flex-col rounded-[16px] border border-black/5 bg-white p-5 shadow-[0_20px_80px_rgba(15,23,42,0.06)] sm:p-7">
             {/* HEADER */}
             <div className="flex items-center justify-between">
               <div>
@@ -157,7 +157,7 @@ export async function LiveExperience() {
             </div>
 
             {/* FEED */}
-            <div className="mt-6 space-y-3 sm:mt-10 sm:space-y-5">
+            <div className="mt-5 flex flex-col gap-3 sm:mt-6 lg:flex-1 lg:justify-between">
               {pickDiverse(latest.filter((a) => a.slug !== lead.slug), FEED_ITEMS).map((item, index) => (
                 <Link
                   key={item.id}
