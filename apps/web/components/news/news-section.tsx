@@ -47,7 +47,7 @@ export async function NewsSection() {
           {/* MAIN */}
           <Link
             href={`/noticias/${featured.slug}`}
-            className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-[16px] border border-black/5 bg-navy p-5 text-white shadow-[0_20px_80px_rgba(2,6,23,0.25)] transition hover:-translate-y-1 sm:min-h-[520px] sm:p-10"
+            className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-[16px] bg-navy p-5 text-white shadow-[0_20px_80px_rgba(2,6,23,0.25)] transition hover:-translate-y-1 sm:min-h-[520px] sm:p-10"
           >
             <div className="absolute inset-0">
               <Image src={featured.image} alt={featured.title} fill className="object-cover transition duration-700 group-hover:scale-105" />
@@ -78,14 +78,14 @@ export async function NewsSection() {
           </Link>
 
           {/* SIDE */}
-          <div className="space-y-5">
+          <div className="flex flex-col gap-4 lg:gap-5">
             {sideNews.map((item) => (
               <Link
                 key={item.id}
                 href={`/noticias/${item.slug}`}
-                className="group flex gap-5 overflow-hidden rounded-[12px] border border-black/5 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,23,42,0.10)]"
+                className="group flex min-h-[112px] gap-4 overflow-hidden rounded-[12px] border border-black/5 bg-white lg:flex-1 shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,23,42,0.10)]"
               >
-                <div className="relative h-auto w-[120px] shrink-0 overflow-hidden rounded-l-[12px]">
+                <div className="relative h-auto w-[104px] shrink-0 overflow-hidden rounded-l-[12px] sm:w-[120px]">
                   <Image
                     src={item.image}
                     alt={item.title}

@@ -438,6 +438,106 @@ Fonte: SSP-AM, via Segundo a Segundo.`,
       categoryId: policialCategory!.id,
     },
     {
+      slug: 'rio-negro-pode-baixar-ate-13-metros-em-manaus-e-vazante-de-2026-preocupa',
+      title: 'Rio Negro pode baixar até 13 metros em Manaus e vazante de 2026 preocupa',
+      description: 'Cenários do SGB e do Inpa indicam cota mínima entre 13 e 16 metros neste ano. No pior caso, seria a terceira maior seca da série histórica, atrás só de 2023 e 2024.',
+      content: `O Rio Negro pode chegar a uma cota mínima entre 13 e 16 metros em Manaus neste ano, segundo cenários do Serviço Geológico do Brasil (SGB) e do Instituto Nacional de Pesquisas da Amazônia (Inpa). No cenário mais favorável, a vazante ficaria entre as dez maiores já registradas. No mais severo, seria a terceira maior da série histórica, atrás apenas das secas extremas de 2023 e 2024.
+
+Em 1º de setembro, o rio marcava 24,09 metros no porto de Manaus. Em agosto, o nível caiu 3,16 metros, e a queda acumulada desde o pico do ano chegou a 4,32 metros. Os pesquisadores destacam que a descida em agosto superou as médias históricas e acompanhou o padrão de 2023, quando o rio chegou a recuar de 3 a 3,5 metros só no início de setembro.
+
+Por isso, a primeira quinzena de setembro foi apontada como decisiva para definir qual cenário vai se confirmar. O contexto regional também preocupa: em Barcelos, no Médio Rio Negro, os níveis ficaram fora das faixas normais, e em Roraima os rios monitorados estavam nos menores níveis para a época.
+
+A previsão de El Niño reforça o alerta. O fenômeno deve reduzir as chuvas até o primeiro trimestre de 2027, o que pode atrasar a recuperação dos rios para dezembro. A Defesa Civil municipal participou, em 1º de setembro, da reunião de alerta com o SGB e o Inpa para coordenar informações e planos de contingência.
+
+Os números acima são de 1º de setembro; a cota atual deve ser conferida nos boletins do SGB.
+
+Fonte: Portal Valor Amazônico, com dados do SGB e do Inpa.`,
+      image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-02T15:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: amazonasCategory!.id,
+    },
+    {
+      slug: 'amazonas-lidera-focos-de-queimadas-e-fumaca-deixa-ar-perigoso-em-bairros-de-manaus',
+      title: 'Amazonas soma 4,5 mil focos de queimadas em 2026 e fumaça deixa ar perigoso em bairros de Manaus',
+      description: 'Alta de 54% sobre 2025 nos focos de fogo. Medições em Compensa e Parque 10 superaram em muito o limite recomendado pela OMS, segundo levantamento da UEA.',
+      content: `De 1º de janeiro a 16 de setembro, o Amazonas registrou 4.496 focos de queimadas, alta de 54% sobre os 2.922 do mesmo período de 2025, segundo dados do Inpe. Segundo a reportagem, os incêndios têm origem a leste e nordeste de Manaus, em áreas do Amazonas e do Pará.
+
+A fumaça chegou à capital. Medições do sistema Selva, da Universidade do Estado do Amazonas (UEA), registraram 129,5 µg/m³ de partículas no bairro Compensa, na zona oeste, e 125,6 µg/m³ no Parque 10, na zona centro-sul. A Organização Mundial da Saúde (OMS) recomenda o máximo de 15 µg/m³ na média de 24 horas.
+
+Moradores relataram dor de cabeça, náusea, cansaço e ressecamento do nariz. A combinação de fumaça, temperaturas acima de 37°C e falta de água em oito bairros, atingidos por um rompimento de tubulação segundo a reportagem, aumenta os riscos cardiovasculares e respiratórios. A Águas de Manaus é citada como fonte sobre o abastecimento.
+
+Fonte: Racismo Ambiental (18/09/2026), com dados do Inpe e do sistema Selva/UEA.`,
+      image: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-18T16:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: amazonasCategory!.id,
+    },
+    {
+      slug: 'expo-favela-innovation-amazonas-reune-palestras-shows-e-campeonato-de-capoeira-em-manaus',
+      title: 'Expo Favela Innovation Amazonas reúne palestras, shows e campeonato de capoeira em Manaus',
+      description: 'Evento gratuito acontece neste sábado (19) e domingo (20), no Centro de Convenções Vasco Vasques, com batalhas culturais e mais de 200 atletas de capoeira.',
+      content: `A Expo Favela Innovation Amazonas 2026 acontece neste sábado (19) e domingo (20), no Centro de Convenções Vasco Vasques, em Manaus. A entrada é gratuita, com credenciamento.
+
+A programação inclui palestras e painéis sobre arte amazônica, arte urbana, comunicação em comunidades periféricas, design sustentável, mudanças climáticas e economia criativa. Entre os palestrantes confirmados estão René Silva, da comunicação comunitária, a atriz Clara Monek, o produtor cultural Orsine Júnior, a consultora de sustentabilidade Loredana Kotínski e Régia Moreira, presidente da Comissão de ESG do CIEAM.
+
+No palco, estão previstas apresentações do DJ Rafa Militão, Forró Vibe, do coletivo de hip-hop DDtanks, da CUFA-AM Jazz Company e do Maracatu Pedra Encantada, além de grafite ao vivo. Também haverá batalhas de MC, de breaking e de k-pop e um campeonato de capoeira com mais de 200 atletas.
+
+Segundo os organizadores, Fabiana Carioca e Alexey Ribeiro, presidente da CUFA, o evento oferece visibilidade, aprendizado e oportunidades reais a empreendedores e talentos culturais.
+
+Fonte: Gazeta da Amazônia.`,
+      image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T12:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: amazonasCategory!.id,
+    },
+    {
+      slug: 'semsa-manaus-orienta-cuidados-com-a-saude-na-estiagem-e-na-fumaca-de-queimadas',
+      title: 'Semsa orienta cuidados com a saúde na estiagem e na fumaça de queimadas em Manaus',
+      description: 'Prefeitura alerta para irritação nos olhos e nas vias aéreas, desidratação e complicações pulmonares e cardíacas, e lista quando procurar atendimento.',
+      content: `A Secretaria Municipal de Saúde (Semsa) de Manaus divulgou orientações para o período de estiagem e de fumaça de queimadas. Os principais riscos são irritação nos olhos e nas vias aéreas, desidratação e complicações pulmonares e cardíacas. Crianças, idosos, gestantes e pessoas com asma ou bronquite formam os grupos mais vulneráveis.
+
+Entre as recomendações estão evitar a exposição ao ar livre quando há muita fumaça, manter portas e janelas fechadas nos horários de maior concentração, não fazer caminhada, corrida ou pedalada nos dias com fumaça e beber água com frequência para manter a hidratação das vias respiratórias. Quando não for possível evitar a rua, o uso de máscara N95 é indicado. Também é preciso evitar fontes de fumaça dentro de casa, como cigarro, incenso e queima de lixo, não coçar os olhos e manter o ambiente sem poeira.
+
+Tosse, irritação na garganta, olhos vermelhos ou lacrimejando, nariz entupido, dor de cabeça, chiado no peito, falta de ar e piora da asma são sinais de alerta. Casos leves devem procurar uma unidade básica de saúde, casos graves, uma unidade de pronto atendimento, e emergências, o SAMU pelo 192.
+
+Segundo Aldeniza Araújo, subsecretária de Gestão de Saúde da Semsa, reduzir a exposição significa evitar ambientes externos quando há muita fumaça no ar.
+
+Fonte: Prefeitura de Manaus/Semsa (09/09/2026).`,
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-09T14:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: saudeCategory!.id,
+    },
+    {
+      slug: 'startup-inherent-diz-que-agente-de-ia-superou-anthropic-e-openai-em-replicar-pesquisas',
+      title: 'Startup Inherent diz que agente de IA superou Anthropic e OpenAI em replicar pesquisas',
+      description: 'Fundada por ex-DeepMind, a empresa londrina levantou US$ 50 milhões e afirma que o agente Faraday reproduz estudos científicos com modelo bem menor que os rivais.',
+      content: `A Inherent, laboratório de inteligência artificial de Londres fundado por ex-pesquisadores do Google DeepMind, afirma que seu agente de IA, o Faraday, superou modelos da Anthropic e da OpenAI em uma tarefa: reproduzir de forma independente os resultados de artigos científicos, sem receber a resposta antes. A informação é do TechCrunch, em 22 de agosto.
+
+Segundo a empresa, o Faraday usa o modelo Qwen 3.6, de 27 bilhões de parâmetros, bem menor que os sistemas de fronteira com os quais foi comparado, o Claude Opus 4.8 e o GPT-5.5. Os resultados são da própria empresa, não de uma avaliação independente.
+
+Edward Hughes, cofundador e cientista-chefe, diz que o foco é construir um agente cientista de IA e dar aos agentes “gosto” para pesquisa, ou seja, a intuição para escolher experimentos que valem a pena e projetar bons métodos. Ele ressalta que superar outros modelos foi secundário, e que o mais importante é a metodologia e a forma de treinamento.
+
+A Inherent levantou US$ 50 milhões em uma rodada inicial, tem como cofundadores Louis Kirsch, Kaloyan Aleksiev e Tantum Collins, todos ex-DeepMind, e planeja chegar a 20 ou 25 funcionários até o fim do ano. O objetivo de longo prazo é criar uma IA capaz de descobrir novos conhecimentos científicos.
+
+Fonte: TechCrunch.`,
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-08-22T15:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: tecnologiaCategory!.id,
+    },
+    {
       slug: 'manaus-abre-semana-nacional-de-transito-com-acoes-gratuitas-nesta-segunda-feira',
       title: 'Manaus abre Semana Nacional de Trânsito com ações gratuitas nesta segunda-feira',
       description: 'Abertura é às 9h, no mirante Lúcia Almeida, no Centro Histórico. Programação de educação e segurança segue até sábado (26), com o tema "No trânsito, enxergar o outro é salvar vidas".',
