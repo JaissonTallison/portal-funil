@@ -101,7 +101,7 @@ export default function AdminCategoriasPage() {
         </div>
         <button
           onClick={() => { setCreating(true); setError(""); }}
-          className="flex items-center gap-2 rounded-2xl bg-cobalt px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
+          className="flex items-center gap-2 rounded-xl bg-cobalt px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
         >
           <Plus size={16} />
           Nova categoria
@@ -109,10 +109,10 @@ export default function AdminCategoriasPage() {
       </div>
 
       {error && (
-        <div className="mb-4 rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</div>
+        <div className="mb-4 rounded-lg bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</div>
       )}
 
-      <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
             <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
@@ -137,7 +137,7 @@ export default function AdminCategoriasPage() {
                       value={newName}
                       onChange={(e) => { setNewName(e.target.value); setNewSlug(slugify(e.target.value)); }}
                       placeholder="Nome da categoria"
-                      className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-gold/40"
+                      className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-gold/40"
                     />
                   </td>
                   <td className="px-5 py-3">
@@ -146,7 +146,7 @@ export default function AdminCategoriasPage() {
                       value={newSlug}
                       onChange={(e) => setNewSlug(e.target.value)}
                       placeholder="slug-da-categoria"
-                      className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 font-mono text-sm outline-none focus:border-gold/40"
+                      className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 font-mono text-sm outline-none focus:border-gold/40"
                     />
                   </td>
                   <td className="px-5 py-3">
@@ -180,7 +180,7 @@ export default function AdminCategoriasPage() {
                         type="text"
                         value={editName}
                         onChange={(e) => setEditName(e.target.value)}
-                        className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-gold/40"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-gold/40"
                       />
                     ) : (
                       <span className="text-sm font-semibold text-cobalt">{cat.name}</span>
@@ -192,7 +192,7 @@ export default function AdminCategoriasPage() {
                         type="text"
                         value={editSlug}
                         onChange={(e) => setEditSlug(e.target.value)}
-                        className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 font-mono text-sm outline-none focus:border-gold/40"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 font-mono text-sm outline-none focus:border-gold/40"
                       />
                     ) : (
                       <span className="font-mono text-sm text-slate-500">{cat.slug}</span>

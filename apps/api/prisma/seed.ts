@@ -458,6 +458,192 @@ Fonte: SSP-AM, via Segundo a Segundo.`,
       categoryId: policialCategory!.id,
     },
     {
+      slug: 'manaus-abre-semana-nacional-de-transito-com-acoes-gratuitas-nesta-segunda-feira',
+      title: 'Manaus abre Semana Nacional de Trânsito com ações gratuitas nesta segunda-feira',
+      description: 'Abertura é às 9h, no mirante Lúcia Almeida, no Centro Histórico. Programação de educação e segurança segue até sábado (26), com o tema "No trânsito, enxergar o outro é salvar vidas".',
+      content: `A Semana Nacional de Trânsito 2026 começa em Manaus nesta segunda-feira (21), com uma programação gratuita voltada à educação e à segurança de motoristas, motociclistas, ciclistas e pedestres. A abertura oficial será às 9h, no mirante Lúcia Almeida, na avenida 7 de Setembro, no Centro Histórico.
+
+As atividades acontecem das 8h às 12h e incluem serviços gratuitos, ações educativas e de cidadania, realizadas em parceria com órgãos municipais e entidades ligadas ao setor de transporte.
+
+Com o tema “No trânsito, enxergar o outro é salvar vidas”, a campanha segue até sábado (26), com atividades em espaços públicos, escolas e empresas da capital. Alunos da Escola Municipal Raimundo Nonato de Oliveira Gomes, servidores públicos e moradores também participam da abertura.
+
+Fonte: Portal do Holanda.`,
+      image: '/noticias/semana-nacional-transito-manaus.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T18:55:00Z'),
+      readTime: 2,
+      authorId: admin.id,
+      categoryId: transitoCategory!.id,
+    },
+    {
+      slug: 'em-agenda-no-interior-roberto-cidade-destaca-propostas-para-saude-seguranca-e-emprego',
+      title: 'Em agenda no interior, Roberto Cidade destaca propostas para saúde, segurança e emprego',
+      description: 'Candidato à reeleição ao governo do Amazonas visitou Urucurituba, Boa Vista do Ramos e Maués e apresentou propostas do plano de governo, como o programa Amazonas Empreendedor.',
+      content: `O governador e candidato à reeleição Roberto Cidade (União Progressista) cumpriu agenda de campanha no sábado (19) em Urucurituba, Boa Vista do Ramos e Maués, no Médio e Baixo Amazonas. Nas visitas, ele participou de carreatas e apresentou propostas do seu plano de governo, segundo o Portal do Holanda.
+
+Entre as medidas divulgadas estão ações para empreendedorismo, saúde, segurança pública, educação, infraestrutura e produção rural. Na área econômica, Cidade apresentou o programa “Amazonas Empreendedor”, que prevê ampliação do microcrédito, qualificação profissional, incentivo à inovação, digitalização e participação de pequenos negócios nas compras governamentais.
+
+Em Urucurituba, incluindo o distrito de Itapeaçu, a campanha destacou propostas para produção rural, pesca, bioeconomia e infraestrutura. Em Boa Vista do Ramos, a agenda teve foco na educação, com destaque para o polo da Universidade do Estado do Amazonas (UEA) instalado no município durante a atual gestão, segundo a campanha.
+
+Em Maués, o candidato apresentou compromissos ligados a geração de emprego e renda, saúde, segurança, infraestrutura e apoio ao setor produtivo. Entre as propostas estão a criação de polos regionais de bioeconomia, a ampliação das Carretas da Saúde e da Telemedicina e o reforço de ações voltadas a idosos, pessoas com deficiência e pessoas com Transtorno do Espectro Autista (TEA).
+
+O plano também prevê investimentos em assistência técnica, crédito, mecanização e armazenagem para produtores, além de medidas para fortalecer a piscicultura, a pesca artesanal e a agroindústria. Na infraestrutura, a campanha propõe pavimentação e recuperação de estradas vicinais e melhorias em portos, terminais, aeroportos e pontes no interior.
+
+A agenda nos três municípios faz parte da série de viagens do candidato durante a campanha eleitoral de 2026.
+
+Transparência: as propostas e as informações sobre obras e programas são da campanha e não foram verificadas de forma independente pelo Portal Funil.
+
+Fonte: Portal do Holanda.`,
+      image: '/noticias/roberto-cidade-agenda-interior.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T20:45:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: politicaCategory!.id,
+    },
+    {
+      slug: 'trump-diz-que-transformara-arco-do-triunfo-dos-eua-em-complexo-militar',
+      title: "Trump diz que transformará 'Arco do Triunfo dos EUA' em complexo militar",
+      description: 'Presidente dos EUA afirma que projeto, pedido pelos militares por razões de segurança nacional, terá drones, atiradores de elite e estoque de munição; estrutura será construída perto da Ponte Memorial de Arlington.',
+      content: `O presidente dos Estados Unidos, Donald Trump, afirmou neste domingo (20) que concordou em transformar o projeto de um Arco do Triunfo em Washington, D.C., em um complexo militar.
+
+Segundo ele, a mudança foi feita “a forte pedido dos militares dos Estados Unidos” e por razões de segurança nacional. Trump afirmou que a estrutura será construída no Receptive Circle, próximo à Ponte Memorial de Arlington, e terá capacidade para abrigar e armazenar grandes quantidades de drones e munição, além de permitir o uso de atiradores de elite no telhado e nas áreas da praça.
+
+“Não haverá nenhuma instalação como esta em nenhum lugar do mundo”, escreveu Trump em uma publicação na rede Truth Social.
+
+Segundo o presidente, o projeto do Arco do Triunfo é planejado desde a época da Guerra Civil americana. Ele também afirmou que Washington, D.C., é “a única” entre as 59 principais cidades e capitais do mundo que não possui um Arco do Triunfo. “Mas agora terá e, de longe, será o maior de todos”, escreveu Trump.
+
+Maior que monumento francês: a Comissão de Belas Artes dos EUA aprovou em maio o projeto do arco triunfal que o presidente Donald Trump quer construir em Washington, capital do país. Segundo ele, será “o maior e mais bonito arco triunfal do mundo”. Ao lado da estrutura principal, o monumento contará com duas águias douradas. Já os quatro leões previstos inicialmente para a base foram retirados da versão final.
+
+A proposta também prevê as inscrições “Uma Nação Sob Deus” e “Liberdade e Justiça para Todos”, frases presentes no juramento de fidelidade dos EUA. A obra, que lembra o Arco do Triunfo, deverá ser erguida às margens do Rio Potomac e terá, no topo, uma figura semelhante à Estátua da Liberdade segurando uma tocha.
+
+Apesar da inspiração no monumento encomendado por Napoleão Bonaparte, o arco norte-americano deverá ser o maior do mundo entre estruturas do tipo. A proposta inicial previa cerca de 78 metros de altura, mas a versão revisada reduziu a dimensão para 76,2 metros. Logo atrás do projeto dos Estados Unidos aparece o Monumento à Revolução, da Cidade do México, com aproximadamente 67 metros de altura, cerca de 9 metros a menos que o arco planejado por Trump.
+
+Críticas ao projeto: um grupo de veteranos e um historiador acionaram a Justiça federal para tentar barrar a construção. Eles argumentam que o arco prejudicaria a linha de visão entre o Memorial Lincoln e a Arlington House, localizada no Cemitério Nacional de Arlington. Trump e o secretário do Interior dos EUA, Doug Burgum, afirmam que Washington é a única grande capital ocidental sem um arco triunfal. O Departamento do Interior supervisiona o Serviço Nacional de Parques, responsável pelo terreno onde Trump quer construir o monumento.
+
+O presidente também afirmou que outros projetos, como adicionar um revestimento azul ao interior do espelho d’água do Memorial Lincoln, ajudariam a embelezar a cidade para as comemorações de 4 de julho pelos 250 anos da independência dos EUA.
+
+A reforma do espelho d’água também virou alvo de ação judicial movida pela organização The Cultural Landscape Foundation. O grupo argumenta que a decisão de pintar o fundo do local de azul, sem passar pelas revisões necessárias, viola leis federais de preservação histórica. Segundo a organização, as mudanças fazem parte de um esforço mais amplo de Trump para promover reformas drásticas em Washington sem a devida análise técnica e alterar o caráter histórico da região.
+
+Uma audiência sobre o caso estava marcada para acontecer ainda nesta quinta-feira em um tribunal federal de Washington.`,
+      image: '/noticias/trump-arco-triunfo-complexo-militar.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T17:45:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: mundoCategory!.id,
+    },
+    {
+      slug: 'weverton-faz-milagres-e-gremio-e-palmeiras-empatam-sem-gols-na-arena',
+      title: 'Weverton faz milagres, e Grêmio e Palmeiras empatam sem gols na Arena',
+      description: 'Partida foi bastante movimentada, com chances dos dois lados e bolas no travessão, mas goleiro gremista foi o destaque e saiu aplaudido de campo.',
+      content: `Grêmio e Palmeiras empataram em 0 a 0 na manhã deste domingo, na Arena do Grêmio, pela 28ª rodada do Brasileirão. A partida foi muito movimentada, com chances para os dois lados, mas brilhou a estrela de Weverton, que fez defesaças e saiu de campo aplaudido pelo estádio inteiro.
+
+O Palmeiras ainda carimbou o travessão duas vezes, com Vitor Roque, enquanto o Grêmio também acertou o travessão com Gustavo Martins, após grande defesa de Carlos Miguel. No último lance do jogo, Weverton garantiu o empate em defesa milagrosa após finalização de Maurício.
+
+O resultado deixa o Grêmio dentro da zona do rebaixamento, com 29 pontos. O primeiro fora da zona é o Vasco, que tem 31 pontos e um jogo a menos que os gaúchos. Já o Palmeiras chegou a 57 pontos e igualou o Flamengo, mas os cariocas seguem na liderança pelo número de vitórias. A equipe rubro-negra ainda joga na rodada nesta tarde, quando recebe o Red Bull Bragantino.
+
+Os primeiros 45 minutos foram muito movimentados na Arena do Grêmio. O Palmeiras acertou duas bolas no travessão, com Vitor Roque, e o Grêmio colocou uma no travessão do outro lado, com Gustavo Martins. O time visitante teve o domínio da posse de bola e tentou criar jogadas durante todo o tempo, mas os gaúchos se mostraram bem postados para sair no contra-ataque e criaram também ótimas chances de gol. Dentro de sua proposta, cada time fez um bom primeiro tempo.
+
+A partida caiu em intensidade na segunda etapa e o jogo só retomou o ritmo após os 20 minutos, quando os técnicos promoveram as substituições. Do lado gremista, o time de Renato Gaúcho perdeu força diante das atuações ruins de Enamorado e Jovane Cabral em comparação com os incisivos Pavón e Amuzu. O Palmeiras, por outro lado, mostrou a força do seu elenco e melhorou em campo. Mas foi aí que Weverton tomou conta do jogo: o goleiro fez dois milagres em finalizações de Andreas Pereira e Maurício, já no último minuto, e garantiu o empate.
+
+Depois da parada para a data Fifa, o Palmeiras volta a campo para enfrentar o Bahia, no dia 8 de outubro, no Nubank Parque. Já o Grêmio joga um dia antes, dia 7 de outubro, contra o Remo, no Mangueirão, mas já de olho no Grenal do dia 11, na Arena.`,
+      image: '/noticias/gremio-palmeiras-weverton.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T16:10:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: futebolCategory!.id,
+    },
+    {
+      slug: 'ira-envia-a-trump-lista-de-condicoes-para-o-fim-de-conflito-mas-ameaca-uso-de-armas-nucleares',
+      title: 'Irã envia a Trump lista de condições para o fim de conflito, mas ameaça uso de armas nucleares: "Estamos preparados para guerra decisiva"',
+      description: 'Iranianos podem optar por este tipo de armamento caso Washington não abandone as sanções econômicas, diz chefe militar do país.',
+      content: `O Irã enviou ao presidente Donald Trump uma lista formal de condições para o fim da guerra, afirmou o secretário do Conselho Supremo Nacional de Segurança do país, Mohsen Rezaei, à rede Al Jazeera no fim deste sábado (19).
+
+"Permanecemos em contato com o mediador Qatar, que repassou nossas condições a Washington com o objetivo de colocar um fim à guerra. Estamos esperando a resposta do presidente Trump. Nossas condições são um fim para a guerra em todos os frontes, a liberação de nossos fundos congelados e um fim para o bloqueio naval", sinalizou Rezaei. Esta foi a primeira vez, desde o início do conflito em fevereiro, que o Irã não exige reparações pelas suas perdas materiais e humanas.
+
+Apesar de ter tomado a iniciativa de negociar a paz, Rezaei garante que "é do interesse de Washington" aceitar as exigências iranianas e subiu o tom: "As ameaças de Trump não alcançarão nenhum resultado. Estamos preparados para uma guerra decisiva." Ele ainda disse que "Teerã está pronta", caso Trump decida fazer um novo ataque. Mediadores do Qatar e do Paquistão têm feito a ponte entre EUA e Irã para reestabelecer as negociações desde o fim do memorando de entendimento que perdeu a validade no último mês.
+
+Entre suas "provas" de que iranianos estariam prontos para uma escalada, o líder militar citou que suas forças testaram recentemente um míssil antinavio de ogivas múltiplas próximo a uma embarcação americana, simulando um ataque. Ele garantiu que as ogivas ainda podem ser aprimoradas.
+
+Rezaei confirmou que a guerra deve ficar confinada ao Golfo; o Irã não tem planos de atacar o território continental dos EUA, mas apenas suas bases e recursos navais que se estendem da costa iraniana ao Golfo de Omã e ao Mar Arábico. O intuito de qualquer futura operação iraniana é acertar "de maneira pesada" no bolso dos americanos, que têm amplo interesse no comércio de petróleo regional.
+
+EUA pode "impulsionar" a saída de Teerã de pacto antinuclear: Rezaei garantiu que o país não tem planos de se retirar do Tratado de Não-Proliferação Nuclear, mas que possíveis sanções ou posturas hostis de Trump ou do Conselho de Segurança da ONU podem levar Teerã a escolher se adotará armas nucleares ou não. Apesar disso, ele garante que o país continua a honrar neste momento uma fatwa, decreto religioso do Aiatolá Khomeini que proibia este tipo de armamento.
+
+Ele sinalizou que Ormuz segue vital para a paz e que o Irã quase chegou a um acordo com Omã de retomada de circulação, mas que a falta de apoio regional acabou colocando a proposta na gaveta. Mesmo assim, o Irã não tem interesse em fechar o Estreito de Bab al-Mandeb para pressionar o mercado energético global, garantiu. O corredor marítimo é "problema do Iêmen", segundo Rezaei, que garantiu que o Irã não está envolvido na guerra dos Houthis contra o governo local.`,
+      image: '/noticias/ira-condicoes-fim-conflito.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T17:30:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: mundoCategory!.id,
+    },
+    {
+      slug: 'com-um-a-mais-atletico-de-madrid-vence-real-no-classico-espanhol',
+      title: 'Com um a mais, Atlético de Madrid vence Real no clássico espanhol',
+      description: 'Jogando em casa, time de Diego Simeone aproveita expulsão de Dean Huijsen para superar o rival.',
+      content: `O Atlético de Madrid venceu o Real Madrid por 2 a 1 neste domingo, no Metropolitano, pela sétima rodada do Campeonato Espanhol. O clássico teve dois momentos distintos. Com 11 de cada lado, o Real vinha conseguindo, a duras penas, segurar a pressão atleticana. A expulsão do zagueiro Dean Huijsen, no lance do pênalti em Giuliano Simeone, transformou o jogo. Alex Grimaldo abriu o placar aos sete, cobrando a penalidade com categoria, e com um a mais o Atlético tomou conta do jogo. Jonathan David ampliou aos 15, e o Real praticamente não jogou mais. Só acordou aos 43, quando Antonio Rüdiger descontou de cabeça, após cobrança de falta de Bernardo Silva da esquerda.
+
+Com a vitória, o Atlético de Madrid tomou a vice-liderança do rival, agora com 16 pontos, um à frente do Real. O Barcelona, que ganhou seus sete jogos até aqui, é o líder disparado, com 21.
+
+O primeiro tempo teve mais disputas ríspidas do que chances de gol no Metropolitano. Com menos de dez minutos, Güler e Baena já tinham se estranhado duas vezes, e em uma delas o técnico atleticano Diego Simeone levou cartão amarelo por uma reclamação desproporcional à beira do campo. Ao longo de 45 minutos, os dois times disputaram cada palmo do gramado. Só quem não trabalhou foram os goleiros Thibaut Courtois e Jan Oblak. Nenhum chute a gol dos dois lados.
+
+Não deve ser fácil para Giuliano Simeone jogar sob as ordens do pai, sempre precisando driblar a desconfiança de favorecimento. Quando precisar mostrar seu valor, o argentino pode apresentar a atuação deste domingo. O meia argentino de 23 anos, mais novo dos três filhos jogadores de Diego Simeone, não apenas mostrou a raça habitual como participou diretamente dos lances decisivos da partida. No pênalti, dominou com categoria o lançamento de Hancko e foi puxado por Huijsen na área. Logo depois, foi dele o cruzamento na medida para David fazer o segundo.
+
+Mais uma vez, Vini Jr. teve atuação apagada, ainda que neste domingo tenha tido a companhia de quase todo o time do Real, sempre um passo atrás dos rivais nas disputas de bola. O brasileiro deu lugar a Diomandé imediatamente após o Atlético abrir o placar, no início do segundo tempo. O marfinense tentou explorar sua velocidade, mas encontrou uma partida já condicionada pela expulsão e só levou perigo em um chute de fora da área defendida por Oblak.`,
+      image: '/noticias/atletico-real-classico.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T16:50:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: futebolCategory!.id,
+    },
+    {
+      slug: 'dallagnol-contesta-suspensao-de-campanha-e-diz-que-vai-recorrer',
+      title: 'Dallagnol contesta suspensão de campanha e diz que vai recorrer',
+      description: 'Candidato do Novo ao Senado pelo Paraná aponta "contradições" na decisão do TSE, que suspendeu atividades de campanha e repasses de recursos. Ele afirma que o registro da candidatura segue ativo.',
+      content: `O candidato ao Senado pelo Paraná Deltan Dallagnol (Novo) contestou a decisão do Tribunal Superior Eleitoral (TSE) que suspendeu sua campanha e disse que vai recorrer. A informação foi divulgada pela CNN Brasil neste domingo (20).
+
+A suspensão foi determinada pelo ministro do TSE Floriano de Azevedo Marques no sábado (19). A decisão paralisa as atividades de campanha e os repasses de recursos eleitorais e partidários. Segundo a reportagem, o ministro considerou que a decisão do Tribunal Regional Eleitoral do Paraná (TRE-PR), que havia aprovado o registro da candidatura em 9 de setembro, foi tomada sem o mínimo amparo legal, em afronta ao TSE, e com efeitos perturbadores para o processo eleitoral.
+
+O pedido partiu da coligação Paraná Para Todos, liderada pelo PDT, e da Federação Brasil da Esperança, formada por PSOL, PT e PCdoB.
+
+Dallagnol afirmou que o registro da sua candidatura continua ativo e apontou o que chamou de contradições na decisão do ministro. Ele também ressaltou que a medida foi tomada quando, segundo ele, liderava as intenções de voto, e questionou a ligação do ministro com o ministro do Supremo Tribunal Federal Alexandre de Moraes.
+
+O portal acompanha o caso.
+
+Fonte: CNN Brasil.`,
+      image: '/noticias/dallagnol-suspensao-campanha.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T16:05:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: politicaCategory!.id,
+    },
+    {
+      slug: 'moraes-e-viviane-usaram-jatinho-de-vorcaro-em-2025-diz-jornal',
+      title: 'Moraes e Viviane usaram jatinho de Vorcaro em 2025, diz jornal',
+      description: 'Voo de 22 de agosto de 2025 foi registrado em vídeo obtido pelo jornal O Globo. O escritório de Viviane diz que Vorcaro não esteve em nenhum dos voos e nega ter comprado participação na empresa de aviação.',
+      content: `O ministro do Supremo Tribunal Federal (STF) Alexandre de Moraes e a mulher dele, Viviane de Moraes, usaram em 22 de agosto de 2025 um jatinho de uma empresa ligada ao ex-banqueiro Daniel Vorcaro, do Banco Master, segundo o jornal O Globo. A informação foi divulgada pela CNN Brasil neste domingo (20).
+
+De acordo com a reportagem, o casal desembarcou no aeroporto Santos Dumont, no Rio de Janeiro, de uma aeronave modelo Legacy 650. O voo aparece em um vídeo obtido pelo jornal.
+
+O jornal relaciona a data às negociações sobre um possível segundo contrato, de R$ 50 milhões, entre o escritório de advocacia de Viviane e o Banco Master. A Polícia Federal informou que esse contrato teria sido assinado em 12 de maio de 2025, com R$ 40 milhões em honorários a serem pagos por meio de participação em empresas de aeronaves.
+
+As versões dos citados divergem. Em nota, o escritório Barci de Moraes afirmou que contrata diversos serviços de táxi aéreo e que em nenhum dos voos feitos em aeronaves da Prime Aviation com integrantes do escritório esteve presente Daniel Vorcaro. O escritório também nega ter adquirido participação na empresa. Em manifestação enviada ao STF em 15 de setembro, a defesa do ministro negou a existência de um segundo contrato ou de qualquer outro vínculo com empresas de Vorcaro.
+
+Os fatos acima constam da reportagem da CNN Brasil, que se baseia em informações do jornal O Globo e em documentos e declarações citados por ela. Este texto não confirma as acusações de forma independente.
+
+Fonte: CNN Brasil, com informações de O Globo.`,
+      image: '/noticias/moraes-viviane-jatinho-vorcaro.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T16:15:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: politicaCategory!.id,
+    },
+    {
       slug: 'copom-reduz-selic-para-13-75-pela-quinta-vez-seguida',
       title: 'Copom reduz Selic para 13,75% ao ano pela quinta vez seguida',
       description: 'Corte de 0,25 ponto foi unânime e veio com a inflação em queda: o IPCA de agosto recuou 0,32% e acumula 4,22% em 12 meses, abaixo do teto da meta.',

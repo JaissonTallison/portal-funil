@@ -65,14 +65,14 @@ export default function AdminEventosPage() {
         </div>
         <Link
           href="/admin/eventos/novo"
-          className="flex items-center gap-2 rounded-2xl bg-cobalt px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
+          className="flex items-center gap-2 rounded-xl bg-cobalt px-5 py-2.5 text-sm font-bold text-white transition hover:bg-cobalt"
         >
           <Plus size={16} />
           Novo evento
         </Link>
       </div>
 
-      <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
             <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />

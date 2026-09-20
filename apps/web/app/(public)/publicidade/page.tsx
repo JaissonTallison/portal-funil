@@ -78,7 +78,7 @@ export default function PublicidadePage() {
 
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {stats.map((s) => (
-              <div key={s.label} className="rounded-2xl border border-white/8 bg-white/5 px-5 py-4">
+              <div key={s.label} className="rounded-xl border border-white/8 bg-white/5 px-5 py-4">
                 <div className="text-3xl font-black text-gold">{s.value}</div>
                 <div className="mt-1 text-sm text-zinc-400">{s.label}</div>
               </div>
@@ -97,13 +97,13 @@ export default function PublicidadePage() {
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {formats.map(({ icon: Icon, title, desc, badge, badgeColor }) => (
-              <div key={title} className="relative flex flex-col rounded-[32px] border border-black/5 bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
+              <div key={title} className="relative flex flex-col rounded-[14px] border border-black/5 bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
                 {badge && (
                   <span className={`absolute right-6 top-6 rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wide ${badgeColor}`}>
                     {badge}
                   </span>
                 )}
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                   <Icon size={22} className="text-gold-dark" />
                 </div>
                 <h3 className="mt-6 text-xl font-black">{title}</h3>
@@ -117,7 +117,7 @@ export default function PublicidadePage() {
       {/* CONTACT */}
       <section className="px-6 pb-20">
         <div className="mx-auto max-w-[1440px]">
-          <div className="overflow-hidden rounded-[40px] bg-navy p-12">
+          <div className="overflow-hidden rounded-[16px] bg-navy p-12">
             <div className="absolute left-[-60px] top-[-60px] h-[240px] w-[240px] rounded-full bg-gold/8 blur-[100px]" />
             <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
               <div>
@@ -129,20 +129,20 @@ export default function PublicidadePage() {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a href="mailto:publicidade@funildenoticias.com.br"
-                    className="flex items-center gap-2 rounded-2xl bg-gold px-6 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5">
+                    className="flex items-center gap-2 rounded-xl bg-gold px-6 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5">
                     <Mail size={16} /> publicidade@funildenoticias.com.br
                   </a>
                 </div>
                 <p className="mt-4 text-sm text-zinc-500">Retorno em até 24h úteis.</p>
               </div>
-              <div className="rounded-[28px] border border-white/8 bg-white/5 p-8">
+              <div className="rounded-[12px] border border-white/8 bg-white/5 p-8">
                 <h3 className="text-xl font-black text-white mb-6">Solicite uma proposta</h3>
                 <div className="space-y-4">
-                  <input type="text" placeholder="Empresa / Nome" className="h-[48px] w-full rounded-2xl border border-white/10 bg-white/5 px-5 text-sm text-white outline-none placeholder:text-zinc-500" />
-                  <input type="email" placeholder="E-mail comercial" className="h-[48px] w-full rounded-2xl border border-white/10 bg-white/5 px-5 text-sm text-white outline-none placeholder:text-zinc-500" />
-                  <input type="tel" placeholder="Telefone / WhatsApp" className="h-[48px] w-full rounded-2xl border border-white/10 bg-white/5 px-5 text-sm text-white outline-none placeholder:text-zinc-500" />
-                  <textarea rows={3} placeholder="Descreva seu objetivo de campanha..." className="w-full rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-white outline-none placeholder:text-zinc-500 resize-none" />
-                  <button className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gold py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5">
+                  <input type="text" placeholder="Empresa / Nome" className="h-[48px] w-full rounded-xl border border-white/10 bg-white/5 px-5 text-sm text-white outline-none placeholder:text-zinc-500" />
+                  <input type="email" placeholder="E-mail comercial" className="h-[48px] w-full rounded-xl border border-white/10 bg-white/5 px-5 text-sm text-white outline-none placeholder:text-zinc-500" />
+                  <input type="tel" placeholder="Telefone / WhatsApp" className="h-[48px] w-full rounded-xl border border-white/10 bg-white/5 px-5 text-sm text-white outline-none placeholder:text-zinc-500" />
+                  <textarea rows={3} placeholder="Descreva seu objetivo de campanha..." className="w-full rounded-xl border border-white/10 bg-white/5 p-5 text-sm text-white outline-none placeholder:text-zinc-500 resize-none" />
+                  <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5">
                     Solicitar proposta <ArrowUpRight size={16} />
                   </button>
                 </div>

@@ -112,7 +112,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_380px]">
           {/* ── RADAR ── */}
-          <div className="relative flex flex-col overflow-hidden rounded-[40px] border border-white/5 bg-navy shadow-[0_24px_80px_rgba(2,6,23,0.3)]">
+          <div className="relative flex flex-col overflow-hidden rounded-[16px] border border-white/5 bg-navy shadow-[0_24px_80px_rgba(2,6,23,0.3)]">
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute left-[15%] top-[10%] h-[320px] w-[320px] rounded-full bg-gold/8 blur-[120px]" />
               <div className="absolute bottom-[-60px] right-[-60px] h-[260px] w-[260px] rounded-full bg-[#1E3A8A]/20 blur-[100px]" />
@@ -127,13 +127,13 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
                   <h3 className="mt-2 text-3xl font-black text-white">Radar de chuva</h3>
                 </div>
 
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                   <Radio size={22} className="text-gold" />
                 </div>
               </div>
 
               {/* RADAR EMBED */}
-              <div className="relative mt-5 h-[320px] overflow-hidden sm:mt-7 sm:h-[400px] lg:h-[480px] rounded-[28px] border border-white/5 bg-[#060E1E]">
+              <div className="relative mt-5 h-[320px] overflow-hidden sm:mt-7 sm:h-[400px] lg:h-[480px] rounded-[12px] border border-white/5 bg-[#060E1E]">
                 <iframe
                   src={RADAR_URL}
                   title="Radar de chuva ao vivo sobre Manaus"
@@ -152,7 +152,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
               {/* STATS */}
               <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {stats.map((stat) => (
-                  <div key={stat.label} className="rounded-2xl border border-white/8 bg-white/5 px-4 py-4 text-center">
+                  <div key={stat.label} className="rounded-xl border border-white/8 bg-white/5 px-4 py-4 text-center">
                     <div className={`text-2xl font-black tabular-nums ${stat.color}`}>{stat.value}</div>
                     <div className="mt-1.5 text-[10px] font-black uppercase tracking-wide text-white/40">{stat.label}</div>
                     <div className="mt-0.5 text-[9px] text-white/30">{stat.sub}</div>
@@ -171,7 +171,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
                   </span>
                 </div>
                 {incidents.length === 0 ? (
-                  <p className="rounded-2xl border border-white/5 bg-white/5 px-4 py-6 text-center text-xs text-white/40">
+                  <p className="rounded-xl border border-white/5 bg-white/5 px-4 py-6 text-center text-xs text-white/40">
                     Nenhuma ocorrência publicada recentemente.
                   </p>
                 ) : (
@@ -182,7 +182,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
                         <Link
                           key={article.slug}
                           href={`/noticias/${article.slug}`}
-                          className={`flex items-center gap-3 rounded-2xl border border-white/5 ${bg} px-4 py-3 transition hover:border-white/15`}
+                          className={`flex items-center gap-3 rounded-xl border border-white/5 ${bg} px-4 py-3 transition hover:border-white/15`}
                         >
                           <Icon size={15} className={`shrink-0 ${color}`} />
                           <div className="min-w-0">
@@ -203,9 +203,9 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
           {/* ── RIGHT PANEL ── */}
           <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:block lg:space-y-5 lg:overflow-visible lg:px-0 lg:pb-0">
             {/* AIR QUALITY */}
-            <div className="w-[86%] shrink-0 snap-center rounded-[28px] border border-black/5 bg-white p-5 shadow sm:w-[46%] sm:p-7 lg:w-auto lg:rounded-[32px]-[0_10px_40px_rgba(15,23,42,0.06)]">
+            <div className="w-[86%] shrink-0 snap-center rounded-[12px] border border-black/5 bg-white p-5 shadow sm:w-[46%] sm:p-7 lg:w-auto lg:rounded-[14px]-[0_10px_40px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50">
                   <Wind size={20} className="text-emerald-500" />
                 </div>
                 <div>
@@ -258,9 +258,9 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
             </div>
 
             {/* WEATHER */}
-            <div className="w-[86%] shrink-0 snap-center overflow-hidden rounded-[28px] border border-black/5 bg-white p-5 shadow sm:w-[46%] sm:p-7 lg:w-auto lg:rounded-[32px]-[0_10px_40px_rgba(15,23,42,0.06)]">
+            <div className="w-[86%] shrink-0 snap-center overflow-hidden rounded-[12px] border border-black/5 bg-white p-5 shadow sm:w-[46%] sm:p-7 lg:w-auto lg:rounded-[14px]-[0_10px_40px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50">
                   <ThermometerSun size={20} className="text-sky-500" />
                 </div>
                 <div>
@@ -282,7 +282,7 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
                       { icon: Wind, label: "Vento", value: `${conditions.windKmh} km/h` },
                       { icon: CloudRain, label: "Chuva hoje", value: `${conditions.rainChanceToday}%` },
                     ].map(({ icon: Icon, label, value }) => (
-                      <div key={label} className="rounded-2xl bg-slate-50 p-3 text-center">
+                      <div key={label} className="rounded-xl bg-slate-50 p-3 text-center">
                         <Icon size={16} className="mx-auto text-sky-400" />
                         <span className="mt-2 block text-[10px] text-slate-400">{label}</span>
                         <span className="block text-xs font-black text-navy">{value}</span>
@@ -296,9 +296,9 @@ export async function OperationsMap({ articles }: { articles: Article[] }) {
             </div>
 
             {/* NEXT HOURS */}
-            <div className="w-[86%] shrink-0 snap-center rounded-[28px] border border-black/5 bg-white p-5 shadow sm:w-[46%] sm:p-7 lg:w-auto lg:rounded-[32px]-[0_10px_40px_rgba(15,23,42,0.06)]">
+            <div className="w-[86%] shrink-0 snap-center rounded-[12px] border border-black/5 bg-white p-5 shadow sm:w-[46%] sm:p-7 lg:w-auto lg:rounded-[14px]-[0_10px_40px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gold/10">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10">
                   <Activity size={20} className="text-gold-dark" />
                 </div>
                 <div>

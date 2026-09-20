@@ -33,14 +33,14 @@ export async function ClassifiedsHighlight() {
           <div className="flex items-center gap-3">
             <Link
               href="/classificados/novo"
-              className="flex items-center gap-2 rounded-2xl bg-gold px-5 py-3 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
+              className="flex items-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
             >
               <Plus size={15} />
               Anunciar grátis
             </Link>
             <Link
               href="/classificados"
-              className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
+              className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
             >
               Ver todos
               <ArrowUpRight size={16} />
@@ -56,7 +56,7 @@ export async function ClassifiedsHighlight() {
               <Link
                 key={listing.id}
                 href={`/classificados/${listing.id}`}
-                className="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] block"
+                className="group overflow-hidden rounded-[14px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] block"
               >
                 <div className="relative h-[180px] overflow-hidden bg-slate-100">
                   {coverImage ? (
@@ -114,7 +114,7 @@ export async function ClassifiedsHighlight() {
         <div className="mt-10 text-center lg:hidden">
           <Link
             href="/classificados"
-            className="inline-flex items-center gap-2 rounded-2xl border border-black/5 bg-white px-6 py-3.5 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-xl border border-black/5 bg-white px-6 py-3.5 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5"
           >
             Ver todos os classificados
             <ArrowUpRight size={15} />

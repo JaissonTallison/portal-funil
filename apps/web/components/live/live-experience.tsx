@@ -52,17 +52,17 @@ export async function LiveExperience() {
           {/* LEFT */}
           <div className="space-y-6">
             {/* VIDEO */}
-            <div className="relative overflow-hidden rounded-[40px] bg-navy shadow-[0_30px_120px_rgba(15,23,42,0.15)]">
+            <div className="relative overflow-hidden rounded-[16px] bg-navy shadow-[0_30px_120px_rgba(15,23,42,0.15)]">
               {/* BG */}
               <div className="absolute inset-0">
                 <Image src={lead.image} alt={lead.title} fill className="object-cover opacity-50" />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/75 via-35% to-transparent" />
               </div>
 
               {/* CONTENT */}
               <div className="relative z-10 flex min-h-[380px] flex-col justify-end p-5 sm:min-h-[520px] sm:p-10">
-                <div className="inline-flex w-fit items-center gap-2 rounded-full bg-red-500 px-5 py-2 text-xs font-black uppercase tracking-[0.3em] text-white">
+                <div className="absolute left-5 top-5 inline-flex w-fit items-center gap-2 rounded-full bg-red-500 px-5 py-2 sm:left-10 sm:top-10 text-xs font-black uppercase tracking-[0.3em] text-white">
                   <Radio size={14} />
 
                   {lead.isLive ? "Ao vivo" : "Última hora"}
@@ -78,7 +78,7 @@ export async function LiveExperience() {
 
                 <Link
                   href={`/noticias/${lead.slug}`}
-                  className="mt-8 flex w-fit items-center gap-2 rounded-2xl bg-gold px-6 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-1"
+                  className="mt-8 flex w-fit items-center gap-2 rounded-xl bg-gold px-6 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-1"
                 >
                   Ler matéria
 
@@ -89,8 +89,8 @@ export async function LiveExperience() {
 
             {/* STATS */}
             <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4 lg:gap-6">
-              <div className="flex items-center gap-4 rounded-[22px] border border-black/5 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] md:block md:rounded-[28px] md:p-5 lg:rounded-[32px] lg:p-7">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold/10 md:h-12 md:w-12 lg:h-14 lg:w-14">
+              <div className="flex items-center gap-4 rounded-[10px] border border-black/5 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] md:block md:rounded-[12px] md:p-5 lg:rounded-[14px] lg:p-7">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold/10 md:h-12 md:w-12 lg:h-14 lg:w-14">
                   <Newspaper className="text-gold-dark" />
                 </div>
 
@@ -105,8 +105,8 @@ export async function LiveExperience() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 rounded-[22px] border border-black/5 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] md:block md:rounded-[28px] md:p-5 lg:rounded-[32px] lg:p-7">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-500/10 md:h-12 md:w-12 lg:h-14 lg:w-14">
+              <div className="flex items-center gap-4 rounded-[10px] border border-black/5 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] md:block md:rounded-[12px] md:p-5 lg:rounded-[14px] lg:p-7">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-500/10 md:h-12 md:w-12 lg:h-14 lg:w-14">
                   <WeatherIcon className="text-blue-500" />
                 </div>
 
@@ -121,8 +121,8 @@ export async function LiveExperience() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 rounded-[22px] border border-black/5 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] md:block md:rounded-[28px] md:p-5 lg:rounded-[32px] lg:p-7">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-red-500/10 md:h-12 md:w-12 lg:h-14 lg:w-14">
+              <div className="flex items-center gap-4 rounded-[10px] border border-black/5 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] md:block md:rounded-[12px] md:p-5 lg:rounded-[14px] lg:p-7">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-500/10 md:h-12 md:w-12 lg:h-14 lg:w-14">
                   <TriangleAlert className="text-red-500" />
                 </div>
 
@@ -140,7 +140,7 @@ export async function LiveExperience() {
           </div>
 
           {/* RIGHT */}
-          <div className="rounded-[40px] border border-black/5 bg-white p-8 shadow-[0_20px_80px_rgba(15,23,42,0.06)]">
+          <div className="rounded-[16px] border border-black/5 bg-white p-8 shadow-[0_20px_80px_rgba(15,23,42,0.06)]">
             {/* HEADER */}
             <div className="flex items-center justify-between">
               <div>
@@ -162,10 +162,10 @@ export async function LiveExperience() {
                 <Link
                   key={item.id}
                   href={`/noticias/${item.slug}`}
-                  className="group block rounded-[22px] border border-black/5 bg-[#F8FAFC] p-3.5 transition hover:bg-slate-100 sm:rounded-[28px] sm:p-5"
+                  className="group block rounded-[10px] border border-black/5 bg-[#F8FAFC] p-3.5 transition hover:bg-slate-100 sm:rounded-[12px] sm:p-5"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold/10 sm:mt-1 sm:h-12 sm:w-12 sm:rounded-2xl">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gold/10 sm:mt-1 sm:h-12 sm:w-12 sm:rounded-xl">
                       <span className="font-black text-gold-dark">
                         0{index + 1}
                       </span>

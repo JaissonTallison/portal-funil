@@ -85,7 +85,7 @@ export default function AdminSaudePage() {
         <button
           onClick={check}
           disabled={loading}
-          className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-cobalt transition hover:bg-slate-50 disabled:opacity-50"
+          className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-cobalt transition hover:bg-slate-50 disabled:opacity-50"
         >
           <RefreshCw size={14} className={loading ? "animate-spin" : ""} />
           Atualizar
@@ -93,7 +93,7 @@ export default function AdminSaudePage() {
       </div>
 
       {/* STATUS GERAL */}
-      <div className={`mb-6 rounded-[20px] p-5 ${overall === "ok" ? "bg-emerald-50 border border-emerald-200" : "bg-red-50 border border-red-200"}`}>
+      <div className={`mb-6 rounded-[10px] p-5 ${overall === "ok" ? "bg-emerald-50 border border-emerald-200" : "bg-red-50 border border-red-200"}`}>
         <div className="flex items-center gap-3">
           {overall === "ok" ? (
             <CheckCircle2 size={22} className="text-emerald-600" />
@@ -117,8 +117,8 @@ export default function AdminSaudePage() {
       {data && (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {(Object.entries(data.services) as [string, string][]).map(([name, status]) => (
-            <div key={name} className="rounded-[20px] border border-slate-200 bg-white p-5 shadow-sm">
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50">
+            <div key={name} className="rounded-[10px] border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50">
                 <Activity size={18} className="text-cobalt" />
               </div>
               <p className="text-sm font-black capitalize text-cobalt">
@@ -133,7 +133,7 @@ export default function AdminSaudePage() {
       )}
 
       {error && (
-        <div className="mt-6 rounded-[20px] border border-red-200 bg-red-50 p-6 text-center">
+        <div className="mt-6 rounded-[10px] border border-red-200 bg-red-50 p-6 text-center">
           <XCircle size={32} className="mx-auto mb-2 text-red-500" />
           <p className="text-sm font-semibold text-red-800">Não foi possível conectar à API</p>
           <p className="mt-1 text-xs text-red-600">Verifique se o servidor está em execução em {API_BASE}</p>
@@ -142,7 +142,7 @@ export default function AdminSaudePage() {
 
       {/* DETALHES TÉCNICOS */}
       {data && (
-        <div className="mt-6 rounded-[20px] border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="mt-6 rounded-[10px] border border-slate-200 bg-white p-5 shadow-sm">
           <h2 className="mb-3 text-sm font-black text-cobalt">Detalhes técnicos</h2>
           <dl className="grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
             {[

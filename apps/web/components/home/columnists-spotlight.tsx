@@ -20,7 +20,7 @@ export function ColumnistsSpotlight() {
 
           <Link
             href="/colunas"
-            className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
+            className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
           >
             Todas as colunas
             <ArrowUpRight size={16} />

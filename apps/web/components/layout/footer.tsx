@@ -31,7 +31,7 @@ export function Footer() {
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_auto]">
             <div>
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gold/10">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/10">
                   <Mail size={18} className="text-gold" />
                 </div>
                 <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">
@@ -54,9 +54,9 @@ export function Footer() {
                 <input
                   type="email"
                   placeholder="Seu melhor e-mail..."
-                  className="h-[52px] w-full rounded-2xl border border-white/10 bg-white/5 px-5 text-sm text-white outline-none placeholder:text-zinc-500 focus:border-gold/30 sm:w-[280px]"
+                  className="h-[52px] w-full rounded-xl border border-white/10 bg-white/5 px-5 text-sm text-white outline-none placeholder:text-zinc-500 focus:border-gold/30 sm:w-[280px]"
                 />
-                <button className="flex h-[52px] shrink-0 items-center gap-2 rounded-2xl bg-gold px-6 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover">
+                <button className="flex h-[52px] shrink-0 items-center gap-2 rounded-xl bg-gold px-6 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover">
                   Cadastrar
                   <ArrowUpRight size={16} />
                 </button>
@@ -83,7 +83,7 @@ export function Footer() {
             </div>
             <Link
               href="/ao-vivo"
-              className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
+              className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
             >
               Assistir <ArrowUpRight size={14} />
             </Link>
@@ -136,7 +136,7 @@ export function Footer() {
                   key={label}
                   href="#"
                   aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-zinc-400 transition hover:border-gold/30 hover:bg-gold/10 hover:text-gold"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-zinc-400 transition hover:border-gold/30 hover:bg-gold/10 hover:text-gold"
                 >
                   <Icon size={16} />
                 </a>
@@ -146,7 +146,7 @@ export function Footer() {
             <div className="mt-8">
               <Link
                 href="/assinar"
-                className="inline-flex items-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-black uppercase tracking-wide text-navy transition hover:bg-gold-hover"
+                className="inline-flex items-center gap-2 rounded-xl bg-gold px-6 py-3 text-sm font-black uppercase tracking-wide text-navy transition hover:bg-gold-hover"
               >
                 Assinar Pro
                 <ArrowUpRight size={16} />

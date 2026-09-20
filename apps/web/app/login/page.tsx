@@ -64,7 +64,7 @@ export default function LoginPage() {
         {/* FORM */}
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 rounded-[28px] border border-black/5 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
+          className="space-y-4 rounded-[12px] border border-black/5 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
         >
           <div className="mb-4 text-center">
             <h1 className="text-3xl font-black tracking-tight">
@@ -77,7 +77,7 @@ export default function LoginPage() {
           </div>
           <div>
             <label className="mb-2 block text-sm font-bold text-cobalt">E-mail</label>
-            <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+            <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
               <Mail size={16} className="shrink-0 text-slate-400" />
               <input
                 type="email"
@@ -93,7 +93,7 @@ export default function LoginPage() {
 
           <div>
             <label className="mb-2 block text-sm font-bold text-cobalt">Senha</label>
-            <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+            <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
@@ -113,7 +113,7 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <p className="rounded-xl bg-red-50 px-4 py-2.5 text-xs font-semibold text-red-600">
+            <p className="rounded-lg bg-red-50 px-4 py-2.5 text-xs font-semibold text-red-600">
               {error}
             </p>
           )}
@@ -121,7 +121,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={submitting}
-            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-cobalt px-5 py-3.5 text-sm font-black text-white transition hover:bg-navy disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-cobalt px-5 py-3.5 text-sm font-black text-white transition hover:bg-navy disabled:opacity-60"
           >
             {submitting ? (
               <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />

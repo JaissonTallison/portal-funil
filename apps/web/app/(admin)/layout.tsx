@@ -80,7 +80,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link
                 key={href}
                 href={href}
-                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
+                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition ${
                   active ? "bg-cobalt text-white" : "text-slate-600 hover:bg-slate-50 hover:text-cobalt"
                 }`}
               >
@@ -97,14 +97,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             href="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-500 transition hover:bg-slate-50 hover:text-cobalt"
+            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-500 transition hover:bg-slate-50 hover:text-cobalt"
           >
             <ExternalLink size={16} />
             Ver portal
           </a>
           <button
             onClick={async () => { await logout(); router.push("/login"); }}
-            className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-red-500 transition hover:bg-red-50"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-red-500 transition hover:bg-red-50"
           >
             <LogOut size={16} />
             Sair

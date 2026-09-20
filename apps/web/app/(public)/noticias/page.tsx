@@ -25,7 +25,7 @@ export default async function NoticiasPage({ searchParams }: Props) {
       <section className="bg-navy px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
               <Newspaper size={22} className="text-gold" />
             </div>
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">
@@ -48,7 +48,7 @@ export default async function NoticiasPage({ searchParams }: Props) {
           <div className="mt-10 flex flex-wrap gap-2">
             <Link
               href="/noticias"
-              className={`rounded-2xl px-5 py-2.5 text-sm font-semibold transition ${
+              className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition ${
                 !categoria
                   ? "bg-gold text-navy"
                   : "border border-white/10 bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white"
@@ -61,7 +61,7 @@ export default async function NoticiasPage({ searchParams }: Props) {
               <Link
                 key={cat.slug}
                 href={`/noticias?categoria=${cat.slug}`}
-                className={`rounded-2xl px-5 py-2.5 text-sm font-semibold transition ${
+                className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition ${
                   categoria === cat.slug
                     ? "bg-gold text-navy"
                     : "border border-white/10 bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white"
@@ -79,7 +79,7 @@ export default async function NoticiasPage({ searchParams }: Props) {
         <div className="mx-auto max-w-[1440px]">
           {sorted.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-14 sm:py-20 lg:py-24 text-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100">
+              <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-slate-100">
                 <Newspaper size={32} className="text-slate-300" />
               </div>
               <h2 className="mt-6 text-2xl font-black text-navy">
@@ -90,7 +90,7 @@ export default async function NoticiasPage({ searchParams }: Props) {
               </p>
               <Link
                 href="/noticias"
-                className="mt-8 flex items-center gap-2 rounded-2xl bg-navy px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt"
+                className="mt-8 flex items-center gap-2 rounded-xl bg-navy px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt"
               >
                 Ver todas <ArrowRight size={16} />
               </Link>

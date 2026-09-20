@@ -26,7 +26,7 @@ export function ListingDetail({ listing }: Props) {
         <ListingGallery images={listing.images} title={listing.title} />
 
         {/* INFO */}
-        <div className="rounded-[32px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
+        <div className="rounded-[14px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
           {/* BADGES */}
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="rounded-full bg-gold px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-navy">
@@ -83,11 +83,11 @@ export function ListingDetail({ listing }: Props) {
 
           {/* SHARE */}
           <div className="mt-8 flex items-center gap-3 border-t border-slate-100 pt-5">
-            <button className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-600 transition hover:bg-slate-100">
+            <button className="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-600 transition hover:bg-slate-100">
               <Share2 size={14} />
               Compartilhar
             </button>
-            <button className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-600 transition hover:bg-slate-100">
+            <button className="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold text-slate-600 transition hover:bg-slate-100">
               <Tag size={14} />
               Denunciar anúncio
             </button>
@@ -97,7 +97,7 @@ export function ListingDetail({ listing }: Props) {
 
       {/* RIGHT — Contact Card */}
       <div className="lg:sticky lg:top-[240px] lg:self-start">
-        <div className="overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
+        <div className="overflow-hidden rounded-[14px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
           {/* HEADER */}
           <div className="border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white px-7 py-5">
             <h3 className="text-base font-black text-navy">Dados do anunciante</h3>
@@ -111,7 +111,7 @@ export function ListingDetail({ listing }: Props) {
                 href={`https://wa.me/${listing.contact.whatsapp}?text=Olá! Vi seu anúncio "${listing.title}" no Portal Funil e tenho interesse.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2.5 rounded-2xl bg-emerald-500 px-5 py-4 text-sm font-black text-white transition hover:bg-emerald-600"
+                className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-emerald-500 px-5 py-4 text-sm font-black text-white transition hover:bg-emerald-600"
               >
                 <MessageCircle size={18} />
                 Chamar no WhatsApp
@@ -120,7 +120,7 @@ export function ListingDetail({ listing }: Props) {
 
             <a
               href={`tel:${listing.contact.phone}`}
-              className="flex w-full items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-bold text-navy transition hover:bg-slate-50"
+              className="flex w-full items-center justify-center gap-2.5 rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-bold text-navy transition hover:bg-slate-50"
             >
               <Phone size={16} />
               {listing.contact.phone}
@@ -128,7 +128,7 @@ export function ListingDetail({ listing }: Props) {
 
             <a
               href={`mailto:${listing.contact.email}?subject=Interesse no anúncio: ${listing.title}`}
-              className="flex w-full items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-bold text-navy transition hover:bg-slate-50"
+              className="flex w-full items-center justify-center gap-2.5 rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-bold text-navy transition hover:bg-slate-50"
             >
               <Mail size={16} />
               Enviar e-mail
@@ -147,7 +147,7 @@ export function ListingDetail({ listing }: Props) {
         {/* CTA */}
         <Link
           href="/classificados/novo"
-          className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-gold px-5 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
+          className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-gold px-5 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
         >
           Anunciar grátis
           <ArrowUpRight size={15} />

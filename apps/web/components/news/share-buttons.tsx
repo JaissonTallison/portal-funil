@@ -28,7 +28,7 @@ export function ShareButtons({ title, slug }: Props) {
         href={`https://wa.me/?text=${encodedTitle}%20${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 rounded-xl border border-black/5 bg-white px-4 py-2 text-xs font-semibold text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700"
+        className="flex items-center gap-2 rounded-lg border border-black/5 bg-white px-4 py-2 text-xs font-semibold text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700"
       >
         <MessageCircle size={14} />
         WhatsApp
@@ -38,7 +38,7 @@ export function ShareButtons({ title, slug }: Props) {
         href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 rounded-xl border border-black/5 bg-white px-4 py-2 text-xs font-semibold text-slate-600 transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
+        className="flex items-center gap-2 rounded-lg border border-black/5 bg-white px-4 py-2 text-xs font-semibold text-slate-600 transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
       >
         <Twitter size={14} />
         Twitter
@@ -48,7 +48,7 @@ export function ShareButtons({ title, slug }: Props) {
         href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 rounded-xl border border-black/5 bg-white px-4 py-2 text-xs font-semibold text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
+        className="flex items-center gap-2 rounded-lg border border-black/5 bg-white px-4 py-2 text-xs font-semibold text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
       >
         <Facebook size={14} />
         Facebook
@@ -56,7 +56,7 @@ export function ShareButtons({ title, slug }: Props) {
 
       <button
         onClick={copyLink}
-        className={`flex items-center gap-2 rounded-xl border px-4 py-2 text-xs font-semibold transition ${
+        className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-xs font-semibold transition ${
           copied
             ? "border-emerald-200 bg-emerald-50 text-emerald-700"
             : "border-black/5 bg-white text-slate-600 hover:bg-slate-50"

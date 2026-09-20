@@ -56,7 +56,7 @@ export function ColumnistsCarousel({ columnists }: { columnists: CarouselColumni
           <Link
             key={c.id}
             href={`/colunas/${c.slug}`}
-            className="group flex w-[210px] shrink-0 snap-start flex-col items-center overflow-hidden rounded-[24px] border border-black/5 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 sm:w-[230px]"
+            className="group flex w-[210px] shrink-0 snap-start flex-col items-center overflow-hidden rounded-[12px] border border-black/5 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 sm:w-[230px]"
           >
             <div className="relative h-14 w-full bg-gradient-to-br from-navy to-cobalt">
               <div className="absolute -right-6 -top-10 h-28 w-28 rounded-full bg-gold/15 blur-2xl" />

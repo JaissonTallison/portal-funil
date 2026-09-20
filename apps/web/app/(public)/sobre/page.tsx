@@ -68,9 +68,9 @@ export default function SobrePage() {
             {stats.map(({ value, label, icon: Icon }) => (
               <div
                 key={label}
-                className="group rounded-[32px] border border-black/5 bg-white p-8 shadow-[0_10px_50px_rgba(15,23,42,0.06)] transition hover:-translate-y-1"
+                className="group rounded-[14px] border border-black/5 bg-white p-8 shadow-[0_10px_50px_rgba(15,23,42,0.06)] transition hover:-translate-y-1"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gold/10">
                   <Icon size={26} className="text-gold-dark" />
                 </div>
                 <h3 className="mt-8 text-3xl sm:text-4xl lg:text-5xl font-black tracking-[-0.05em] text-navy">
@@ -86,7 +86,7 @@ export default function SobrePage() {
       {/* MISSION */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
-          <div className="overflow-hidden rounded-[40px] bg-navy">
+          <div className="overflow-hidden rounded-[16px] bg-navy">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* TEXT */}
               <div className="relative p-12 lg:p-16">
@@ -113,7 +113,7 @@ export default function SobrePage() {
 
                   <Link
                     href="/contato"
-                    className="mt-10 inline-flex items-center gap-2 rounded-2xl bg-gold px-8 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5"
+                    className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gold px-8 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5"
                   >
                     Fale com a redação
                     <ArrowUpRight size={16} />
@@ -152,7 +152,7 @@ export default function SobrePage() {
             {values.map(({ title, desc }) => (
               <div
                 key={title}
-                className="rounded-[32px] border border-black/5 bg-white p-9 shadow-[0_10px_40px_rgba(15,23,42,0.05)]"
+                className="rounded-[14px] border border-black/5 bg-white p-9 shadow-[0_10px_40px_rgba(15,23,42,0.05)]"
               >
                 <h3 className="text-2xl font-black text-navy">{title}</h3>
                 <p className="mt-4 leading-relaxed text-slate-500">{desc}</p>
@@ -176,7 +176,7 @@ export default function SobrePage() {
             </div>
             <Link
               href="/colunas"
-              className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 sm:flex"
+              className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 sm:flex"
             >
               Ver todos
               <ArrowUpRight size={16} />
@@ -188,9 +188,9 @@ export default function SobrePage() {
               <Link
                 key={c.id}
                 href={`/colunas/${c.slug}`}
-                className="group flex flex-col items-center gap-4 rounded-[28px] border border-black/5 bg-white p-7 text-center shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition hover:-translate-y-1"
+                className="group flex flex-col items-center gap-4 rounded-[12px] border border-black/5 bg-white p-7 text-center shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition hover:-translate-y-1"
               >
-                <div className="relative h-20 w-20 overflow-hidden rounded-2xl">
+                <div className="relative h-20 w-20 overflow-hidden rounded-xl">
                   <Image
                     src={c.avatar}
                     alt={c.name}

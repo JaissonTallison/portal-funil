@@ -17,7 +17,7 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
     <>
       <section className="px-6 pb-16">
         <div className="mx-auto max-w-[1440px]">
-          <div className="relative overflow-hidden rounded-[40px] bg-navy px-6 py-12 md:px-10">
+          <div className="relative overflow-hidden rounded-[16px] bg-navy px-6 py-12 md:px-10">
             {/* ambient glow */}
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute left-[10%] top-[-100px] h-[400px] w-[400px] rounded-full bg-gold/5 blur-[160px]" />
@@ -69,7 +69,7 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
 
                   <Link
                     href="/ao-vivo"
-                    className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
+                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
                   >
                     Ver todas
                     <ArrowUpRight size={14} />
@@ -83,7 +83,7 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
                   <button
                     key={cam.id}
                     onClick={() => setActiveId(cam.youtubeId)}
-                    className="group relative w-[78%] shrink-0 snap-center overflow-hidden rounded-[24px] border border-white/8 bg-[#0B1D35] text-left sm:w-auto sm:rounded-[28px] transition duration-300 hover:-translate-y-1 hover:border-gold/20 hover:shadow-[0_20px_60px_rgba(244,197,66,0.08)]"
+                    className="group relative w-[78%] shrink-0 snap-center overflow-hidden rounded-[12px] border border-white/8 bg-[#0B1D35] text-left sm:w-auto sm:rounded-[12px] transition duration-300 hover:-translate-y-1 hover:border-gold/20 hover:shadow-[0_20px_60px_rgba(244,197,66,0.08)]"
                   >
                     {/* THUMBNAIL / IFRAME PREVIEW */}
                     <div className="relative h-[200px] overflow-hidden">
@@ -135,7 +135,7 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
 
                       {/* MAXIMIZE */}
                       {(
-                        <div className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-xl bg-black/40 text-white/50 opacity-0 backdrop-blur-sm transition group-hover:opacity-100">
+                        <div className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-lg bg-black/40 text-white/50 opacity-0 backdrop-blur-sm transition group-hover:opacity-100">
                           <Maximize2 size={14} />
                         </div>
                       )}
@@ -151,7 +151,7 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
                         <span className="text-xs text-zinc-500">{cam.zone}</span>
                       </div>
                       <div
-                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gold/10 text-gold transition group-hover:bg-gold group-hover:text-navy"
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold/10 text-gold transition group-hover:bg-gold group-hover:text-navy"
                       >
                         <ArrowUpRight size={14} />
                       </div>
@@ -164,7 +164,7 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
               <div className="mt-10 text-center">
                 <Link
                   href="/ao-vivo"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
                   <Camera size={16} />
                   Ver painel completo de câmeras
@@ -183,7 +183,7 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
           onClick={() => setActiveId(null)}
         >
           <div
-            className="relative w-full max-w-4xl overflow-hidden rounded-[32px] bg-navy shadow-2xl"
+            className="relative w-full max-w-4xl overflow-hidden rounded-[14px] bg-navy shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* MODAL HEADER */}
@@ -200,7 +200,7 @@ export function CityCameras({ cameras }: { cameras: CityCamera[] }) {
               </div>
               <button
                 onClick={() => setActiveId(null)}
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-white/50 transition hover:bg-white/10 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/50 transition hover:bg-white/10 hover:text-white"
               >
                 <X size={16} />
               </button>

@@ -33,7 +33,7 @@ export function ListingFilters() {
     <div className="space-y-5">
       {/* SEARCH BAR */}
       <form onSubmit={handleSearch} className="flex gap-3">
-        <div className="flex flex-1 items-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-3 shadow-[0_4px_20px_rgba(15,23,42,0.04)] transition focus-within:border-gold/40 focus-within:shadow-[0_4px_20px_rgba(244,197,66,0.1)]">
+        <div className="flex flex-1 items-center gap-3 rounded-xl border border-slate-200 bg-white px-5 py-3 shadow-[0_4px_20px_rgba(15,23,42,0.04)] transition focus-within:border-gold/40 focus-within:shadow-[0_4px_20px_rgba(244,197,66,0.1)]">
           <Search size={18} className="shrink-0 text-slate-400" />
           <input
             type="text"
@@ -45,7 +45,7 @@ export function ListingFilters() {
         </div>
         <button
           type="submit"
-          className="flex items-center gap-2 rounded-2xl bg-navy px-6 py-3 text-sm font-bold text-white transition hover:bg-cobalt"
+          className="flex items-center gap-2 rounded-xl bg-navy px-6 py-3 text-sm font-bold text-white transition hover:bg-cobalt"
         >
           <SlidersHorizontal size={15} />
           <span className="hidden sm:inline">Buscar</span>
@@ -59,7 +59,7 @@ export function ListingFilters() {
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => updateParams("tipo", null)}
-          className={`rounded-xl px-3.5 py-2 text-xs font-bold transition ${
+          className={`rounded-lg px-3.5 py-2 text-xs font-bold transition ${
             !activeType
               ? "bg-navy text-white"
               : "bg-slate-100 text-slate-600 hover:bg-slate-200"
@@ -71,7 +71,7 @@ export function ListingFilters() {
           <button
             key={t.value}
             onClick={() => updateParams("tipo", activeType === t.value ? null : t.value)}
-            className={`rounded-xl px-3.5 py-2 text-xs font-bold transition ${
+            className={`rounded-lg px-3.5 py-2 text-xs font-bold transition ${
               activeType === t.value
                 ? "bg-navy text-white"
                 : "bg-slate-100 text-slate-600 hover:bg-slate-200"

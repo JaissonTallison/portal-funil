@@ -51,7 +51,7 @@ export default function EnviarMidiaPage() {
             <ArrowLeft size={14} /> Voltar para Central de Denúncias
           </Link>
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-500/15">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-500/15">
               <Camera size={22} className="text-teal-400" />
             </div>
             <span className="text-xs font-black uppercase tracking-[0.35em] text-teal-400">ENVIAR MÍDIA</span>
@@ -68,7 +68,7 @@ export default function EnviarMidiaPage() {
       <section className="px-6 py-14">
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
-            <div className="rounded-[40px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
+            <div className="rounded-[16px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
 
               {protocol ? (
                 <div className="flex flex-col items-center py-8 text-center">
@@ -77,7 +77,7 @@ export default function EnviarMidiaPage() {
                   </div>
                   <h2 className="mt-6 text-2xl font-black">Conteúdo enviado!</h2>
                   <p className="mt-2 text-slate-500">Nossa redação irá analisar seu material.</p>
-                  <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 px-8 py-4">
+                  <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 px-8 py-4">
                     <p className="text-xs font-black uppercase tracking-widest text-slate-400">Protocolo</p>
                     <p className="mt-1 font-mono text-2xl font-black text-navy">{protocol}</p>
                   </div>
@@ -93,27 +93,27 @@ export default function EnviarMidiaPage() {
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <div>
                         <label className="mb-2 block text-sm font-semibold">Nome</label>
-                        <input value={form.name} onChange={(e) => update("name", e.target.value)} type="text" placeholder="Seu nome" className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
+                        <input value={form.name} onChange={(e) => update("name", e.target.value)} type="text" placeholder="Seu nome" className="h-[52px] w-full rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
                       </div>
                       <div>
                         <label className="mb-2 block text-sm font-semibold">WhatsApp</label>
-                        <input value={form.phone} onChange={(e) => update("phone", e.target.value)} type="tel" placeholder="(92) 9 0000-0000" className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
+                        <input value={form.phone} onChange={(e) => update("phone", e.target.value)} type="tel" placeholder="(92) 9 0000-0000" className="h-[52px] w-full rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
                       </div>
                     </div>
 
                     <div>
                       <label className="mb-2 block text-sm font-semibold">Local e data</label>
-                      <input value={form.location} onChange={(e) => update("location", e.target.value)} type="text" placeholder="Bairro, rua — hoje, ontem, data específica" className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
+                      <input value={form.location} onChange={(e) => update("location", e.target.value)} type="text" placeholder="Bairro, rua — hoje, ontem, data específica" className="h-[52px] w-full rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
                     </div>
 
                     <div>
                       <label className="mb-2 block text-sm font-semibold">Descrição *</label>
-                      <textarea value={form.description} onChange={(e) => update("description", e.target.value)} rows={4} placeholder="Conte o contexto do que você filmou ou fotografou, o que aparece nas imagens..." className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white resize-none" />
+                      <textarea value={form.description} onChange={(e) => update("description", e.target.value)} rows={4} placeholder="Conte o contexto do que você filmou ou fotografou, o que aparece nas imagens..." className="w-full rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white resize-none" />
                     </div>
 
-                    {error && <p className="rounded-2xl border border-red-200 bg-red-50 px-5 py-3 text-sm text-red-700">{error}</p>}
+                    {error && <p className="rounded-xl border border-red-200 bg-red-50 px-5 py-3 text-sm text-red-700">{error}</p>}
 
-                    <button type="submit" disabled={submitting} className="flex w-full items-center justify-center gap-2 rounded-2xl bg-teal-600 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-teal-700 disabled:opacity-60">
+                    <button type="submit" disabled={submitting} className="flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-teal-700 disabled:opacity-60">
                       {submitting ? "Enviando..." : <><span>Enviar conteúdo</span> <ArrowUpRight size={16} /></>}
                     </button>
                   </form>
@@ -122,15 +122,15 @@ export default function EnviarMidiaPage() {
             </div>
 
             <div className="space-y-4">
-              <div className="rounded-[28px] border border-black/5 bg-white p-7">
+              <div className="rounded-[12px] border border-black/5 bg-white p-7">
                 <h3 className="font-black">Prefere enviar pelo WhatsApp?</h3>
                 <p className="mt-2 text-sm text-slate-400">Mande suas fotos e vídeos diretamente para a nossa redação.</p>
                 <a href="https://wa.me/5592999990000" target="_blank" rel="noopener noreferrer"
-                  className="mt-5 flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-black text-white transition hover:bg-emerald-600">
+                  className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-black text-white transition hover:bg-emerald-600">
                   <Send size={14} /> Enviar pelo WhatsApp
                 </a>
               </div>
-              <div className="rounded-[28px] bg-navy p-7">
+              <div className="rounded-[12px] bg-navy p-7">
                 <span className="text-[10px] font-black uppercase tracking-widest text-gold">CRÉDITO</span>
                 <p className="mt-3 text-sm text-zinc-400">
                   Todo conteúdo enviado e publicado recebe crédito ao autor com nome e zona da cidade.

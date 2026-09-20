@@ -29,7 +29,7 @@ export default async function ColunasPage() {
 
         <div className="relative z-10 mx-auto max-w-[1440px]">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
               <PenLine size={22} className="text-gold" />
             </div>
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">
@@ -50,11 +50,11 @@ export default async function ColunasPage() {
 
           {/* STATS */}
           <div className="mt-10 flex flex-wrap gap-6">
-            <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+            <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-5 py-4">
               <span className="text-2xl font-black text-gold">{columnists.length}</span>
               <span className="text-sm text-zinc-400">colunistas</span>
             </div>
-            <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+            <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-5 py-4">
               <span className="text-2xl font-black text-gold">
                 {totalArticles}
               </span>
@@ -73,7 +73,7 @@ export default async function ColunasPage() {
             return (
               <div
                 key={columnist.id}
-                className="overflow-hidden rounded-[40px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)]"
+                className="overflow-hidden rounded-[16px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)]"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr]">
                   {/* LEFT – PROFILE */}
@@ -111,7 +111,7 @@ export default async function ColunasPage() {
                     {columnist.social && (
                       <div className="relative z-10 flex gap-2">
                         {columnist.social.twitter && (
-                          <span className="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-zinc-400">
+                          <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-zinc-400">
                             {columnist.social.twitter}
                           </span>
                         )}
@@ -120,7 +120,7 @@ export default async function ColunasPage() {
 
                     <Link
                       href={`/colunas/${columnist.slug}`}
-                      className="relative z-10 flex items-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:bg-gold-hover"
+                      className="relative z-10 flex items-center gap-2 rounded-xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:bg-gold-hover"
                     >
                       Ver todas as colunas
                       <ArrowUpRight size={16} />
@@ -171,7 +171,7 @@ export default async function ColunasPage() {
                             <Link
                               key={a.id}
                               href={`/noticias/${a.slug}`}
-                              className="rounded-xl border border-black/5 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-100"
+                              className="rounded-lg border border-black/5 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-100"
                             >
                               {a.title.length > 50 ? a.title.slice(0, 50) + "…" : a.title}
                             </Link>
@@ -190,7 +190,7 @@ export default async function ColunasPage() {
       {/* CTA */}
       <section className="px-6 pb-20">
         <div className="mx-auto max-w-[1440px]">
-          <div className="relative overflow-hidden rounded-[40px] bg-navy p-12 text-center">
+          <div className="relative overflow-hidden rounded-[16px] bg-navy p-12 text-center">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="h-[400px] w-[400px] rounded-full bg-gold/5 blur-[120px]" />
             </div>
@@ -211,7 +211,7 @@ export default async function ColunasPage() {
 
               <Link
                 href="/contato"
-                className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-gold px-8 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5"
+                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gold px-8 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5"
               >
                 Entrar em contato
                 <ArrowUpRight size={16} />

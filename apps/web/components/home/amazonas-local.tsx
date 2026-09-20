@@ -34,7 +34,7 @@ export async function AmazonasLocal() {
 
           <Link
             href="/categoria/amazonas"
-            className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
+            className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
           >
             Ver todas
             <ArrowUpRight size={16} />
@@ -46,7 +46,7 @@ export async function AmazonasLocal() {
             <Link
               key={item.id}
               href={`/noticias/${item.slug}`}
-              className="group block w-[80%] shrink-0 snap-center overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-2 md:w-auto md:rounded-[36px]"
+              className="group block w-[80%] shrink-0 snap-center overflow-hidden rounded-[12px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-2 md:w-auto md:rounded-[16px]"
             >
               <div className="relative h-[260px] overflow-hidden">
                 <Image

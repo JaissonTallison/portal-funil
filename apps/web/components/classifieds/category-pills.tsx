@@ -34,7 +34,7 @@ export function CategoryPills({ active }: Props) {
     <div className="scrollbar-hide flex gap-2.5 overflow-x-auto pb-1">
       <Link
         href="/classificados"
-        className={`flex shrink-0 items-center gap-2 rounded-2xl border px-4 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 ${
+        className={`flex shrink-0 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 ${
           !active
             ? "border-gold/40 bg-gold/10 text-navy"
             : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
@@ -51,7 +51,7 @@ export function CategoryPills({ active }: Props) {
           <Link
             key={cat.slug}
             href={`/classificados?categoria=${cat.slug}`}
-            className={`flex shrink-0 items-center gap-2 rounded-2xl border px-4 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 ${
+            className={`flex shrink-0 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 ${
               isActive
                 ? "border-gold/40 bg-gold/10 text-navy"
                 : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"

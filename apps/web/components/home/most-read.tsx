@@ -26,7 +26,7 @@ export async function MostRead() {
 
           <Link
             href="/noticias"
-            className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
+            className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
           >
             Ver todas
           </Link>
@@ -36,7 +36,7 @@ export async function MostRead() {
           {/* TOP 1 */}
           <Link
             href={`/noticias/${articles[0].slug}`}
-            className="group relative col-span-full overflow-hidden rounded-[36px] bg-navy p-8 shadow-[0_20px_60px_rgba(15,23,42,0.12)] transition hover:-translate-y-1 lg:col-span-1 lg:row-span-3"
+            className="group relative col-span-full flex min-h-[420px] flex-col justify-end overflow-hidden rounded-[16px] bg-navy p-5 sm:p-8 shadow-[0_20px_60px_rgba(15,23,42,0.12)] transition hover:-translate-y-1 lg:col-span-1 lg:row-span-3"
           >
             {/* BG */}
             <div className="absolute inset-0">
@@ -46,19 +46,19 @@ export async function MostRead() {
                 fill
                 className="object-cover transition duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/75 via-35% to-transparent" />
+            </div>
+
+            <div className="absolute left-5 top-5 z-10 sm:left-8 sm:top-8 flex items-center gap-3">
+              <span className="text-5xl sm:text-6xl lg:text-7xl font-black text-gold/60 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">01</span>
+              <div className="flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-navy">
+                <TrendingUp size={11} />
+                Mais lida
+              </div>
             </div>
 
             <div className="relative z-10">
-              <div className="flex items-center gap-3">
-                <span className="text-5xl sm:text-6xl lg:text-7xl font-black text-gold/60 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">01</span>
-                <div className="flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-navy">
-                  <TrendingUp size={11} />
-                  Mais lida
-                </div>
-              </div>
-
-              <span className="mt-6 block text-xs font-black uppercase tracking-[0.3em] text-gold">
+              <span className="block text-xs font-black uppercase tracking-[0.3em] text-gold">
                 {getCategoryName(articles[0].category)}
               </span>
 
@@ -85,7 +85,7 @@ export async function MostRead() {
             <Link
               key={article.id}
               href={`/noticias/${article.slug}`}
-              className="group flex items-center gap-5 rounded-[28px] border border-black/5 bg-white/80 p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] backdrop-blur-xl transition hover:-translate-y-0.5"
+              className="group flex items-center gap-5 rounded-[12px] border border-black/5 bg-white/80 p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] backdrop-blur-xl transition hover:-translate-y-0.5"
             >
               <span className="shrink-0 text-3xl sm:text-4xl font-black text-slate-100 transition group-hover:text-gold/30">
                 {String(i + 2).padStart(2, "0")}

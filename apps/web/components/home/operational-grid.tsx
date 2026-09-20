@@ -78,12 +78,12 @@ export async function OperationalGrid({ articles, cameraCount }: Props) {
         {/* GRID */}
         <div className="grid grid-cols-1 gap-3 sm:gap-6 xl:grid-cols-4">
           {/* WEATHER CARD — expanded */}
-          <div className="group relative overflow-hidden rounded-[26px] border border-black/5 bg-white p-5 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] sm:rounded-[32px] sm:p-7">
+          <div className="group relative overflow-hidden rounded-[12px] border border-black/5 bg-white p-5 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] sm:rounded-[14px] sm:p-7">
             <div className="absolute right-[-30px] top-[-30px] h-[140px] w-[140px] rounded-full bg-sky-400/10 blur-[70px]" />
 
             <div className="relative z-10">
               <div className="flex items-center justify-between gap-4 sm:block">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sky-50 sm:h-14 sm:w-14">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-50 sm:h-14 sm:w-14">
                 <CloudRain size={24} className="text-sky-500" />
               </div>
 
@@ -98,21 +98,21 @@ export async function OperationalGrid({ articles, cameraCount }: Props) {
 
               {conditions && (
                 <div className="mt-4 grid grid-cols-2 gap-2">
-                  <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
+                  <div className="flex items-center gap-1.5 rounded-lg bg-slate-50 px-2.5 py-1.5">
                     <Thermometer size={11} className="text-orange-400" />
                     <span className="text-[10px] font-bold text-slate-600">Sensação {conditions.feelsLike}°</span>
                   </div>
-                  <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
+                  <div className="flex items-center gap-1.5 rounded-lg bg-slate-50 px-2.5 py-1.5">
                     <Droplets size={11} className="text-sky-400" />
                     <span className="text-[10px] font-bold text-slate-600">Umidade {conditions.humidity}%</span>
                   </div>
-                  <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
+                  <div className="flex items-center gap-1.5 rounded-lg bg-slate-50 px-2.5 py-1.5">
                     <Wind size={11} className="text-emerald-400" />
                     <span className="text-[10px] font-bold text-slate-600">
                       Ar: {aqi ? aqi.label : "—"}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1.5 rounded-xl bg-slate-50 px-2.5 py-1.5">
+                  <div className="flex items-center gap-1.5 rounded-lg bg-slate-50 px-2.5 py-1.5">
                     <Wind size={11} className="text-slate-400" />
                     <span className="text-[10px] font-bold text-slate-600">Vento {conditions.windKmh} km/h</span>
                   </div>
@@ -120,7 +120,7 @@ export async function OperationalGrid({ articles, cameraCount }: Props) {
               )}
 
               {rainAlert && (
-                <div className="mt-3 flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2">
+                <div className="mt-3 flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2">
                   <AlertTriangle size={12} className="shrink-0 text-amber-500" />
                   <span className="text-[11px] font-semibold text-amber-800">{rainAlert}</span>
                 </div>
@@ -213,11 +213,11 @@ function StatCard({
   const BadgeIcon = badge?.icon;
 
   return (
-    <div className="group relative overflow-hidden rounded-[22px] border border-black/5 bg-white p-3.5 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] sm:rounded-[32px] sm:p-7">
+    <div className="group relative overflow-hidden rounded-[10px] border border-black/5 bg-white p-3.5 shadow-[0_10px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] sm:rounded-[14px] sm:p-7">
       <div className={`absolute right-[-30px] top-[-30px] h-[140px] w-[140px] rounded-full ${glowColor} blur-[70px]`} />
 
       <div className="relative z-10">
-        <div className={`flex h-9 w-9 items-center justify-center rounded-xl sm:h-14 sm:w-14 sm:rounded-2xl ${accentBg}`}>
+        <div className={`flex h-9 w-9 items-center justify-center rounded-lg sm:h-14 sm:w-14 sm:rounded-xl ${accentBg}`}>
           <Icon size={18} className={`${accentColor} sm:h-[26px] sm:w-[26px]`} />
         </div>
 

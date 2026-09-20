@@ -57,11 +57,11 @@ export function Hero() {
 
           {/* BUTTONS */}
           <div className="mt-10 flex flex-wrap gap-4">
-            <button className="rounded-2xl bg-gold px-8 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover">
+            <button className="rounded-xl bg-gold px-8 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover">
               Explorar plataforma
             </button>
 
-            <button className="rounded-2xl border border-white/10 bg-white/[0.04] px-8 py-4 text-sm font-semibold text-white transition hover:bg-white/[0.08]">
+            <button className="rounded-xl border border-white/10 bg-white/[0.04] px-8 py-4 text-sm font-semibold text-white transition hover:bg-white/[0.08]">
               Assistir ao vivo
             </button>
           </div>

@@ -146,7 +146,7 @@ export function PricingGrid() {
           return (
             <div
               key={plan.id}
-              className={`relative overflow-hidden rounded-[32px] p-7 transition ${
+              className={`relative overflow-hidden rounded-[14px] p-7 transition ${
                 isHighlight
                   ? "bg-gold"
                   : "border border-white/10 bg-white/5"
@@ -163,7 +163,7 @@ export function PricingGrid() {
               )}
 
               {/* ICON + NAME */}
-              <div className={`flex h-11 w-11 items-center justify-center rounded-2xl ${
+              <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${
                 isHighlight ? "bg-navy/10" : "bg-white/10"
               }`}>
                 <Icon size={20} className={isHighlight ? "text-navy" : "text-gold"} />
@@ -208,7 +208,7 @@ export function PricingGrid() {
               </ul>
 
               {/* BUTTON */}
-              <button className={`mt-8 w-full rounded-2xl py-3.5 text-sm font-black transition ${plan.buttonStyle}`}>
+              <button className={`mt-8 w-full rounded-xl py-3.5 text-sm font-black transition ${plan.buttonStyle}`}>
                 {plan.buttonText}
               </button>
             </div>

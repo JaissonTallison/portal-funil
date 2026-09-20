@@ -8,7 +8,7 @@ import {
   Home, Landmark, CircleDot, ShieldCheck, BarChart2,
   Monitor, Heart, Globe, PenLine, Star, HelpCircle, Tag, Car,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "@/lib/constants";
 import { useAuth } from "@/lib/auth-context";
 import { LoginModal } from "@/components/auth/login-modal";
@@ -38,6 +38,30 @@ export function Navbar() {
   const router    = useRouter();
   const { user }  = useAuth();
 
+  // Com o menu (ou a janela de login) aberto, a página de trás não rola e volta
+  // exatamente para onde estava ao fechar.
+  useEffect(() => {
+    if (!open && !loginOpen) return;
+    const html = document.documentElement;
+    const previous = html.style.overflow;
+    html.style.overflow = "hidden";
+    return () => {
+      html.style.overflow = previous;
+    };
+  }, [open, loginOpen]);
+
+  // Fecha o menu ao navegar para outra página ou apertar Esc.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
     if (query.trim()) router.push(`/busca?q=${encodeURIComponent(query.trim())}`);
@@ -49,19 +73,19 @@ export function Navbar() {
       <header className="fixed left-0 top-0 z-50 w-full border-b border-slate-200 bg-white shadow-[0_2px_24px_rgba(15,23,42,0.06)]">
 
         {/* TOP BAR */}
-        <div className="mx-auto flex h-[140px] max-w-[1920px] items-center justify-between px-4 lg:px-8">
+        <div className="relative mx-auto flex h-[76px] max-w-[1920px] items-center justify-between px-4 sm:px-6 lg:h-[140px] lg:px-8">
 
           {/* HAMBURGER (mobile) */}
           <button
             onClick={() => setOpen(true)}
-            className="mr-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 lg:hidden"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 lg:mr-3 lg:hidden"
             aria-label="Menu"
           >
             <Menu size={20} className="text-navy" />
           </button>
 
           {/* LOGO */}
-          <Link href="/" className="group flex shrink-0 items-center gap-0">
+          <Link href="/" className="group hidden shrink-0 items-center gap-0 lg:flex">
             <Image
               src="/images/logo-transparent.png"
               alt="Funil de Notícias"
@@ -92,7 +116,7 @@ export function Navbar() {
             onSubmit={handleSearch}
             className="mx-6 hidden w-full max-w-2xl xl:block"
           >
-            <div className="flex h-[48px] items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 transition focus-within:border-gold/40 focus-within:bg-white focus-within:shadow-sm">
+            <div className="flex h-[48px] items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-5 transition focus-within:border-gold/40 focus-within:bg-white focus-within:shadow-sm">
               <Search size={17} className="shrink-0 text-slate-400" />
               <input
                 type="text"
@@ -108,7 +132,7 @@ export function Navbar() {
           <div className="flex shrink-0 items-center gap-2.5">
             <Link
               href="/ao-vivo"
-              className="hidden items-center gap-2 rounded-2xl border border-red-200 px-4 py-2.5 text-xs font-black uppercase tracking-wide text-red-600 transition hover:bg-red-50 sm:flex"
+              className="hidden items-center gap-2 rounded-xl border border-red-200 px-4 py-2.5 text-xs font-black uppercase tracking-wide text-red-600 transition hover:bg-red-50 sm:flex"
             >
               <span className="flex items-center gap-0.5 text-[10px] font-black text-red-500">
                 <span>((</span>
@@ -122,7 +146,7 @@ export function Navbar() {
             </Link>
 
             <button
-              className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white transition hover:bg-slate-50"
+              className="relative hidden h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white transition hover:bg-slate-50 sm:flex"
               aria-label="Notificações"
             >
               <Bell size={17} className="text-slate-600" />
@@ -134,7 +158,7 @@ export function Navbar() {
             ) : (
               <button
                 onClick={() => setLoginOpen(true)}
-                className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-navy transition hover:bg-slate-50"
+                className="flex h-10 w-10 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white text-sm font-semibold text-navy transition hover:bg-slate-50 sm:h-auto sm:w-auto sm:px-4 sm:py-2.5"
               >
                 <LogIn size={15} />
                 <span className="hidden sm:inline">Entrar</span>
@@ -143,10 +167,22 @@ export function Navbar() {
 
             <Link
               href="/assinar"
-              className="flex items-center gap-2 rounded-xl bg-navy px-4 py-2.5 text-sm font-black text-white transition hover:bg-cobalt"
+              className="flex h-10 w-10 items-center justify-center gap-2 rounded-lg bg-navy text-sm font-black text-white transition hover:bg-cobalt sm:h-auto sm:w-auto sm:px-4 sm:py-2.5"
             >
               <Crown size={14} />
               <span className="hidden sm:inline">Assinar Pro</span>
+            </Link>
+
+            {/* LOGO (celular e tablet) */}
+            <Link href="/" aria-label="Funil de Notícias" className="ml-1 flex shrink-0 items-center lg:hidden">
+              <Image
+                src="/images/logo-transparent.png"
+                alt="Funil de Notícias"
+                width={300}
+                height={300}
+                priority
+                className="h-[56px] w-auto object-contain sm:h-[60px]"
+              />
             </Link>
           </div>
         </div>
@@ -186,13 +222,13 @@ export function Navbar() {
 
       {/* ── MOBILE DRAWER ──────────────────────────────────────────────────── */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm transition duration-300 lg:hidden ${
+        className={`fixed inset-0 z-[60] overscroll-contain bg-black/40 backdrop-blur-sm transition duration-300 lg:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={() => setOpen(false)}
       >
         <div
-          className={`absolute left-0 top-0 h-full w-[300px] bg-white shadow-2xl transition duration-300 ${
+          className={`absolute left-0 top-0 h-[100dvh] w-[min(300px,85vw)] overflow-y-auto overscroll-contain bg-white pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-2xl transition duration-300 ${
             open ? "translate-x-0" : "-translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -213,14 +249,14 @@ export function Navbar() {
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200"
             >
               <X size={18} />
             </button>
           </div>
 
           <form onSubmit={handleSearch} className="p-4">
-            <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+            <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
               <Search size={16} className="text-slate-400" />
               <input
                 type="text"
@@ -236,7 +272,7 @@ export function Navbar() {
             <Link
               href="/ao-vivo"
               onClick={() => setOpen(false)}
-              className="mb-1 flex items-center gap-2.5 rounded-xl bg-red-50 px-4 py-3 text-sm font-black uppercase tracking-wide text-red-600"
+              className="mb-1 flex items-center gap-2.5 rounded-lg bg-red-50 px-4 py-3 text-sm font-black uppercase tracking-wide text-red-600"
             >
               <Radio size={14} className="animate-pulse" />
               Ao vivo
@@ -256,7 +292,7 @@ export function Navbar() {
               <Link
                 href="/assinar"
                 onClick={() => setOpen(false)}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-navy px-4 py-3 text-sm font-black text-white"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-navy px-4 py-3 text-sm font-black text-white"
               >
                 <Crown size={15} />
                 Assinar Pro
@@ -300,7 +336,7 @@ function MobileNavItem({ href, label, icon: Icon, onClick }: {
     <Link
       href={href}
       onClick={onClick}
-      className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+      className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
     >
       <Icon size={17} className="text-slate-400" />
       {label}

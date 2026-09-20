@@ -19,9 +19,9 @@ export function EventCard({ event, variant = "default" }: Props) {
     return (
       <Link
         href={`/agenda/${event.slug}`}
-        className="group flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-3 transition hover:border-slate-200 hover:shadow-sm"
+        className="group flex items-start gap-3 rounded-xl border border-slate-100 bg-white p-3 transition hover:border-slate-200 hover:shadow-sm"
       >
-        <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-xl bg-navy text-center">
+        <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-lg bg-navy text-center">
           <span className="text-[9px] font-black uppercase text-gold">
             {new Date(event.date + "T00:00:00").toLocaleDateString("pt-BR", { month: "short" })}
           </span>
@@ -41,7 +41,7 @@ export function EventCard({ event, variant = "default" }: Props) {
         </div>
 
         <span
-          className={`shrink-0 self-start rounded-xl px-2 py-1 text-[10px] font-black uppercase ${
+          className={`shrink-0 self-start rounded-lg px-2 py-1 text-[10px] font-black uppercase ${
             event.isFree
               ? "bg-emerald-50 text-emerald-700"
               : "bg-slate-50 text-slate-500"
@@ -58,7 +58,7 @@ export function EventCard({ event, variant = "default" }: Props) {
     return (
       <Link
         href={`/agenda/${event.slug}`}
-        className="group relative overflow-hidden rounded-[32px] bg-white shadow-[0_4px_24px_rgba(7,20,38,0.08)] transition hover:shadow-[0_12px_48px_rgba(7,20,38,0.14)]"
+        className="group relative block overflow-hidden rounded-[14px] bg-white shadow-[0_4px_24px_rgba(7,20,38,0.08)] transition hover:shadow-[0_12px_48px_rgba(7,20,38,0.14)]"
       >
         <div className="relative h-[300px] overflow-hidden md:h-[360px]">
           <Image
@@ -131,7 +131,7 @@ export function EventCard({ event, variant = "default" }: Props) {
   return (
     <Link
       href={`/agenda/${event.slug}`}
-      className="group relative overflow-hidden rounded-[28px] bg-white shadow-[0_4px_20px_rgba(7,20,38,0.07)] transition hover:shadow-[0_8px_32px_rgba(7,20,38,0.12)] hover:-translate-y-0.5"
+      className="group relative block overflow-hidden rounded-[12px] bg-white shadow-[0_4px_20px_rgba(7,20,38,0.07)] transition hover:shadow-[0_8px_32px_rgba(7,20,38,0.12)] hover:-translate-y-0.5"
     >
       <div className="relative h-[188px] overflow-hidden">
         <Image
@@ -158,7 +158,7 @@ export function EventCard({ event, variant = "default" }: Props) {
           </div>
         )}
 
-        <div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-xl bg-black/30 px-2.5 py-1.5 backdrop-blur-sm">
+        <div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-lg bg-black/30 px-2.5 py-1.5 backdrop-blur-sm">
           <Calendar size={11} className="text-gold" />
           <span className="text-[11px] font-bold text-white">{dateLabel}</span>
           {event.time && (

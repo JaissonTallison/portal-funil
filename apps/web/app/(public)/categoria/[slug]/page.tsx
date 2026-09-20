@@ -57,7 +57,7 @@ export default async function CategoriaPage({ params }: Props) {
           </Link>
 
           <div className="flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-gold/10">
+            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gold/10">
               <Newspaper size={24} className="text-gold" />
             </div>
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">Editoria</span>
@@ -77,7 +77,7 @@ export default async function CategoriaPage({ params }: Props) {
               <Link
                 key={item.slug}
                 href={`/categoria/${item.slug}`}
-                className={`rounded-2xl px-5 py-2.5 text-sm font-semibold transition ${
+                className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition ${
                   item.slug === slug
                     ? "bg-gold text-navy"
                     : "border border-white/10 bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white"
@@ -94,7 +94,7 @@ export default async function CategoriaPage({ params }: Props) {
         <div className="mx-auto max-w-[1440px]">
           {categoryArticles.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-14 sm:py-20 lg:py-24 text-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100">
+              <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-slate-100">
                 <Newspaper size={32} className="text-slate-300" />
               </div>
               <h2 className="mt-6 text-2xl font-black text-navy">
@@ -103,7 +103,7 @@ export default async function CategoriaPage({ params }: Props) {
               <p className="mt-3 text-slate-500">Volte mais tarde ou explore outras editorias.</p>
               <Link
                 href="/noticias"
-                className="mt-8 rounded-2xl bg-navy px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt"
+                className="mt-8 rounded-xl bg-navy px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt"
               >
                 Ver todas as notícias
               </Link>

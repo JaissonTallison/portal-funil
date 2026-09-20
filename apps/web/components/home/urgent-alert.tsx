@@ -23,10 +23,10 @@ export async function UrgentAlert() {
       <div className="mx-auto max-w-[1440px]">
         <Link
           href={`/noticias/${alert.slug}`}
-          className="group flex items-center gap-4 overflow-hidden rounded-2xl border border-red-500/20 bg-gradient-to-r from-red-600 to-red-700 px-6 py-4 shadow-[0_8px_30px_rgba(239,68,68,0.25)] transition hover:shadow-[0_12px_40px_rgba(239,68,68,0.35)]"
+          className="group flex items-center gap-4 overflow-hidden rounded-xl border border-red-500/20 bg-gradient-to-r from-red-600 to-red-700 px-6 py-4 shadow-[0_8px_30px_rgba(239,68,68,0.25)] transition hover:shadow-[0_12px_40px_rgba(239,68,68,0.35)]"
         >
           {/* icon */}
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/15">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/15">
             <Siren size={18} className="text-white" />
           </div>
 

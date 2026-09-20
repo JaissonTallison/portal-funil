@@ -18,12 +18,12 @@ export function DiaEspecial() {
   return (
     <section className="px-4 pb-2 pt-4 md:px-6">
       <div className="mx-auto max-w-[1440px]">
-        <div className="overflow-hidden rounded-[28px] border border-gold/15 bg-navy">
+        <div className="overflow-hidden rounded-[12px] border border-gold/15 bg-navy">
           <div className="flex flex-col gap-4 px-5 py-4 md:flex-row md:items-center md:gap-6 md:px-6">
 
             {/* LABEL */}
             <div className="flex shrink-0 items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold/10">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10">
                 <CalendarDays size={16} className="text-gold" />
               </div>
               <div>
@@ -42,7 +42,7 @@ export function DiaEspecial() {
               {dates.map((d) => (
                 <div
                   key={d.id}
-                  className="flex items-center gap-2 rounded-2xl border border-white/8 bg-white/5 px-3 py-2 transition hover:bg-white/10"
+                  className="flex items-center gap-2 rounded-xl border border-white/8 bg-white/5 px-3 py-2 transition hover:bg-white/10"
                 >
                   <span className="text-xl">{d.emoji}</span>
                   <div>
@@ -56,7 +56,7 @@ export function DiaEspecial() {
             {/* CTA */}
             <Link
               href="/agenda"
-              className="shrink-0 self-start rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold text-white/60 transition hover:bg-white/10 hover:text-white md:self-auto"
+              className="shrink-0 self-start rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold text-white/60 transition hover:bg-white/10 hover:text-white md:self-auto"
             >
               Ver agenda →
             </Link>

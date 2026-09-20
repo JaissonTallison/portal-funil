@@ -81,14 +81,14 @@ export default function AssinarPage() {
           <div className="mt-12 flex flex-wrap justify-center gap-4">
             <a
               href="#planos"
-              className="flex items-center gap-2 rounded-2xl bg-gold px-8 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5"
+              className="flex items-center gap-2 rounded-xl bg-gold px-8 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5"
             >
               Ver planos
               <ArrowUpRight size={16} />
             </a>
             <a
               href="#funcionalidades"
-              className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+              className="rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
             >
               Saiba mais
             </a>
@@ -116,9 +116,9 @@ export default function AssinarPage() {
             {proFeatures.map(({ icon: Icon, text }) => (
               <div
                 key={text}
-                className="flex items-start gap-4 rounded-[28px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.05)]"
+                className="flex items-start gap-4 rounded-[12px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.05)]"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold/10">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gold/10">
                   <Icon size={22} className="text-gold-dark" />
                 </div>
                 <p className="mt-1 font-semibold leading-relaxed text-navy">
@@ -166,7 +166,7 @@ export default function AssinarPage() {
             {faq.map(({ q, a }) => (
               <div
                 key={q}
-                className="overflow-hidden rounded-[28px] border border-black/5 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.04)]"
+                className="overflow-hidden rounded-[12px] border border-black/5 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.04)]"
               >
                 <h3 className="text-lg font-black text-navy">{q}</h3>
                 <p className="mt-4 leading-relaxed text-slate-500">{a}</p>
@@ -179,7 +179,7 @@ export default function AssinarPage() {
       {/* FINAL CTA */}
       <section className="px-6 pb-20">
         <div className="mx-auto max-w-4xl">
-          <div className="relative overflow-hidden rounded-[40px] bg-navy p-14 text-center">
+          <div className="relative overflow-hidden rounded-[16px] bg-navy p-14 text-center">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="h-[400px] w-[400px] rounded-full bg-gold/6 blur-[120px]" />
             </div>
@@ -193,7 +193,7 @@ export default function AssinarPage() {
                 7 dias de Portal Funil Pro sem cobrar nada. Cancele antes do
                 período acabar e não paga um centavo.
               </p>
-              <button className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-gold px-5 sm:px-10 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5">
+              <button className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gold px-5 sm:px-10 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5">
                 Iniciar 7 dias grátis
                 <ArrowUpRight size={16} />
               </button>

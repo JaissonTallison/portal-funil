@@ -50,7 +50,7 @@ export default function SugestaoPautaPage() {
             <ArrowLeft size={14} /> Voltar para Central de Denúncias
           </Link>
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/15">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/15">
               <FileText size={22} className="text-blue-400" />
             </div>
             <span className="text-xs font-black uppercase tracking-[0.35em] text-blue-400">SUGESTÃO DE PAUTA</span>
@@ -67,7 +67,7 @@ export default function SugestaoPautaPage() {
       <section className="px-6 py-14">
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
-            <div className="rounded-[40px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
+            <div className="rounded-[16px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
 
               {protocol ? (
                 <div className="flex flex-col items-center py-8 text-center">
@@ -76,7 +76,7 @@ export default function SugestaoPautaPage() {
                   </div>
                   <h2 className="mt-6 text-2xl font-black">Sugestão enviada!</h2>
                   <p className="mt-2 text-slate-500">Nossa redação irá analisar sua pauta em até 48 horas.</p>
-                  <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 px-8 py-4">
+                  <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 px-8 py-4">
                     <p className="text-xs font-black uppercase tracking-widest text-slate-400">Protocolo</p>
                     <p className="mt-1 font-mono text-2xl font-black text-navy">{protocol}</p>
                   </div>
@@ -92,22 +92,22 @@ export default function SugestaoPautaPage() {
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <div>
                         <label className="mb-2 block text-sm font-semibold">Seu nome</label>
-                        <input value={form.name} onChange={(e) => update("name", e.target.value)} type="text" placeholder="Nome completo" className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
+                        <input value={form.name} onChange={(e) => update("name", e.target.value)} type="text" placeholder="Nome completo" className="h-[52px] w-full rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
                       </div>
                       <div>
                         <label className="mb-2 block text-sm font-semibold">E-mail</label>
-                        <input value={form.email} onChange={(e) => update("email", e.target.value)} type="email" placeholder="seu@email.com" className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
+                        <input value={form.email} onChange={(e) => update("email", e.target.value)} type="email" placeholder="seu@email.com" className="h-[52px] w-full rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white" />
                       </div>
                     </div>
 
                     <div>
                       <label className="mb-2 block text-sm font-semibold">Descreva a pauta *</label>
-                      <textarea value={form.description} onChange={(e) => update("description", e.target.value)} rows={6} placeholder="Conte o que aconteceu, onde, quando, e quem são os personagens envolvidos..." className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white resize-none" />
+                      <textarea value={form.description} onChange={(e) => update("description", e.target.value)} rows={6} placeholder="Conte o que aconteceu, onde, quando, e quem são os personagens envolvidos..." className="w-full rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white resize-none" />
                     </div>
 
-                    {error && <p className="rounded-2xl border border-red-200 bg-red-50 px-5 py-3 text-sm text-red-700">{error}</p>}
+                    {error && <p className="rounded-xl border border-red-200 bg-red-50 px-5 py-3 text-sm text-red-700">{error}</p>}
 
-                    <button type="submit" disabled={submitting} className="flex w-full items-center justify-center gap-2 rounded-2xl bg-blue-600 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-blue-700 disabled:opacity-60">
+                    <button type="submit" disabled={submitting} className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-blue-700 disabled:opacity-60">
                       {submitting ? "Enviando..." : <><span>Enviar sugestão</span> <ArrowUpRight size={16} /></>}
                     </button>
                   </form>
@@ -116,8 +116,8 @@ export default function SugestaoPautaPage() {
             </div>
 
             <div className="space-y-4">
-              <div className="rounded-[28px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-50">
+              <div className="rounded-[12px] border border-black/5 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50">
                   <Lightbulb size={18} className="text-blue-600" />
                 </div>
                 <h3 className="mt-4 font-black">Uma boa pauta tem</h3>
@@ -129,7 +129,7 @@ export default function SugestaoPautaPage() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-[28px] bg-navy p-7">
+              <div className="rounded-[12px] bg-navy p-7">
                 <span className="text-[10px] font-black uppercase tracking-widest text-gold">RETORNO</span>
                 <p className="mt-3 text-sm text-zinc-400">
                   Analisamos todas as sugestões e retornamos por e-mail em até <strong className="text-white">48 horas</strong>.

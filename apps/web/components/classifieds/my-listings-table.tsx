@@ -78,21 +78,21 @@ export function MyListingsTable() {
     <div className="space-y-8">
       {/* STATS */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <div className="rounded-[24px] border border-black/5 bg-white px-5 py-4 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
+        <div className="rounded-[12px] border border-black/5 bg-white px-5 py-4 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
           <div className="text-2xl font-black text-navy">{myListings.length}</div>
           <div className="mt-0.5 text-xs text-slate-400">Total de anúncios</div>
         </div>
-        <div className="rounded-[24px] border border-black/5 bg-white px-5 py-4 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
+        <div className="rounded-[12px] border border-black/5 bg-white px-5 py-4 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
           <div className="text-2xl font-black text-emerald-600">{activeCount}</div>
           <div className="mt-0.5 text-xs text-slate-400">Ativos</div>
         </div>
-        <div className="rounded-[24px] border border-black/5 bg-white px-5 py-4 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
+        <div className="rounded-[12px] border border-black/5 bg-white px-5 py-4 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
           <div className="text-2xl font-black text-navy">{totalViews.toLocaleString("pt-BR")}</div>
           <div className="mt-0.5 text-xs text-slate-400">Visualizações</div>
         </div>
         <Link
           href="/classificados/novo"
-          className="flex items-center justify-center gap-2 rounded-[24px] bg-gold px-5 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
+          className="flex items-center justify-center gap-2 rounded-[12px] bg-gold px-5 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
         >
           <Plus size={18} />
           Novo anúncio
@@ -102,7 +102,7 @@ export function MyListingsTable() {
       {/* LISTINGS */}
       <div className="space-y-4">
         {myListings.length === 0 ? (
-          <div className="flex flex-col items-center justify-center rounded-[32px] border border-black/5 bg-white px-8 py-16 text-center">
+          <div className="flex flex-col items-center justify-center rounded-[14px] border border-black/5 bg-white px-8 py-16 text-center">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-slate-100">
               <Plus size={28} className="text-slate-300" />
             </div>
@@ -110,7 +110,7 @@ export function MyListingsTable() {
             <p className="mt-2 text-sm text-slate-400">Crie seu primeiro anúncio e comece a vender.</p>
             <Link
               href="/classificados/novo"
-              className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-navy px-5 py-3 text-sm font-black text-white transition hover:bg-cobalt"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-navy px-5 py-3 text-sm font-black text-white transition hover:bg-cobalt"
             >
               <Plus size={15} />
               Criar anúncio
@@ -123,10 +123,10 @@ export function MyListingsTable() {
             return (
               <div
                 key={listing.id}
-                className="group relative flex flex-col gap-4 overflow-hidden rounded-[28px] border border-black/5 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition hover:shadow-[0_12px_40px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center"
+                className="group relative flex flex-col gap-4 overflow-hidden rounded-[12px] border border-black/5 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition hover:shadow-[0_12px_40px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center"
               >
                 {/* IMAGE */}
-                <div className="relative h-[100px] w-full shrink-0 overflow-hidden rounded-[20px] bg-slate-100 sm:w-[140px]">
+                <div className="relative h-[100px] w-full shrink-0 overflow-hidden rounded-[10px] bg-slate-100 sm:w-[140px]">
                   {coverImage ? (
                     <Image
                       src={coverImage}
@@ -170,13 +170,13 @@ export function MyListingsTable() {
                 <div className="flex items-center gap-2 sm:shrink-0">
                   <Link
                     href={`/classificados/${listing.id}`}
-                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-navy"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-navy"
                     title="Ver anúncio"
                   >
                     <Eye size={15} />
                   </Link>
                   <button
-                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-navy"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-navy"
                     title="Editar"
                     disabled
                   >
@@ -184,14 +184,14 @@ export function MyListingsTable() {
                   </button>
                   <button
                     onClick={() => toggleStatus(listing)}
-                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-navy"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-navy"
                     title={listing.status === "ACTIVE" ? "Pausar" : "Ativar"}
                   >
                     {listing.status === "ACTIVE" ? <Pause size={15} /> : <Play size={15} />}
                   </button>
                   <button
                     onClick={() => removeListing(listing.id)}
-                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-red-100 text-red-400 transition hover:border-red-200 hover:bg-red-50 hover:text-red-600"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-red-100 text-red-400 transition hover:border-red-200 hover:bg-red-50 hover:text-red-600"
                     title="Excluir"
                   >
                     <Trash2 size={15} />

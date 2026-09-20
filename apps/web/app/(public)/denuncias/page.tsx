@@ -98,7 +98,7 @@ export default function DenunciasPage() {
 
         <div className="relative z-10 mx-auto max-w-[1440px]">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
               <MessageCircle size={22} className="text-gold" />
             </div>
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">
@@ -118,7 +118,7 @@ export default function DenunciasPage() {
 
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {stats.map((s) => (
-              <div key={s.label} className="rounded-2xl border border-white/8 bg-white/5 px-5 py-4">
+              <div key={s.label} className="rounded-xl border border-white/8 bg-white/5 px-5 py-4">
                 <div className="text-3xl font-black text-gold">{s.value}</div>
                 <div className="mt-1 text-sm text-zinc-400">{s.label}</div>
               </div>
@@ -144,9 +144,9 @@ export default function DenunciasPage() {
               <Link
                 key={title}
                 href={href}
-                className={`group flex flex-col overflow-hidden rounded-[32px] border ${border} bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.10)]`}
+                className={`group flex flex-col overflow-hidden rounded-[14px] border ${border} bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.10)]`}
               >
-                <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${bg}`}>
+                <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${bg}`}>
                   <Icon size={22} className={color} />
                 </div>
                 <h3 className="mt-6 text-xl font-black text-navy">{title}</h3>
@@ -164,7 +164,7 @@ export default function DenunciasPage() {
       {/* CTA WHATSAPP */}
       <section className="px-6 pb-20">
         <div className="mx-auto max-w-[1440px]">
-          <div className="relative overflow-hidden rounded-[40px] bg-navy p-12">
+          <div className="relative overflow-hidden rounded-[16px] bg-navy p-12">
             <div className="absolute left-[-60px] top-[-60px] h-[240px] w-[240px] rounded-full bg-gold/8 blur-[100px]" />
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-8">
               <div className="max-w-lg">
@@ -174,11 +174,11 @@ export default function DenunciasPage() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <a href="https://wa.me/5592999990000" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-2xl bg-emerald-500 px-6 py-4 text-sm font-black text-white transition hover:bg-emerald-600">
+                  className="flex items-center gap-3 rounded-xl bg-emerald-500 px-6 py-4 text-sm font-black text-white transition hover:bg-emerald-600">
                   <Send size={16} /> WhatsApp
                 </a>
                 <a href="mailto:redacao@funildenoticias.com.br"
-                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
+                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
                   E-mail
                 </a>
               </div>

@@ -11,12 +11,12 @@ export const HERO_SLIDES = [
     description: "Relatório aponta que facções reinvestem o lucro do tráfico no garimpo ilegal, aproveitando aviões e pistas clandestinas da região.",
   },
   {
-    slug: "gonet-diz-que-relacao-com-vorcaro-foi-brevissima-e-banal-apos-foto-com-charuto-vir-a-publico",
-    image: "/noticias/gonet-vorcaro-charuto.png",
+    slug: "moraes-e-viviane-usaram-jatinho-de-vorcaro-em-2025-diz-jornal",
+    image: "/noticias/moraes-viviane-jatinho-vorcaro.png",
     category: "POLÍTICA",
-    label: "PGR",
-    title: "Gonet diz que relação com Vorcaro foi “brevíssima e banal” após foto com charuto vir a público.",
-    description: "Imagem extraída do celular do ex-banqueiro pela PF mostra o procurador-geral em evento em Londres, em abril de 2024.",
+    label: "STF",
+    title: "Moraes e Viviane usaram jatinho de Vorcaro em 2025, diz jornal.",
+    description: "Voo de 22 de agosto de 2025 foi registrado em vídeo obtido pelo O Globo. O escritório de Viviane diz que Vorcaro não esteve nos voos.",
   },
   {
     slug: "flavio-e-lula-levam-campanhas-a-santa-catarina-em-situacoes-opostas",
@@ -25,6 +25,14 @@ export const HERO_SLIDES = [
     label: "Santa Catarina",
     title: "Flávio e Lula levam campanhas a Santa Catarina em situações opostas.",
     description: "Pesquisa mostra Flávio com 52% e Lula com 26% no primeiro turno no estado. Os dois têm agenda neste sábado (19).",
+  },
+  {
+    slug: "manaus-abre-semana-nacional-de-transito-com-acoes-gratuitas-nesta-segunda-feira",
+    image: "/noticias/semana-nacional-transito-manaus.png",
+    category: "TRÂNSITO",
+    label: "Manaus",
+    title: "Manaus abre Semana Nacional de Trânsito com ações gratuitas nesta segunda-feira.",
+    description: "Abertura às 9h, no mirante Lúcia Almeida. Programação de educação e segurança segue até sábado (26).",
   },
 ];
 

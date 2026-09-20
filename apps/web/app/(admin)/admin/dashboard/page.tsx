@@ -37,7 +37,7 @@ function PendingBadge({ count, label, href }: { count: number; label: string; hr
   return (
     <Link
       href={href}
-      className="flex items-center justify-between rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 transition hover:bg-amber-100"
+      className="flex items-center justify-between rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 transition hover:bg-amber-100"
     >
       <div className="flex items-center gap-2">
         <AlertTriangle size={14} className="text-amber-600" />
@@ -137,7 +137,7 @@ export default function DashboardPage() {
           <p className="mt-1 text-sm text-slate-500">Visão operacional em tempo real</p>
         </div>
         {pendingTotal > 0 && (
-          <div className="flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2">
+          <div className="flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2">
             <AlertTriangle size={14} className="text-amber-600" />
             <span className="text-sm font-bold text-amber-700">{pendingTotal} item(s) aguardam ação</span>
           </div>
@@ -157,10 +157,10 @@ export default function DashboardPage() {
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {cards.map((c) => {
           const inner = (
-            <div className={`rounded-[20px] border bg-white p-5 shadow-sm transition hover:shadow-md ${
+            <div className={`rounded-[10px] border bg-white p-5 shadow-sm transition hover:shadow-md ${
               c.urgent ? "border-amber-300 bg-amber-50/50" : "border-slate-200"
             }`}>
-              <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${c.bg}`}>
+              <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg ${c.bg}`}>
                 <c.icon size={18} className={c.color} />
               </div>
               <div className={`text-3xl font-black ${c.urgent ? "text-amber-700" : "text-cobalt"}`}>
@@ -179,7 +179,7 @@ export default function DashboardPage() {
       </div>
 
       {/* ARTIGOS RECENTES */}
-      <div className="rounded-[20px] border border-slate-200 bg-white shadow-sm">
+      <div className="rounded-[10px] border border-slate-200 bg-white shadow-sm">
         <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
           <div className="flex items-center gap-2">
             <TrendingUp size={16} className="text-cobalt" />

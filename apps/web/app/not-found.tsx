@@ -37,7 +37,7 @@ export default function NotFound() {
         <div className="mt-12 flex flex-wrap justify-center gap-4">
           <Link
             href="/"
-            className="flex items-center gap-2 rounded-2xl bg-gold px-7 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5"
+            className="flex items-center gap-2 rounded-xl bg-gold px-7 py-4 text-sm font-black uppercase tracking-wide text-navy transition hover:-translate-y-0.5"
           >
             <Home size={16} />
             Ir para home
@@ -45,7 +45,7 @@ export default function NotFound() {
 
           <Link
             href="/noticias"
-            className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+            className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
           >
             <Newspaper size={16} />
             Ver notícias
@@ -53,7 +53,7 @@ export default function NotFound() {
 
           <Link
             href="/ao-vivo"
-            className="flex items-center gap-2 rounded-2xl border border-red-500/20 bg-red-500/10 px-7 py-4 text-sm font-semibold text-red-400 transition hover:bg-red-500/20"
+            className="flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-7 py-4 text-sm font-semibold text-red-400 transition hover:bg-red-500/20"
           >
             <Radio size={16} className="animate-pulse" />
             Ao vivo

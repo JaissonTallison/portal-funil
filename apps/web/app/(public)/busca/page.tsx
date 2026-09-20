@@ -92,12 +92,12 @@ function BuscaContent() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Busque notícias, eventos, classificados..."
-                className="w-full rounded-2xl border border-white/10 bg-white/10 py-3 pl-10 pr-4 text-sm text-white placeholder-slate-400 outline-none focus:border-gold"
+                className="w-full rounded-xl border border-white/10 bg-white/10 py-3 pl-10 pr-4 text-sm text-white placeholder-slate-400 outline-none focus:border-gold"
               />
             </div>
             <button
               type="submit"
-              className="rounded-2xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:bg-gold-hover"
+              className="rounded-xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:bg-gold-hover"
             >
               Buscar
             </button>
@@ -119,7 +119,7 @@ function BuscaContent() {
               <button
                 key={t.key}
                 onClick={() => setTab(t.key)}
-                className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold transition ${
+                className={`flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold transition ${
                   tab === t.key ? "bg-navy text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-navy/20"
                 }`}
               >
@@ -140,7 +140,7 @@ function BuscaContent() {
         )}
 
         {!loading && q && results.total === 0 && (
-          <div className="rounded-[20px] border border-slate-200 bg-white px-6 py-16 text-center">
+          <div className="rounded-[10px] border border-slate-200 bg-white px-6 py-16 text-center">
             <Search size={40} className="mx-auto mb-3 text-slate-300" />
             <p className="text-base font-bold text-navy">Nenhum resultado encontrado</p>
             <p className="mt-1 text-sm text-slate-400">Tente palavras-chave diferentes</p>
@@ -148,7 +148,7 @@ function BuscaContent() {
         )}
 
         {!loading && !q && (
-          <div className="rounded-[20px] border border-slate-200 bg-white px-6 py-16 text-center">
+          <div className="rounded-[10px] border border-slate-200 bg-white px-6 py-16 text-center">
             <Search size={40} className="mx-auto mb-3 text-slate-300" />
             <p className="text-base font-bold text-navy">Digite algo para buscar</p>
             <p className="mt-1 text-sm text-slate-400">Pesquise em notícias, eventos e classificados</p>
@@ -166,9 +166,9 @@ function BuscaContent() {
                 <Link
                   key={a.id}
                   href={`/noticias/${a.slug}`}
-                  className="flex gap-4 rounded-[20px] border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  className="flex gap-4 rounded-[10px] border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                  <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-slate-100">
                     <Image src={a.image} alt={a.title} fill className="object-cover" />
                   </div>
                   <div className="min-w-0">
@@ -193,9 +193,9 @@ function BuscaContent() {
                 <Link
                   key={e.id}
                   href={`/agenda/${e.slug}`}
-                  className="flex gap-4 rounded-[20px] border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  className="flex gap-4 rounded-[10px] border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                  <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-slate-100">
                     <Image src={e.image} alt={e.title} fill className="object-cover" />
                   </div>
                   <div className="min-w-0">
@@ -222,9 +222,9 @@ function BuscaContent() {
                 <Link
                   key={l.id}
                   href={`/classificados/${l.id}`}
-                  className="flex gap-4 rounded-[20px] border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  className="flex gap-4 rounded-[10px] border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                  <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-slate-100">
                     {l.images?.[0] ? (
                       <Image src={l.images[0]} alt={l.title} fill className="object-cover" />
                     ) : (

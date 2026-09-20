@@ -109,7 +109,7 @@ export function ListingForm() {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center rounded-[40px] border border-black/5 bg-white px-8 py-12 sm:py-16 lg:py-20 text-center shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+      <div className="flex flex-col items-center justify-center rounded-[16px] border border-black/5 bg-white px-8 py-12 sm:py-16 lg:py-20 text-center shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50">
           <Check size={36} className="text-emerald-500" />
         </div>
@@ -119,7 +119,7 @@ export function ListingForm() {
         </p>
         <Link
           href="/classificados"
-          className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-navy px-6 py-3.5 text-sm font-black text-white transition hover:bg-cobalt"
+          className="mt-8 inline-flex items-center gap-2 rounded-xl bg-navy px-6 py-3.5 text-sm font-black text-white transition hover:bg-cobalt"
         >
           Ver classificados
         </Link>
@@ -128,7 +128,7 @@ export function ListingForm() {
   }
 
   return (
-    <div className="overflow-hidden rounded-[40px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+    <div className="overflow-hidden rounded-[16px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
       {/* PROGRESS */}
       <div className="border-b border-slate-100 px-8 py-6">
         <div className="flex items-center justify-between">
@@ -140,7 +140,7 @@ export function ListingForm() {
               <div key={s.num} className="flex flex-1 items-center">
                 <div className="flex items-center gap-3">
                   <div
-                    className={`flex h-10 w-10 items-center justify-center rounded-2xl transition ${
+                    className={`flex h-10 w-10 items-center justify-center rounded-xl transition ${
                       isActive
                         ? "bg-gold text-navy"
                         : isDone
@@ -170,7 +170,7 @@ export function ListingForm() {
 
       {/* AUTH WARNING */}
       {!user && (
-        <div className="mx-8 mt-6 flex items-center gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4">
+        <div className="mx-8 mt-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4">
           <AlertCircle size={18} className="shrink-0 text-amber-500" />
           <p className="text-sm text-amber-700">
             Você precisa estar{" "}
@@ -188,7 +188,7 @@ export function ListingForm() {
           <div className="space-y-6">
             <div>
               <label className="mb-2 block text-sm font-bold text-navy">Título do anúncio</label>
-              <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
                 <Type size={16} className="shrink-0 text-slate-400" />
                 <input
                   type="text"
@@ -207,7 +207,7 @@ export function ListingForm() {
                 onChange={(e) => update("description", e.target.value)}
                 placeholder="Descreva seu anúncio com detalhes: estado, condições, o que está incluso..."
                 rows={5}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/40 focus:bg-white"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/40 focus:bg-white"
               />
             </div>
 
@@ -217,7 +217,7 @@ export function ListingForm() {
                 <select
                   value={form.category}
                   onChange={(e) => update("category", e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-navy outline-none focus:border-gold/40 focus:bg-white"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-navy outline-none focus:border-gold/40 focus:bg-white"
                 >
                   <option value="">Selecione...</option>
                   {LISTING_CATEGORIES.map((c) => (
@@ -231,7 +231,7 @@ export function ListingForm() {
                 <select
                   value={form.type}
                   onChange={(e) => update("type", e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-navy outline-none focus:border-gold/40 focus:bg-white"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-navy outline-none focus:border-gold/40 focus:bg-white"
                 >
                   <option value="">Selecione...</option>
                   {LISTING_TYPES.map((t) => (
@@ -243,7 +243,7 @@ export function ListingForm() {
 
             <div>
               <label className="mb-2 block text-sm font-bold text-navy">Preço</label>
-              <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
                 <span className="text-sm font-bold text-slate-400">R$</span>
                 <input
                   type="text"
@@ -279,7 +279,7 @@ export function ListingForm() {
                 {[1, 2, 3, 4, 5, 6].map((n) => (
                   <label
                     key={n}
-                    className="group flex h-[140px] cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 transition hover:border-gold/40 hover:bg-gold/5"
+                    className="group flex h-[140px] cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-slate-200 bg-slate-50 transition hover:border-gold/40 hover:bg-gold/5"
                   >
                     <ImagePlus size={24} className="text-slate-300 transition group-hover:text-gold-dark" />
                     <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400 group-hover:text-gold-dark">
@@ -302,14 +302,14 @@ export function ListingForm() {
                 value={form.name}
                 onChange={(e) => update("name", e.target.value)}
                 placeholder="Nome completo ou nome da empresa"
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/40 focus:bg-white"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/40 focus:bg-white"
               />
             </div>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label className="mb-2 block text-sm font-bold text-navy">Telefone</label>
-                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+                <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
                   <Phone size={15} className="shrink-0 text-slate-400" />
                   <input
                     type="tel"
@@ -323,7 +323,7 @@ export function ListingForm() {
 
               <div>
                 <label className="mb-2 block text-sm font-bold text-navy">WhatsApp</label>
-                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+                <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
                   <Phone size={15} className="shrink-0 text-slate-400" />
                   <input
                     type="tel"
@@ -338,7 +338,7 @@ export function ListingForm() {
 
             <div>
               <label className="mb-2 block text-sm font-bold text-navy">E-mail</label>
-              <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
                 <Mail size={15} className="shrink-0 text-slate-400" />
                 <input
                   type="email"
@@ -352,7 +352,7 @@ export function ListingForm() {
 
             <div>
               <label className="mb-2 block text-sm font-bold text-navy">Localização</label>
-              <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
+              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-gold/40 focus-within:bg-white">
                 <MapPin size={15} className="shrink-0 text-slate-400" />
                 <input
                   type="text"
@@ -369,7 +369,7 @@ export function ListingForm() {
 
       {/* ERROR */}
       {error && (
-        <div className="mx-8 mb-2 flex items-center gap-3 rounded-2xl border border-red-200 bg-red-50 px-5 py-4">
+        <div className="mx-8 mb-2 flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-5 py-4">
           <AlertCircle size={16} className="shrink-0 text-red-500" />
           <p className="text-sm text-red-700">{error}</p>
         </div>
@@ -380,7 +380,7 @@ export function ListingForm() {
         {step > 1 ? (
           <button
             onClick={() => setStep((s) => (s - 1) as Step)}
-            className="flex items-center gap-2 rounded-2xl border border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 transition hover:bg-slate-50"
+            className="flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 transition hover:bg-slate-50"
           >
             <ArrowLeft size={15} />
             Voltar
@@ -392,7 +392,7 @@ export function ListingForm() {
         {step < 3 ? (
           <button
             onClick={() => setStep((s) => (s + 1) as Step)}
-            className="flex items-center gap-2 rounded-2xl bg-navy px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt"
+            className="flex items-center gap-2 rounded-xl bg-navy px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt"
           >
             Próximo
             <ArrowRight size={15} />
@@ -401,7 +401,7 @@ export function ListingForm() {
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="flex items-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:bg-gold-hover disabled:opacity-60"
+            className="flex items-center gap-2 rounded-xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:bg-gold-hover disabled:opacity-60"
           >
             <Send size={15} />
             {submitting ? "Publicando..." : "Publicar anúncio"}

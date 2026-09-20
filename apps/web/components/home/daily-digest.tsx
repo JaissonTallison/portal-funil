@@ -29,12 +29,12 @@ export async function DailyDigest() {
   return (
     <section className="px-6 pb-6 pt-6">
       <div className="mx-auto max-w-[1440px]">
-        <div className="overflow-hidden rounded-[32px] border border-black/5 bg-white p-6 shadow-[0_10px_40px_rgba(15,23,42,0.06)] md:p-8">
+        <div className="overflow-hidden rounded-[14px] border border-black/5 bg-white p-6 shadow-[0_10px_40px_rgba(15,23,42,0.06)] md:p-8">
           <div className="flex flex-wrap items-start justify-between gap-4">
             {/* HEADER + BULLETS */}
             <div className="flex-1">
               <div className="flex items-center gap-2.5">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold/10">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10">
                   <Sparkles size={16} className="text-gold-dark" />
                 </div>
                 <div className="flex items-center gap-2">

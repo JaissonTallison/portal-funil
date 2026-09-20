@@ -118,7 +118,7 @@ export default function AdminDenunciasPage() {
       <div className="mb-6 flex flex-wrap gap-2">
         <button
           onClick={() => setStatusFilter("")}
-          className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${!statusFilter ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
+          className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${!statusFilter ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
         >
           Todos
         </button>
@@ -126,7 +126,7 @@ export default function AdminDenunciasPage() {
           <button
             key={s}
             onClick={() => setStatusFilter(s)}
-            className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${statusFilter === s ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
+            className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${statusFilter === s ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
           >
             {STATUS_CONFIG[s]?.label ?? s}
           </button>
@@ -136,7 +136,7 @@ export default function AdminDenunciasPage() {
       <div className="mb-4 flex flex-wrap gap-2">
         <button
           onClick={() => setTypeFilter("")}
-          className={`rounded-xl px-3 py-1.5 text-xs font-semibold transition ${!typeFilter ? "bg-slate-700 text-white" : "border border-slate-200 bg-white text-slate-600"}`}
+          className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${!typeFilter ? "bg-slate-700 text-white" : "border border-slate-200 bg-white text-slate-600"}`}
         >
           Tipo: Todos
         </button>
@@ -144,7 +144,7 @@ export default function AdminDenunciasPage() {
           <button
             key={k}
             onClick={() => setTypeFilter(k)}
-            className={`rounded-xl px-3 py-1.5 text-xs font-semibold transition ${typeFilter === k ? "bg-slate-700 text-white" : "border border-slate-200 bg-white text-slate-600"}`}
+            className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${typeFilter === k ? "bg-slate-700 text-white" : "border border-slate-200 bg-white text-slate-600"}`}
           >
             {v}
           </button>
@@ -152,7 +152,7 @@ export default function AdminDenunciasPage() {
       </div>
 
       {/* TABLE */}
-      <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
             <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
@@ -194,7 +194,7 @@ export default function AdminDenunciasPage() {
                     <td className="px-5 py-4 text-right">
                       <button
                         onClick={() => openDetail(r)}
-                        className="rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-semibold text-cobalt transition hover:bg-cobalt hover:text-white"
+                        className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-cobalt transition hover:bg-cobalt hover:text-white"
                       >
                         Gerenciar
                       </button>
@@ -210,7 +210,7 @@ export default function AdminDenunciasPage() {
       {/* DETAIL MODAL */}
       {detail.open && detail.report && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-          <div className="w-full max-w-lg rounded-[24px] bg-white p-6 shadow-2xl">
+          <div className="w-full max-w-lg rounded-[12px] bg-white p-6 shadow-2xl">
             <div className="mb-4 flex items-start justify-between">
               <div>
                 <div className="flex items-center gap-2">
@@ -230,7 +230,7 @@ export default function AdminDenunciasPage() {
               </button>
             </div>
 
-            <div className="mb-4 rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
+            <div className="mb-4 rounded-lg bg-slate-50 p-4 text-sm text-slate-700">
               <p className="font-semibold text-cobalt">Descrição</p>
               <p className="mt-1 leading-relaxed">{detail.report.description}</p>
               {detail.report.location && (
@@ -252,7 +252,7 @@ export default function AdminDenunciasPage() {
                 value={detail.notes}
                 onChange={(e) => setDetail((d) => ({ ...d, notes: e.target.value }))}
                 rows={3}
-                className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-cobalt outline-none focus:border-cobalt"
+                className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-cobalt outline-none focus:border-cobalt"
                 placeholder="Observações sobre a apuração..."
               />
             </div>
@@ -263,7 +263,7 @@ export default function AdminDenunciasPage() {
                 <select
                   value={detail.nextStatus}
                   onChange={(e) => setDetail((d) => ({ ...d, nextStatus: e.target.value }))}
-                  className="w-full appearance-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-cobalt outline-none focus:border-cobalt"
+                  className="w-full appearance-none rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-cobalt outline-none focus:border-cobalt"
                 >
                   {(NEXT_STATUSES[detail.report.status] ?? []).map((s) => (
                     <option key={s} value={s}>{STATUS_CONFIG[s]?.label ?? s}</option>
@@ -276,14 +276,14 @@ export default function AdminDenunciasPage() {
             <div className="flex gap-3">
               <button
                 onClick={() => setDetail((d) => ({ ...d, open: false }))}
-                className="flex-1 rounded-xl border border-slate-200 py-2.5 text-sm font-semibold text-slate-600 transition hover:bg-slate-50"
+                className="flex-1 rounded-lg border border-slate-200 py-2.5 text-sm font-semibold text-slate-600 transition hover:bg-slate-50"
               >
                 Cancelar
               </button>
               <button
                 onClick={saveStatus}
                 disabled={saving}
-                className="flex-1 rounded-xl bg-cobalt py-2.5 text-sm font-bold text-white transition hover:bg-cobalt disabled:opacity-50"
+                className="flex-1 rounded-lg bg-cobalt py-2.5 text-sm font-bold text-white transition hover:bg-cobalt disabled:opacity-50"
               >
                 {saving ? "Salvando..." : "Salvar"}
               </button>

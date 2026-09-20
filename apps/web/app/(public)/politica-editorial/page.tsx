@@ -65,8 +65,8 @@ export default function PoliticaEditorialPage() {
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {principles.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="rounded-[32px] border border-black/5 bg-white p-9 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+              <div key={title} className="rounded-[14px] border border-black/5 bg-white p-9 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
                   <Icon size={22} className="text-gold-dark" />
                 </div>
                 <h3 className="mt-6 text-2xl font-black">{title}</h3>
@@ -80,7 +80,7 @@ export default function PoliticaEditorialPage() {
       {/* CORRECTIONS */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-[1440px]">
-          <div className="overflow-hidden rounded-[40px] bg-navy p-12">
+          <div className="overflow-hidden rounded-[16px] bg-navy p-12">
             <div className="relative z-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
               <div>
                 <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">TRANSPARÊNCIA</span>
@@ -93,7 +93,7 @@ export default function PoliticaEditorialPage() {
                 </p>
                 <Link
                   href="/contato"
-                  className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-gold px-8 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5"
+                  className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gold px-8 py-4 text-sm font-black text-navy transition hover:-translate-y-0.5"
                 >
                   Contestar uma informação
                   <ArrowUpRight size={16} />
@@ -101,7 +101,7 @@ export default function PoliticaEditorialPage() {
               </div>
               <div className="space-y-4">
                 {corrections.map((item) => (
-                  <div key={item} className="flex items-start gap-4 rounded-2xl border border-white/8 bg-white/5 px-5 py-4">
+                  <div key={item} className="flex items-start gap-4 rounded-xl border border-white/8 bg-white/5 px-5 py-4">
                     <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-gold" />
                     <p className="text-sm leading-relaxed text-zinc-300">{item}</p>
                   </div>
@@ -119,7 +119,7 @@ export default function PoliticaEditorialPage() {
           <p className="mt-4 text-slate-500">Entre em contato com nossa ouvidoria.</p>
           <Link
             href="/contato"
-            className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-navy px-8 py-4 text-sm font-black text-white transition hover:bg-cobalt"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-navy px-8 py-4 text-sm font-black text-white transition hover:bg-cobalt"
           >
             Falar com a ouvidoria
             <ArrowUpRight size={16} />

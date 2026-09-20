@@ -77,7 +77,7 @@ function ClassificadosContent() {
           </div>
         </>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-[32px] border border-black/5 bg-white px-8 py-12 sm:py-16 lg:py-20 text-center">
+        <div className="flex flex-col items-center justify-center rounded-[14px] border border-black/5 bg-white px-8 py-12 sm:py-16 lg:py-20 text-center">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-slate-100">
             <ShoppingBag size={28} className="text-slate-300" />
           </div>
@@ -87,7 +87,7 @@ function ClassificadosContent() {
           </p>
           <Link
             href="/classificados"
-            className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-slate-200 px-5 py-3 text-sm font-bold text-navy transition hover:bg-slate-50"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-3 text-sm font-bold text-navy transition hover:bg-slate-50"
           >
             Limpar filtros
           </Link>
@@ -116,7 +116,7 @@ export default function ClassificadosPage() {
 
           <Link
             href="/classificados/novo"
-            className="flex items-center gap-2 rounded-2xl bg-gold px-6 py-3.5 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
+            className="flex items-center gap-2 rounded-xl bg-gold px-6 py-3.5 text-sm font-black text-navy transition hover:-translate-y-0.5 hover:bg-gold-hover"
           >
             <Plus size={16} />
             Anunciar grátis

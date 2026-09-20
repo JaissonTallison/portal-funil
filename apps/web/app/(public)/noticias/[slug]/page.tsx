@@ -151,10 +151,10 @@ export default async function ArticlePage({ params }: Props) {
       <section className="px-6 py-12">
         <div className="mx-auto max-w-4xl">
           {/* META */}
-          <div className="flex flex-wrap items-center justify-between gap-4 rounded-[28px] border border-black/5 bg-white p-6 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-[12px] border border-black/5 bg-white p-6 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
             <div className="flex flex-wrap gap-5 text-sm text-slate-500">
               <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gold/10">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold/10">
                   <span className="text-xs font-black text-gold-dark">
                     {article.author.charAt(0)}
                   </span>
@@ -178,7 +178,7 @@ export default async function ArticlePage({ params }: Props) {
               </span>
             </div>
 
-            <button className="flex items-center gap-2 rounded-2xl border border-black/5 bg-slate-50 px-5 py-2.5 text-sm font-semibold text-slate-600 transition hover:bg-slate-100">
+            <button className="flex items-center gap-2 rounded-xl border border-black/5 bg-slate-50 px-5 py-2.5 text-sm font-semibold text-slate-600 transition hover:bg-slate-100">
               <Share2 size={15} />
               Compartilhar
             </button>
@@ -200,8 +200,8 @@ export default async function ArticlePage({ params }: Props) {
 
           {/* ALERT BOX */}
           {article.isLive && (
-            <div className="mt-10 flex items-start gap-4 rounded-[28px] border border-gold/20 bg-navy p-7">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold/10">
+            <div className="mt-10 flex items-start gap-4 rounded-[12px] border border-gold/20 bg-navy p-7">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gold/10">
                 <TriangleAlert className="text-gold" size={20} />
               </div>
               <div>
@@ -236,7 +236,7 @@ export default async function ArticlePage({ params }: Props) {
 
             <Link
               href="/noticias"
-              className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 sm:flex"
+              className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 sm:flex"
             >
               Ver todas
             </Link>

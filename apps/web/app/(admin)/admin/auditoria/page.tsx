@@ -60,7 +60,7 @@ export default function AdminAuditoriaPage() {
           <h1 className="text-2xl font-black text-cobalt">Auditoria</h1>
           <p className="mt-1 text-sm text-slate-500">{total} registro(s)</p>
         </div>
-        <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2">
+        <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2">
           <ShieldCheck size={16} className="text-cobalt" />
           <span className="text-xs font-bold text-cobalt">Logs de atividade</span>
         </div>
@@ -70,7 +70,7 @@ export default function AdminAuditoriaPage() {
       <div className="mb-6 flex flex-wrap gap-2">
         <button
           onClick={() => { setEntityFilter(""); setOffset(0); }}
-          className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${!entityFilter ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
+          className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${!entityFilter ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
         >
           Todos
         </button>
@@ -78,14 +78,14 @@ export default function AdminAuditoriaPage() {
           <button
             key={e}
             onClick={() => { setEntityFilter(e); setOffset(0); }}
-            className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${entityFilter === e ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
+            className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${entityFilter === e ? "bg-cobalt text-white" : "border border-slate-200 bg-white text-slate-600 hover:border-cobalt/20"}`}
           >
             {e}
           </button>
         ))}
       </div>
 
-      <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
             <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
@@ -141,14 +141,14 @@ export default function AdminAuditoriaPage() {
             <button
               onClick={() => setOffset((o) => Math.max(0, o - LIMIT))}
               disabled={offset === 0}
-              className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-cobalt disabled:opacity-40"
+              className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-cobalt disabled:opacity-40"
             >
               Anterior
             </button>
             <button
               onClick={() => setOffset((o) => o + LIMIT)}
               disabled={offset + LIMIT >= total}
-              className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-cobalt disabled:opacity-40"
+              className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-cobalt disabled:opacity-40"
             >
               Próxima
             </button>

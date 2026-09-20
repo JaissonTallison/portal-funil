@@ -67,7 +67,7 @@ export async function PoliticsHub() {
 
           <Link
             href="/categoria/politica"
-            className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
+            className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
           >
             Cobertura completa
             <ArrowUpRight size={16} />
@@ -81,7 +81,7 @@ export async function PoliticsHub() {
           {featured && (
           <Link
             href={`/noticias/${featured.slug}`}
-            className="group relative overflow-hidden rounded-[40px] bg-navy p-6 sm:p-10 shadow-[0_20px_80px_rgba(2,6,23,0.2)] transition hover:-translate-y-1 block"
+            className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-[16px] bg-navy p-5 shadow-[0_20px_80px_rgba(2,6,23,0.2)] transition hover:-translate-y-1 sm:min-h-[460px] sm:p-10"
           >
             {/* foto */}
             <div className="pointer-events-none absolute inset-0">
@@ -91,28 +91,27 @@ export async function PoliticsHub() {
                 fill
                 className="object-cover transition duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-navy/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/75 via-35% to-transparent" />
+            </div>
+
+            <div className="absolute left-5 top-5 z-10 sm:left-10 sm:top-10 flex items-center gap-3">
+              <span className="rounded-full bg-gold px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-navy">
+                {getCategoryName(featured.category)}
+              </span>
+              {featured.isFeatured && (
+                <span className="flex items-center gap-1.5 rounded-full border border-gold/20 bg-gold/10 px-3 py-1.5 text-[10px] font-black text-gold">
+                  <TrendingUp size={10} />
+                  Destaque
+                </span>
+              )}
             </div>
 
             <div className="relative z-10">
-              <div className="flex items-center gap-3">
-                <span className="rounded-full bg-gold px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-navy">
-                  {getCategoryName(featured.category)}
-                </span>
-                {featured.isFeatured && (
-                  <span className="flex items-center gap-1.5 rounded-full border border-gold/20 bg-gold/10 px-3 py-1.5 text-[10px] font-black text-gold">
-                    <TrendingUp size={10} />
-                    Destaque
-                  </span>
-                )}
-              </div>
-
               <h3 className="mt-5 text-2xl font-black leading-tight tracking-[-0.04em] text-white transition group-hover:text-gold sm:mt-7 sm:text-3xl lg:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
                 {featured.title}
               </h3>
 
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-200 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
+              <p className="mt-3 line-clamp-3 max-w-2xl text-sm sm:mt-5 sm:line-clamp-none sm:text-base leading-relaxed text-zinc-200 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
                 {featured.description}
               </p>
 
@@ -135,10 +134,10 @@ export async function PoliticsHub() {
           )}
 
           {/* AGENDA POLÍTICA */}
-          <div className="overflow-hidden rounded-[36px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
+          <div className="overflow-hidden rounded-[16px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)]">
             <div className="border-b border-slate-100 px-7 py-5">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-navy">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy">
                   <Calendar size={16} className="text-gold" />
                 </div>
                 <div>
@@ -154,7 +153,7 @@ export async function PoliticsHub() {
               {agenda.map((item) => (
                 <div key={item.event} className="flex items-start gap-4 py-4">
                   {/* date badge */}
-                  <div className="flex w-[56px] shrink-0 flex-col items-center rounded-2xl bg-slate-50 py-2.5 text-center">
+                  <div className="flex w-[56px] shrink-0 flex-col items-center rounded-xl bg-slate-50 py-2.5 text-center">
                     <span className="text-[10px] font-black uppercase text-gold-dark">
                       {item.date}
                     </span>
@@ -181,11 +180,11 @@ export async function PoliticsHub() {
           {scopes.map(({ id, label, icon: Icon, color, bg, border, href, news }) => (
             <div
               key={id}
-              className="w-[88%] shrink-0 snap-center overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] sm:w-[60%] lg:w-auto lg:rounded-[36px]"
+              className="w-[88%] shrink-0 snap-center overflow-hidden rounded-[12px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] sm:w-[60%] lg:w-auto lg:rounded-[16px]"
             >
               {/* scope header */}
               <div className={`flex items-center gap-3 border-b ${border} bg-gradient-to-r from-slate-50 to-white px-6 py-5`}>
-                <div className={`flex h-10 w-10 items-center justify-center rounded-2xl ${bg}`}>
+                <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${bg}`}>
                   <Icon size={18} className={color} />
                 </div>
                 <div>
@@ -196,7 +195,7 @@ export async function PoliticsHub() {
                 </div>
                 <Link
                   href={href}
-                  className="ml-auto flex h-8 w-8 items-center justify-center rounded-xl border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-slate-600"
+                  className="ml-auto flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-400 transition hover:border-slate-300 hover:text-slate-600"
                 >
                   <ArrowUpRight size={14} />
                 </Link>
@@ -230,7 +229,7 @@ export async function PoliticsHub() {
               </div>
 
               {/* footer */}
-              <div className={`mx-5 mb-5 rounded-2xl ${bg} px-4 py-3`}>
+              <div className={`mx-5 mb-5 rounded-xl ${bg} px-4 py-3`}>
                 <Link
                   href={href}
                   className={`flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wide ${color}`}

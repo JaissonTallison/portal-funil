@@ -74,14 +74,14 @@ export default function NovoArtigoPage() {
   return (
     <div className="p-8">
       <div className="mb-6 flex items-center gap-4">
-        <Link href="/admin/artigos" className="rounded-xl p-2 text-slate-400 transition hover:bg-slate-100 hover:text-cobalt">
+        <Link href="/admin/artigos" className="rounded-lg p-2 text-slate-400 transition hover:bg-slate-100 hover:text-cobalt">
           <ArrowLeft size={18} />
         </Link>
         <h1 className="text-2xl font-black text-cobalt">Novo Artigo</h1>
       </div>
 
       <form onSubmit={handleSubmit} className="mx-auto max-w-3xl space-y-6">
-        <div className="rounded-[20px] border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-[10px] border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="mb-5 text-sm font-black uppercase tracking-wide text-slate-500">Informações principais</h2>
           <div className="space-y-4">
             <Field label="Título *">
@@ -135,18 +135,18 @@ export default function NovoArtigoPage() {
           </div>
         </div>
 
-        <div className="rounded-[20px] border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-[10px] border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="mb-5 text-sm font-black uppercase tracking-wide text-slate-500">Imagem destacada</h2>
           <div className="flex items-start gap-4">
             {imagePreview ? (
-              <img src={imagePreview} alt="" className="h-24 w-40 rounded-xl object-cover" />
+              <img src={imagePreview} alt="" className="h-24 w-40 rounded-lg object-cover" />
             ) : (
-              <div className="flex h-24 w-40 items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50 text-slate-400">
+              <div className="flex h-24 w-40 items-center justify-center rounded-lg border-2 border-dashed border-slate-200 bg-slate-50 text-slate-400">
                 <Upload size={20} />
               </div>
             )}
             <div className="space-y-2">
-              <label className="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50">
+              <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50">
                 <Upload size={14} />
                 Upload de arquivo
                 <input type="file" accept=".jpg,.jpeg,.png,.webp" onChange={handleImageUpload} className="hidden" />
@@ -163,7 +163,7 @@ export default function NovoArtigoPage() {
           </div>
         </div>
 
-        <div className="rounded-[20px] border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-[10px] border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="mb-5 text-sm font-black uppercase tracking-wide text-slate-500">Conteúdo</h2>
           <textarea
             value={form.content}
@@ -176,7 +176,7 @@ export default function NovoArtigoPage() {
           <p className="mt-2 text-xs text-slate-400">Separe os parágrafos com uma linha em branco.</p>
         </div>
 
-        <div className="rounded-[20px] border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-[10px] border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="mb-5 text-sm font-black uppercase tracking-wide text-slate-500">Configurações</h2>
           <div className="grid grid-cols-3 gap-4">
             <Toggle label="Ao vivo" checked={form.isLive} onChange={(v) => set("isLive", v)} />
@@ -199,17 +199,17 @@ export default function NovoArtigoPage() {
         </div>
 
         {error && (
-          <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</p>
+          <p className="rounded-lg bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</p>
         )}
 
         <div className="flex justify-end gap-3 pb-8">
-          <Link href="/admin/artigos" className="rounded-2xl border border-slate-200 px-6 py-3 text-sm font-bold text-slate-600 transition hover:bg-slate-50">
+          <Link href="/admin/artigos" className="rounded-xl border border-slate-200 px-6 py-3 text-sm font-bold text-slate-600 transition hover:bg-slate-50">
             Cancelar
           </Link>
           <button
             type="submit"
             disabled={saving}
-            className="flex items-center gap-2 rounded-2xl bg-cobalt px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt disabled:opacity-60"
+            className="flex items-center gap-2 rounded-xl bg-cobalt px-6 py-3 text-sm font-black text-white transition hover:bg-cobalt disabled:opacity-60"
           >
             {saving ? <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" /> : "Salvar rascunho"}
           </button>

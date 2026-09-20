@@ -11,9 +11,9 @@ export function FloatingLiveCards() {
   return (
     <>
       {/* TOP RIGHT */}
-      <div className="absolute right-[8%] top-[18%] hidden animate-float rounded-[28px] border border-white/10 bg-white/10 p-5 backdrop-blur-2xl lg:block">
+      <div className="absolute right-[8%] top-[18%] hidden animate-float rounded-[12px] border border-white/10 bg-white/10 p-5 backdrop-blur-2xl lg:block">
         <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/20">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/20">
             <Radio className="text-gold" />
           </div>
 
@@ -30,9 +30,9 @@ export function FloatingLiveCards() {
       </div>
 
       {/* BOTTOM LEFT */}
-      <div className="absolute bottom-[18%] left-[6%] hidden animate-float-slow rounded-[28px] border border-white/10 bg-white/10 p-5 backdrop-blur-2xl lg:block">
+      <div className="absolute bottom-[18%] left-[6%] hidden animate-float-slow rounded-[12px] border border-white/10 bg-white/10 p-5 backdrop-blur-2xl lg:block">
         <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-500/20">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-500/20">
             <TriangleAlert className="text-red-400" />
           </div>
 
@@ -49,9 +49,9 @@ export function FloatingLiveCards() {
       </div>
 
       {/* CENTER RIGHT */}
-      <div className="absolute bottom-[24%] right-[12%] hidden animate-float rounded-[28px] border border-white/10 bg-white/10 p-5 backdrop-blur-2xl xl:block">
+      <div className="absolute bottom-[24%] right-[12%] hidden animate-float rounded-[12px] border border-white/10 bg-white/10 p-5 backdrop-blur-2xl xl:block">
         <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/20">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/20">
             <CloudRain className="text-blue-300" />
           </div>
 

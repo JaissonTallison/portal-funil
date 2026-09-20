@@ -14,11 +14,11 @@ export async function EconomicPanel() {
   return (
     <section className="px-6 pb-14">
       <div className="mx-auto max-w-[1440px]">
-        <div className="overflow-hidden rounded-[36px] border border-black/5 bg-white p-6 shadow-[0_10px_40px_rgba(15,23,42,0.06)] md:p-8">
+        <div className="overflow-hidden rounded-[16px] border border-black/5 bg-white p-6 shadow-[0_10px_40px_rgba(15,23,42,0.06)] md:p-8">
           {/* HEADER */}
           <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold/10">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10">
                 <TrendingUp size={16} className="text-gold-dark" />
               </div>
               <div>
@@ -40,7 +40,7 @@ export async function EconomicPanel() {
               return (
                 <div
                   key={item.symbol}
-                  className="flex min-w-[150px] flex-1 flex-col rounded-2xl border border-black/5 bg-slate-50 px-4 py-3.5 transition hover:bg-slate-100"
+                  className="flex min-w-[150px] flex-1 flex-col rounded-xl border border-black/5 bg-slate-50 px-4 py-3.5 transition hover:bg-slate-100"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">

@@ -131,7 +131,7 @@ export function ReaderHub() {
 
           <Link
             href="/denuncias"
-            className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
+            className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
           >
             Central de denúncias
             <ArrowUpRight size={16} />
@@ -143,7 +143,7 @@ export function ReaderHub() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-[20px] border border-black/5 bg-white px-4 py-3 shadow-[0_8px_30px_rgba(15,23,42,0.05)] sm:rounded-[28px] sm:px-6 sm:py-5"
+              className="rounded-[10px] border border-black/5 bg-white px-4 py-3 shadow-[0_8px_30px_rgba(15,23,42,0.05)] sm:rounded-[12px] sm:px-6 sm:py-5"
             >
               <div className="text-2xl font-black tracking-[-0.04em] text-navy sm:text-3xl">
                 {s.value}
@@ -159,10 +159,10 @@ export function ReaderHub() {
             <Link
               key={title}
               href={href}
-              className={`group flex items-center gap-4 overflow-hidden rounded-[22px] border ${border} bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.10)] lg:flex-col lg:items-stretch lg:gap-0 lg:rounded-[32px] lg:p-7 lg:hover:-translate-y-1`}
+              className={`group flex items-center gap-4 overflow-hidden rounded-[10px] border ${border} bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.10)] lg:flex-col lg:items-stretch lg:gap-0 lg:rounded-[14px] lg:p-7 lg:hover:-translate-y-1`}
             >
               {/* Icon */}
-              <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${bg} lg:h-12 lg:w-12`}>
+              <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${bg} lg:h-12 lg:w-12`}>
                 <Icon size={20} className={color} />
               </div>
 
@@ -184,7 +184,7 @@ export function ReaderHub() {
         </div>
 
         {/* CONTACT CHANNELS */}
-        <div className="overflow-hidden rounded-[40px] bg-navy p-8 shadow-[0_24px_80px_rgba(2,6,23,0.2)] md:p-10">
+        <div className="overflow-hidden rounded-[16px] bg-navy p-8 shadow-[0_24px_80px_rgba(2,6,23,0.2)] md:p-10">
           {/* glows */}
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute left-[-80px] top-[-80px] h-[260px] w-[260px] rounded-full bg-gold/8 blur-[100px]" />
@@ -212,7 +212,7 @@ export function ReaderHub() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-3 rounded-2xl ${color} px-5 py-3.5 text-white transition`}
+                  className={`flex items-center gap-3 rounded-xl ${color} px-5 py-3.5 text-white transition`}
                 >
                   <Icon size={18} />
                   <div>

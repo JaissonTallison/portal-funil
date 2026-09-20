@@ -54,7 +54,7 @@ export default async function ColumnistPage({ params }: Props) {
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[auto_1fr]">
             {/* AVATAR */}
-            <div className="relative h-[160px] w-[160px] overflow-hidden rounded-[32px] border-4 border-gold/20 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+            <div className="relative h-[160px] w-[160px] overflow-hidden rounded-[14px] border-4 border-gold/20 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
               <Image
                 src={columnist.avatar}
                 alt={columnist.name}
@@ -87,7 +87,7 @@ export default async function ColumnistPage({ params }: Props) {
                   {columnist.social.twitter && (
                     <a
                       href="#"
-                      className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-zinc-400 transition hover:border-white/20 hover:text-white"
+                      className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-zinc-400 transition hover:border-white/20 hover:text-white"
                     >
                       <Twitter size={15} />
                       {columnist.social.twitter}
@@ -96,7 +96,7 @@ export default async function ColumnistPage({ params }: Props) {
                   {columnist.social.instagram && (
                     <a
                       href="#"
-                      className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-zinc-400 transition hover:border-white/20 hover:text-white"
+                      className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-zinc-400 transition hover:border-white/20 hover:text-white"
                     >
                       <Instagram size={15} />
                       {columnist.social.instagram}
@@ -129,7 +129,7 @@ export default async function ColumnistPage({ params }: Props) {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-14 sm:py-20 lg:py-24 text-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100">
+              <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-slate-100">
                 <span className="text-3xl">✍️</span>
               </div>
               <h3 className="mt-6 text-xl font-black text-navy">
@@ -162,9 +162,9 @@ export default async function ColumnistPage({ params }: Props) {
                 <Link
                   key={c.id}
                   href={`/colunas/${c.slug}`}
-                  className="group flex items-center gap-4 rounded-[24px] border border-black/5 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5"
+                  className="group flex items-center gap-4 rounded-[12px] border border-black/5 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5"
                 >
-                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl">
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl">
                     <Image
                       src={c.avatar}
                       alt={c.name}

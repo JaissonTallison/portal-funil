@@ -63,7 +63,7 @@ export default function ContatoPage() {
 
         <div className="relative z-10 mx-auto max-w-[1440px]">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
               <MessageCircle size={22} className="text-gold" />
             </div>
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">
@@ -87,7 +87,7 @@ export default function ContatoPage() {
         <div className="mx-auto max-w-[1440px]">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_420px]">
             {/* FORM */}
-            <div className="overflow-hidden rounded-[40px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
+            <div className="overflow-hidden rounded-[16px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
               <h2 className="text-3xl font-black tracking-[-0.04em] text-navy">
                 Envie uma mensagem
               </h2>
@@ -104,7 +104,7 @@ export default function ContatoPage() {
                     <input
                       type="text"
                       placeholder="Seu nome completo"
-                      className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white"
+                      className="h-[52px] w-full rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white"
                     />
                   </div>
                   <div>
@@ -114,7 +114,7 @@ export default function ContatoPage() {
                     <input
                       type="email"
                       placeholder="seu@email.com.br"
-                      className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white"
+                      className="h-[52px] w-full rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white"
                     />
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export default function ContatoPage() {
                   <label className="mb-2 block text-sm font-semibold text-navy">
                     Departamento
                   </label>
-                  <select className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm text-navy outline-none focus:border-gold/50 focus:bg-white">
+                  <select className="h-[52px] w-full rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm text-navy outline-none focus:border-gold/50 focus:bg-white">
                     <option value="">Selecione um departamento</option>
                     {departments.map((d) => (
                       <option key={d.email} value={d.email}>
@@ -140,7 +140,7 @@ export default function ContatoPage() {
                   <input
                     type="text"
                     placeholder="Sobre o que você quer falar?"
-                    className="h-[52px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white"
+                    className="h-[52px] w-full rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white"
                   />
                 </div>
 
@@ -151,13 +151,13 @@ export default function ContatoPage() {
                   <textarea
                     rows={6}
                     placeholder="Descreva sua mensagem com detalhes..."
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white resize-none"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm text-navy outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center gap-2 rounded-2xl bg-navy py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-cobalt"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-navy py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-cobalt"
                 >
                   Enviar mensagem
                   <ArrowUpRight size={16} />
@@ -168,7 +168,7 @@ export default function ContatoPage() {
             {/* SIDEBAR */}
             <div className="space-y-5">
               {/* CONTACT INFO */}
-              <div className="rounded-[36px] border border-black/5 bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
+              <div className="rounded-[16px] border border-black/5 bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
                 <h3 className="text-xl font-black text-navy">
                   Informações de contato
                 </h3>
@@ -176,7 +176,7 @@ export default function ContatoPage() {
                 <div className="mt-8 space-y-6">
                   {contacts.map(({ icon: Icon, label, value, desc }) => (
                     <div key={label} className="flex items-start gap-4">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold/10">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold/10">
                         <Icon size={18} className="text-gold-dark" />
                       </div>
                       <div className="min-w-0">
@@ -194,7 +194,7 @@ export default function ContatoPage() {
               </div>
 
               {/* SOCIAL */}
-              <div className="rounded-[36px] border border-black/5 bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
+              <div className="rounded-[16px] border border-black/5 bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.05)]">
                 <h3 className="text-xl font-black text-navy">
                   Redes sociais
                 </h3>
@@ -209,9 +209,9 @@ export default function ContatoPage() {
                     <a
                       key={label}
                       href="#"
-                      className="group flex items-center gap-4 rounded-2xl border border-black/5 bg-slate-50 p-4 transition hover:bg-slate-100"
+                      className="group flex items-center gap-4 rounded-xl border border-black/5 bg-slate-50 p-4 transition hover:bg-slate-100"
                     >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy text-white">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy text-white">
                         <Icon size={16} />
                       </div>
                       <div>
@@ -229,7 +229,7 @@ export default function ContatoPage() {
               </div>
 
               {/* PRO CTA */}
-              <div className="relative overflow-hidden rounded-[36px] bg-navy p-8 text-center">
+              <div className="relative overflow-hidden rounded-[16px] bg-navy p-8 text-center">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="h-[200px] w-[200px] rounded-full bg-gold/8 blur-[60px]" />
                 </div>
@@ -242,7 +242,7 @@ export default function ContatoPage() {
                   </p>
                   <Link
                     href="/assinar"
-                    className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:-translate-y-0.5"
+                    className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gold px-6 py-3 text-sm font-black text-navy transition hover:-translate-y-0.5"
                   >
                     Assinar Pro
                     <ArrowUpRight size={14} />

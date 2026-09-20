@@ -24,8 +24,8 @@ export default async function PublicLayout({
   return (
     <>
       <Navbar />
-      {/* pt compensa navbar fixo: mobile ~140px, desktop topbar(140) + catNav(52) = 192px */}
-      <div className="pt-[140px] lg:pt-[192px]">
+      {/* pt compensa navbar fixo: mobile 76px + borda, desktop topbar(140) + catNav(52) = 192px */}
+      <div className="pt-[77px] lg:pt-[192px]">
         <div className="h-6" />
         <BreakingNews headlines={headlines} />
         <div className="h-3" />

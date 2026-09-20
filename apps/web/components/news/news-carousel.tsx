@@ -30,7 +30,7 @@ export function NewsCarousel({ articles }: Props) {
           </div>
           <Link
             href="/noticias"
-            className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
+            className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
           >
             Ver todas
             <ArrowUpRight size={18} />
@@ -52,7 +52,7 @@ export function NewsCarousel({ articles }: Props) {
             <SwiperSlide key={item.id}>
               <Link
                 href={`/noticias/${item.slug}`}
-                className="group block overflow-hidden rounded-[36px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-2"
+                className="group block overflow-hidden rounded-[16px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-2"
               >
                 <div className="relative h-[300px] overflow-hidden">
                   <Image src={item.image} alt={item.title} fill className="object-cover transition duration-700 group-hover:scale-110" />
@@ -76,7 +76,7 @@ export function NewsCarousel({ articles }: Props) {
                 </div>
                 <div className="flex items-center justify-between px-6 py-5">
                   <span className="text-sm text-slate-500" suppressHydrationWarning>{timeAgo(item.publishedAt)}</span>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cobalt text-white transition group-hover:bg-navy">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-cobalt text-white transition group-hover:bg-navy">
                     <ArrowUpRight size={17} />
                   </div>
                 </div>

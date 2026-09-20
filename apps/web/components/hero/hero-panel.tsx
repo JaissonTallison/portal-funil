@@ -15,7 +15,7 @@ const alerts = [
 
 export function HeroPanel() {
   return (
-    <div className="relative overflow-hidden rounded-[36px] border border-black/5 bg-white/70 p-6 shadow-[0_10px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl">
+    <div className="relative overflow-hidden rounded-[16px] border border-black/5 bg-white/70 p-6 shadow-[0_10px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl">
       {/* GLOW */}
       <div className="absolute right-[-50px] top-[-50px] h-[180px] w-[180px] rounded-full bg-gold/10 blur-[80px]" />
 
@@ -32,13 +32,13 @@ export function HeroPanel() {
             </h2>
           </div>
 
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10">
+          <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gold/10">
             <Activity className="text-gold-dark" />
           </div>
         </div>
 
         {/* MAP */}
-        <div className="relative mt-8 overflow-hidden rounded-[28px] border border-black/5 bg-slate-100">
+        <div className="relative mt-8 overflow-hidden rounded-[12px] border border-black/5 bg-slate-100">
           <div className="absolute bottom-5 left-5 z-20">
             <span className="rounded-full bg-gold px-4 py-2 text-xs font-black uppercase tracking-widest text-navy">
               Zona Centro-Sul
@@ -53,9 +53,9 @@ export function HeroPanel() {
           {alerts.map((item) => (
             <div
               key={item}
-              className="flex items-start gap-4 rounded-[24px] border border-black/5 bg-white/80 p-5"
+              className="flex items-start gap-4 rounded-[12px] border border-black/5 bg-white/80 p-5"
             >
-              <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-gold/10">
+              <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-gold/10">
                 <TriangleAlert
                   size={18}
                   className="text-gold-dark"
@@ -76,7 +76,7 @@ export function HeroPanel() {
         </div>
 
         {/* WEATHER */}
-        <div className="mt-8 rounded-[28px] border border-black/5 bg-white/80 p-6">
+        <div className="mt-8 rounded-[12px] border border-black/5 bg-white/80 p-6">
           <div className="flex items-center justify-between">
             <div>
               <span className="text-sm text-slate-500">
@@ -100,7 +100,7 @@ export function HeroPanel() {
         </div>
 
         {/* STATUS */}
-        <div className="mt-6 rounded-[28px] border border-black/5 bg-white/80 p-6">
+        <div className="mt-6 rounded-[12px] border border-black/5 bg-white/80 p-6">
           <div className="flex items-center gap-3">
             <MapPinned className="text-gold-dark" />
 

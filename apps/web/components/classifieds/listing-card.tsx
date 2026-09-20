@@ -16,9 +16,9 @@ export function ListingCard({ listing, variant = "grid" }: Props) {
     return (
       <Link
         href={`/classificados/${listing.id}`}
-        className="group flex gap-5 overflow-hidden rounded-[28px] border border-black/5 bg-white p-4 shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(15,23,42,0.10)]"
+        className="group flex gap-5 overflow-hidden rounded-[12px] border border-black/5 bg-white p-4 shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(15,23,42,0.10)]"
       >
-        <div className="relative h-[120px] w-[160px] shrink-0 overflow-hidden rounded-[20px]">
+        <div className="relative h-[120px] w-[160px] shrink-0 overflow-hidden rounded-[10px]">
           {coverImage ? (
           <Image
             src={coverImage}
@@ -58,7 +58,7 @@ export function ListingCard({ listing, variant = "grid" }: Props) {
                 {listing.contact.location}
               </div>
             </div>
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-navy text-white transition group-hover:bg-cobalt">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy text-white transition group-hover:bg-cobalt">
               <ArrowUpRight size={14} />
             </div>
           </div>
@@ -70,7 +70,7 @@ export function ListingCard({ listing, variant = "grid" }: Props) {
   return (
     <Link
       href={`/classificados/${listing.id}`}
-      className="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] block"
+      className="group overflow-hidden rounded-[14px] border border-black/5 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] block"
     >
       <div className="relative h-[200px] overflow-hidden bg-slate-100">
         {coverImage ? (

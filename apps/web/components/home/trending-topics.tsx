@@ -29,11 +29,11 @@ export async function TrendingTopics() {
   return (
     <section className="relative px-6 pb-10">
       <div className="mx-auto max-w-[1440px]">
-        <div className="overflow-hidden rounded-[28px] border border-black/5 bg-white p-5 shadow-[0_10px_50px_rgba(15,23,42,0.06)] sm:rounded-[36px] sm:p-8">
+        <div className="overflow-hidden rounded-[12px] border border-black/5 bg-white p-5 shadow-[0_10px_50px_rgba(15,23,42,0.06)] sm:rounded-[16px] sm:p-8">
           <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap">
             {/* LABEL */}
             <div className="flex shrink-0 items-center gap-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gold/10">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/10">
                 <TrendingUp size={18} className="text-gold-dark" />
               </div>
               <div>
@@ -51,7 +51,7 @@ export async function TrendingTopics() {
                 <Link
                   key={topic.slug}
                   href={`/categoria/${topic.slug}`}
-                  className={`group flex shrink-0 items-center gap-2 rounded-2xl border px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5 ${
+                  className={`group flex shrink-0 items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5 ${
                     topic.hot
                       ? "border-gold/30 bg-gold/8 text-navy hover:bg-gold/15"
                       : "border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:bg-slate-100 hover:text-navy"

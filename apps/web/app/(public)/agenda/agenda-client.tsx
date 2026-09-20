@@ -84,7 +84,7 @@ export function AgendaClient({ events, upcomingDates, featured }: Props) {
               </p>
             </div>
 
-            <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm lg:w-[280px]">
+            <div className="rounded-[12px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm lg:w-[280px]">
               <div className="flex items-center gap-2">
                 <CalendarDays size={13} className="text-gold" />
                 <span className="text-[10px] font-black uppercase tracking-widest text-gold">Hoje</span>
@@ -117,7 +117,7 @@ export function AgendaClient({ events, upcomingDates, featured }: Props) {
                 {upcomingDates.map((d) => (
                   <div
                     key={d.id}
-                    className="flex shrink-0 items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2"
+                    className="flex shrink-0 items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2"
                   >
                     <span className="text-base">{d.emoji}</span>
                     <div>
@@ -145,7 +145,7 @@ export function AgendaClient({ events, upcomingDates, featured }: Props) {
 
         {/* BUSCA */}
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <div className="flex flex-1 items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+          <div className="flex flex-1 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
             <Search size={16} className="shrink-0 text-slate-400" />
             <input
               type="text"
@@ -172,7 +172,7 @@ export function AgendaClient({ events, upcomingDates, featured }: Props) {
             <button
               key={opt.value}
               onClick={() => setActiveFilter(opt.value)}
-              className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-xl px-4 py-2 text-sm font-semibold transition ${
+              className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition ${
                 activeFilter === opt.value
                   ? "bg-navy text-white shadow-sm"
                   : "border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50"
@@ -192,12 +192,12 @@ export function AgendaClient({ events, upcomingDates, featured }: Props) {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center rounded-[28px] border border-dashed border-slate-200 bg-white py-14 sm:py-20 lg:py-24">
+          <div className="flex flex-col items-center justify-center rounded-[12px] border border-dashed border-slate-200 bg-white py-14 sm:py-20 lg:py-24">
             <CalendarDays size={40} className="text-slate-300" />
             <p className="mt-4 text-sm font-semibold text-slate-400">Nenhum evento encontrado</p>
             <button
               onClick={() => { setActiveFilter("all"); setSearch(""); }}
-              className="mt-5 rounded-xl bg-navy px-5 py-2.5 text-xs font-black text-white transition hover:bg-cobalt"
+              className="mt-5 rounded-lg bg-navy px-5 py-2.5 text-xs font-black text-white transition hover:bg-cobalt"
             >
               Ver todos os eventos
             </button>

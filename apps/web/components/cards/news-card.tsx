@@ -15,8 +15,8 @@ type Props = {
 export function NewsCard({ article, variant = "vertical" }: Props) {
   if (variant === "horizontal") {
     return (
-      <Link href={`/noticias/${article.slug}`} className="group flex gap-5 rounded-[28px] border border-black/5 bg-white/80 p-5 shadow-[0_10px_40px_rgba(15,23,42,0.05)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5">
-        <div className="relative h-[100px] w-[140px] shrink-0 overflow-hidden rounded-[20px]">
+      <Link href={`/noticias/${article.slug}`} className="group flex gap-5 rounded-[12px] border border-black/5 bg-white/80 p-5 shadow-[0_10px_40px_rgba(15,23,42,0.05)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5">
+        <div className="relative h-[100px] w-[140px] shrink-0 overflow-hidden rounded-[10px]">
           <Image
             src={article.image}
             alt={article.title}
@@ -61,8 +61,8 @@ export function NewsCard({ article, variant = "vertical" }: Props) {
 
   if (variant === "compact") {
     return (
-      <Link href={`/noticias/${article.slug}`} className="group flex items-start gap-4 rounded-[24px] border border-black/5 bg-white/80 p-5 transition hover:bg-slate-50">
-        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gold/10">
+      <Link href={`/noticias/${article.slug}`} className="group flex items-start gap-4 rounded-[12px] border border-black/5 bg-white/80 p-5 transition hover:bg-slate-50">
+        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/10">
           <span className="text-xs font-black text-gold-dark">
             {getCategoryName(article.category).slice(0, 2).toUpperCase()}
           </span>
@@ -86,7 +86,7 @@ export function NewsCard({ article, variant = "vertical" }: Props) {
   }
 
   return (
-    <Link href={`/noticias/${article.slug}`} className="group overflow-hidden rounded-[36px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-2 block">
+    <Link href={`/noticias/${article.slug}`} className="group overflow-hidden rounded-[16px] border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-2 block">
       <div className="relative h-[260px] overflow-hidden">
         <Image
           src={article.image}
@@ -133,7 +133,7 @@ export function NewsCard({ article, variant = "vertical" }: Props) {
           </span>
         </div>
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-cobalt text-white transition group-hover:bg-navy">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt text-white transition group-hover:bg-navy">
           <ArrowUpRight size={16} />
         </div>
       </div>

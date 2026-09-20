@@ -26,7 +26,7 @@ export async function AgendaHighlight() {
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gold/15">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold/15">
                 <CalendarDays size={15} className="text-gold-dark" />
               </div>
               <span className="text-[11px] font-black uppercase tracking-[0.3em] text-gold-dark">
@@ -43,7 +43,7 @@ export async function AgendaHighlight() {
 
           <Link
             href="/agenda"
-            className="flex shrink-0 items-center gap-1.5 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-navy transition hover:bg-slate-50"
+            className="flex shrink-0 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-navy transition hover:bg-slate-50"
           >
             Ver tudo
             <ArrowUpRight size={14} />
@@ -56,7 +56,7 @@ export async function AgendaHighlight() {
             <Link
               key={pill.label}
               href={pill.href}
-              className={`whitespace-nowrap rounded-xl px-4 py-2 text-sm font-semibold transition ${
+              className={`whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition ${
                 i === 0
                   ? "bg-navy text-white"
                   : "border border-slate-200 bg-white text-slate-600 hover:border-navy/20 hover:text-navy"
@@ -89,7 +89,7 @@ export async function AgendaHighlight() {
         <div className="mt-10 flex justify-center">
           <Link
             href="/agenda"
-            className="flex items-center gap-2 rounded-2xl bg-navy px-8 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-cobalt"
+            className="flex items-center gap-2 rounded-xl bg-navy px-8 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-cobalt"
           >
             <CalendarDays size={15} />
             Ver agenda completa

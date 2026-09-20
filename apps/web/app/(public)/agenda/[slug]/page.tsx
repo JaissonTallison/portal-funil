@@ -40,7 +40,7 @@ export default async function EventDetailPage({ params }: Props) {
         <div className="absolute left-4 top-4 md:left-8 md:top-8">
           <Link
             href="/agenda"
-            className="flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+            className="flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
           >
             <ArrowLeft size={15} />
             Agenda
@@ -73,7 +73,7 @@ export default async function EventDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
           <div>
             <div className="flex flex-wrap gap-3">
-              <div className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+              <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
                 <Calendar size={15} className="text-gold" />
                 <div>
                   <p className="text-[10px] uppercase tracking-wide text-slate-400">Data</p>
@@ -85,7 +85,7 @@ export default async function EventDetailPage({ params }: Props) {
               </div>
 
               {event.time && (
-                <div className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+                <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
                   <Clock size={15} className="text-gold" />
                   <div>
                     <p className="text-[10px] uppercase tracking-wide text-slate-400">Horário</p>
@@ -94,7 +94,7 @@ export default async function EventDetailPage({ params }: Props) {
                 </div>
               )}
 
-              <div className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+              <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
                 <MapPin size={15} className="text-gold" />
                 <div>
                   <p className="text-[10px] uppercase tracking-wide text-slate-400">Local</p>
@@ -112,7 +112,7 @@ export default async function EventDetailPage({ params }: Props) {
               <div className="mt-6 flex flex-wrap items-center gap-2">
                 <Tag size={13} className="text-slate-400" />
                 {event.tags.map((tag) => (
-                  <span key={tag} className="rounded-xl border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-500">
+                  <span key={tag} className="rounded-lg border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-500">
                     #{tag}
                   </span>
                 ))}
@@ -121,7 +121,7 @@ export default async function EventDetailPage({ params }: Props) {
           </div>
 
           <div className="space-y-4">
-            <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm">
+            <div className="overflow-hidden rounded-[12px] border border-slate-200 bg-white shadow-sm">
               <div className="border-b border-slate-100 px-5 py-4">
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
                   Ingresso / Entrada
@@ -166,7 +166,7 @@ export default async function EventDetailPage({ params }: Props) {
 
             <Link
               href="/agenda"
-              className="flex w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-navy transition hover:bg-slate-50"
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-navy transition hover:bg-slate-50"
             >
               <ArrowLeft size={14} />
               Ver todos os eventos

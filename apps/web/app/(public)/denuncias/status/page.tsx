@@ -77,7 +77,7 @@ export default function StatusDenunciaPage() {
             <ArrowLeft size={14} /> Voltar para Central de Denúncias
           </Link>
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10">
               <ClipboardCheck size={22} className="text-gold" />
             </div>
             <span className="text-xs font-black uppercase tracking-[0.35em] text-gold">ACOMPANHE</span>
@@ -93,7 +93,7 @@ export default function StatusDenunciaPage() {
 
       <section className="px-6 py-14">
         <div className="mx-auto max-w-3xl">
-          <div className="rounded-[40px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
+          <div className="rounded-[16px] border border-black/5 bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
             <h2 className="text-2xl font-black">Consultar protocolo</h2>
             <p className="mt-2 text-sm text-slate-400">O código de protocolo foi gerado ao enviar sua denúncia.</p>
 
@@ -103,22 +103,22 @@ export default function StatusDenunciaPage() {
                 value={protocol}
                 onChange={(e) => setProtocol(e.target.value)}
                 placeholder="Ex: PF-2026-0001"
-                className="h-[56px] flex-1 rounded-2xl border border-slate-200 bg-slate-50 px-5 text-sm font-mono outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white"
+                className="h-[56px] flex-1 rounded-xl border border-slate-200 bg-slate-50 px-5 text-sm font-mono outline-none placeholder:text-slate-400 focus:border-gold/50 focus:bg-white"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="flex h-[56px] items-center gap-2 rounded-2xl bg-navy px-6 text-sm font-black text-white transition hover:bg-cobalt disabled:opacity-60"
+                className="flex h-[56px] items-center gap-2 rounded-xl bg-navy px-6 text-sm font-black text-white transition hover:bg-cobalt disabled:opacity-60"
               >
                 <Search size={16} />
                 {loading ? "..." : "Consultar"}
               </button>
             </form>
 
-            {error && <p className="mt-4 rounded-2xl border border-red-200 bg-red-50 px-5 py-3 text-sm text-red-700">{error}</p>}
+            {error && <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-5 py-3 text-sm text-red-700">{error}</p>}
 
             {notFound && (
-              <div className="mt-6 flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
+              <div className="mt-6 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-5 py-4">
                 <XCircle size={18} className="text-slate-400" />
                 <p className="text-sm text-slate-500">Protocolo não encontrado. Verifique o código e tente novamente.</p>
               </div>
@@ -126,7 +126,7 @@ export default function StatusDenunciaPage() {
 
             {result && (
               <div className="mt-8 space-y-6">
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5">
+                <div className="rounded-xl border border-slate-200 bg-slate-50 px-6 py-5">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
                       <p className="font-mono text-sm text-slate-400">{result.protocol}</p>
@@ -144,7 +144,7 @@ export default function StatusDenunciaPage() {
                     {STAGES.map((stage, i) => {
                       const done = i <= currentStageIndex;
                       return (
-                        <div key={stage.key} className={`flex items-center gap-4 rounded-2xl border px-5 py-4 ${done ? "border-emerald-100 bg-emerald-50" : "border-slate-100 bg-slate-50"}`}>
+                        <div key={stage.key} className={`flex items-center gap-4 rounded-xl border px-5 py-4 ${done ? "border-emerald-100 bg-emerald-50" : "border-slate-100 bg-slate-50"}`}>
                           <CheckCircle2 size={18} className={done ? "text-emerald-600" : "text-slate-300"} />
                           <div>
                             <p className={`text-sm font-black ${done ? "text-emerald-800" : "text-slate-400"}`}>{stage.label}</p>
@@ -164,7 +164,7 @@ export default function StatusDenunciaPage() {
                 <h3 className="mb-4 text-sm font-black uppercase tracking-widest text-slate-400">Etapas de apuração</h3>
                 <div className="space-y-3">
                   {STAGES.map((stage) => (
-                    <div key={stage.key} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
+                    <div key={stage.key} className="flex items-center gap-4 rounded-xl border border-slate-100 bg-slate-50 px-5 py-4">
                       <CheckCircle2 size={18} className="text-slate-300" />
                       <div>
                         <p className="text-sm font-black text-slate-400">{stage.label}</p>

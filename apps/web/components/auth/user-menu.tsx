@@ -33,9 +33,9 @@ export function UserMenu() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-3 py-2 transition hover:bg-slate-50"
+        className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 transition hover:bg-slate-50"
       >
-        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-navy text-xs font-black text-gold">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy text-xs font-black text-gold">
           {initials}
         </div>
         <span className="hidden text-sm font-semibold text-navy lg:block">
@@ -46,7 +46,7 @@ export function UserMenu() {
 
       {/* DROPDOWN */}
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-2 w-[220px] overflow-hidden rounded-2xl border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.15)]">
+        <div className="absolute right-0 top-full z-50 mt-2 w-[220px] overflow-hidden rounded-xl border border-black/5 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.15)]">
           <div className="border-b border-slate-100 px-4 py-3">
             <p className="text-sm font-bold text-navy">{user.name}</p>
             <p className="text-xs text-slate-400">{user.email}</p>

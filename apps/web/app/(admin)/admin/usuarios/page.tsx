@@ -69,10 +69,10 @@ export default function AdminUsuariosPage() {
       </div>
 
       {error && (
-        <div className="mb-4 rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</div>
+        <div className="mb-4 rounded-lg bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</div>
       )}
 
-      <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-sm">
         {loading ? (
           <div className="flex items-center justify-center py-16">
             <div className="h-6 w-6 animate-spin rounded-full border-2 border-cobalt border-t-transparent" />
@@ -96,7 +96,7 @@ export default function AdminUsuariosPage() {
                   <tr key={u.id} className="transition hover:bg-slate-50">
                     <td className="px-5 py-4">
                       <div className="flex items-center gap-2">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-cobalt/5 text-xs font-black text-cobalt">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cobalt/5 text-xs font-black text-cobalt">
                           {u.name.charAt(0).toUpperCase()}
                         </div>
                         <span className="text-sm font-semibold text-cobalt">

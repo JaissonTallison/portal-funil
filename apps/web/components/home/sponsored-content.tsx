@@ -12,11 +12,11 @@ export async function SponsoredContent() {
   return (
     <section className="px-6 pb-14">
       <div className="mx-auto max-w-[1440px]">
-        <div className="overflow-hidden rounded-[36px] border border-black/5 bg-white p-6 shadow-[0_10px_40px_rgba(15,23,42,0.06)] md:p-8">
+        <div className="overflow-hidden rounded-[16px] border border-black/5 bg-white p-6 shadow-[0_10px_40px_rgba(15,23,42,0.06)] md:p-8">
           {/* HEADER */}
           <div className="mb-6 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100">
                 <Megaphone size={16} className="text-slate-500" />
               </div>
               <div className="flex items-center gap-2">
@@ -42,7 +42,7 @@ export async function SponsoredContent() {
               <Link
                 key={article.id}
                 href={`/noticias/${article.slug}`}
-                className="group flex gap-4 rounded-[24px] border border-black/5 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:bg-slate-100"
+                className="group flex gap-4 rounded-[12px] border border-black/5 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:bg-slate-100"
               >
                 <div className="relative h-[90px] w-[120px] shrink-0 overflow-hidden rounded-[16px]">
                   <Image

@@ -10,7 +10,7 @@ export default function MeusAnunciosPage() {
         <div className="mb-8">
           <Link
             href="/classificados"
-            className="inline-flex items-center gap-2 rounded-2xl border border-black/5 bg-white px-4 py-2.5 text-sm font-semibold text-navy shadow-[0_4px_20px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-xl border border-black/5 bg-white px-4 py-2.5 text-sm font-semibold text-navy shadow-[0_4px_20px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5"
           >
             <ArrowLeft size={15} />
             Voltar aos classificados

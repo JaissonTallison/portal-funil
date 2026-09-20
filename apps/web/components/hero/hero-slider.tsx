@@ -35,7 +35,7 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
   return (
     <section className="relative overflow-hidden px-4 md:px-6">
       <div className="mx-auto max-w-[1440px]">
-        <div className="relative overflow-hidden rounded-[40px] shadow-[0_30px_120px_rgba(15,23,42,0.18)]">
+        <div className="relative overflow-hidden rounded-[16px] shadow-[0_30px_120px_rgba(15,23,42,0.18)]">
 
           {/* ── SWIPER ── */}
           <Swiper
@@ -91,14 +91,14 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
                       <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8 sm:gap-3">
                         <Link
                           href={`/noticias/${slide.slug}`}
-                          className="flex items-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-black uppercase tracking-wide text-navy sm:px-8 sm:py-4 transition hover:-translate-y-0.5 hover:bg-gold-hover"
+                          className="flex items-center gap-2 rounded-xl bg-gold px-6 py-3 text-sm font-black uppercase tracking-wide text-navy sm:px-8 sm:py-4 transition hover:-translate-y-0.5 hover:bg-gold-hover"
                         >
                           Ler matéria
                           <ArrowUpRight size={15} />
                         </Link>
                         <Link
                           href="/ao-vivo"
-                          className="flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-xl sm:px-8 sm:py-4 transition hover:bg-white/20"
+                          className="flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-xl sm:px-8 sm:py-4 transition hover:bg-white/20"
                         >
                           <Radio size={14} className="text-red-400" />
                           Assistir ao vivo
@@ -108,7 +108,7 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
                   </div>
 
                   {/* RIGHT CARD — Portal agora (dados reais) */}
-                  <div className="absolute bottom-28 right-8 hidden w-[320px] rounded-[28px] border border-white/15 bg-black/40 p-5 backdrop-blur-2xl lg:block md:bottom-32">
+                  <div className="absolute bottom-28 right-8 hidden w-[320px] rounded-[12px] border border-white/15 bg-black/40 p-5 backdrop-blur-2xl lg:block md:bottom-32">
                     {/* Header */}
                     <div className="mb-4 flex items-center justify-between">
                       <div className="flex items-center gap-2">
@@ -125,19 +125,19 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
 
                     {/* Stats grid */}
                     <div className="mb-4 grid grid-cols-3 gap-2">
-                      <div className="rounded-2xl bg-white/8 px-3 py-2.5 text-center">
+                      <div className="rounded-xl bg-white/8 px-3 py-2.5 text-center">
                         <div className="text-lg font-black leading-none text-white">
                           {panel.weather ? `${panel.weather.temperature}°` : "—"}
                         </div>
                         <div className="mt-1 text-[9px] uppercase tracking-wide text-white/35">Temp.</div>
                       </div>
-                      <div className="rounded-2xl bg-white/8 px-3 py-2.5 text-center">
+                      <div className="rounded-xl bg-white/8 px-3 py-2.5 text-center">
                         <div className="text-lg font-black leading-none text-white">
                           {panel.weather ? `${panel.weather.humidity}%` : "—"}
                         </div>
                         <div className="mt-1 text-[9px] uppercase tracking-wide text-white/35">Umidade</div>
                       </div>
-                      <div className="rounded-2xl border border-gold/25 bg-gold/10 px-3 py-2.5 text-center">
+                      <div className="rounded-xl border border-gold/25 bg-gold/10 px-3 py-2.5 text-center">
                         <div className="text-lg font-black leading-none text-gold">{panel.weekCount}</div>
                         <div className="mt-1 text-[9px] uppercase tracking-wide text-white/35">Na semana</div>
                       </div>
@@ -152,7 +152,7 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
                             <Link
                               key={item.slug}
                               href={`/noticias/${item.slug}`}
-                              className="block rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 transition hover:bg-white/10"
+                              className="block rounded-lg border border-white/10 bg-white/5 px-3.5 py-2.5 transition hover:bg-white/10"
                             >
                               <span className="line-clamp-2 text-xs font-semibold text-white">{item.title}</span>
                               <span className="mt-1 block text-[10px] text-white/35" suppressHydrationWarning>
@@ -182,7 +182,7 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
                   <button
                     key={i}
                     onClick={() => swiperRef.current?.slideToLoop(i)}
-                    className={`group relative overflow-hidden rounded-xl transition-all duration-400 ${
+                    className={`group relative overflow-hidden rounded-lg transition-all duration-400 ${
                       i === activeIndex
                         ? "w-[72px] ring-2 ring-gold ring-offset-1 ring-offset-transparent sm:w-[96px]"
                         : "w-[40px] opacity-50 hover:opacity-80 sm:w-[56px]"
@@ -231,7 +231,7 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
 
                 <button
                   onClick={() => swiperRef.current?.slidePrev()}
-                  className="flex h-9 w-9 items-center justify-center rounded-2xl border border-white/15 sm:h-10 sm:w-10 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 active:scale-95"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 sm:h-10 sm:w-10 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 active:scale-95"
                   aria-label="Slide anterior"
                 >
                   <ChevronLeft size={18} />
@@ -239,7 +239,7 @@ export function HeroSlider({ panel }: { panel: HeroPanel }) {
 
                 <button
                   onClick={() => swiperRef.current?.slideNext()}
-                  className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gold text-navy sm:h-10 sm:w-10 transition hover:bg-gold-hover active:scale-95"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold text-navy sm:h-10 sm:w-10 transition hover:bg-gold-hover active:scale-95"
                   aria-label="Próximo slide"
                 >
                   <ChevronRight size={18} />

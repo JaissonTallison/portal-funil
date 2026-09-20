@@ -36,7 +36,7 @@ export async function NewsSection() {
           </div>
           <Link
             href="/noticias"
-            className="hidden items-center gap-2 rounded-2xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
+            className="hidden items-center gap-2 rounded-xl border border-black/5 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 lg:flex"
           >
             Ver cobertura completa
             <ArrowUpRight size={18} />
@@ -47,19 +47,18 @@ export async function NewsSection() {
           {/* MAIN */}
           <Link
             href={`/noticias/${featured.slug}`}
-            className="group relative overflow-hidden rounded-[40px] border border-black/5 bg-navy p-6 sm:p-10 text-white shadow-[0_20px_80px_rgba(2,6,23,0.25)] transition hover:-translate-y-1 block"
+            className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-[16px] border border-black/5 bg-navy p-5 text-white shadow-[0_20px_80px_rgba(2,6,23,0.25)] transition hover:-translate-y-1 sm:min-h-[520px] sm:p-10"
           >
             <div className="absolute inset-0">
               <Image src={featured.image} alt={featured.title} fill className="object-cover transition duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-navy/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/75 via-35% to-transparent" />
+            </div>
+            <div className="absolute left-5 top-5 z-10 sm:left-10 sm:top-10 inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-navy">
+              {featured.isLive && <Radio size={14} />}
+              {featured.isLive ? "Ao vivo" : getCategoryName(featured.category)}
             </div>
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-navy">
-                {featured.isLive && <Radio size={14} />}
-                {featured.isLive ? "Ao vivo" : getCategoryName(featured.category)}
-              </div>
-              <h3 className="mt-5 max-w-4xl text-3xl font-black leading-[1.05] tracking-[-0.05em] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] transition group-hover:text-gold sm:mt-8 sm:text-5xl lg:text-7xl">
+              <h3 className="mt-4 line-clamp-4 max-w-4xl text-2xl font-black leading-[1.1] tracking-[-0.05em] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] transition group-hover:text-gold sm:mt-6 sm:text-4xl lg:text-5xl">
                 {featured.title}
               </h3>
               <p className="mt-4 line-clamp-3 max-w-2xl text-base leading-relaxed text-zinc-200 sm:mt-8 sm:line-clamp-none sm:text-lg drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
@@ -84,9 +83,9 @@ export async function NewsSection() {
               <Link
                 key={item.id}
                 href={`/noticias/${item.slug}`}
-                className="group flex gap-5 overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,23,42,0.10)]"
+                className="group flex gap-5 overflow-hidden rounded-[12px] border border-black/5 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,23,42,0.10)]"
               >
-                <div className="relative h-auto w-[120px] shrink-0 overflow-hidden rounded-l-[28px]">
+                <div className="relative h-auto w-[120px] shrink-0 overflow-hidden rounded-l-[12px]">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -105,7 +104,7 @@ export async function NewsSection() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-slate-400">{timeAgo(item.publishedAt)}</span>
-                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-navy text-white transition group-hover:bg-cobalt">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy text-white transition group-hover:bg-cobalt">
                       <ArrowUpRight size={14} />
                     </div>
                   </div>
