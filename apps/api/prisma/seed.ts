@@ -501,9 +501,9 @@ O consultor financeiro André Torbey alerta que o benefício não é automático
     },
     {
       slug: 'banda-foxy-de-manaus-se-apresenta-no-condado',
-      title: 'Banda Foxy, de Manaus, se apresenta no Condado',
-      description: 'Grupo formado por Ícaro Mafra, Matheus Marques, Sander Marques e Liniker sobe ao palco da casa de shows. Data e horário exatos devem ser confirmados com a banda e com o Condado.',
-      content: `A Banda Foxy, de Manaus, vai se apresentar no Condado, segundo anúncio do grupo. Data e horário exatos do show não foram detalhados até a publicação desta matéria e devem ser confirmados diretamente com a banda ou com a casa de shows.
+      title: 'Banda Foxy faz show no Condado nesta sexta (25), às 21h',
+      description: 'Grupo formado por Ícaro Mafra, Matheus Marques, Sander Marques e Liniker sobe ao palco da casa de shows nesta sexta-feira (25), a partir das 21h, no horário de Manaus.',
+      content: `A Banda Foxy, de Manaus, se apresenta no Condado nesta sexta-feira (25), a partir das 21h, no horário de Manaus, segundo anúncio do grupo.
 
 Transparência: o guitarrista Matheus Marques é colunista de música e rock do Portal Funil e integrante da Banda Foxy.
 
