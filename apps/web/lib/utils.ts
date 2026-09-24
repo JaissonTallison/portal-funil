@@ -13,6 +13,15 @@ export function formatDate(dateString: string): string {
   });
 }
 
+/** Horário (HH:mm) no fuso de Manaus, usado na faixa de última hora. */
+export function formatTime(dateString: string): string {
+  return new Date(dateString).toLocaleTimeString("pt-BR", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "America/Manaus",
+  });
+}
+
 export function timeAgo(dateString: string): string {
   const diffMs = Date.now() - new Date(dateString).getTime();
   const diffMins = Math.floor(diffMs / 60000);

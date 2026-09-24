@@ -39,6 +39,53 @@ const EVENTS = [
     tags: ['rock', 'heavy-metal', 'judas-priest', 'manaus'],
   },
   {
+    slug: 'ce-ta-doido-festival-manaus-2026',
+    title: 'Cê Tá Doido Festival',
+    description: 'Ícaro & Gilmar, Panda e Humberto & Ronaldo se apresentam simultaneamente em um palco 360°, com mais de quatro horas de show. É a primeira vez que o "Cê Tá Doido" chega ao Amazonas.',
+    category: 'show',
+    startDate: new Date('2026-10-03'),
+    time: '16:00',
+    venue: 'Pódium da Arena da Amazônia',
+    isFree: false,
+    image: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1920',
+    organizer: 'Pump Entertainment',
+    isHighlighted: false,
+    isSponsored: false,
+    tags: ['sertanejo', 'show', 'arena-da-amazonia', 'manaus'],
+  },
+  {
+    slug: 'hoka-sunset-run-2026-manaus',
+    title: 'Hoka Sunset Run 2026',
+    description: 'Corrida de rua com largada no fim de tarde, aproveitando o pôr do sol sobre a Ponta Negra. Inscrições a partir de R$ 119,90 mais taxa.',
+    category: 'esporte',
+    startDate: new Date('2026-10-17'),
+    venue: 'Alphaville Manaus (Estacionamento Comercial 3)',
+    neighborhood: 'Ponta Negra',
+    price: 'A partir de R$ 119,90 + taxa',
+    isFree: false,
+    image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1920',
+    organizer: 'Hoka',
+    isHighlighted: false,
+    isSponsored: false,
+    tags: ['corrida', 'esporte', 'ponta-negra', 'manaus'],
+  },
+  {
+    slug: 'desbrava-centauro-2026-etapa-manaus',
+    title: 'Desbrava Centauro 2026 – Etapa Manaus',
+    description: 'Etapa manauara do circuito de corrida Desbrava, da Centauro, com concentração no Largo de São Sebastião, ao lado do Teatro Amazonas. Inscrições de R$ 79 a R$ 199, conforme o lote.',
+    category: 'esporte',
+    startDate: new Date('2026-10-18'),
+    venue: 'Largo de São Sebastião',
+    neighborhood: 'Centro',
+    price: 'R$ 79,00 a R$ 199,00',
+    isFree: false,
+    image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=1920',
+    organizer: 'Centauro',
+    isHighlighted: false,
+    isSponsored: false,
+    tags: ['corrida', 'esporte', 'centro', 'manaus'],
+  },
+  {
     slug: 'festival-de-teatro-da-amazonia-2026',
     title: '20º Festival de Teatro da Amazônia (FTA 2026)',
     description: 'A 20ª edição do FTA reúne 20 espetáculos em duas mostras: a competitiva Jurupari, com 14 montagens amazonenses (8 adultas e 6 infantis), e a Chico Cardoso, não competitiva, com produções do Amazonas, Maranhão, Mato Grosso e Pará. A programação inclui atividades pedagógicas, encontros setoriais, debates e lançamentos de livros. Locais, horários e valores por espetáculo devem ser confirmados na divulgação oficial.',
@@ -233,6 +280,7 @@ async function main() {
   const climaCategory = await prisma.category.findUnique({ where: { slug: 'clima' } });
   const musicaCategory = await prisma.category.findUnique({ where: { slug: 'musica' } });
   const transitoCategory = await prisma.category.findUnique({ where: { slug: 'transito' } });
+  const famososCategory = await prisma.category.findUnique({ where: { slug: 'famosos' } });
 
   const sampleArticles = [
     {
@@ -320,6 +368,116 @@ A lentidão afeta principalmente o sentido Centro-Zona Norte.`,
 
   const editorialArticles = [
     {
+      slug: 'manaus-atinge-nivel-pessimo-de-qualidade-do-ar-apos-queimadas-na-amazonia',
+      title: 'Manaus atinge nível péssimo de qualidade do ar após queimadas na Amazônia',
+      description: 'Pesquisadores apontam que fumaça de queimadas afeta a capital amazonense desde o início de setembro.',
+      content: `A qualidade do ar em Manaus atingiu um nível "péssimo" na manhã desta quarta-feira (23). A fumaça que encobriu a cidade é atribuída a queimadas em diferentes áreas da Amazônia.
+
+De acordo com a administração municipal, as principais áreas de origem da fumaça estão em municípios da Região Metropolitana de Manaus e no leste do Amazonas.
+
+Pesquisadores do IPAM (Instituto de Pesquisa Ambiental da Amazônia) afirmam que a cidade vem registrando níveis de poluição acima do recomendado pela OMS (Organização Mundial da Saúde) desde o início de setembro.
+
+Monitoramento da qualidade do ar
+
+O aplicativo SELVA (Sistema Eletrônico de Vigilância Ambiental), desenvolvido pela UEA (Universidade do Estado do Amazonas) para fornecer dados meteorológicos, sobre queimadas e sobre poluição do ar em tempo real, apontou diversos pontos da cidade com o nível "péssimo".
+
+As cidades de Manacapuru e Manaquiri também tiveram a qualidade do ar classificada como "péssima". Outras cidades do Amazonas, como Iranduba, Careiro e Itacoatiara, registraram a qualidade do ar como "muito ruim".
+
+Queimadas próximas à capital
+
+Segundo o IPAM, municípios da região metropolitana registraram aumento da área atingida pelo fogo em agosto. Em Manacapuru, foram 2 mil hectares de vegetação afetados pelas queimadas, aumento de 293% em relação ao mesmo período, entre janeiro e agosto, de 2025. Em Iranduba, o crescimento foi de 212%.
+
+O pesquisador Newton Monteiro, do IPAM, afirma que as condições atmosféricas também têm dificultado a dispersão da fumaça. Segundo ele, o atual episódio de El Niño alterou o padrão dos ventos e favoreceu a permanência da poluição sobre Manaus e municípios vizinhos.
+
+Orientação para a população
+
+A Secretaria Municipal de Saúde recomenda que crianças, idosos, gestantes e pessoas com doenças respiratórias ou cardíacas reduzam a exposição. Também orienta evitar atividades físicas ao ar livre durante os períodos de pior qualidade do ar.
+
+A prefeitura recomenda manter a hidratação e proteger os olhos e o nariz. Quando a exposição for inevitável, máscaras como a N95 podem ajudar a reduzir a inalação de partículas.
+
+Tosse, irritação na garganta, ardência nos olhos, chiado no peito e falta de ar estão entre os sintomas que podem ocorrer após a exposição. Em casos graves, a orientação é procurar atendimento médico.
+
+Manaus tem monitoramento
+
+A Prefeitura de Manaus informou que mantém ações de prevenção, fiscalização e monitoramento de queimadas. A Secretaria Municipal de Meio Ambiente e Mudança do Clima também utiliza drones nas atividades de fiscalização.`,
+      image: '/noticias/qualidade-ar-manaus-fumaca-queimadas.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-23T13:00:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: climaCategory!.id,
+    },
+    {
+      slug: 'helicoptero-foi-localizado-em-area-de-dificil-acesso',
+      title: 'Helicóptero foi localizado em área de difícil acesso',
+      description: 'Cinco ocupantes da aeronave foram encontrados mortos; além do cantor Rick, empresário Bruno Avelar também está entre os mortos.',
+      content: `O helicóptero que desapareceu na tarde de segunda-feira (21) em Urubici, na Serra Catarinense, foi localizado nesta terça-feira (22) em uma região de mata e de difícil acesso. Os cinco ocupantes da aeronave foram encontrados mortos, entre eles o cantor Rick Sollo, da dupla Rick e Renner, e o empresário Bruno Avelar.
+
+Os destroços foram encontrados na região de Santa Bárbara, após uma intensa operação de buscas. Segundo o Corpo de Bombeiros, embora fosse uma aeronave moderna, não houve emissão de sinais que indicassem uma queda durante o período em que esteve desaparecida.
+
+Além de Rick e Bruno Avelar, estavam a bordo o videomaker Paulo Soares, o piloto Antônio e o copiloto Leopoldo.
+
+Neste momento, os bombeiros iniciam o trabalho de resgate dos corpos. Em seguida, a Polícia Científica deverá realizar a perícia no local.
+
+Em nota, a FAB (Força Aérea Brasileira) informou que a queda será investigada e concluída no menor prazo possível, considerando a complexidade da ocorrência e a necessidade de identificação dos possíveis fatores contribuintes.
+
+Operação de buscas
+
+A operação de busca dos bombeiros, que ocorreu ininterruptamente desde o desaparecimento, mobilizou aproximadamente 40 bombeiros, dois cães de busca e resgate, dez viaturas, além de drones com capacidade de identificação térmica.
+
+As equipes atuaram em áreas de mata e de difícil acesso, enfrentando condições que dificultaram o deslocamento e a localização da aeronave. Nas últimas horas, a Serra Catarinense enfrentou chuva intensa, ventos fortes e baixa visibilidade, condições que também dificultaram o emprego de aeronaves.
+
+Quem são as vítimas
+
+O Corpo de Bombeiros confirmou, na manhã desta terça-feira (22), a morte dos cinco ocupantes da aeronave que estava desaparecida desde a tarde de segunda-feira (21). Os destroços foram encontrados em uma área de difícil acesso em Santa Bárbara.
+
+Rick Sollo: o artista tinha 59 anos e deixa seis filhos. Além de cantor, Rick era compositor de grandes sucessos gravados por outros duetos, como "Página de Amigos", famosa na voz de Chitãozinho & Xororó; "Só Dá Você na Minha Vida", João Paulo & Daniel; "Agenda Rabiscada", Cleiton & Camargo; "Bebo pa Carai", Gino & Geno; entre outras.
+
+Bruno Avelar: empresário e fundador do "Poder do Network", Bruno era reconhecido por sua experiência em conexões profissionais e por compartilhar nas redes sociais sua rotina de palestras sobre o tema. Nas redes sociais, o empresário contava com mais de 550 mil seguidores.
+
+Paulo Soares: também a bordo da aeronave, Paulo era videomaker e realizava trabalhos com o empresário Bruno Avelar. Nas redes sociais, ele compartilhava momentos da vida profissional, dicas de filmagens para os seguidores, além de momentos com a esposa.
+
+Piloto: o piloto foi identificado como Antônio. Ainda não foram divulgadas informações sobre o comandante.
+
+Copiloto: o copiloto foi identificado como Leopoldo. Ainda não foram divulgadas informações sobre ele.
+
+Fonte: CNN Brasil, com informações do Corpo de Bombeiros de Santa Catarina.`,
+      image: '/noticias/acidente.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-22T14:00:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: famososCategory!.id,
+    },
+    {
+      slug: 'quem-foi-rick-da-dupla-com-renner-que-morreu-em-queda-de-helicoptero',
+      title: 'Quem foi Rick, da dupla com Renner, que morreu em queda de helicóptero',
+      description: 'Cantor e compositor estava em veículo que caiu na segunda-feira (21) em Santa Catarina.',
+      content: `O cantor e compositor Rick Sollo, conhecido pela dupla sertaneja com Renner, morreu na segunda-feira (21), aos 59 anos. Segundo informações do Corpo de Bombeiros, confirmadas pela CNN Brasil, não há sobreviventes entre os destroços do helicóptero encontrado em Santa Catarina nesta terça-feira (22).
+
+O helicóptero que levava o artista desapareceu na tarde de segunda e foi encontrado nesta terça. Na aeronave estavam o cantor, o empresário Bruno Avelar, do projeto "O Poder do Network", o videomaker Paulo Soares, o piloto e o copiloto, que não tiveram a identidade revelada nesta reportagem.
+
+Quem foi Rick Sollo?
+
+Nascido em Monte do Carmo, no Tocantins, Geraldo Antônio de Carvalho começou a cantar aos 10 anos, quando formou um dueto com a irmã, Dalva, chamado Sereno & Serenata.
+
+Além dessa, participou de outras duplas, como Luciano & Leomar e Rick & Ray, que antecederam a parceria com Ivair dos Reis Gonçalves, que adotou o nome Renner.
+
+Além de cantor, ele era compositor de grandes sucessos gravados por outros duetos, como "Página de Amigos", famosa na voz de Chitãozinho & Xororó; "Só Dá Você na Minha Vida", de João Paulo & Daniel; "Agenda Rabiscada", de Cleiton & Camargo; "Bebo pa Carai", de Gino & Geno; entre outras.
+
+Um dos seus primeiros hits como compositor foi "Sabor do Pecado", que Zezé indicou para a dupla Leandro & Leonardo.
+
+O cantor teve dois filhos, Victor Henrique e Mônica, e quatro netos: Matheus, Maria Helena, Isabela e Mariana.
+
+Fonte: CNN Brasil.`,
+      image: '/noticias/rick.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-22T18:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: famososCategory!.id,
+    },
+    {
       slug: 'manaus-lidera-mercado-de-carros-eletricos-no-norte-com-7-6-mil-veiculos',
       title: 'Manaus lidera mercado de carros elétricos no Norte, com 7,6 mil veículos',
       description: 'Frota de elétricos e híbridos na capital passou de 7,6 mil unidades, segundo a ABVE. No Amazonas, os emplacamentos de eletrificados cresceram 169% em dois anos, aponta o Detran-AM.',
@@ -340,6 +498,34 @@ O consultor financeiro André Torbey alerta que o benefício não é automático
       readTime: 4,
       authorId: admin.id,
       categoryId: automotorsCategory!.id,
+    },
+    {
+      slug: 'banda-foxy-de-manaus-se-apresenta-no-condado',
+      title: 'Banda Foxy, de Manaus, se apresenta no Condado',
+      description: 'Grupo formado por Ícaro Mafra, Matheus Marques, Sander Marques e Liniker sobe ao palco da casa de shows. Data e horário exatos devem ser confirmados com a banda e com o Condado.',
+      content: `A Banda Foxy, de Manaus, vai se apresentar no Condado, segundo anúncio do grupo. Data e horário exatos do show não foram detalhados até a publicação desta matéria e devem ser confirmados diretamente com a banda ou com a casa de shows.
+
+Transparência: o guitarrista Matheus Marques é colunista de música e rock do Portal Funil e integrante da Banda Foxy.
+
+Quem é a Banda Foxy
+
+A banda é formada por Ícaro Mafra, na guitarra e nos vocais, Matheus Marques, também na guitarra, o baixista identificado no Instagram como @sdmarke e o baterista Liniker. O grupo mantém perfil no Instagram, @foxyband_, e um canal no YouTube, @bandafoxy4537, onde publica vídeos e registros de apresentações.
+
+Em agosto, a Foxy subiu ao palco do Gullag Fest, na rua Itajubá, no bairro São José Operário, em Manaus, com entrada de R$ 15. O cartaz reuniu a banda ao lado de outros grupos da cena local.
+
+O show no Condado
+
+O Condado é uma casa de shows conhecida pela iluminação em tons de azul e roxo e pelas paredes pintadas com nomes de bandas de rock, como o Metallica, além de mesas e barris usados como mobiliário. A casa já recebeu outras apresentações de bandas de Manaus, como um tributo ao Judas Priest feito pela Banda Exception, da qual Matheus Marques também participa.
+
+Até o fechamento desta matéria, a Foxy não havia divulgado o repertório da noite, o valor do ingresso nem a classificação indicativa do show no Condado. Quem quiser acompanhar as próximas atualizações pode seguir o perfil @foxyband_ no Instagram.
+
+Fonte: Instagram da Banda Foxy (@foxyband_).`,
+      image: '/noticias/banda-foxy.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-24T18:00:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: amazonasCategory!.id,
     },
     {
       slug: 'judas-priest-no-condado-banda-exception-faz-show-na-sexta-25-as-23h',
@@ -660,6 +846,44 @@ Ele sinalizou que Ormuz segue vital para a paz e que o Irã quase chegou a um ac
       categoryId: mundoCategory!.id,
     },
     {
+      slug: 'flamengo-vence-o-bragantino-e-abre-vantagem-na-lideranca-do-brasileirao',
+      title: 'Flamengo vence o Bragantino e abre vantagem na liderança do Brasileirão',
+      description: 'Gols de Varela e Pedro garantiram a vitória por 2 a 1 no Maracanã, pela 28ª rodada. Time chegou aos 60 pontos, três à frente do Palmeiras, que empatou com o Grêmio.',
+      content: `O Flamengo venceu o Red Bull Bragantino por 2 a 1 neste domingo (20), no Maracanã, pela 28ª rodada do Campeonato Brasileiro, e ampliou a vantagem na liderança da competição. A partida teve 66.053 torcedores no estádio.
+
+Guillermo Varela abriu o placar aos 13 minutos do primeiro tempo, em cruzamento de Jorge Carrascal pela esquerda. Pedro ampliou aos 25 do segundo tempo, em jogada iniciada por Jorginho. O Bragantino descontou aos 41 do segundo tempo, com Nacho Sosa.
+
+Com o resultado, o Flamengo chegou aos 60 pontos e segue na ponta da tabela. O Palmeiras, segundo colocado, tem 57 pontos, após empatar sem gols com o Grêmio na Arena, em partida na qual o goleiro Weverton foi o destaque.
+
+Fonte: Correio Braziliense.`,
+      image: '/noticias/flamengo-bragantino-lance.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-20T21:30:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: futebolCategory!.id,
+    },
+    {
+      slug: 'manausfc-anuncia-goleiro-wendel-simao-para-a-temporada-2027',
+      title: 'ManausFC anuncia goleiro Wendel Simão para a temporada 2027',
+      description: 'Com 1,93 metro de altura, jogador de 22 anos passou pela base do Grêmio e defendeu Ceará, Guarany-AL e Cruzeiro-AL. Clube chega a 11 jogadores confirmados para o próximo ano.',
+      content: `O ManausFC anunciou, em 9 de setembro, a contratação do goleiro Wendel Simão, de 22 anos, para a temporada 2027. Com 1,93 metro de altura, o jogador chega ao Gavião Real após passar pelas categorias de base do Grêmio-RS e defender clubes como Ceará-CE, Guarany-AL e Cruzeiro-AL.
+
+Em sua chegada ao clube amazonense, Wendel agradeceu a oportunidade e destacou a confiança recebida para vestir a camisa do ManausFC. "Estou muito feliz e motivado com essa oportunidade. Sei da responsabilidade que é representar esse clube e podem ter certeza de que não vai faltar trabalho, dedicação e comprometimento da minha parte", disse o goleiro.
+
+Com o novo reforço, o ManausFC chega a 11 jogadores confirmados para 2027. Além de Wendel, o elenco já conta com o lateral-esquerdo Henrique, o lateral-direito Marcos Sérgio, os volantes Wallace, João Neto e Luiz Gabriel, o meia Daniel e os atacantes Pedro, Samuel, Railan e Anderson.
+
+O clube segue montando o elenco para a próxima temporada e, por enquanto, o novo goleiro é o jogador de maior estatura entre os reforços anunciados pelo Gavião Real.
+
+Fonte: MSKTV.`,
+      image: 'https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=1920',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-09T15:00:00Z'),
+      readTime: 3,
+      authorId: admin.id,
+      categoryId: futebolCategory!.id,
+    },
+    {
       slug: 'com-um-a-mais-atletico-de-madrid-vence-real-no-classico-espanhol',
       title: 'Com um a mais, Atlético de Madrid vence Real no clássico espanhol',
       description: 'Jogando em casa, time de Diego Simeone aproveita expulsão de Dean Huijsen para superar o rival.',
@@ -702,26 +926,78 @@ Fonte: CNN Brasil.`,
       categoryId: politicaCategory!.id,
     },
     {
-      slug: 'moraes-e-viviane-usaram-jatinho-de-vorcaro-em-2025-diz-jornal',
-      title: 'Moraes e Viviane usaram jatinho de Vorcaro em 2025, diz jornal',
-      description: 'Voo de 22 de agosto de 2025 foi registrado em vídeo obtido pelo jornal O Globo. O escritório de Viviane diz que Vorcaro não esteve em nenhum dos voos e nega ter comprado participação na empresa de aviação.',
-      content: `O ministro do Supremo Tribunal Federal (STF) Alexandre de Moraes e a mulher dele, Viviane de Moraes, usaram em 22 de agosto de 2025 um jatinho de uma empresa ligada ao ex-banqueiro Daniel Vorcaro, do Banco Master, segundo o jornal O Globo. A informação foi divulgada pela CNN Brasil neste domingo (20).
+      slug: 'tre-pr-mantem-candidatura-de-deltan-dallagnol-ao-senado-apesar-de-campanha-suspensa',
+      title: 'TRE-PR mantém candidatura de Deltan Dallagnol ao Senado, mas nome depende do TSE',
+      description: 'Corte paranaense acolheu parcialmente os embargos da defesa nesta quarta-feira (23) e manteve o registro. A campanha, porém, segue suspensa por decisão do TSE, e a palavra final cabe ao plenário da Corte Superior.',
+      content: `O Tribunal Regional Eleitoral do Paraná (TRE-PR) manteve, nesta quarta-feira (23), o registro da candidatura de Deltan Dallagnol (Novo) ao Senado. Por unanimidade, os magistrados acolheram parcialmente os embargos de declaração apresentados pela defesa, mas fizeram apenas ajustes formais na decisão anterior, sem mudar o resultado que havia autorizado o registro. O caso agora segue para o Tribunal Superior Eleitoral (TSE), que dará a palavra final sobre a validade da candidatura.
 
-De acordo com a reportagem, o casal desembarcou no aeroporto Santos Dumont, no Rio de Janeiro, de uma aeronave modelo Legacy 650. O voo aparece em um vídeo obtido pelo jornal.
+Mesmo com o registro mantido, Dallagnol continua sem poder fazer campanha. Por decisão liminar do ministro Floriano de Azevedo Marques, mantida pelo plenário do TSE por 5 votos a 2 na segunda-feira (21), ele segue impedido de pedir votos, participar de debates, usar recursos dos fundos partidário e eleitoral e veicular propaganda no rádio e na televisão enquanto a decisão estiver em vigor. Segundo a liminar, o descumprimento dessas restrições pode configurar crime de desobediência eleitoral.
 
-O jornal relaciona a data às negociações sobre um possível segundo contrato, de R$ 50 milhões, entre o escritório de advocacia de Viviane e o Banco Master. A Polícia Federal informou que esse contrato teria sido assinado em 12 de maio de 2025, com R$ 40 milhões em honorários a serem pagos por meio de participação em empresas de aeronaves.
+A distinção entre "campanha suspensa" e "candidatura cancelada" gerou confusão entre eleitores após a decisão do TSE. Em publicação no X, no dia seguinte à liminar, o próprio Dallagnol tentou esclarecer o ponto: "Este é o ministro que me proibiu de fazer campanha, pedir votos, participar de debates e aparecer no horário eleitoral de rádio e TV. Mas quero deixar uma coisa muito clara: mesmo proibido de fazer campanha, meu registro continua deferido e meu nome estará na urna."
 
-As versões dos citados divergem. Em nota, o escritório Barci de Moraes afirmou que contrata diversos serviços de táxi aéreo e que em nenhum dos voos feitos em aeronaves da Prime Aviation com integrantes do escritório esteve presente Daniel Vorcaro. O escritório também nega ter adquirido participação na empresa. Em manifestação enviada ao STF em 15 de setembro, a defesa do ministro negou a existência de um segundo contrato ou de qualquer outro vínculo com empresas de Vorcaro.
+O registro da candidatura havia sido deferido pelo TRE-PR em votação apertada de 4 a 3, em 8 de setembro, e permanece formalmente válido enquanto não for derrubado pelo TSE.
 
-Os fatos acima constam da reportagem da CNN Brasil, que se baseia em informações do jornal O Globo e em documentos e declarações citados por ela. Este texto não confirma as acusações de forma independente.
+Durante o julgamento desta quarta-feira, partidos que contestam a candidatura pediram celeridade para que o processo chegasse logo ao TSE. A relatora, juíza Vanessa Jamus Marchi, reagiu: "Esta Corte não precisa de lições pedagógicas, dispensando-se qualquer tutoramento por parte dos peticionantes." Ela também rejeitou um pedido para multar Dallagnol por suposto uso protelatório dos embargos, afirmando que recorrer às instâncias superiores é um direito do candidato.
 
-Fonte: CNN Brasil, com informações de O Globo.`,
-      image: '/noticias/moraes-viviane-jatinho-vorcaro.png',
+O caso remonta a 2023, quando Dallagnol perdeu o mandato de deputado federal por decisão do TSE, que considerou que ele deixou o Ministério Público Federal enquanto havia procedimentos disciplinares em andamento, entendendo que a saída antecipada se relacionava a uma possível inelegibilidade futura. Para liberar o registro em 2026, o TRE-PR considerou, entre outros pontos, o arquivamento posterior desses procedimentos. Os partidos que tentam barrar a candidatura questionam essa interpretação, argumentando que fatos posteriores não anulariam a conduta já analisada pelo TSE em 2023.
+
+Em nota, a defesa de Dallagnol comemorou a decisão desta quarta-feira e afirmou que a Corte paranaense "reconheceu novamente sua elegibilidade". A defesa diz que segue trabalhando para reverter, no TSE, a suspensão da campanha.
+
+Fonte: Banda B, com informações da Gazeta do Povo.`,
+      image: '/noticias/dallagnol-suspensao-campanha.png',
       status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-09-20T16:15:00Z'),
+      publishedAt: new Date('2026-09-23T23:04:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: politicaCategory!.id,
+    },
+    {
+      slug: 'omar-aziz-lidera-no-1o-turno-para-o-governo-do-amazonas-diz-pesquisa',
+      title: 'Omar Aziz lidera no 1º turno para o governo do Amazonas, diz pesquisa',
+      description: 'Levantamento da Paraná Pesquisas ouviu 1.350 eleitores em 38 municípios do estado. Roberto Cidade e Professora Maria do Carmo aparecem tecnicamente empatados na segunda colocação.',
+      content: `O senador Omar Aziz (PSD) lidera a corrida pelo governo do Amazonas, com 29,6% das intenções de voto em cenário estimulado de primeiro turno, segundo pesquisa da Paraná Pesquisas divulgada pelo Poder360.
+
+O levantamento ouviu 1.350 eleitores em 38 municípios do Amazonas, em entrevistas presenciais e domiciliares realizadas entre 2 e 4 de setembro. A margem de erro é de 2,7 pontos percentuais, para mais ou para menos, com nível de confiança de 95%. A pesquisa está registrada no Tribunal Superior Eleitoral sob o número AM-01118/2026, a um custo de R$ 45 mil.
+
+Roberto Cidade (União Brasil) aparece em segundo lugar, com 21,5%, e a Professora Maria do Carmo (PL) em terceiro, com 19,4%. Os dois estão tecnicamente empatados, já que a diferença entre eles, de 2,1 pontos percentuais, fica dentro da margem de erro da pesquisa. David Almeida (Avante) soma 16,8%, Cabo Daciolo (Mobiliza) tem 3%, Isael Munduruku (Rede) aparece com 0,4% e Gilberto Vasconcelos (PSTU), com 0,3%. Brancos, nulos ou indecisos somam 4,5% cada.
+
+Fonte: Poder360, com dados da Paraná Pesquisas.`,
+      image: '/noticias/omar-aziz-campanha-carreata.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-05T10:00:00Z'),
       readTime: 3,
       authorId: admin.id,
       categoryId: politicaCategory!.id,
+    },
+    {
+      slug: 'delcy-rodriguez-usa-broche-com-mapa-do-essequibo-em-discurso-na-onu',
+      title: 'Delcy Rodríguez usa broche com mapa do Essequibo em discurso na ONU',
+      description: 'Presidente interina da Venezuela reafirmou, na Assembleia Geral da ONU, a reivindicação de Caracas sobre o território que pertence à Guiana e defendeu negociação bilateral com o país vizinho.',
+      content: `A presidente interina da Venezuela, Delcy Rodríguez, subiu ao púlpito da Assembleia Geral da ONU nesta quarta-feira (23) com um broche semelhante a um mapa da Venezuela, com a região de Essequibo anexada.
+
+Essequibo é um território que pertence à Guiana, mas é reivindicado pela Venezuela. Caracas formalizou essa reivindicação em 2023, quando o então presidente Nicolás Maduro fez um referendo para incorporar a região e promulgou uma lei que cria uma província do país no território. A partir de então, o regime chevista passou a adotar um mapa oficial mostrando Essequibo como parte da Venezuela. A comunidade internacional rejeita a visão da Venezuela e considera Essequibo parte da Guiana.
+
+Rodríguez fez referência à reivindicação durante seu discurso na ONU: "Não posso deixar de mencionar (...) nossa reafirmação dos direitos históricos da Venezuela sobre a região do Essequibo e nosso apelo à República Cooperativa da Guiana para que resolva a situação e retome as negociações, conforme estipulado pelo Acordo de Genebra. Os acordos que perduram são aqueles que surgem de negociações bilaterais, e não aqueles que envolvem organizações externas", disse a presidente interina.
+
+A Venezuela contesta a Sentença Arbitral de Paris, de 3 de outubro de 1899, que definiu a fronteira entre o país e a então Guiana Britânica.
+
+Reservas de petróleo
+
+Localizado na parte mais a oeste do território da Guiana, a região de Essequibo ocupa 159 mil km² e representa cerca de 70% do território do país, uma área maior que o estado do Ceará e a Inglaterra.
+
+Em 2015, foram encontradas grandes reservas de petróleo na região. Estima-se que na Guiana haja o equivalente a 11 bilhões de barris, parte significativa deles "offshore", no mar, perto de Essequibo. Em consequência do boom do petróleo, a Guiana é o país sul-americano cuja economia mais cresce nos últimos anos.
+
+No entanto, a região passou a ser cobiçada pelo governo da Venezuela, que afirma ter direito sobre o território. Em 3 de dezembro, um plebiscito para a anexação do território, chamado pelos venezuelanos de "Guiana Essequiba", foi aprovado por 95% dos eleitores presentes, com comparecimento equivalente a metade dos eleitores venezuelanos.
+
+Em estado de alerta, as Forças Armadas brasileiras ampliaram a presença de militares nas fronteiras com a Venezuela e com a Guiana, já que tropas venezuelanas precisariam passar pelo norte de Roraima em caso de confronto. O território brasileiro faz fronteira tanto com a Guiana quanto com a Venezuela.
+
+As tensões continuaram a escalar. Em 7 de dezembro, os Estados Unidos anunciaram exercícios militares na Guiana, inclusive em Essequibo. No dia seguinte, o presidente venezuelano Nicolás Maduro assinou decretos para incorporar o território.`,
+      image: '/noticias/delcy-rodriguez-essequibo-onu.png',
+      status: 'PUBLISHED' as const,
+      publishedAt: new Date('2026-09-23T19:30:00Z'),
+      readTime: 4,
+      authorId: admin.id,
+      categoryId: mundoCategory!.id,
     },
     {
       slug: 'copom-reduz-selic-para-13-75-pela-quinta-vez-seguida',
@@ -1124,19 +1400,27 @@ O ouro também ganhou atratividade: em janeiro de 2026, a onça chegou a US$ 5,5
       categoryId: policialCategory!.id,
     },
     {
-      slug: 'flavio-e-lula-levam-campanhas-a-santa-catarina-em-situacoes-opostas',
-      title: 'Flávio e Lula levam campanhas a Santa Catarina em situações opostas',
-      description: 'Pesquisa Real Time Big Data mostra Flávio Bolsonaro com 52% e Lula com 26% no primeiro turno no estado. Candidatos têm agenda neste sábado (19).',
-      content: `Os candidatos à Presidência Flávio Bolsonaro (PL) e Luiz Inácio Lula da Silva (PT) cumprem agenda em Santa Catarina neste sábado (19), em situações opostas, segundo a CNN Brasil. Flávio passa por Joinville pela manhã e por Chapecó à tarde. Lula, que busca a reeleição, faz ato na praça Tancredo Neves, em Florianópolis.
+      slug: 'omar-aziz-defende-turismo-como-motor-de-emprego-e-renda-em-novo-airao',
+      title: 'Omar Aziz defende turismo como motor de emprego e renda em Novo Airão',
+      description: 'Em visita ao município nesta terça-feira (22), o candidato ao governo do Amazonas apresentou propostas para o setor turístico, com apoio do prefeito Otávio Farias.',
+      content: `O senador Omar Aziz (PSD), candidato ao governo do Amazonas, visitou Novo Airão nesta terça-feira (22) e defendeu o turismo como motor de geração de emprego e renda no município, com apoio do prefeito Otávio Farias, segundo o Portal do Holanda.
 
-Pesquisa Real Time Big Data mostra Flávio com 52% e Lula com 26% no primeiro turno no estado. No segundo turno, o cenário é de 62% a 30% para Flávio. A margem de erro é de 2 pontos percentuais.
+Entre as principais propostas, Omar destacou:
 
-Na disputa pelo Senado, Carol de Toni (PL) tem 24%, e Carlos Bolsonaro (PL) e o senador Espiridião Amin (PP) aparecem empatados, com 20% cada.
+Área de lazer com deque, bares e música ao vivo, para aumentar o tempo de permanência dos turistas na cidade;
 
-Também estão no páreo estadual o governador Jorginho Mello (PL), candidato à reeleição, e o empresário Gelson Merísio (PSB), que concorre ao governo com o apoio de Lula. Aliados do presidente apostam na fragmentação dos votos da direita para avançar nas eleições estaduais. Fonte: CNN Brasil.`,
-      image: '/noticias/flavio-lula-sc.png',
+Melhoria das estradas de acesso, hoje em condições ruins, para facilitar a chegada de visitantes;
+
+Plataformas digitais para exportar o artesanato local a outros mercados;
+
+Qualificação de jovens para o empreendedorismo em serviços e ecoturismo.
+
+Novo Airão fica a 180 km de Manaus, às margens do Rio Negro, e é um dos principais polos de ecoturismo do Amazonas, integrado ao Parque Nacional de Anavilhanas.
+
+Fonte: Portal do Holanda.`,
+      image: '/noticias/omar-aziz-campanha-carreata.png',
       status: 'PUBLISHED' as const,
-      publishedAt: new Date('2026-09-19T14:00:00Z'),
+      publishedAt: new Date('2026-09-23T21:20:00Z'),
       readTime: 3,
       isFeatured: true,
       authorId: admin.id,
@@ -1258,6 +1542,8 @@ Cerca de 16% do mercado das distribuidoras enfrentará aumentos superiores a 15%
   // Remove os artigos editoriais antigos (o upsert abaixo não atualiza registros existentes)
   const oldEditorialSlugs = [
     'palmeiras-encara-o-gremio-em-porto-alegre-de-olho-na-lideranca-do-brasileirao',
+    'flavio-e-lula-levam-campanhas-a-santa-catarina-em-situacoes-opostas',
+    'moraes-e-viviane-usaram-jatinho-de-vorcaro-em-2025-diz-jornal',
     'putin-diz-que-liderancas-europeias-se-preparam-para-guerra-com-a-russia',
     'omar-aziz-propoe-estagio-de-ate-seis-meses-pago-pelo-estado-para-garantir-primeiro-emprego-no-amazonas',
     'david-almeida-promete-ampliar-apoio-a-saude-mental-de-maes-atipicas-no-amazonas',

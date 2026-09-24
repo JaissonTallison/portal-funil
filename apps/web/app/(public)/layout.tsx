@@ -2,6 +2,7 @@ import { BreakingNews } from "@/components/layout/breaking-news";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { getNewsArticles } from "@/services/articles.service";
+import { formatTime } from "@/lib/utils";
 
 const TICKER_MAX_AGE_MS = 72 * 60 * 60 * 1000;
 const TICKER_MAX_ITEMS = 10;
@@ -19,7 +20,7 @@ export default async function PublicLayout({
   // Sem matérias recentes, mostra as mais novas disponíveis em vez de esconder a faixa.
   const headlines = (recent.length > 0 ? recent : latest)
     .slice(0, TICKER_MAX_ITEMS)
-    .map((a) => ({ title: a.title, slug: a.slug }));
+    .map((a) => ({ title: a.title, slug: a.slug, time: formatTime(a.publishedAt) }));
 
   return (
     <>

@@ -15,6 +15,7 @@ export const EVENT_CATEGORIES: Record<
   turismo:     { label: "Turismo",     color: "text-sky-700",    bg: "bg-sky-50 border-sky-200",         emoji: "🌿" },
   municipal:   { label: "Municipal",   color: "text-blue-700",   bg: "bg-blue-50 border-blue-200",       emoji: "🏛️" },
   cultura:     { label: "Cultura",     color: "text-amber-700",  bg: "bg-amber-50 border-amber-200",     emoji: "🎭" },
+  esporte:     { label: "Esporte",     color: "text-teal-700",   bg: "bg-teal-50 border-teal-200",       emoji: "🏃" },
 };
 
 // ─── MOCK DE EVENTOS ──────────────────────────────────────────────────────────

@@ -15,6 +15,7 @@ const FILTER_OPTIONS: { value: FilterValue; label: string; emoji: string }[] = [
   { value: "festival",    label: "Festivais",   emoji: "🎪" },
   { value: "gastronomia", label: "Gastronomia", emoji: "🍽️" },
   { value: "cultura",     label: "Cultura",     emoji: "🎭" },
+  { value: "esporte",     label: "Esporte",     emoji: "🏃" },
   { value: "feira",       label: "Feiras",      emoji: "🏪" },
   { value: "turismo",     label: "Turismo",     emoji: "🌿" },
   { value: "municipal",   label: "Municipal",   emoji: "🏛️" },

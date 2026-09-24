@@ -3,31 +3,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  Bell, LogIn, Menu, Radio, Search, X, Crown,
-  Home, Landmark, CircleDot, ShieldCheck, BarChart2,
-  Monitor, Heart, Globe, PenLine, Star, HelpCircle, Tag, Car,
-} from "lucide-react";
+import { Bell, LogIn, Menu, Radio, Search, X, Crown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "@/lib/constants";
 import { useAuth } from "@/lib/auth-context";
 import { LoginModal } from "@/components/auth/login-modal";
 import { UserMenu } from "@/components/auth/user-menu";
-import type { LucideIcon } from "lucide-react";
 
-const ICON_MAP: Record<string, LucideIcon> = {
-  politica:      Landmark,
-  futebol:       CircleDot,
-  policial:      ShieldCheck,
-  economia:      BarChart2,
-  tecnologia:    Monitor,
-  saude:         Heart,
-  mundo:         Globe,
-  colunas:       PenLine,
-  famosos:       Star,
-  curiosidades:  HelpCircle,
-  automotors:    Car,
-  classificados: Tag,
+const HOME_ICON = "🏠";
+
+/**
+ * Ícones por categoria, no estilo emoji colorido. "amazonas" usa a bandeira
+ * oficial do estado (arquivo em /images), as demais usam um emoji.
+ */
+const ICON_MAP: Record<string, string> = {
+  amazonas:      "/images/bandeira-amazonas.svg",
+  politica:      "🏛️",
+  futebol:       "⚽",
+  policial:      "🛡️",
+  economia:      "📈",
+  tecnologia:    "💻",
+  saude:         "❤️",
+  mundo:         "🌍",
+  musica:        "🎵",
+  colunas:       "✒️",
+  famosos:       "⭐",
+  curiosidades:  "🔍",
+  automotors:    "🚗",
+  classificados: "📋",
 };
 
 export function Navbar() {
@@ -195,7 +198,7 @@ export function Navbar() {
             <NavItem
               href="/noticias"
               label="Todas"
-              icon={Home}
+              icon={HOME_ICON}
               active={pathname === "/noticias" || pathname === "/"}
             />
 
@@ -205,7 +208,7 @@ export function Navbar() {
                 item.slug === "classificados" ? "/classificados" :
                 `/categoria/${item.slug}`;
               const active = pathname === href || pathname.startsWith(href + "/");
-              const Icon = ICON_MAP[item.slug] ?? Home;
+              const Icon = ICON_MAP[item.slug] ?? HOME_ICON;
               return (
                 <NavItem
                   key={item.slug}
@@ -277,13 +280,13 @@ export function Navbar() {
               <Radio size={14} className="animate-pulse" />
               Ao vivo
             </Link>
-            <MobileNavItem href="/noticias" label="Todas" icon={Home} onClick={() => setOpen(false)} />
+            <MobileNavItem href="/noticias" label="Todas" icon={HOME_ICON} onClick={() => setOpen(false)} />
             {NAV_ITEMS.map((item) => {
               const href =
                 item.slug === "colunas"       ? "/colunas" :
                 item.slug === "classificados" ? "/classificados" :
                 `/categoria/${item.slug}`;
-              const Icon = ICON_MAP[item.slug] ?? Home;
+              const Icon = ICON_MAP[item.slug] ?? HOME_ICON;
               return (
                 <MobileNavItem key={item.slug} href={href} label={item.label} icon={Icon} onClick={() => setOpen(false)} />
               );
@@ -307,8 +310,30 @@ export function Navbar() {
   );
 }
 
-function NavItem({ href, label, icon: Icon, active }: {
-  href: string; label: string; icon: LucideIcon; active: boolean;
+/** Ícone da categoria: imagem (ex.: bandeira) quando o valor é um caminho, emoji quando não é. */
+function CategoryIcon({ icon, size }: { icon: string; size: number }) {
+  if (icon.startsWith("/")) {
+    // eslint-disable-next-line @next/next/no-img-element -- SVG local e decorativo, sem otimização do next/image
+    return (
+      <img
+        src={icon}
+        alt=""
+        aria-hidden
+        width={size}
+        height={Math.round(size * 0.7)}
+        className="rounded-[2px] border border-slate-200 object-cover"
+      />
+    );
+  }
+  return (
+    <span className="leading-none" style={{ fontSize: size }} aria-hidden>
+      {icon}
+    </span>
+  );
+}
+
+function NavItem({ href, label, icon, active }: {
+  href: string; label: string; icon: string; active: boolean;
 }) {
   return (
     <Link
@@ -317,7 +342,7 @@ function NavItem({ href, label, icon: Icon, active }: {
         active ? "text-navy" : "text-slate-500 hover:text-navy"
       }`}
     >
-      <Icon size={18} strokeWidth={active ? 2.5 : 1.8} />
+      <CategoryIcon icon={icon} size={18} />
       <span>{label}</span>
       {/* gold underline */}
       <span
@@ -329,8 +354,8 @@ function NavItem({ href, label, icon: Icon, active }: {
   );
 }
 
-function MobileNavItem({ href, label, icon: Icon, onClick }: {
-  href: string; label: string; icon: LucideIcon; onClick: () => void;
+function MobileNavItem({ href, label, icon, onClick }: {
+  href: string; label: string; icon: string; onClick: () => void;
 }) {
   return (
     <Link
@@ -338,7 +363,7 @@ function MobileNavItem({ href, label, icon: Icon, onClick }: {
       onClick={onClick}
       className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
     >
-      <Icon size={17} className="text-slate-400" />
+      <CategoryIcon icon={icon} size={17} />
       {label}
     </Link>
   );

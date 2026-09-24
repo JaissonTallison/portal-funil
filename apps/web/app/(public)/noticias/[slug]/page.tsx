@@ -102,15 +102,24 @@ export default async function ArticlePage({ params }: Props) {
       <ReadingProgress />
       {/* HERO */}
       <section className="relative h-[60vh] min-h-[420px] overflow-hidden bg-navy">
+        {/* fundo desfocado — preenche a faixa quando a foto é exibida inteira no celular */}
+        <Image
+          src={article.image}
+          alt=""
+          aria-hidden
+          fill
+          sizes="100vw"
+          className="scale-110 object-cover opacity-30 blur-2xl sm:hidden"
+        />
         <Image
           src={article.image}
           alt={article.title}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_30%] opacity-50"
+          className="object-contain opacity-100 sm:object-cover sm:object-[center_30%] sm:opacity-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/10 sm:via-navy/60 sm:to-transparent" />
 
         <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-12">
           <div className="mx-auto w-full max-w-4xl">

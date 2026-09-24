@@ -9,6 +9,7 @@ const FILTER_PILLS = [
   { label: "Festivais",   href: "/agenda?cat=festival" },
   { label: "Gastronomia", href: "/agenda?cat=gastronomia" },
   { label: "Cultura",     href: "/agenda?cat=cultura" },
+  { label: "Esporte",     href: "/agenda?cat=esporte" },
   { label: "Gratuito",    href: "/agenda?cat=gratuito" },
   { label: "Turismo",     href: "/agenda?cat=turismo" },
 ];

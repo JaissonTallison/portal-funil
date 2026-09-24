@@ -5,7 +5,8 @@ export type EventCategory =
   | "gastronomia"
   | "turismo"
   | "municipal"
-  | "cultura";
+  | "cultura"
+  | "esporte";
 
 export type Event = {
   id: string;
